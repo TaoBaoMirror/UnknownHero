@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\BaseUI">
+      <UniqueIdentifier>{3245c531-6e8f-41bd-ac66-70484d645107}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\UI">
+      <UniqueIdentifier>{4a68596b-5fcb-4b4f-a0cf-f253fd78570f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Actor">
+      <UniqueIdentifier>{6fde3292-a344-4024-94db-7dc3ca2ee0f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Building">
+      <UniqueIdentifier>{71820c49-a57a-4f46-add1-0bd280038936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Scene">
+      <UniqueIdentifier>{0281fd37-89f1-4175-b387-fc2d8c289293}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Effect">
+      <UniqueIdentifier>{cc5f6031-8fdb-497f-898f-bdfa4ad1fc7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Sound">
+      <UniqueIdentifier>{6607e806-2d2f-43c3-8f15-c33d161db247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Common">
+      <UniqueIdentifier>{386ae539-f269-456a-9dea-44057e44460e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Data">
+      <UniqueIdentifier>{2fd3cbc7-9e6a-46bd-bd6b-8030867c7aa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Skill">
+      <UniqueIdentifier>{72110fdb-e0ee-4114-8338-e117a73ab9c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Map">
+      <UniqueIdentifier>{95495eb5-5e61-4988-8ee8-51c2eedc7e1e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BaseUI\ProgressBar.cpp">
+      <Filter>Classes\BaseUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\CommonMethod.cpp">
+      <Filter>Classes\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sound\SoundManager.cpp">
+      <Filter>Classes\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ResDef.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Map\MapManager.cpp">
+      <Filter>Classes\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\GameMainLayer.cpp">
+      <Filter>Classes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\GameScene.cpp">
+      <Filter>Classes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\GameManager.cpp">
+      <Filter>Classes\Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseUI\ProgressBar.h">
+      <Filter>Classes\BaseUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\CommonMethod.h">
+      <Filter>Classes\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sound\SoundManager.h">
+      <Filter>Classes\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResDef.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Map\MapManager.h">
+      <Filter>Classes\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\GameMainLayer.h">
+      <Filter>Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\GameScene.h">
+      <Filter>Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\GameManager.h">
+      <Filter>Classes\Scene</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
