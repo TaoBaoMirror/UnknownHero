@@ -290,8 +290,6 @@ void  ResDef::initRes(ProgressCount* progresscount)
 		_Thrd_sleep(&xt);
 		//Sleep(100);
 #else
-		xt.sec = 100;
-		_Thrd_sleep(&xt);
 		Sleep(100);
 #endif // WP8
 
