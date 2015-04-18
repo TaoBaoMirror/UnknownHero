@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{72893A2C-077F-41F6-9D64-7A9A58891E42}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>EatBrain</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>.\Code;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_LIB;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <OutputFile>$(SolutionDir)Bin/$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\File\CSVReader.cpp" />
+    <ClCompile Include="Code\GridPos.cpp" />
+    <ClCompile Include="Code\GridSceneMap.cpp" />
+    <ClCompile Include="Code\InfluenceMap.cpp" />
+    <ClCompile Include="Code\Messaging\MessageDispatcher.cpp" />
+    <ClCompile Include="Code\Messaging\MessageListenerManager.cpp" />
+    <ClCompile Include="Code\PFPotentialField.cpp" />
+    <ClCompile Include="Code\PFRadialPotentialField.cpp" />
+    <ClCompile Include="Code\PFRectangularPotentialField.cpp" />
+    <ClCompile Include="Code\SkillTree.cpp" />
+    <ClCompile Include="Code\stdafx.cpp" />
+    <ClCompile Include="Code\Vector2d.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\AITypeDef.h" />
+    <ClInclude Include="Code\File\CSVReader.h" />
+    <ClInclude Include="Code\Goal\Goal.h" />
+    <ClInclude Include="Code\Goal\Goal_Composite.h" />
+    <ClInclude Include="Code\Graph\AStarHeuristicPolicies.h" />
+    <ClInclude Include="Code\Graph\GraphAlgorithms.h" />
+    <ClInclude Include="Code\Graph\GraphEdgeTypes.h" />
+    <ClInclude Include="Code\Graph\GraphNodeTypes.h" />
+    <ClInclude Include="Code\Graph\HandyGraphFunctions.h" />
+    <ClInclude Include="Code\Graph\NodeTypeEnumerations.h" />
+    <ClInclude Include="Code\Graph\PathEdge.h" />
+    <ClInclude Include="Code\Graph\SparseGraph.h" />
+    <ClInclude Include="Code\GridPos.h" />
+    <ClInclude Include="Code\GridSceneMap.h" />
+    <ClInclude Include="Code\InfluenceMap.h" />
+    <ClInclude Include="Code\Messaging\MessageDispatcher.h" />
+    <ClInclude Include="Code\Messaging\MessageListener.h" />
+    <ClInclude Include="Code\Messaging\MessageListenerManager.h" />
+    <ClInclude Include="Code\Messaging\Telegram.h" />
+    <ClInclude Include="Code\misc\CellSpacePartition.h" />
+    <ClInclude Include="Code\misc\PriorityQueue.h" />
+    <ClInclude Include="Code\misc\Stream_Utility_Functions.h" />
+    <ClInclude Include="Code\misc\TypeToString.h" />
+    <ClInclude Include="Code\misc\utils.h" />
+    <ClInclude Include="Code\PFPotentialField.h" />
+    <ClInclude Include="Code\PFRadialPotentialField.h" />
+    <ClInclude Include="Code\PFRectangularPotentialField.h" />
+    <ClInclude Include="Code\SkillTree.h" />
+    <ClInclude Include="Code\stdafx.h" />
+    <ClInclude Include="Code\targetver.h" />
+    <ClInclude Include="Code\Vector2D.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

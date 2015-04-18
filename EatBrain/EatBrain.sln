@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EatBrain", "EatBrain.vcxproj", "{72893A2C-077F-41F6-9D64-7A9A58891E42}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestAI", "..\TestAI\TestAI.vcxproj", "{9414B606-81AF-4BF0-B66E-7FB73006CE72}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72893A2C-077F-41F6-9D64-7A9A58891E42} = {72893A2C-077F-41F6-9D64-7A9A58891E42}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72893A2C-077F-41F6-9D64-7A9A58891E42}.Debug|Win32.ActiveCfg = Debug|Win32
+		{72893A2C-077F-41F6-9D64-7A9A58891E42}.Debug|Win32.Build.0 = Debug|Win32
+		{72893A2C-077F-41F6-9D64-7A9A58891E42}.Release|Win32.ActiveCfg = Release|Win32
+		{72893A2C-077F-41F6-9D64-7A9A58891E42}.Release|Win32.Build.0 = Release|Win32
+		{9414B606-81AF-4BF0-B66E-7FB73006CE72}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9414B606-81AF-4BF0-B66E-7FB73006CE72}.Debug|Win32.Build.0 = Debug|Win32
+		{9414B606-81AF-4BF0-B66E-7FB73006CE72}.Release|Win32.ActiveCfg = Release|Win32
+		{9414B606-81AF-4BF0-B66E-7FB73006CE72}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

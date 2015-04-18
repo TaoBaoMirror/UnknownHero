@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Graph">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Code">
+      <UniqueIdentifier>{ae194fd0-de48-4b65-ad4c-08210c64e55a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{e8a9eead-c986-487c-9160-91e68c7c181e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Messaging">
+      <UniqueIdentifier>{dc5c527b-a414-48a0-b56e-a73cab03bc83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Goal">
+      <UniqueIdentifier>{91b42dc5-2e55-458a-b331-1eb2ba621b06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File">
+      <UniqueIdentifier>{1f4ec65c-49c8-4271-b059-e07fee432a5b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\stdafx.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\GridPos.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\GridSceneMap.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\InfluenceMap.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\PFPotentialField.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\PFRadialPotentialField.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\PFRectangularPotentialField.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Vector2d.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Messaging\MessageDispatcher.cpp">
+      <Filter>Messaging</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Messaging\MessageListenerManager.cpp">
+      <Filter>Messaging</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\File\CSVReader.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\SkillTree.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\stdafx.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\targetver.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\GridPos.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\GridSceneMap.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\InfluenceMap.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\PFPotentialField.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\PFRadialPotentialField.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\PFRectangularPotentialField.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Vector2D.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\misc\CellSpacePartition.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\misc\PriorityQueue.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\misc\Stream_Utility_Functions.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\misc\TypeToString.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\misc\utils.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Graph\AStarHeuristicPolicies.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Graph\GraphAlgorithms.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Graph\GraphEdgeTypes.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Graph\GraphNodeTypes.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Graph\HandyGraphFunctions.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Graph\NodeTypeEnumerations.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Graph\SparseGraph.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\AITypeDef.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Messaging\MessageDispatcher.h">
+      <Filter>Messaging</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Messaging\Telegram.h">
+      <Filter>Messaging</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Messaging\MessageListener.h">
+      <Filter>Messaging</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Messaging\MessageListenerManager.h">
+      <Filter>Messaging</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Goal\Goal.h">
+      <Filter>Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Goal\Goal_Composite.h">
+      <Filter>Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Graph\PathEdge.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\File\CSVReader.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\SkillTree.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

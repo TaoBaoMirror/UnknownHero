@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9414B606-81AF-4BF0-B66E-7FB73006CE72}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>TestAI</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <EmbedManifest>true</EmbedManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Code/</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Bin</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(SolutionName).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="small.ico" />
+    <None Include="TestAI.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Analyzer.h" />
+    <ClInclude Include="AttackData.h" />
+    <ClInclude Include="AttackDataManager.h" />
+    <ClInclude Include="AttackRange.h" />
+    <ClInclude Include="AttackRangeCreater.h" />
+    <ClInclude Include="AttackRange_Cross.h" />
+    <ClInclude Include="AttackRange_H.h" />
+    <ClInclude Include="AttackRange_Quad.h" />
+    <ClInclude Include="AttackRange_Round.h" />
+    <ClInclude Include="AttackRange_V.h" />
+    <ClInclude Include="AttackSystem.h" />
+    <ClInclude Include="AttackTargetGoal_Evaluator.h" />
+    <ClInclude Include="Camp.h" />
+    <ClInclude Include="Cgdi.h" />
+    <ClInclude Include="CommonFunc.h" />
+    <ClInclude Include="CreatureBase.h" />
+    <ClInclude Include="CrudeTimer.h" />
+    <ClInclude Include="DebugClass\DebugConsole.h" />
+    <ClInclude Include="ExploreGoal_Evaluator.h" />
+    <ClInclude Include="Finder\GraphFinder.h" />
+    <ClInclude Include="GameInfluenceMap.h" />
+    <ClInclude Include="GameWorld.h" />
+    <ClInclude Include="GeomorphologyCreater.h" />
+    <ClInclude Include="Goal_Attack.h" />
+    <ClInclude Include="Goal_AttackTarget.h" />
+    <ClInclude Include="Goal_Evaluator.h" />
+    <ClInclude Include="Goal_Explore.h" />
+    <ClInclude Include="Goal_FollowPath.h" />
+    <ClInclude Include="Goal_MoveStep.h" />
+    <ClInclude Include="Goal_MoveToPosition.h" />
+    <ClInclude Include="Goal_SoldierThink.h" />
+    <ClInclude Include="Goal_Type.h" />
+    <ClInclude Include="MapNodeData.h" />
+    <ClInclude Include="Msg_Type.h" />
+    <ClInclude Include="PlayerControllor.h" />
+    <ClInclude Include="PrecisionTimer.h" />
+    <ClInclude Include="Regulator.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="ShieldData.h" />
+    <ClInclude Include="ShieldDataManager.h" />
+    <ClInclude Include="ShieldSystem.h" />
+    <ClInclude Include="Skill\BaseSkill.h" />
+    <ClInclude Include="Skill\SkillFactory.h" />
+    <ClInclude Include="Skill\SkillSystem.h" />
+    <ClInclude Include="Soldier.h" />
+    <ClInclude Include="SoldierFeature.h" />
+    <ClInclude Include="SoldierManager.h" />
+    <ClInclude Include="SoldierPF.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TargetingSystem.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TestAI.h" />
+    <ClInclude Include="WindowUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Analyzer.cpp" />
+    <ClCompile Include="AttackData.cpp" />
+    <ClCompile Include="AttackDataManager.cpp" />
+    <ClCompile Include="AttackRangeCreater.cpp" />
+    <ClCompile Include="AttackRange_Cross.cpp" />
+    <ClCompile Include="AttackRange_H.cpp" />
+    <ClCompile Include="AttackRange_Quad.cpp" />
+    <ClCompile Include="AttackRange_Round.cpp" />
+    <ClCompile Include="AttackRange_V.cpp" />
+    <ClCompile Include="AttackSystem.cpp" />
+    <ClCompile Include="AttackTargetGoal_Evaluator.cpp" />
+    <ClCompile Include="Camp.cpp" />
+    <ClCompile Include="Cgdi.cpp" />
+    <ClCompile Include="CommonFunc.cpp" />
+    <ClCompile Include="CreatureBase.cpp" />
+    <ClCompile Include="CrudeTimer.cpp" />
+    <ClCompile Include="DebugClass\DebugConsole.cpp" />
+    <ClCompile Include="ExploreGoal_Evaluator.cpp" />
+    <ClCompile Include="Finder\GraphFinder.cpp" />
+    <ClCompile Include="GameInfluenceMap.cpp" />
+    <ClCompile Include="GameWorld.cpp" />
+    <ClCompile Include="GeomorphologyCreater.cpp" />
+    <ClCompile Include="Goal_Attack.cpp" />
+    <ClCompile Include="Goal_AttackTarget.cpp" />
+    <ClCompile Include="Goal_Explore.cpp" />
+    <ClCompile Include="Goal_FollowPath.cpp" />
+    <ClCompile Include="Goal_MoveStep.cpp" />
+    <ClCompile Include="Goal_MoveToPosition.cpp" />
+    <ClCompile Include="Goal_SoldierThink.cpp" />
+    <ClCompile Include="PlayerControllor.cpp" />
+    <ClCompile Include="PrecisionTimer.cpp" />
+    <ClCompile Include="ShieldData.cpp" />
+    <ClCompile Include="ShieldDataManager.cpp" />
+    <ClCompile Include="ShieldSystem.cpp" />
+    <ClCompile Include="Skill\BaseSkill.cpp" />
+    <ClCompile Include="Skill\SkillFactory.cpp" />
+    <ClCompile Include="Skill\SkillSystem.cpp" />
+    <ClCompile Include="Soldier.cpp" />
+    <ClCompile Include="SoldierFeature.cpp" />
+    <ClCompile Include="SoldierManager.cpp" />
+    <ClCompile Include="SoldierPF.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TargetingSystem.cpp" />
+    <ClCompile Include="TestAI.cpp" />
+    <ClCompile Include="WindowUtils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TestAI.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
