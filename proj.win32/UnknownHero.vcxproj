@@ -71,7 +71,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..\EatBrain\Code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -84,9 +84,9 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>EatBrain.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\EatBrain\Bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -138,6 +138,43 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\BaseUI\ProgressBar.cpp" />
     <ClCompile Include="..\Classes\Common\CommonMethod.cpp" />
+    <ClCompile Include="..\Classes\Game\Analyzer.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackData.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackDataManager.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackDesc.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackRangeCreater.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackRange_Cross.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackRange_H.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackRange_Quad.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackRange_Round.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackRange_V.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackSystem.cpp" />
+    <ClCompile Include="..\Classes\Game\AttackTargetGoal_Evaluator.cpp" />
+    <ClCompile Include="..\Classes\Game\Camp.cpp" />
+    <ClCompile Include="..\Classes\Game\ChunkMap.cpp" />
+    <ClCompile Include="..\Classes\Game\CommonFunc.cpp" />
+    <ClCompile Include="..\Classes\Game\CreatureBase.cpp" />
+    <ClCompile Include="..\Classes\Game\ExploreGoal_Evaluator.cpp" />
+    <ClCompile Include="..\Classes\Game\GameInfluenceMap.cpp" />
+    <ClCompile Include="..\Classes\Game\GeomorphologyCreater.cpp" />
+    <ClCompile Include="..\Classes\Game\Goal_Attack.cpp" />
+    <ClCompile Include="..\Classes\Game\Goal_AttackTarget.cpp" />
+    <ClCompile Include="..\Classes\Game\Goal_Explore.cpp" />
+    <ClCompile Include="..\Classes\Game\Goal_FollowPath.cpp" />
+    <ClCompile Include="..\Classes\Game\Goal_MoveStep.cpp" />
+    <ClCompile Include="..\Classes\Game\Goal_MoveToPosition.cpp" />
+    <ClCompile Include="..\Classes\Game\Goal_SoldierThink.cpp" />
+    <ClCompile Include="..\Classes\Game\ShieldData.cpp" />
+    <ClCompile Include="..\Classes\Game\ShieldDataManager.cpp" />
+    <ClCompile Include="..\Classes\Game\ShieldSystem.cpp" />
+    <ClCompile Include="..\Classes\Game\Skill\BaseSkill.cpp" />
+    <ClCompile Include="..\Classes\Game\Skill\SkillFactory.cpp" />
+    <ClCompile Include="..\Classes\Game\Skill\SkillSystem.cpp" />
+    <ClCompile Include="..\Classes\Game\Soldier.cpp" />
+    <ClCompile Include="..\Classes\Game\SoldierFeature.cpp" />
+    <ClCompile Include="..\Classes\Game\SoldierManager.cpp" />
+    <ClCompile Include="..\Classes\Game\SoldierPF.cpp" />
+    <ClCompile Include="..\Classes\Game\TargetingSystem.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\Map\MapManager.cpp" />
     <ClCompile Include="..\Classes\ResDef.cpp" />
@@ -151,6 +188,49 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\BaseUI\ProgressBar.h" />
     <ClInclude Include="..\Classes\Common\CommonMethod.h" />
+    <ClInclude Include="..\Classes\Game\Analyzer.h" />
+    <ClInclude Include="..\Classes\Game\AttackData.h" />
+    <ClInclude Include="..\Classes\Game\AttackDataManager.h" />
+    <ClInclude Include="..\Classes\Game\AttackDesc.h" />
+    <ClInclude Include="..\Classes\Game\AttackRange.h" />
+    <ClInclude Include="..\Classes\Game\AttackRangeCreater.h" />
+    <ClInclude Include="..\Classes\Game\AttackRange_Cross.h" />
+    <ClInclude Include="..\Classes\Game\AttackRange_H.h" />
+    <ClInclude Include="..\Classes\Game\AttackRange_Quad.h" />
+    <ClInclude Include="..\Classes\Game\AttackRange_Round.h" />
+    <ClInclude Include="..\Classes\Game\AttackRange_V.h" />
+    <ClInclude Include="..\Classes\Game\AttackSystem.h" />
+    <ClInclude Include="..\Classes\Game\AttackTargetGoal_Evaluator.h" />
+    <ClInclude Include="..\Classes\Game\Camp.h" />
+    <ClInclude Include="..\Classes\Game\ChunkMap.h" />
+    <ClInclude Include="..\Classes\Game\CommonFunc.h" />
+    <ClInclude Include="..\Classes\Game\CreatureBase.h" />
+    <ClInclude Include="..\Classes\Game\ExploreGoal_Evaluator.h" />
+    <ClInclude Include="..\Classes\Game\GameInfluenceMap.h" />
+    <ClInclude Include="..\Classes\Game\GeomorphologyCreater.h" />
+    <ClInclude Include="..\Classes\Game\Goal_Attack.h" />
+    <ClInclude Include="..\Classes\Game\Goal_AttackTarget.h" />
+    <ClInclude Include="..\Classes\Game\Goal_Evaluator.h" />
+    <ClInclude Include="..\Classes\Game\Goal_Explore.h" />
+    <ClInclude Include="..\Classes\Game\Goal_FollowPath.h" />
+    <ClInclude Include="..\Classes\Game\Goal_MoveStep.h" />
+    <ClInclude Include="..\Classes\Game\Goal_MoveToPosition.h" />
+    <ClInclude Include="..\Classes\Game\Goal_SoldierThink.h" />
+    <ClInclude Include="..\Classes\Game\Goal_Type.h" />
+    <ClInclude Include="..\Classes\Game\MapNodeData.h" />
+    <ClInclude Include="..\Classes\Game\Msg_Type.h" />
+    <ClInclude Include="..\Classes\Game\Regulator.h" />
+    <ClInclude Include="..\Classes\Game\ShieldData.h" />
+    <ClInclude Include="..\Classes\Game\ShieldDataManager.h" />
+    <ClInclude Include="..\Classes\Game\ShieldSystem.h" />
+    <ClInclude Include="..\Classes\Game\Skill\BaseSkill.h" />
+    <ClInclude Include="..\Classes\Game\Skill\SkillFactory.h" />
+    <ClInclude Include="..\Classes\Game\Skill\SkillSystem.h" />
+    <ClInclude Include="..\Classes\Game\Soldier.h" />
+    <ClInclude Include="..\Classes\Game\SoldierFeature.h" />
+    <ClInclude Include="..\Classes\Game\SoldierManager.h" />
+    <ClInclude Include="..\Classes\Game\SoldierPF.h" />
+    <ClInclude Include="..\Classes\Game\TargetingSystem.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\Map\MapManager.h" />
     <ClInclude Include="..\Classes\ResDef.h" />

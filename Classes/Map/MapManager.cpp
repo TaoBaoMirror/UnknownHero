@@ -21,7 +21,7 @@ MapManager::~MapManager()
 {
 }
 
-cocos2d::TMXTiledMap* MapManager::ChangeMap(int index)
+ChunkMap* MapManager::ChangeMap(int index)
 {
 	m_CurLevelID = index;
 
@@ -34,7 +34,7 @@ cocos2d::TMXTiledMap* MapManager::ChangeMap(int index)
 	std::string mapName = "Map_" + strIndex;
 
 
-	return cocos2d::TMXTiledMap::create(mapName);
+	return NULL;
 }
 
 void MapManager::TileCoordForPosition(cocos2d::Size mapSize, cocos2d::Size tileSize, cocos2d::Vec2 position, int &coordX, int &coordY)

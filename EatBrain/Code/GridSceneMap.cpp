@@ -22,6 +22,8 @@ void GridSceneMap::CreateMap( MapType map_type )
 	{
 		MapGraph = new NavGraph(false);
 	}
+	//
+	MapGraph->Clear();
 	//从0开始
 	int counter = 0;
 	for (int i = 0; i < SizeNumY;++i )
@@ -299,6 +301,7 @@ void GridSceneMap::Init( int WorldWidth,int WorldHeight,int tileWidth,int tileHe
 	SizeNumY = WorldHeight/TileHeight;							//总共有多少行 
 
 	BaseLT_Pos = BaseLTPos;
+
 }
 
 bool GridSceneMap::Load( std::ifstream& in )

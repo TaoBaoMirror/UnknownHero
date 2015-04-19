@@ -66,7 +66,11 @@ private:
 public:
   
   //ctor
-  SparseGraph(bool digraph): m_iNextNodeIndex(0), m_bDigraph(digraph){}
+  SparseGraph(bool digraph): m_iNextNodeIndex(0), m_bDigraph(digraph)
+  {
+	  //Ô¤·ÖÅä64*64¸öÄÚ´æ
+	  m_Nodes.reserve(64*64);
+  }
 
   //returns the node at the given index
   const NodeType&  GetNode(int idx)const;
