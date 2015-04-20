@@ -9,13 +9,19 @@ public:
 	GameScene();
 	~GameScene();
 
+	static cocos2d::Scene* createScene();
+
 	virtual bool init();
 
 	virtual void update(float dt) override;
 
-	static cocos2d::Scene NewGame();
+	void SceneInit();
 
-	static cocos2d::Scene Continue();
+	void NewGame();
+
+	void Continue();
+
+	static int LayerTag;
 };
 
 #endif //__GAME_SCENE_H__

@@ -87,6 +87,10 @@ public:
 	//
 	static const std::string g_ConfigFileName;
 	ConfigFileStruct g_ConfigStruct;
+
+	static const std::string g_SaveDataFileName_1;
+	static const std::string g_SaveDataFileName_2;
+	static const std::string g_SaveDataFileName_3;
 	//
 	static const std::string g_ParticleEffect;
 	static const std::string g_ParticleEffectExplode;
@@ -113,6 +117,8 @@ public:
 
 	void SaveConfig();
 	void ReadConfig();
+
+	void ReadSaveData();
 
 	void loadRes();
 

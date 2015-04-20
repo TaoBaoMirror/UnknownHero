@@ -1,6 +1,7 @@
 #include "ResDef.h"
 
 //#include "Player/PlayerManager.h"
+#include "Scene/GameManager.h"
 
 using namespace std;
 USING_NS_CC;
@@ -196,7 +197,10 @@ const string ResDef::g_BossFightMusic = "music/BossFight";
 //
 bool ResDef::FinishedLoadRes = false;
 //
-const string ResDef::g_ConfigFileName = "savedata.plist";
+const string ResDef::g_ConfigFileName = "configdata.plist";
+const string ResDef::g_SaveDataFileName_1 = "savedata1.plist";
+const string ResDef::g_SaveDataFileName_2 = "savedata2.plist";
+const string ResDef::g_SaveDataFileName_3 = "savedata3.plist";
 //const ConfigFileStruct g_ConfigStruct = new ConfigFileStruct();
 //
 const string ResDef::g_ParticleEffect = "Images/SpookyPeasPlist";
@@ -274,6 +278,7 @@ void  ResDef::initRes(ProgressCount* progresscount)
         progresscount->setCount(50);
         {
             ReadConfig();
+			ReadSaveData();
         }
 
         progresscount->setCount(60);
@@ -344,6 +349,11 @@ void ResDef::ReadConfig()
 	{
 		SaveConfig();
 	}
+}
+
+void ResDef::ReadSaveData()
+{
+	GameManager::GetInstance()->LoadGameData();
 }
 
 void ResDef::UnlockRoleID(int id)
