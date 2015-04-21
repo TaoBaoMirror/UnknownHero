@@ -1,5 +1,8 @@
 #include "Goal_Explore.h"
 #include "Goal_FollowPath.h"
+//
+#include "MapManager.h"
+#include "CommonFunc.h"
 
 void Goal_Explore::Activate()
 {
@@ -13,11 +16,11 @@ void Goal_Explore::Activate()
 
 		do
 		{
-			GameWorld::Instance()->GetSceneMap().GetRandomNodeLocation(m_CurrentDestination);
+			G_GetSceneMap().GetRandomNodeLocation(m_CurrentDestination);
 
-		}while(!GameWorld::Instance()->GetSceneMap().GetNode(m_CurrentDestination).Walkable());
+		}while(!G_GetSceneMap().GetNode(m_CurrentDestination).Walkable());
 
-		if(GameWorld::Instance()->CheckCanArrived(m_pOwner->GetStayGPos(),m_CurrentDestination,&path))
+		if(MapManager::GetInstance()->GetCurChunkMap().CheckCanArrived(m_pOwner->GetStayGPos(),m_CurrentDestination,&path))
 		{
 			RemoveAllSubgoals();
 

@@ -31,7 +31,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
-    <PlatformToolset>v110_xp</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -164,6 +164,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Goal_MoveStep.cpp" />
     <ClCompile Include="..\Classes\Game\Goal_MoveToPosition.cpp" />
     <ClCompile Include="..\Classes\Game\Goal_SoldierThink.cpp" />
+    <ClCompile Include="..\Classes\Game\MapManager.cpp" />
+    <ClCompile Include="..\Classes\Game\MapNodeData.cpp" />
     <ClCompile Include="..\Classes\Game\ShieldData.cpp" />
     <ClCompile Include="..\Classes\Game\ShieldDataManager.cpp" />
     <ClCompile Include="..\Classes\Game\ShieldSystem.cpp" />
@@ -176,7 +178,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\SoldierPF.cpp" />
     <ClCompile Include="..\Classes\Game\TargetingSystem.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
-    <ClCompile Include="..\Classes\Map\MapManager.cpp" />
     <ClCompile Include="..\Classes\ResDef.cpp" />
     <ClCompile Include="..\Classes\Scene\GameMainLayer.cpp" />
     <ClCompile Include="..\Classes\Scene\GameManager.cpp" />
@@ -217,6 +218,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Goal_MoveToPosition.h" />
     <ClInclude Include="..\Classes\Game\Goal_SoldierThink.h" />
     <ClInclude Include="..\Classes\Game\Goal_Type.h" />
+    <ClInclude Include="..\Classes\Game\MapManager.h" />
     <ClInclude Include="..\Classes\Game\MapNodeData.h" />
     <ClInclude Include="..\Classes\Game\Msg_Type.h" />
     <ClInclude Include="..\Classes\Game\Regulator.h" />
@@ -232,7 +234,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\SoldierPF.h" />
     <ClInclude Include="..\Classes\Game\TargetingSystem.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
-    <ClInclude Include="..\Classes\Map\MapManager.h" />
     <ClInclude Include="..\Classes\ResDef.h" />
     <ClInclude Include="..\Classes\Scene\GameMainLayer.h" />
     <ClInclude Include="..\Classes\Scene\GameManager.h" />

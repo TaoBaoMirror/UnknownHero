@@ -16,9 +16,6 @@
     <Filter Include="Code">
       <UniqueIdentifier>{ae194fd0-de48-4b65-ad4c-08210c64e55a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Base">
-      <UniqueIdentifier>{e8a9eead-c986-487c-9160-91e68c7c181e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Messaging">
       <UniqueIdentifier>{dc5c527b-a414-48a0-b56e-a73cab03bc83}</UniqueIdentifier>
     </Filter>
@@ -33,9 +30,6 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Code\stdafx.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
     <ClCompile Include="Code\GridPos.cpp">
       <Filter>Code</Filter>
     </ClCompile>
@@ -71,12 +65,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Code\stdafx.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\targetver.h">
-      <Filter>Base</Filter>
-    </ClInclude>
     <ClInclude Include="Code\GridPos.h">
       <Filter>Code</Filter>
     </ClInclude>

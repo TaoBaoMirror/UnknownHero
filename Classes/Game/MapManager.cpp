@@ -21,7 +21,7 @@ MapManager::~MapManager()
 {
 }
 
-ChunkMap* MapManager::ChangeMap(int index)
+ChunkMap& MapManager::ChangeMap(int index)
 {
 	m_CurLevelID = index;
 

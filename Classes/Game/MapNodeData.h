@@ -12,6 +12,8 @@
 #ifndef MapNodeData_h__
 #define MapNodeData_h__
 
+#include <iostream>
+
 class Soldier;
 
 #define InvalidID -1
@@ -33,14 +35,15 @@ public:
 	MapNodeData(std::ifstream& stream):
 		Creature(NULL)
 	{
-		char buffer[50];
-		stream >> buffer >> ID >> buffer >> ResouceID >> buffer >> SpecialID;
+// 		char buffer[50];
+// 		stream >> buffer >> ID >> buffer >> ResouceID >> buffer >> SpecialID;
 
 	}
 	//需要序列化的
 	int				ID;
 	int				ResouceID;
 	int				SpecialID;
+	int				Type;
 	//
 	Soldier*		Creature;
 

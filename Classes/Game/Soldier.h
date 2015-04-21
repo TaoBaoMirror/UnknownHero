@@ -16,9 +16,7 @@
 
 #include "Vector2D.h"
 #include "GridPos.h"
-#include "AttackDesc.h"
-#include "AttackRange.h"
-#include "AttackRange_Round.h"
+
 //
 #include "Messaging/MessageListener.h"
 #include "CreatureBase.h"
@@ -71,7 +69,7 @@ public:
 	void GetPathToTarget(const GridPos& A,const GridPos& B,std::vector<GridPos>& path);
 	void MoveCloseToGPos(const GridPos& other,GridPos& out_nextGPos);
 	void MoveAwayFromGPos(const GridPos& other,GridPos& out_nextGPos);
-	void FindSoldiersInRange(int RangeSize, bool ExceptSelf , RangeType RType ,std::vector<Soldier*>&	out_SoldierList);
+	void FindSoldiersInRange(int RangeSize, bool ExceptSelf , int RType ,std::vector<Soldier*>&	out_SoldierList);
 
 	void SetShowAttackRange(bool s){bShowAttackRange = s;}
 	bool IsShowAttackRange(){return bShowAttackRange;}

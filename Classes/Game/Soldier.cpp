@@ -12,10 +12,15 @@
 #include "Graph/AStarHeuristicPolicies.h"
 #include "SoldierManager.h"
 #include "AttackSystem.h"
+#include "AttackDesc.h"
+#include "AttackRange.h"
+#include "AttackRange_Round.h"
+
 #include "ShieldSystem.h"
 #include "TargetingSystem.h"
 
 #include "Goal_SoldierThink.h"
+#include "CommonFunc.h"
 
 
 #include "SoldierPF.h"
@@ -71,20 +76,6 @@ void Soldier::Update()
 
 void Soldier::Render()
 {
-	if (RaceIndex == Human)
-	{
-		gdi->SetPenColor(Cgdi::orange);
-		gdi->OrangeBrush();
-
-	}
-	else
-	{
-		gdi->SetPenColor(Cgdi::blue);
-		gdi->BlueBrush();
-
-	}
-	//
-	gdi->Circle(Position,9);
 	//
 	//攻击范围
 	if (bShowAttackRange)
@@ -161,7 +152,7 @@ bool Soldier::MoveTo( const GridPos& GPos )
 
 void Soldier::UpdatePosition()
 {
-	GameWorld::Instance()->GetSceneMap().GridPosToWorldPos(StayGridPos,Position);
+	G_GetSceneMap().GridPosToWorldPos(StayGridPos,Position);
 }
 
 void Soldier::MoveCloseToGPos( const GridPos& other,GridPos& out_nextGPos )
@@ -169,7 +160,7 @@ void Soldier::MoveCloseToGPos( const GridPos& other,GridPos& out_nextGPos )
 	std::list<GridPos>	Path;
 	//先 测试是否可以到那个点
 	//如果可以,靠近一步;如果不行,随机一步
-	if(GameWorld::Instance()->CheckCanArrived(StayGridPos,other,&Path))
+	if(MapManager::GetInstance()->GetCurChunkMap().CheckCanArrived(StayGridPos,other,&Path))
 	{
 		if (Path.begin() != Path.end())
 		{
@@ -193,10 +184,10 @@ void Soldier::MoveAwayFromGPos( const GridPos& other,GridPos& out_nextGPos )
 	std::vector<GridPos>	GPosList;
 	Vector2D other_wp;
 
-	GameWorld::Instance()->GetSceneMap().GridPosToWorldPos(other,other_wp);
+	G_GetSceneMap().GridPosToWorldPos(other,other_wp);
 	///
 
-	GameWorld::Instance()->GetSceneMap().FindTilesInCircle(GPosList,StayGridPos,1);
+	G_GetSceneMap().FindTilesInCircle(GPosList,StayGridPos,1);
 	//
 	int k = 0;
 	float far_dis = -1;
@@ -208,7 +199,7 @@ void Soldier::MoveAwayFromGPos( const GridPos& other,GridPos& out_nextGPos )
 
 		if (canStay(GPos))
 		{
-			GameWorld::Instance()->GetSceneMap().GridPosToWorldPos(GPos,wp);
+			G_GetSceneMap().GridPosToWorldPos(GPos,wp);
 			//
 			float dis = other_wp.DistanceSq(wp);
 			if (dis > far_dis)
@@ -222,19 +213,19 @@ void Soldier::MoveAwayFromGPos( const GridPos& other,GridPos& out_nextGPos )
 	out_nextGPos = GPosList[k];
 }
 
-void Soldier::FindSoldiersInRange( int RangeSize , bool ExceptSelf , RangeType RType ,std::vector<Soldier*>& out_SoldierList )
+void Soldier::FindSoldiersInRange( int RangeSize , bool ExceptSelf , int RType ,std::vector<Soldier*>& out_SoldierList )
 {
 	std::vector<GridPos>	GPosList;
 	switch(RType)
 	{
 	case RangeType::CIRCLE:
-		GameWorld::Instance()->GetSceneMap().FindTilesInCircle(GPosList,StayGridPos,RangeSize);
+		G_GetSceneMap().FindTilesInCircle(GPosList,StayGridPos,RangeSize);
 		break;
 	case RangeType::QUAD:
-		GameWorld::Instance()->GetSceneMap().FindTilesInQuad(StayGridPos,RangeSize,GPosList);
+		G_GetSceneMap().FindTilesInQuad(StayGridPos,RangeSize,GPosList);
 		break;
 	case RangeType::CROSS:
-		GameWorld::Instance()->GetSceneMap().FindTilesInCross(StayGridPos,RangeSize,RangeSize,GPosList);
+		G_GetSceneMap().FindTilesInCross(StayGridPos,RangeSize,RangeSize,GPosList);
 		break;
 	}
 	//
@@ -247,10 +238,10 @@ void Soldier::FindSoldiersInRange( int RangeSize , bool ExceptSelf , RangeType R
 	{
 		const GridPos& GPos = GPosList[i];
 		int index = -1;
-		GameWorld::Instance()->GetSceneMap().GetIndex(GPos,index);
+		G_GetSceneMap().GetIndex(GPos,index);
 		if (index != -1)
 		{
-			NavGraphNode<void*>& node = GameWorld::Instance()->GetSceneMap().GetNode(index);
+			NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
 			auto pNMD = (MapNodeData*)node.ExtraInfo();
 			if (pNMD)
 			{
@@ -272,10 +263,8 @@ void Soldier::FindSoldiersInRange( int RangeSize , bool ExceptSelf , RangeType R
 
 void Soldier::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
 {
-	gdi->SetPenColor(Cgdi::green);
-	gdi->GreenBrush();
 
-
+	/*
 	for (int i = 0;i< AttackGPosList.size();++i)
 	{
 		const GridPos&	GP = AttackGPosList[i];
@@ -286,17 +275,18 @@ void Soldier::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
 		gdi->Circle(tNode.Pos(),4);
 
 	}
+	*/
 }
 
 bool Soldier::canStay( const GridPos& GPos )
 {
 	int index = -1;
-	GameWorld::Instance()->GetSceneMap().GetIndex(GPos,index);
+	G_GetSceneMap().GetIndex(GPos,index);
 	//
-	if ((index < GameWorld::Instance()->GetSceneMap().NodesCount()) &&
+	if ((index < G_GetSceneMap().NodesCount()) &&
 		(index >=0) )
 	{
-		NavGraphNode<void*>& node = GameWorld::Instance()->GetSceneMap().GetNode(index);
+		NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
 		MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
 		//
 		if (node.Walkable())
@@ -316,24 +306,24 @@ bool Soldier::canStay( const GridPos& GPos )
 void Soldier::UpdateNodeWithGPos()
 {
 	int index = -1;
-	GameWorld::Instance()->GetSceneMap().GetIndex(LastStayGridPos,index);
+	G_GetSceneMap().GetIndex(LastStayGridPos,index);
 
-	if ((index < GameWorld::Instance()->GetSceneMap().NodesCount()) &&
+	if ((index < G_GetSceneMap().NodesCount()) &&
 		(index >=0) )
 	{
-		NavGraphNode<void*>& node = GameWorld::Instance()->GetSceneMap().GetNode(index);
+		NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
 		MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
 		//
 		//node.SetWalkable(true);
 		pMND->Creature = NULL;
 	}
 	//
-	GameWorld::Instance()->GetSceneMap().GetIndex(StayGridPos,index);
+	G_GetSceneMap().GetIndex(StayGridPos,index);
 
-	if ((index < GameWorld::Instance()->GetSceneMap().NodesCount()) &&
+	if ((index < G_GetSceneMap().NodesCount()) &&
 		(index >=0) )
 	{
-		NavGraphNode<void*>& node = GameWorld::Instance()->GetSceneMap().GetNode(index);
+		NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
 		MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
 		//
 		//node.SetWalkable(false);

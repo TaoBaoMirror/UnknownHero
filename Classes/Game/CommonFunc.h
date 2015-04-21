@@ -12,8 +12,9 @@
 #ifndef CommonFunc_h__
 #define CommonFunc_h__
 
-#include "AttackRange.h"
-#include "AttackRange_Round.h"
+#include "ChunkMap.h"
+#include "MapManager.h"
+#include "GridSceneMap.h"
 //
 const GridSceneMap& G_GetSceneMap();
 //

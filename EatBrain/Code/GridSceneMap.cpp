@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "GridSceneMap.h"
 #include <stack>
 #include <math.h>

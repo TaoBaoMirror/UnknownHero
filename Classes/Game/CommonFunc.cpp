@@ -3,5 +3,5 @@
 
 const GridSceneMap& G_GetSceneMap()
 {
-	return GameWorld::Instance()->GetSceneMap();
+	return MapManager::GetInstance()->GetCurChunkMap().GetGridSceneMap();
 }

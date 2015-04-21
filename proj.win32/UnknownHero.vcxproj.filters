@@ -37,9 +37,6 @@
     <Filter Include="Classes\Data">
       <UniqueIdentifier>{2fd3cbc7-9e6a-46bd-bd6b-8030867c7aa1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Map">
-      <UniqueIdentifier>{95495eb5-5e61-4988-8ee8-51c2eedc7e1e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\Game">
       <UniqueIdentifier>{41b81c09-fea0-49fc-b46e-5b92cb5d57e7}</UniqueIdentifier>
     </Filter>
@@ -92,9 +89,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ResDef.cpp">
       <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Map\MapManager.cpp">
-      <Filter>Classes\Map</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Scene\GameMainLayer.cpp">
       <Filter>Classes\Scene</Filter>
@@ -216,6 +210,12 @@
     <ClCompile Include="..\Classes\Game\Skill\SkillSystem.cpp">
       <Filter>Classes\Game\Skill</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\MapManager.cpp">
+      <Filter>Classes\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\MapNodeData.cpp">
+      <Filter>Classes\Game\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -238,9 +238,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ResDef.h">
       <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Map\MapManager.h">
-      <Filter>Classes\Map</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Scene\GameMainLayer.h">
       <Filter>Classes\Scene</Filter>
@@ -314,9 +311,6 @@
     <ClInclude Include="..\Classes\Game\GeomorphologyCreater.h">
       <Filter>Classes\Game</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Game\MapNodeData.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Game\Regulator.h">
       <Filter>Classes\Game</Filter>
     </ClInclude>
@@ -379,6 +373,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Skill\SkillSystem.h">
       <Filter>Classes\Game\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\MapManager.h">
+      <Filter>Classes\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\MapNodeData.h">
+      <Filter>Classes\Game\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

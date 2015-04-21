@@ -4,8 +4,7 @@
 #include "Camp.h"
 
 SoldierPF::SoldierPF(Soldier* s) : 
-	PerceiveRadius(2),pOwner(s),
-	DebugRender(false)
+	PerceiveRadius(2),pOwner(s)
 {
 
 }
