@@ -1,5 +1,9 @@
 #include "SkillSystem.h"
 #include "SkillFactory.h"
+//
+#include <iosfwd>
+#include <fstream>
+using namespace std;
 
 SkillSystem::SkillSystem():BaseSkillTree<BaseSkill>()
 {
@@ -67,40 +71,40 @@ bool SkillSystem::Load( std::ifstream& is )
 
 bool SkillSystem::Save( std::ofstream& os )
 {
-	os<<"==SkillSystem=="<<std::endl;
-
-	os<<"NodesNum: "<<Nodes.size()<<std::endl;
-
-	auto root = GetRoot();
-	
-	auto it = Nodes.begin();
-
-	while (it != Nodes.end())
-	{
-		auto skill = it->second;
-		os<<"SkillID: "<<skill->mID<<std::endl;
-		if (skill->mID != BaseSkill::RootID)
-		{
-			os<<"ParentID: "<<skill->mParent->mID<<std::endl;
-		}
-		else
-		{
-			os<<"ParentID: "<<BaseSkill::InvalidID<<std::endl;
-		}
-				
-		it++;
-	}
-
-	it = Nodes.begin();
-
-	while(it != Nodes.end())
-	{
-		auto skill = it->second;
-
-		skill->SaveData(os);
-
-		it++;
-	}
+// 	os<<"==SkillSystem=="<<std::endl;
+// 
+// 	os<<"NodesNum: "<<Nodes.size()<<std::endl;
+// 
+// 	auto root = GetRoot();
+// 	
+// 	auto it = Nodes.begin();
+// 
+// 	while (it != Nodes.end())
+// 	{
+// 		auto skill = it->second;
+// 		os<<"SkillID: "<<skill->mID<<std::endl;
+// 		if (skill->mID != BaseSkill::RootID)
+// 		{
+// 			os<<"ParentID: "<<skill->mParent->mID<<std::endl;
+// 		}
+// 		else
+// 		{
+// 			os<<"ParentID: "<<BaseSkill::InvalidID<<std::endl;
+// 		}
+// 				
+// 		it++;
+// 	}
+// 
+// 	it = Nodes.begin();
+// 
+// 	while(it != Nodes.end())
+// 	{
+// 		auto skill = it->second;
+// 
+// 		skill->SaveData(os);
+// 
+// 		it++;
+// 	}
 
 	return true;
 

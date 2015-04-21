@@ -3,6 +3,15 @@
 //
 #include "MapManager.h"
 
+Goal_MoveToPosition::Goal_MoveToPosition( Soldier* pBot, GridPos gpos ) :
+	Goal_Composite<Soldier>(pBot,
+	goal_move_to_position),
+	m_Destination(gpos)
+{
+
+}
+
+
 void Goal_MoveToPosition::Activate()
 {
 	m_iStatus = active;
@@ -43,9 +52,4 @@ int Goal_MoveToPosition::Process()
 void Goal_MoveToPosition::Terminate()
 {
 
-}
-
-bool Goal_MoveToPosition::HandleMessage( const Telegram& msg )
-{
-	return true;
 }

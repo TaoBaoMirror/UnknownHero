@@ -41,7 +41,7 @@ public:
 	int  Process();
 	void Terminate();
 
-	bool HandleMessage(const Telegram& msg);
+	//bool HandleMessage(const Telegram& msg);
 };
 
 

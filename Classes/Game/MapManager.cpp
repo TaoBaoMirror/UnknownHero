@@ -1,10 +1,10 @@
 #include "MapManager.h"
 
-MapManager* MapManager::m_Instance = nullptr;
+MapManager* MapManager::m_Instance = 0;
 
-MapManager* MapManager::getInstance()
+MapManager* MapManager::GetInstance()
 {
-	if (m_Instance == nullptr)
+	if (m_Instance == 0)
 	{
 		m_Instance = new MapManager();
 	}
@@ -21,7 +21,7 @@ MapManager::~MapManager()
 {
 }
 
-ChunkMap& MapManager::ChangeMap(int index)
+ChunkMap* MapManager::ChangeMap(int index)
 {
 	m_CurLevelID = index;
 
@@ -34,9 +34,9 @@ ChunkMap& MapManager::ChangeMap(int index)
 	std::string mapName = "Map_" + strIndex;
 
 
-	return NULL;
+	return &CurSceneMap;
 }
-
+/*
 void MapManager::TileCoordForPosition(cocos2d::Size mapSize, cocos2d::Size tileSize, cocos2d::Vec2 position, int &coordX, int &coordY)
 {
 	coordX = (int)(position.x / tileSize.width);
@@ -67,3 +67,4 @@ void MapManager::PositionForTileCoord(cocos2d::Size mapSize, cocos2d::Size tileS
 
 	coordY = (int)(((mapSize.height * tileSize.height) - position.y) / tileSize.height);
 }
+*/

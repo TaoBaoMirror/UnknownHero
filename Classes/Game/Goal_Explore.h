@@ -18,7 +18,9 @@
 #include "Vector2D.h"
 #include "GridPos.h"
 #include "Goal_Type.h"
-#include "Soldier.h"
+
+
+class Soldier;
 
 class Goal_Explore : public Goal_Composite<Soldier>
 {
