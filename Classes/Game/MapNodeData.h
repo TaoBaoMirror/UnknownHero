@@ -12,7 +12,7 @@
 #ifndef MapNodeData_h__
 #define MapNodeData_h__
 
-#include <iostream>
+#include <fstream>
 
 class Soldier;
 
@@ -35,8 +35,8 @@ public:
 	MapNodeData(std::ifstream& stream):
 		Creature(NULL)
 	{
-// 		char buffer[50];
-// 		stream >> buffer >> ID >> buffer >> ResouceID >> buffer >> SpecialID;
+		char buffer[50];
+		stream >> buffer >> ID >> buffer >> ResouceID >> buffer >> SpecialID;
 
 	}
 	//需要序列化的
