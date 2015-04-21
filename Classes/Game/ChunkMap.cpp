@@ -32,13 +32,13 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		//
 		mGridMap.Init(sTileSize.width * sLayerSize.width,
 					  sTileSize.height * sLayerSize.height,
-					  sLayerSize.width,sLayerSize.height,
-					  Vector2D(0,0));	//这里的LT的位置 还有待调整，可以根据，实际情况而定
+					  sTileSize.width,sTileSize.height,
+					  Vector2D(sTileSize.width * 0.5f,sTileSize.height * 0.5f));	//这里的LT的位置 还有待调整，可以根据，实际情况而定
 		mGridMap.CreateMap(GridSceneMap::Quat);
 		//
 		mIM.Init(	sTileSize.width * sLayerSize.width,
 					sTileSize.height * sLayerSize.height,
-					sLayerSize.width,sLayerSize.height);
+					sTileSize.width,sTileSize.height);
 		//
 		//地图数据MapNodeData的初始化
 		int NodeNum = sLayerSize.width * sLayerSize.height;
@@ -47,42 +47,37 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		for (int i = 0 ; i < NodeNum; ++i)
 		{
 			MapNodeData pMND;
-			MapNodeDataList.push_back(pMND);	//这样添加的数据，内存地址不会变动的
-		}
-		for (int i = 0 ; i < MapNodeDataList.size(); ++i)
-		{
-			MapNodeData* ptr = &(MapNodeDataList[MapNodeDataList.size() - 1]);
-			mGridMap.GMap().GetNode(ptr->ID).SetExtraInfo(ptr);
+			pMND.ID = i;
+			MapNodeDataList.push_back(pMND);
+			mGridMap.GMap().GetNode(i).SetExtraInfo(&MapNodeDataList.back());
 		}
 		//
 		//从TMX读取的数据
 		for (int lx = 0 ; lx < sLayerSize.width; ++lx)
 		{
-			for (int ly = 0 ; lx < sLayerSize.height; ++ly)
+			for (int ly = 0 ; ly < sLayerSize.height; ++ly)
 			{
 				auto gid = pGridLayer->getTileGIDAt(cocos2d::Vec2(lx,ly));
-				for(const auto& value : getPropertiesForGID(gid).asValueMap())
+				auto properties = getPropertiesForGID(gid).asValueMap();
+
+				if (!properties.empty()) 
 				{
-					std::string szFirst = value.first;
-					//std::string szSecond = value.second.asString();
+					//Cost 部分
+					auto nType = properties["Cost"].asInt();
 					//调整一下Y的坐标
-					int fix_y = sLayerSize.height - ly;
+					int fix_y = sLayerSize.height - ly - 1 ;// 从0计数的
 					int index = 0;
 					mGridMap.GridPosToIndex(GridPos(lx,fix_y),index);
 					auto& node = mGridMap.GetNode(index);
-					//
-					if (szFirst == "Cost")
+					if (nType == NULL_NODE)	//删除这个点
 					{
-						int nType = value.second.asInt();
-						if (nType == NULL_NODE)	//删除这个点
-						{
-							mGridMap.GMap().RemoveNode(index);
-						}
-						else
-						{
-							Cast_MapNodeData(node.ExtraInfo())->Type = nType;
-						}
+						mGridMap.GMap().RemoveNode(index);
 					}
+					else
+					{
+						Cast_MapNodeData(node.ExtraInfo())->Type = nType;
+					}
+
 					
 				}
 			}

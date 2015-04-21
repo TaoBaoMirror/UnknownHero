@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "BaseUI\ProgressBar.h"
 #include <thread>
+#include "Game\ChunkMap.h"
 
 NS_CC_BEGIN
 
@@ -65,6 +66,9 @@ private:
 	void Continue_Game_3(Ref* sender);
 
 	//virtual void onEnter() override;
+protected: 
+	void TestMap();
+	ChunkMap*	pChunk;
 };
 
 NS_CC_END

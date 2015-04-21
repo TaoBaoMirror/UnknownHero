@@ -157,7 +157,19 @@ bool TitleUI::init()
     //
 	this->setTouchEnabled(true);
     //    
+	TestMap();
+
+	//
     return true;
+}
+
+
+
+void TitleUI::TestMap()
+{
+	pChunk = new ChunkMap();
+	pChunk->InitChunkMap("map\\testMap.tmx");
+	addChild(pChunk,10);
 }
 
 void TitleUI::callback_OnPressQuitGame(Ref* sender)
