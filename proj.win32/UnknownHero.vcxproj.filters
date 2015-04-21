@@ -67,6 +67,18 @@
     <Filter Include="Classes\Game\Map">
       <UniqueIdentifier>{fe317075-2ef3-4152-8d30-30d7065f0de3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\GameStatus">
+      <UniqueIdentifier>{65dd4efd-f66e-4f4c-99fc-3a9c536793af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Career">
+      <UniqueIdentifier>{cb1e8bbf-e58a-4634-9818-555a77cc77a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\City">
+      <UniqueIdentifier>{f06b6669-6115-4ebd-8ea9-2a9d5ad71c93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Village">
+      <UniqueIdentifier>{47099139-6d20-4c66-b12c-c7c2b139ece8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -209,6 +221,51 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Skill\SkillSystem.cpp">
       <Filter>Classes\Game\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\EnemyManager.cpp">
+      <Filter>Classes\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\NPCManager.cpp">
+      <Filter>Classes\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\PlayerManager.cpp">
+      <Filter>Classes\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\SaveData.cpp">
+      <Filter>Classes\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\LogoUI.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\TitleUI.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameStatus\GameStates.cpp">
+      <Filter>Classes\GameStatus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Actor.cpp">
+      <Filter>Classes\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Hero.cpp">
+      <Filter>Classes\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Career\CareerBase.cpp">
+      <Filter>Classes\Career</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\City\City.cpp">
+      <Filter>Classes\City</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Village\Village.cpp">
+      <Filter>Classes\Village</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Monster.cpp">
+      <Filter>Classes\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\TableData.cpp">
+      <Filter>Classes\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\TableManager.cpp">
+      <Filter>Classes\Data</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\MapManager.cpp">
       <Filter>Classes\Game\Map</Filter>
@@ -373,6 +430,51 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Skill\SkillSystem.h">
       <Filter>Classes\Game\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\EnemyManager.h">
+      <Filter>Classes\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\NPCManager.h">
+      <Filter>Classes\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\PlayerManager.h">
+      <Filter>Classes\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\SaveData.h">
+      <Filter>Classes\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\LogoUI.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\TitleUI.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameStatus\GameStates.h">
+      <Filter>Classes\GameStatus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Actor.h">
+      <Filter>Classes\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Hero.h">
+      <Filter>Classes\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Career\CareerBase.h">
+      <Filter>Classes\Career</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\City\City.h">
+      <Filter>Classes\City</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Village\Village.h">
+      <Filter>Classes\Village</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Monster.h">
+      <Filter>Classes\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\TableData.h">
+      <Filter>Classes\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\TableManager.h">
+      <Filter>Classes\Data</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\MapManager.h">
       <Filter>Classes\Game\Map</Filter>

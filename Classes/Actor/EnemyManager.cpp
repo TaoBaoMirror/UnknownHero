@@ -27,7 +27,14 @@ void EnemyManager::Update(float dt)
 	;
 }
 //-------------------------------------------------------
+void EnemyManager::CreateMonster(int monsterID)
+{
+	//1 根据怪物ID 读表 读取怪物基本信息
 
+	//2 根据怪物类型 创建怪物对象
+
+	//3 根据怪物射程(MonsterType) 将怪物对象分别放入三个队列中
+}
 //-------------------------------------------------------
 bool EnemyManager::IsAnyBodyHere()
 {

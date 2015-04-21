@@ -1,5 +1,7 @@
 #include "GameScene.h"
 
+#include "Scene/GameManager.h"
+
 int GameScene::LayerTag = 1;
 
 GameScene::GameScene()
@@ -35,6 +37,7 @@ bool GameScene::init()
 
 void GameScene::update( float dt )
 {
+	GameManager::GetInstance()->Update(dt);
 
 }
 

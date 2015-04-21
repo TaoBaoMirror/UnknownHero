@@ -217,6 +217,11 @@ void GameManager::NPCFight_Update(float dt)
 	NPCManager::GetInstance()->Update(dt);
 }
 //-----------------------------------------------------------------
+void GameManager::UpdateCity(float dt)
+{
+	;
+}
+//-----------------------------------------------------------------
 void GameManager::LoadGameData()
 {
 	m_SData1.LoadSaveFile(ResDef::g_SaveDataFileName_1);

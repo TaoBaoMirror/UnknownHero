@@ -13,7 +13,6 @@ PlayerManager* PlayerManager::GetInstance()
 	return m_Instance;
 }
 //-------------------------------------------------------
-
 PlayerManager::PlayerManager(void)
 {
 }

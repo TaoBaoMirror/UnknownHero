@@ -1,7 +1,7 @@
-﻿生成启动时间为 2015/4/21 16:32:00。
-     1>项目“E:\UnknownHero\cocos2d\external\chipmunk\proj.win32\chipmunk.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 2015/4/21 23:44:32。
+     1>项目“H:\TaoCode\UnknownHero\UnknownHero\cocos2d\external\chipmunk\proj.win32\chipmunk.vcxproj”在节点 3 上(Rebuild 个目标)。
      1>ClCompile:
-         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\include" /I..\include\chipmunk /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4068 /wd4996 /analyze- /errorReport:prompt ..\src\chipmunk.c ..\src\cpArbiter.c ..\src\cpArray.c ..\src\cpBB.c ..\src\cpBBTree.c ..\src\cpBody.c ..\src\cpCollision.c ..\src\cpHashSet.c ..\src\cpPolyShape.c ..\src\cpShape.c ..\src\cpSpace.c ..\src\cpSpaceComponent.c ..\src\cpSpaceHash.c ..\src\cpSpaceQuery.c ..\src\cpSpaceStep.c ..\src\cpSpatialIndex.c ..\src\cpSweep1D.c ..\src\cpVect.c ..\src\constraints\cpConstraint.c ..\src\constraints\cpDampedRotarySpring.c ..\src\constraints\cpDampedSpring.c ..\src\constraints\cpGearJoint.c ..\src\constraints\cpGrooveJoint.c ..\src\constraints\cpPinJoint.c ..\src\constraints\cpPivotJoint.c ..\src\constraints\cpRatchetJoint.c ..\src\constraints\cpRotaryLimitJoint.c ..\src\constraints\cpSimpleMotor.c ..\src\constraints\cpSlideJoint.c
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\include" /I..\include\chipmunk /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4068 /wd4996 /analyze- /errorReport:prompt ..\src\chipmunk.c ..\src\cpArbiter.c ..\src\cpArray.c ..\src\cpBB.c ..\src\cpBBTree.c ..\src\cpBody.c ..\src\cpCollision.c ..\src\cpHashSet.c ..\src\cpPolyShape.c ..\src\cpShape.c ..\src\cpSpace.c ..\src\cpSpaceComponent.c ..\src\cpSpaceHash.c ..\src\cpSpaceQuery.c ..\src\cpSpaceStep.c ..\src\cpSpatialIndex.c ..\src\cpSweep1D.c ..\src\cpVect.c ..\src\constraints\cpConstraint.c ..\src\constraints\cpDampedRotarySpring.c ..\src\constraints\cpDampedSpring.c ..\src\constraints\cpGearJoint.c ..\src\constraints\cpGrooveJoint.c ..\src\constraints\cpPinJoint.c ..\src\constraints\cpPivotJoint.c ..\src\constraints\cpRatchetJoint.c ..\src\constraints\cpRotaryLimitJoint.c ..\src\constraints\cpSimpleMotor.c ..\src\constraints\cpSlideJoint.c
          chipmunk.c
          cpArbiter.c
          cpArray.c
@@ -32,7 +32,7 @@
          cpSimpleMotor.c
          cpSlideJoint.c
        Lib:
-         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"E:\UnknownHero\proj.win32\Debug.win32\libchipmunk.lib" /NOLOGO Debug.win32\chipmunk.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\libchipmunk.lib" /NOLOGO Debug.win32\chipmunk.obj
          Debug.win32\cpArbiter.obj
          Debug.win32\cpArray.obj
          Debug.win32\cpBB.obj
@@ -61,9 +61,9 @@
          Debug.win32\cpRotaryLimitJoint.obj
          Debug.win32\cpSimpleMotor.obj
          Debug.win32\cpSlideJoint.obj
-         chipmunk.vcxproj -> E:\UnknownHero\proj.win32\Debug.win32\libchipmunk.lib
-     1>已完成生成项目“E:\UnknownHero\cocos2d\external\chipmunk\proj.win32\chipmunk.vcxproj”(Build 个目标)的操作。
+         chipmunk.vcxproj -> H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\libchipmunk.lib
+     1>已完成生成项目“H:\TaoCode\UnknownHero\UnknownHero\cocos2d\external\chipmunk\proj.win32\chipmunk.vcxproj”(Rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.93
+已用时间 00:00:53.32

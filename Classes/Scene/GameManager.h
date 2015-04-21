@@ -54,6 +54,8 @@ public:
 
 	void UpdateFight(float dt);	
 	//------------------------------
+	void UpdateCity(float dt);
+	//------------------------------
 
 	void LoadGameData();
 	void SaveGameData();

@@ -149,7 +149,7 @@ void GameState_City::Enter()
 
 void GameState_City::Execute(float dt)
 {
-	;
+	GameManager::GetInstance()->UpdateCity(dt);
 }
 
 void GameState_City::Exit()
