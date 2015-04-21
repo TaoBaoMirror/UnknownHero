@@ -15,8 +15,6 @@ public:
 
 	virtual void update(float dt) override;
 
-	void SceneInit();
-
 	void NewGame();
 
 	void Continue();

@@ -32,20 +32,15 @@ cocos2d::Scene* GameScene::createScene()
 
 bool GameScene::init()
 {
+	//1 check 当前进度 如果是新进度 那么从头开始
+
+	//2 如果是已有进度 那么继续之前的流程
 	return true;
 }
 
 void GameScene::update( float dt )
 {
 	GameManager::GetInstance()->Update(dt);
-
-}
-
-void GameScene::SceneInit()
-{
-	//1 check 当前进度 如果是新进度 那么从头开始
-
-	//2 如果是已有进度 那么继续之前的流程
 
 }
 
