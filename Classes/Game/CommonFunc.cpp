@@ -1,5 +1,6 @@
 #include "CommonFunc.h"
-
+#include "ChunkMap.h"
+#include "MapManager.h"
 
 const GridSceneMap& G_GetSceneMap()
 {

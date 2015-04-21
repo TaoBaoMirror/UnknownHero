@@ -12,11 +12,9 @@
 #ifndef CommonFunc_h__
 #define CommonFunc_h__
 
-#include "ChunkMap.h"
-#include "MapManager.h"
 #include "GridSceneMap.h"
-//
+
 const GridSceneMap& G_GetSceneMap();
-//
+
 
 #endif // CommonFunc_h__

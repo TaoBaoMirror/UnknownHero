@@ -378,10 +378,10 @@ void GridSceneMap::FindTilesInH( const GridPos& GPos,int length,std::vector<Grid
 
 void GridSceneMap::FindTilesInQuad( const GridPos& GPos,int length,std::vector<GridPos>& out_NodeIndexes ) const
 {
-	int x_upper = std::min(GPos.X + length,SizeNumX - 1);
-	int x_lower = std::max(GPos.X - length,0);
-	int y_upper = std::min(GPos.Y + length,SizeNumY - 1);
-	int y_lower = std::max(GPos.Y - length,0);
+	int x_upper = MinOf(GPos.X + length,SizeNumX - 1);
+	int x_lower = MaxOf(GPos.X - length,0);
+	int y_upper = MinOf(GPos.Y + length,SizeNumY - 1);
+	int y_lower = MaxOf(GPos.Y - length,0);
 	//
 	out_NodeIndexes.clear();
 	out_NodeIndexes.reserve((y_upper - y_lower + 1) * (x_upper - x_lower + 1));
