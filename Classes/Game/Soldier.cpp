@@ -3,7 +3,6 @@
 #include "Vector2D.h"
 #include "GridPos.h"
 #include "MapNodeData.h"
-
 //
 #include "GridSceneMap.h"
 #include "Graph/GraphAlgorithms.h"
@@ -15,6 +14,8 @@
 #include "AttackDesc.h"
 #include "AttackRange.h"
 #include "AttackRange_Round.h"
+//
+#include "MapManager.h"
 
 #include "ShieldSystem.h"
 #include "TargetingSystem.h"

@@ -1,4 +1,5 @@
 #include "Analyzer.h"
+#include "Misc/utils.h"
 
 Analyzer::Analyzer()
 {
@@ -61,7 +62,7 @@ void Analyzer::Decision(int Round)
 
 	for (int i = 0;i< mScores.size();++i )
 	{
-		indexUnit = max(indexUnit,mScores[i].first);
+		indexUnit = MaxOf<float>(indexUnit,mScores[i].first);
 	}
 
 	//

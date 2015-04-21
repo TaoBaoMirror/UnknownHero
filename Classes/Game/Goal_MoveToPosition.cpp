@@ -3,15 +3,6 @@
 //
 #include "MapManager.h"
 
-Goal_MoveToPosition::Goal_MoveToPosition( Soldier* pBot, GridPos gpos ) :
-	Goal_Composite<Soldier>(pBot,
-	goal_move_to_position),
-	m_Destination(gpos)
-{
-
-}
-
-
 void Goal_MoveToPosition::Activate()
 {
 	m_iStatus = active;
