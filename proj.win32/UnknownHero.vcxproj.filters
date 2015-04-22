@@ -79,6 +79,9 @@
     <Filter Include="Classes\Village">
       <UniqueIdentifier>{47099139-6d20-4c66-b12c-c7c2b139ece8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Game\Debug">
+      <UniqueIdentifier>{fee03445-b1a2-4672-bc55-71e96a9db73e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -272,6 +275,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\MapNodeData.cpp">
       <Filter>Classes\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Debug\GizmoSoldier.cpp">
+      <Filter>Classes\Game\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +487,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\MapNodeData.h">
       <Filter>Classes\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Debug\GizmoSoldier.h">
+      <Filter>Classes\Game\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

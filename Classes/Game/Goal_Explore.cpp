@@ -20,7 +20,7 @@ void Goal_Explore::Activate()
 
 		}while(!G_GetSceneMap().GetNode(m_CurrentDestination).Walkable());
 
-		if(MapManager::GetInstance()->GetCurChunkMap().CheckCanArrived(m_pOwner->GetStayGPos(),m_CurrentDestination,&path))
+		if(MapManager::GetInstance()->GetCurChunkMap()->CheckCanArrived(m_pOwner->GetStayGPos(),m_CurrentDestination,&path))
 		{
 			RemoveAllSubgoals();
 

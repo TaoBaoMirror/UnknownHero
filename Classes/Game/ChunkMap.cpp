@@ -5,10 +5,17 @@
 #include "Graph/GraphNodeTypes.h"
 #include "Graph/AStarHeuristicPolicies.h"
 
+#include "SoldierManager.h"
+#include "Soldier.h"
+#include "SoldierPF.h"
+#include "Messaging\MessageListenerManager.h"
+
 #define GridLayer "GridLayer"
 #define NULL_NODE -1
 
-
+//
+#include "Debug/GizmoSoldier.h"
+//
 
 ChunkMap::ChunkMap():EnableDebugDraw(true)
 {
@@ -147,6 +154,7 @@ void ChunkMap::SetEnableDebugDraw( bool enableDraw )
 	else
 	{
 		pDebugDrawNode->removeFromParent();
+		pDebugDrawNode->clear();
 	}
 	//
 	EnableDebugDraw = enableDraw;
@@ -186,4 +194,39 @@ bool ChunkMap::CheckCanArrived( const GridPos& A,const GridPos& B,std::list<Grid
 	}
 
 	return true;
+}
+
+void ChunkMap::update( float delta )
+{
+	SoldierManager::Instance()->Update();
+
+}
+
+void ChunkMap::DeployCreature()
+{
+	SoldierManager::Instance()->Init();
+	//
+	int StartIndex = 0;
+
+	GizmoSoldier* PlayerSoldier = GizmoSoldier::create();
+	const GridPos& GPos_1 = GridPos(0,0);
+	PlayerSoldier->SetToGPos(GPos_1);
+	PlayerSoldier->SetID(StartIndex++);
+	//
+	SoldierManager::Instance()->RegisterSoldier(PlayerSoldier);
+	MessageListenerManager::Instance()->RegisterMessageListener(PlayerSoldier);
+	mIM.AddDynamicField(PlayerSoldier->GetSoldierPF());
+
+	GizmoSoldier* EnemySoldier = GizmoSoldier::create();
+	const GridPos& GPos_2 = GridPos(13,7);
+	EnemySoldier->SetToGPos(GPos_2);
+	EnemySoldier->SetID(StartIndex++);
+	//
+	SoldierManager::Instance()->RegisterSoldier(EnemySoldier);
+	MessageListenerManager::Instance()->RegisterMessageListener(EnemySoldier);
+	mIM.AddDynamicField(EnemySoldier->GetSoldierPF());
+
+	addChild(PlayerSoldier,10);
+	addChild(EnemySoldier,10);
+
 }

@@ -12,7 +12,7 @@ void Goal_MoveToPosition::Activate()
 	
 	std::list<GridPos>	path;
 
-	if(!MapManager::GetInstance()->GetCurChunkMap().CheckCanArrived(m_pOwner->GetStayGPos(),m_Destination,&path))
+	if(!MapManager::GetInstance()->GetCurChunkMap()->CheckCanArrived(m_pOwner->GetStayGPos(),m_Destination,&path))
 	{
 		m_iStatus = failed;
 	}

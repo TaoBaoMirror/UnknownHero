@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+#include "Game\ChunkMap.h"
+
 class GameScene : cocos2d::Scene
 {
 public:
@@ -11,7 +13,7 @@ public:
 
 	static cocos2d::Scene* createScene();
 
-	virtual bool init();
+	bool init() override;
 
 	virtual void update(float dt) override;
 
@@ -20,6 +22,8 @@ public:
 	void Continue();
 
 	static int LayerTag;
+protected: 
+	void TestMap();
 };
 
 #endif //__GAME_SCENE_H__

@@ -4,5 +4,5 @@
 
 const GridSceneMap& G_GetSceneMap()
 {
-	return MapManager::GetInstance()->GetCurChunkMap().GetGridSceneMap();
+	return MapManager::GetInstance()->GetCurChunkMap()->GetGridSceneMap();
 }

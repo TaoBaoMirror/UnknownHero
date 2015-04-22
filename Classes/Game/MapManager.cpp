@@ -14,6 +14,7 @@ MapManager* MapManager::GetInstance()
 
 MapManager::MapManager()
 {
+	CurSceneMap = new ChunkMap();
 }
 
 
@@ -28,13 +29,14 @@ ChunkMap* MapManager::ChangeMap(int index)
 	//LoadMapResName(realid);
 
 	//2 load map
-	std::stringstream ss;
-	ss << index;
-	std::string strIndex = ss.str();
-	std::string mapName = "Map_" + strIndex;
+// 	std::stringstream ss;
+// 	ss << index;
+// 	std::string strIndex = ss.str();
+// 	std::string mapName = "Map_" + strIndex;
 
+	CurSceneMap->InitChunkMap("map\\testMap.tmx");
 
-	return &CurSceneMap;
+	return CurSceneMap;
 }
 /*
 void MapManager::TileCoordForPosition(cocos2d::Size mapSize, cocos2d::Size tileSize, cocos2d::Vec2 position, int &coordX, int &coordY)

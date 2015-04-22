@@ -79,6 +79,7 @@ public:
 
 	const GridPos& GetStayGPos() const {return StayGridPos;}
 	const GridPos& GetLastStayGPos() const {return LastStayGridPos;}
+	const Vector2D& GetPosition() const {return Position;}
 
 	AttackSystem* GetAttackSystem() {return pAttackSystem;}
 	ShieldSystem* GetShieldSystem() { return pShieldSystem;}

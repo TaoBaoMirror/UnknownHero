@@ -166,6 +166,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\ChunkMap.cpp" />
     <ClCompile Include="..\Classes\Game\CommonFunc.cpp" />
     <ClCompile Include="..\Classes\Game\CreatureBase.cpp" />
+    <ClCompile Include="..\Classes\Game\Debug\GizmoSoldier.cpp" />
     <ClCompile Include="..\Classes\Game\ExploreGoal_Evaluator.cpp" />
     <ClCompile Include="..\Classes\Game\GameInfluenceMap.cpp" />
     <ClCompile Include="..\Classes\Game\GeomorphologyCreater.cpp" />
@@ -233,6 +234,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\ChunkMap.h" />
     <ClInclude Include="..\Classes\Game\CommonFunc.h" />
     <ClInclude Include="..\Classes\Game\CreatureBase.h" />
+    <ClInclude Include="..\Classes\Game\Debug\GizmoSoldier.h" />
     <ClInclude Include="..\Classes\Game\ExploreGoal_Evaluator.h" />
     <ClInclude Include="..\Classes\Game\GameInfluenceMap.h" />
     <ClInclude Include="..\Classes\Game\GeomorphologyCreater.h" />

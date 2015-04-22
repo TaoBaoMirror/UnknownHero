@@ -42,13 +42,18 @@ public:
 	GridSceneMap&	GetGridSceneMap() { return mGridMap;}
 	GameInfluenceMap&	GetGameInfluenceMap() { return mIM;}
 	bool  CheckCanArrived(const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr = NULL);
+	// 一些重写的函数
+	void update(float delta) override;
 	//
+	void FreeChunkData();
+	void DeployCreature();
+
+	
 protected:
 	GridSceneMap		mGridMap;
 	GameInfluenceMap	mIM;
 	std::vector<MapNodeData>	MapNodeDataList;
 private:
-	void	FreeChunkData();
 public:
 	void	DebugRender();
 	void	SetEnableDebugDraw(bool enableDraw);
