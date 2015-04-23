@@ -90,10 +90,13 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				}
 			}
 		}
-		//生物体数据层加载
+		/*
+		//	生物体数据层加载,这个是Obj类型的层
+
+			Creature在编辑的时候，他们的属性应该是一致的，
+		*/
 		auto pCreatureLayer = getLayer(CreatureLayer);
-		auto sLayerSize = pGridLayer->getLayerSize();
-		auto sTileSize = pGridLayer->getMapTileSize();
+
 		//
 		SetEnableDebugDraw(EnableDebugDraw);
 		//
