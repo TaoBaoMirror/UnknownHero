@@ -54,32 +54,49 @@ public:
 
 	virtual void Update();
 	virtual void Render();
-	//
-	virtual void BeginMove();
-	virtual void EndMove();
-
-
+	//这个move是瞬移的
 	bool MoveForward(int step = 1);
 	bool MoveBackward(int step = 1);
 	bool MoveLeft(int step = 1);
 	bool MoveRight(int step = 1);
+	virtual void BeginMove();
+	virtual void EndMove();
 	bool MoveTo(const GridPos& GPos);
-	void SetPath();
-
+	//这个move是动画移动的,需要cocos2dx的支持
+	virtual void BeginTraval() {}
+	virtual void EndTraval() {}
+	virtual void TravalTo(const GridPos& GPos){}
+	//得到一条到目标的路径
 	void GetPathToTarget(const GridPos& A,const GridPos& B,std::vector<GridPos>& path);
+	//向给定的GPos点靠近一步
 	void MoveCloseToGPos(const GridPos& other,GridPos& out_nextGPos);
+	//向给定的GPos点远离一步
 	void MoveAwayFromGPos(const GridPos& other,GridPos& out_nextGPos);
-	void FindSoldiersInRange(int RangeSize, bool ExceptSelf , int RType ,std::vector<Soldier*>&	out_SoldierList);
 
+	/*
+		寻找在范围内的Soldier
+	//	参数	@ RangeSize			范围尺寸
+	//		@ ExceptSelf		释否除去自己
+			@ RType				范围的Type
+			@ out_SoldierList	结果列表
+
+	*/
+	void FindSoldiersInRange(int RangeSize, bool ExceptSelf , int RType ,std::vector<Soldier*>&	out_SoldierList);
+	//释放显示攻击范围
 	void SetShowAttackRange(bool s){bShowAttackRange = s;}
 	bool IsShowAttackRange(){return bShowAttackRange;}
-
+	//强制移动到GPos上,不建议直接使用
 	void SetToGPos(const GridPos& GPos);
 	bool CanSetTo(const GridPos& GPos){return canStay(GPos);}
+	//是否可以在此GPos上停留
+	virtual bool canStay(const GridPos& GPos);
+
 
 	const GridPos& GetStayGPos() const {return StayGridPos;}
 	const GridPos& GetLastStayGPos() const {return LastStayGridPos;}
 	const Vector2D& GetPosition() const {return Position;}
+
+
 
 	AttackSystem* GetAttackSystem() {return pAttackSystem;}
 	ShieldSystem* GetShieldSystem() { return pShieldSystem;}
@@ -91,18 +108,22 @@ public:
 	void Attack(Soldier* other);
 
 public:
+	//玩家操作时候用的
 	bool    bPossessed;
 	bool    IsPossessed(){return bPossessed;}
+	//Soldier 受到控制
 	void    TakePossession();
+	//Soldier 离开控制
 	void    Exorcise();
 public:
+	//更新位置 WorldPos
 	void UpdatePosition();
+	//更新GPos
 	void UpdateNodeWithGPos();
+	//更新PF位置
 	void UpdateSoldierPFPosition();
 protected:
-
 	void showAttackRange(const std::vector<GridPos>&	AttackGPosList);
-	bool canStay(const GridPos& GPos);
 private:
 	Vector2D Position;				//所在的世界位置
 	int		 ID;					//ID

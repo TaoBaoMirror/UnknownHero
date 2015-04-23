@@ -1,7 +1,7 @@
-﻿生成启动时间为 2015/4/21 23:44:32。
-     1>项目“H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\cocos2d.vcxproj”在节点 2 上(Rebuild 个目标)。
+﻿生成启动时间为 2015/4/22 0:27:06。
+     1>项目“E:\UnknownHero\cocos2d\cocos\2d\cocos2d.vcxproj”在节点 2 上(Rebuild 个目标)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\include" /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\sqlite3\include /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\unzip /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\edtaa3func /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\tinyxml2 /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\png\include\win32 /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\jpeg\include\win32 /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\tiff\include\win32 /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\webp\include\win32 /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\freetype2\include\win32 /I"H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\icon\include" /I"H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\zlib\include" /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\chipmunk\include\chipmunk /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\xxhash /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\ConvertUTF /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\cocos /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\cocos\platform\win32 /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\cocos\platform\desktop /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\glfw3\include\win32 /I"H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /Z7 /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _LIB /D COCOS2DXWIN32_EXPORTS /D GL_GLEXT_PROTOTYPES /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\..\external\ConvertUTF\ConvertUTF.c ..\..\external\ConvertUTF\ConvertUTFWrapper.cpp ..\..\external\edtaa3func\edtaa3func.cpp ..\..\external\tinyxml2\tinyxml2.cpp ..\..\external\unzip\ioapi.cpp ..\..\external\unzip\unzip.cpp ..\..\external\xxhash\xxhash.c ..\3d\CCAnimate3D.cpp ..\3d\CCAnimation3D.cpp ..\3d\CCBundle3D.cpp ..\3d\CCBundleReader.cpp ..\3d\CCMesh.cpp ..\3d\CCMeshSkin.cpp ..\3d\CCObjLoader.cpp ..\3d\CCSprite3D.cpp ..\3d\CCSprite3DMaterial.cpp ..\base\atitc.cpp ..\base\base64.cpp ..\base\CCAutoreleasePool.cpp ..\base\ccCArray.cpp ..\base\CCConfiguration.cpp ..\base\CCConsole.cpp ..\base\CCData.cpp ..\base\CCDataVisitor.cpp ..\base\CCDirector.cpp ..\base\CCEvent.cpp ..\base\CCEventAcceleration.cpp ..\base\CCEventCustom.cpp ..\base\CCEventDispatcher.cpp ..\base\CCEventFocus.cpp ..\base\CCEventKeyboard.cpp ..\base\CCEventListener.cpp ..\base\CCEventListenerAcceleration.cpp ..\base\CCEventListenerCustom.cpp ..\base\CCEventListenerFocus.cpp ..\base\CCEventListenerKeyboard.cpp ..\base\CCEventListenerMouse.cpp ..\base\CCEventListenerTouch.cpp ..\base\CCEventMouse.cpp ..\base\CCEventTouch.cpp ..\base\ccFPSImages.c ..\base\CCIMEDispatcher.cpp ..\base\CCNS.cpp ..\base\CCProfiling.cpp ..\base\CCRef.cpp ..\base\CCScheduler.cpp ..\base\CCScriptSupport.cpp ..\base\CCTouch.cpp ..\base\ccTypes.cpp ..\base\CCUserDefault.cpp ..\base\ccUTF8.cpp ..\base\ccUtils.cpp ..\base\CCValue.cpp ..\base\etc1.cpp ..\base\ObjectFactory.cpp ..\base\s3tc.cpp ..\base\TGAlib.cpp ..\base\ZipUtils.cpp ..\cocos2d.cpp ..\deprecated\CCArray.cpp ..\deprecated\CCDeprecated.cpp ..\deprecated\CCDictionary.cpp ..\deprecated\CCNotificationCenter.cpp ..\deprecated\CCSet.cpp ..\deprecated\CCString.cpp ..\math\CCAffineTransform.cpp ..\math\CCGeometry.cpp ..\math\CCVertex.cpp ..\math\Mat4.cpp ..\math\MathUtil.cpp ..\math\Quaternion.cpp ..\math\TransformUtils.cpp ..\math\Vec2.cpp ..\math\Vec3.cpp ..\math\Vec4.cpp ..\physics\CCPhysicsBody.cpp ..\physics\CCPhysicsContact.cpp ..\physics\CCPhysicsJoint.cpp ..\physics\CCPhysicsShape.cpp ..\physics\CCPhysicsWorld.cpp ..\physics\chipmunk\CCPhysicsBodyInfo_chipmunk.cpp ..\physics\chipmunk\CCPhysicsContactInfo_chipmunk.cpp ..\physics\chipmunk\CCPhysicsJointInfo_chipmunk.cpp ..\physics\chipmunk\CCPhysicsShapeInfo_chipmunk.cpp ..\physics\chipmunk\CCPhysicsWorldInfo_chipmunk.cpp ..\platform\CCFileUtils.cpp ..\platform\CCGLViewProtocol.cpp ..\platform\CCImage.cpp ..\platform\CCSAXParser.cpp ..\platform\CCThread.cpp ..\platform\desktop\CCGLView.cpp ..\platform\win32\CCApplication.cpp ..\platform\win32\CCCommon.cpp ..\platform\win32\CCDevice.cpp ..\platform\win32\CCFileUtilsWin32.cpp ..\platform\win32\CCStdC.cpp ..\renderer\CCBatchCommand.cpp ..\renderer\CCCustomCommand.cpp ..\renderer\CCGLProgram.cpp ..\renderer\CCGLProgramCache.cpp ..\renderer\CCGLProgramState.cpp ..\renderer\CCGLProgramStateCache.cpp ..\renderer\ccGLStateCache.cpp ..\renderer\CCGroupCommand.cpp ..\renderer\CCMeshCommand.cpp ..\renderer\CCQuadCommand.cpp ..\renderer\CCRenderCommand.cpp ..\renderer\CCRenderer.cpp ..\renderer\ccShaders.cpp ..\renderer\CCTexture2D.cpp ..\renderer\CCTextureAtlas.cpp ..\renderer\CCTextureCache.cpp CCAction.cpp CCActionCamera.cpp CCActionCatmullRom.cpp CCActionEase.cpp CCActionGrid.cpp CCActionGrid3D.cpp CCActionInstant.cpp CCActionInterval.cpp CCActionManager.cpp CCActionPageTurn3D.cpp CCActionProgressTimer.cpp CCActionTiledGrid.cpp CCActionTween.cpp CCAnimation.cpp CCAnimationCache.cpp CCAtlasNode.cpp CCClippingNode.cpp CCComponent.cpp CCComponentContainer.cpp CCDrawingPrimitives.cpp CCDrawNode.cpp CCFastTMXLayer.cpp CCFastTMXTiledMap.cpp CCFont.cpp CCFontAtlas.cpp CCFontAtlasCache.cpp CCFontCharMap.cpp CCFontFNT.cpp CCFontFreeType.cpp CCGLBufferedNode.cpp CCGrabber.cpp CCGrid.cpp CCLabel.cpp CCLabelAtlas.cpp CCLabelBMFont.cpp CCLabelTextFormatter.cpp CCLabelTTF.cpp CCLayer.cpp CCMenu.cpp CCMenuItem.cpp CCMotionStreak.cpp CCNode.cpp CCNodeGrid.cpp CCParallaxNode.cpp CCParticleBatchNode.cpp CCParticleExamples.cpp CCParticleSystem.cpp CCParticleSystemQuad.cpp CCProgressTimer.cpp CCRenderTexture.cpp CCScene.cpp CCSprite.cpp CCSpriteBatchNode.cpp CCSpriteFrame.cpp CCSpriteFrameCache.cpp CCTextFieldTTF.cpp CCTileMapAtlas.cpp CCTMXLayer.cpp CCTMXObjectGroup.cpp CCTMXTiledMap.cpp CCTMXXMLParser.cpp CCTransition.cpp CCTransitionPageTurn.cpp CCTransitionProgress.cpp CCTweenFunction.cpp
+         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\include" /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\sqlite3\include /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\unzip /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\edtaa3func /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\tinyxml2 /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\png\include\win32 /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\jpeg\include\win32 /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\tiff\include\win32 /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\webp\include\win32 /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\freetype2\include\win32 /I"E:\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\icon\include" /I"E:\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\zlib\include" /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\chipmunk\include\chipmunk /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\xxhash /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\ConvertUTF /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external /IE:\UnknownHero\cocos2d\cocos\2d\..\..\cocos /IE:\UnknownHero\cocos2d\cocos\2d\..\..\cocos\platform\win32 /IE:\UnknownHero\cocos2d\cocos\2d\..\..\cocos\platform\desktop /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\glfw3\include\win32 /I"E:\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /Z7 /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _LIB /D COCOS2DXWIN32_EXPORTS /D GL_GLEXT_PROTOTYPES /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\..\external\ConvertUTF\ConvertUTF.c ..\..\external\ConvertUTF\ConvertUTFWrapper.cpp ..\..\external\edtaa3func\edtaa3func.cpp ..\..\external\tinyxml2\tinyxml2.cpp ..\..\external\unzip\ioapi.cpp ..\..\external\unzip\unzip.cpp ..\..\external\xxhash\xxhash.c ..\3d\CCAnimate3D.cpp ..\3d\CCAnimation3D.cpp ..\3d\CCBundle3D.cpp ..\3d\CCBundleReader.cpp ..\3d\CCMesh.cpp ..\3d\CCMeshSkin.cpp ..\3d\CCObjLoader.cpp ..\3d\CCSprite3D.cpp ..\3d\CCSprite3DMaterial.cpp ..\base\atitc.cpp ..\base\base64.cpp ..\base\CCAutoreleasePool.cpp ..\base\ccCArray.cpp ..\base\CCConfiguration.cpp ..\base\CCConsole.cpp ..\base\CCData.cpp ..\base\CCDataVisitor.cpp ..\base\CCDirector.cpp ..\base\CCEvent.cpp ..\base\CCEventAcceleration.cpp ..\base\CCEventCustom.cpp ..\base\CCEventDispatcher.cpp ..\base\CCEventFocus.cpp ..\base\CCEventKeyboard.cpp ..\base\CCEventListener.cpp ..\base\CCEventListenerAcceleration.cpp ..\base\CCEventListenerCustom.cpp ..\base\CCEventListenerFocus.cpp ..\base\CCEventListenerKeyboard.cpp ..\base\CCEventListenerMouse.cpp ..\base\CCEventListenerTouch.cpp ..\base\CCEventMouse.cpp ..\base\CCEventTouch.cpp ..\base\ccFPSImages.c ..\base\CCIMEDispatcher.cpp ..\base\CCNS.cpp ..\base\CCProfiling.cpp ..\base\CCRef.cpp ..\base\CCScheduler.cpp ..\base\CCScriptSupport.cpp ..\base\CCTouch.cpp ..\base\ccTypes.cpp ..\base\CCUserDefault.cpp ..\base\ccUTF8.cpp ..\base\ccUtils.cpp ..\base\CCValue.cpp ..\base\etc1.cpp ..\base\ObjectFactory.cpp ..\base\s3tc.cpp ..\base\TGAlib.cpp ..\base\ZipUtils.cpp ..\cocos2d.cpp ..\deprecated\CCArray.cpp ..\deprecated\CCDeprecated.cpp ..\deprecated\CCDictionary.cpp ..\deprecated\CCNotificationCenter.cpp ..\deprecated\CCSet.cpp ..\deprecated\CCString.cpp ..\math\CCAffineTransform.cpp ..\math\CCGeometry.cpp ..\math\CCVertex.cpp ..\math\Mat4.cpp ..\math\MathUtil.cpp ..\math\Quaternion.cpp ..\math\TransformUtils.cpp ..\math\Vec2.cpp ..\math\Vec3.cpp ..\math\Vec4.cpp ..\physics\CCPhysicsBody.cpp ..\physics\CCPhysicsContact.cpp ..\physics\CCPhysicsJoint.cpp ..\physics\CCPhysicsShape.cpp ..\physics\CCPhysicsWorld.cpp ..\physics\chipmunk\CCPhysicsBodyInfo_chipmunk.cpp ..\physics\chipmunk\CCPhysicsContactInfo_chipmunk.cpp ..\physics\chipmunk\CCPhysicsJointInfo_chipmunk.cpp ..\physics\chipmunk\CCPhysicsShapeInfo_chipmunk.cpp ..\physics\chipmunk\CCPhysicsWorldInfo_chipmunk.cpp ..\platform\CCFileUtils.cpp ..\platform\CCGLViewProtocol.cpp ..\platform\CCImage.cpp ..\platform\CCSAXParser.cpp ..\platform\CCThread.cpp ..\platform\desktop\CCGLView.cpp ..\platform\win32\CCApplication.cpp ..\platform\win32\CCCommon.cpp ..\platform\win32\CCDevice.cpp ..\platform\win32\CCFileUtilsWin32.cpp ..\platform\win32\CCStdC.cpp ..\renderer\CCBatchCommand.cpp ..\renderer\CCCustomCommand.cpp ..\renderer\CCGLProgram.cpp ..\renderer\CCGLProgramCache.cpp ..\renderer\CCGLProgramState.cpp ..\renderer\CCGLProgramStateCache.cpp ..\renderer\ccGLStateCache.cpp ..\renderer\CCGroupCommand.cpp ..\renderer\CCMeshCommand.cpp ..\renderer\CCQuadCommand.cpp ..\renderer\CCRenderCommand.cpp ..\renderer\CCRenderer.cpp ..\renderer\ccShaders.cpp ..\renderer\CCTexture2D.cpp ..\renderer\CCTextureAtlas.cpp ..\renderer\CCTextureCache.cpp CCAction.cpp CCActionCamera.cpp CCActionCatmullRom.cpp CCActionEase.cpp CCActionGrid.cpp CCActionGrid3D.cpp CCActionInstant.cpp CCActionInterval.cpp CCActionManager.cpp CCActionPageTurn3D.cpp CCActionProgressTimer.cpp CCActionTiledGrid.cpp CCActionTween.cpp CCAnimation.cpp CCAnimationCache.cpp CCAtlasNode.cpp CCClippingNode.cpp CCComponent.cpp CCComponentContainer.cpp CCDrawingPrimitives.cpp CCDrawNode.cpp CCFastTMXLayer.cpp CCFastTMXTiledMap.cpp CCFont.cpp CCFontAtlas.cpp CCFontAtlasCache.cpp CCFontCharMap.cpp CCFontFNT.cpp CCFontFreeType.cpp CCGLBufferedNode.cpp CCGrabber.cpp CCGrid.cpp CCLabel.cpp CCLabelAtlas.cpp CCLabelBMFont.cpp CCLabelTextFormatter.cpp CCLabelTTF.cpp CCLayer.cpp CCMenu.cpp CCMenuItem.cpp CCMotionStreak.cpp CCNode.cpp CCNodeGrid.cpp CCParallaxNode.cpp CCParticleBatchNode.cpp CCParticleExamples.cpp CCParticleSystem.cpp CCParticleSystemQuad.cpp CCProgressTimer.cpp CCRenderTexture.cpp CCScene.cpp CCSprite.cpp CCSpriteBatchNode.cpp CCSpriteFrame.cpp CCSpriteFrameCache.cpp CCTextFieldTTF.cpp CCTileMapAtlas.cpp CCTMXLayer.cpp CCTMXObjectGroup.cpp CCTMXTiledMap.cpp CCTMXXMLParser.cpp CCTransition.cpp CCTransitionPageTurn.cpp CCTransitionProgress.cpp CCTweenFunction.cpp
          ConvertUTF.c
          ConvertUTFWrapper.cpp
          edtaa3func.cpp
@@ -9,690 +9,659 @@
          ioapi.cpp
          unzip.cpp
          xxhash.c
+     1>..\..\external\xxhash\xxhash.c(312): warning C4804: “/”: 在操作中使用类型“bool”不安全
          CCAnimate3D.cpp
          CCAnimation3D.cpp
-     1>..\..\external\xxhash\xxhash.c(312): warning C4804: “/”: 在操作中使用类型“bool”不安全
          CCBundle3D.cpp
          CCBundleReader.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCBundleReader.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCBundleReader.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCAnimate3D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCAnimate3D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCAnimation3D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCAnimation3D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCBundle3D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCBundle3D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>..\3d\CCBundle3D.cpp(107): warning C4018: “<”: 有符号/无符号不匹配
+     1>..\3d\CCBundle3D.cpp(494): warning C4018: “<”: 有符号/无符号不匹配
          CCMesh.cpp
+     1>..\3d\CCAnimate3D.cpp(98): warning C4018: “<”: 有符号/无符号不匹配
          CCMeshSkin.cpp
          CCObjLoader.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCBundleReader.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCBundleReader.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCMesh.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCMesh.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCSprite3D.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCSprite3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCSprite3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCAnimation3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCAnimation3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCAnimate3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCAnimate3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCMeshSkin.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCMeshSkin.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCMesh.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCMesh.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCBundle3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCBundle3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCObjLoader.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCObjLoader.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>..\3d\CCMeshSkin.cpp(301): warning C4018: “<”: 有符号/无符号不匹配
      1>..\3d\CCMeshSkin.cpp(307): warning C4018: “<”: 有符号/无符号不匹配
      1>..\3d\CCMeshSkin.cpp(335): warning C4018: “<”: 有符号/无符号不匹配
      1>..\3d\CCMeshSkin.cpp(338): warning C4018: “<”: 有符号/无符号不匹配
-         CCSprite3DMaterial.cpp
-     1>..\3d\CCBundle3D.cpp(107): warning C4018: “<”: 有符号/无符号不匹配
-     1>..\3d\CCBundle3D.cpp(494): warning C4018: “<”: 有符号/无符号不匹配
-     1>..\3d\CCAnimate3D.cpp(98): warning C4018: “<”: 有符号/无符号不匹配
      1>..\3d\CCObjLoader.cpp(170): warning C4018: “>”: 有符号/无符号不匹配
+         CCSprite3DMaterial.cpp
          atitc.cpp
-         base64.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\atitc.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\atitc.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         base64.cpp
          CCAutoreleasePool.cpp
          ccCArray.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\ccCArray.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\ccCArray.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCSprite3DMaterial.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCSprite3DMaterial.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCAutoreleasePool.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCAutoreleasePool.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCConfiguration.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCConfiguration.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCConfiguration.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCAutoreleasePool.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCAutoreleasePool.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\3d\CCSprite3DMaterial.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\3d\CCSprite3DMaterial.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCConsole.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCConsole.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCConsole.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCData.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCData.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCData.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCDataVisitor.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCDataVisitor.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCDataVisitor.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCData.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCData.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCDirector.cpp
          CCEvent.cpp
          CCEventAcceleration.cpp
          CCEventCustom.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventCustom.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventCustom.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCDirector.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCDirector.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventAcceleration.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventAcceleration.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCEventDispatcher.cpp
          CCEventFocus.cpp
          CCEventKeyboard.cpp
          CCEventListener.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventListener.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventListener.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCDirector.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCDirector.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventCustom.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventCustom.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCEventListenerAcceleration.cpp
-         CCEventListenerCustom.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventAcceleration.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventAcceleration.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventDispatcher.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventDispatcher.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCEventListenerFocus.cpp
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventListenerAcceleration.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventListenerAcceleration.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCEventListenerCustom.cpp
+         CCEventListenerFocus.cpp
          CCEventListenerKeyboard.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventListenerFocus.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventListenerFocus.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCEventListenerMouse.cpp
          CCEventListenerTouch.cpp
-         CCEventMouse.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventListenerFocus.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventListenerFocus.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventListenerKeyboard.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventListenerKeyboard.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCEventMouse.cpp
          CCEventTouch.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventListenerTouch.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventListenerTouch.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
          ccFPSImages.c
          CCIMEDispatcher.cpp
          CCNS.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventListenerTouch.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventListenerTouch.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCNS.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCNS.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventTouch.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventTouch.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCIMEDispatcher.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCIMEDispatcher.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCProfiling.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCProfiling.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCProfiling.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCRef.cpp
          CCScheduler.cpp
-         CCScriptSupport.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCProfiling.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCProfiling.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCEventTouch.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCEventTouch.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCRef.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCRef.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCTouch.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCIMEDispatcher.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCIMEDispatcher.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCNS.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCNS.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         ccTypes.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCScriptSupport.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCScriptSupport.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCScriptSupport.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCScheduler.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCScheduler.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCTouch.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCScriptSupport.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCScriptSupport.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         ccTypes.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCTouch.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCTouch.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCUserDefault.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\ccTypes.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\ccTypes.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          ccUTF8.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCUserDefault.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCUserDefault.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         ccUtils.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\ccTypes.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\ccTypes.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\ccUTF8.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\ccUTF8.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         ccUtils.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\ccUtils.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\ccUtils.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCValue.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\CCValue.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\CCValue.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>..\base\ccUTF8.cpp(234): warning C4996: 'cocos2d::cc_wcslen': 被声明为已否决
+                 e:\unknownhero\cocos2d\cocos\base\ccUTF8.h(130) : 参见“cocos2d::cc_wcslen”的声明
+     1>..\base\ccUTF8.cpp(277): warning C4996: 'cocos2d::cc_wcslen': 被声明为已否决
+                 e:\unknownhero\cocos2d\cocos\base\ccUTF8.h(130) : 参见“cocos2d::cc_wcslen”的声明
          etc1.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\ccUtils.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\ccUtils.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
          ObjectFactory.cpp
          s3tc.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\s3tc.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\s3tc.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
          TGAlib.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\s3tc.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\s3tc.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          ZipUtils.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\TGAlib.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\TGAlib.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\ZipUtils.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\ZipUtils.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          cocos2d.cpp
          CCArray.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\deprecated\CCArray.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\deprecated\CCArray.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCDeprecated.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\deprecated\CCDeprecated.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\deprecated\CCDeprecated.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\TGAlib.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\TGAlib.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>..\base\ccUTF8.cpp(234): warning C4996: 'cocos2d::cc_wcslen': 被声明为已否决
-                 h:\taocode\unknownhero\unknownhero\cocos2d\cocos\base\ccUTF8.h(130) : 参见“cocos2d::cc_wcslen”的声明
-     1>..\base\ccUTF8.cpp(277): warning C4996: 'cocos2d::cc_wcslen': 被声明为已否决
-                 h:\taocode\unknownhero\unknownhero\cocos2d\cocos\base\ccUTF8.h(130) : 参见“cocos2d::cc_wcslen”的声明
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\base\ZipUtils.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\base\ZipUtils.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCDictionary.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\deprecated\CCDictionary.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\deprecated\CCDictionary.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCNotificationCenter.cpp
          CCSet.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\deprecated\CCNotificationCenter.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\deprecated\CCNotificationCenter.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCString.cpp
          CCAffineTransform.cpp
          CCGeometry.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\deprecated\CCNotificationCenter.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\deprecated\CCNotificationCenter.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\deprecated\CCString.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\deprecated\CCString.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\CCAffineTransform.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\CCAffineTransform.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\CCGeometry.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\CCGeometry.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCVertex.cpp
          Mat4.cpp
-         MathUtil.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\Mat4.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\Mat4.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         MathUtil.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\MathUtil.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\MathUtil.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         Quaternion.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\deprecated\CCString.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\deprecated\CCString.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\CCAffineTransform.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\CCAffineTransform.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\CCGeometry.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\CCGeometry.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\Quaternion.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\Quaternion.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\CCVertex.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\CCVertex.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         Quaternion.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\Quaternion.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\Quaternion.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          TransformUtils.cpp
          Vec2.cpp
          Vec3.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\Vec3.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\Vec3.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\Vec2.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\Vec2.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\TransformUtils.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\TransformUtils.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          Vec4.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\Vec4.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\Vec4.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCPhysicsBody.cpp
          CCPhysicsContact.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\Vec3.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\Vec3.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\Vec4.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\Vec4.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
          CCPhysicsJoint.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\TransformUtils.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\TransformUtils.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\math\Vec2.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\math\Vec2.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\physics\CCPhysicsBody.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\physics\CCPhysicsBody.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\physics\CCPhysicsContact.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\physics\CCPhysicsContact.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCPhysicsShape.cpp
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\physics\CCPhysicsJoint.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\physics\CCPhysicsJoint.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCPhysicsShape.cpp
          CCPhysicsWorld.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\physics\CCPhysicsWorld.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\physics\CCPhysicsWorld.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\physics\CCPhysicsShape.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\physics\CCPhysicsShape.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCPhysicsBodyInfo_chipmunk.cpp
          CCPhysicsContactInfo_chipmunk.cpp
          CCPhysicsJointInfo_chipmunk.cpp
          CCPhysicsShapeInfo_chipmunk.cpp
          CCPhysicsWorldInfo_chipmunk.cpp
          CCFileUtils.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\physics\CCPhysicsShape.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\physics\CCPhysicsShape.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
          CCGLViewProtocol.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\physics\chipmunk\CCPhysicsWorldInfo_chipmunk.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\physics\chipmunk\CCPhysicsWorldInfo_chipmunk.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\CCFileUtils.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\CCFileUtils.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\CCGLViewProtocol.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\CCGLViewProtocol.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCImage.cpp
          CCSAXParser.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\physics\chipmunk\CCPhysicsWorldInfo_chipmunk.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\physics\chipmunk\CCPhysicsWorldInfo_chipmunk.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+     1>..\platform\CCFileUtils.cpp(546): warning C4018: “<”: 有符号/无符号不匹配
          CCThread.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\CCFileUtils.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\CCFileUtils.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCGLView.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\CCGLViewProtocol.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\CCGLViewProtocol.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\CCImage.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\CCImage.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\CCSAXParser.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\CCSAXParser.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCGLView.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\CCThread.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\CCThread.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCApplication.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\win32\CCApplication.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\win32\CCApplication.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\CCThread.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\CCThread.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\desktop\CCGLView.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\desktop\CCGLView.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>..\platform\CCFileUtils.cpp(546): warning C4018: “<”: 有符号/无符号不匹配
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCCommon.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\win32\CCCommon.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\win32\CCCommon.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCDevice.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\win32\CCDevice.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\win32\CCDevice.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCFileUtilsWin32.cpp
          CCStdC.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\win32\CCStdC.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\win32\CCStdC.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCBatchCommand.cpp
-         CCCustomCommand.cpp
-         CCGLProgram.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCGLProgram.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCGLProgram.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCGLProgramCache.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCGLProgramCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCGLProgramCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCGLProgramState.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\platform\win32\CCFileUtilsWin32.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\platform\win32\CCFileUtilsWin32.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCCustomCommand.cpp
+     1>e:\unknownhero\cocos2d\cocos\platform\win32\CCFileUtilsWin32.h(102): warning C4996: 'cocos2d::FileUtils::getFileData': 被声明为已否决 (..\platform\win32\CCFileUtilsWin32.cpp)
+                 E:\UnknownHero\cocos2d\cocos\platform/CCFileUtils.h(101) : 参见“cocos2d::FileUtils::getFileData”的声明
+         CCGLProgram.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCBatchCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCBatchCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCGLProgram.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCGLProgram.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCGLProgramCache.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCCustomCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCCustomCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>h:\taocode\unknownhero\unknownhero\cocos2d\cocos\platform\win32\CCFileUtilsWin32.h(102): warning C4996: 'cocos2d::FileUtils::getFileData': 被声明为已否决 (..\platform\win32\CCFileUtilsWin32.cpp)
-                 H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\platform/CCFileUtils.h(101) : 参见“cocos2d::FileUtils::getFileData”的声明
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCGLProgramCache.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCGLProgramCache.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCGLProgramState.cpp
          CCGLProgramStateCache.cpp
-         ccGLStateCache.cpp
-         CCGroupCommand.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCGLProgramState.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCGLProgramState.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCGLProgramStateCache.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCGLProgramStateCache.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         ccGLStateCache.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\ccGLStateCache.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\ccGLStateCache.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCGroupCommand.cpp
          CCMeshCommand.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCMeshCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCMeshCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCQuadCommand.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\ccGLStateCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\ccGLStateCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCRenderCommand.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCGLProgramStateCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCGLProgramStateCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCRenderer.cpp
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCGroupCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCGroupCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCQuadCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCQuadCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCRenderCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCRenderCommand.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         ccShaders.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCRenderer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCRenderer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCTexture2D.cpp
-         CCTextureAtlas.cpp
-         CCTextureCache.cpp
-         CCAction.cpp
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCQuadCommand.cpp
      1>..\renderer\ccGLStateCache.cpp(225): warning C4800: “uint32_t”: 将值强制为布尔值“true”或“false”(性能警告)
      1>..\renderer\ccGLStateCache.cpp(226): warning C4800: “uint32_t”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCQuadCommand.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCQuadCommand.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCRenderCommand.cpp
+         CCRenderer.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCRenderCommand.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCRenderCommand.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         ccShaders.cpp
+         CCTexture2D.cpp
+         CCTextureAtlas.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCRenderer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCRenderer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCTextureCache.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCTexture2D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCTexture2D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCTextureAtlas.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCTextureAtlas.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCTextureCache.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCTextureCache.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCAction.cpp
          CCActionCamera.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionCamera.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionCamera.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCActionCatmullRom.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionCatmullRom.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionCatmullRom.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionCamera.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionCamera.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCActionEase.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCTextureAtlas.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCTextureAtlas.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCAction.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCAction.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCTexture2D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCTexture2D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCActionEase.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionEase.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionEase.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\renderer\CCTextureCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\renderer\CCTextureCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCActionGrid.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionGrid.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionGrid.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
          CCActionGrid3D.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionGrid.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionGrid.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionGrid3D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionGrid3D.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCActionInstant.cpp
          CCActionInterval.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionGrid3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionGrid3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionInterval.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionInterval.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionInstant.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionInstant.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCActionManager.cpp
          CCActionPageTurn3D.cpp
          CCActionProgressTimer.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionPageTurn3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionPageTurn3D.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionProgressTimer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionProgressTimer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionInstant.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionInstant.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionManager.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionManager.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCActionTiledGrid.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionTiledGrid.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionTiledGrid.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionManager.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionManager.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCActionTween.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCActionTween.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCActionTween.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCAnimation.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCAnimation.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCAnimation.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCAnimationCache.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCAnimationCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCAnimationCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCAtlasNode.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCAtlasNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCAtlasNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCClippingNode.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCClippingNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCClippingNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCComponent.cpp
          CCComponentContainer.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCComponentContainer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCComponentContainer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCComponent.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCComponent.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCDrawingPrimitives.cpp
          CCDrawNode.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCDrawNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCDrawNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCComponent.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCComponent.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCFastTMXLayer.cpp
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCDrawingPrimitives.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCDrawingPrimitives.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCFastTMXLayer.cpp
          CCFastTMXTiledMap.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFastTMXTiledMap.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFastTMXTiledMap.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFastTMXLayer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFastTMXLayer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCFont.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFont.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFont.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCFontAtlas.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFontAtlas.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFontAtlas.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCFontAtlasCache.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFastTMXLayer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFastTMXLayer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFont.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFont.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCFontCharMap.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFontAtlasCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFontAtlasCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFontCharMap.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFontCharMap.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCFontCharMap.cpp
          CCFontFNT.cpp
-         CCFontFreeType.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFontCharMap.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFontCharMap.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFontFNT.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFontFNT.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCFontFreeType.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCFontFreeType.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCFontFreeType.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCGLBufferedNode.cpp
          CCGrabber.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCGrabber.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCGrabber.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCGrid.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCGrid.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCGrid.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCGrabber.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCGrabber.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCLabel.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCLabel.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCLabel.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCLabelAtlas.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCLabelAtlas.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCLabelAtlas.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCLabel.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCLabel.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCLabelBMFont.cpp
-         CCLabelTextFormatter.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCLabelBMFont.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCLabelBMFont.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCLabelTTF.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCLabelTTF.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCLabelTTF.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCLayer.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCLayer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCLayer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCLabelTextFormatter.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCLabelTextFormatter.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCLabelTextFormatter.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCMenu.cpp
-         CCMenuItem.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCMenu.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCMenu.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCMotionStreak.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCMenuItem.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCMenuItem.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCNode.cpp
-         CCNodeGrid.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCNodeGrid.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCNodeGrid.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\functional(1152): warning C4800: “unsigned int”: 将值强制为布尔值“true”或“false”(性能警告) (CCLabel.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\functional(1152): 编译类 模板 成员函数“void std::_Bind<_Forced,_Ret,_Fun,_V0_t,_V1_t,_V2_t,_V3_t,_V4_t,_V5_t,_V6_t,_V7_t,_V8_t,_V9_t,_V10_t,<unnamed-symbol>>::operator ()(void)”时
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\functional(1152): warning C4800: “unsigned int”: 将值强制为布尔值“true”或“false”(性能警告) (CCLabel.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\functional(1152): 编译类 模板 成员函数“void std::_Bind<_Forced,_Ret,_Fun,_V0_t,_V1_t,_V2_t,_V3_t,_V4_t,_V5_t,_V6_t,_V7_t,_V8_t,_V9_t,_V10_t,<unnamed-symbol>>::operator ()(void)”时
                  with
                  [
                      _Forced=true,
@@ -711,7 +680,7 @@
                      _V10_t=std::_Nil,
                      <unnamed-symbol>=std::_Nil
                  ]
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xrefwrap(431): 参见对正在编译的函数 模板 实例化“void std::_Bind<_Forced,_Ret,_Fun,_V0_t,_V1_t,_V2_t,_V3_t,_V4_t,_V5_t,_V6_t,_V7_t,_V8_t,_V9_t,_V10_t,<unnamed-symbol>>::operator ()(void)”的引用
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xrefwrap(431): 参见对正在编译的函数 模板 实例化“void std::_Bind<_Forced,_Ret,_Fun,_V0_t,_V1_t,_V2_t,_V3_t,_V4_t,_V5_t,_V6_t,_V7_t,_V8_t,_V9_t,_V10_t,<unnamed-symbol>>::operator ()(void)”的引用
                  with
                  [
                      _Forced=true,
@@ -749,133 +718,164 @@
                      _V10_t=std::_Nil,
                      <unnamed-symbol>=std::_Nil
                  ]
+         CCLabelTTF.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCLabelTTF.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCLabelTTF.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCLayer.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCLayer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCLayer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCMenu.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCMenu.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCMenu.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCMenuItem.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCMenuItem.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCMenuItem.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCMotionStreak.cpp
+         CCNode.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCNode.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCNode.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCMotionStreak.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCMotionStreak.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCNodeGrid.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCNodeGrid.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCNodeGrid.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCParallaxNode.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCParallaxNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCParallaxNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCParticleBatchNode.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCParticleBatchNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCParticleBatchNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCMotionStreak.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCMotionStreak.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCParticleExamples.cpp
          CCParticleSystem.cpp
          CCParticleSystemQuad.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCParticleExamples.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCParticleExamples.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCProgressTimer.cpp
-         CCRenderTexture.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCProgressTimer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCProgressTimer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCRenderTexture.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCRenderTexture.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-         CCScene.cpp
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCParticleSystem.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCParticleSystem.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCScene.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCScene.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCParticleSystemQuad.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCParticleSystemQuad.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCProgressTimer.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCProgressTimer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCProgressTimer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCRenderTexture.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCRenderTexture.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCRenderTexture.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+         CCScene.cpp
          CCSprite.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCSprite.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCSprite.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCScene.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCScene.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCSpriteBatchNode.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCSpriteBatchNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCSpriteBatchNode.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCSpriteFrame.cpp
          CCSpriteFrameCache.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCSpriteFrameCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCSpriteFrameCache.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCTextFieldTTF.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTextFieldTTF.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTextFieldTTF.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCSpriteFrame.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCSpriteFrame.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTextFieldTTF.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTextFieldTTF.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCTileMapAtlas.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTileMapAtlas.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTileMapAtlas.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCTMXLayer.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTMXLayer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTMXLayer.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCTMXObjectGroup.cpp
          CCTMXTiledMap.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTMXTiledMap.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTMXTiledMap.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTMXLayer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTMXLayer.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTMXObjectGroup.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTMXObjectGroup.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCTMXXMLParser.cpp
          CCTransition.cpp
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTMXObjectGroup.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTMXObjectGroup.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTransition.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTransition.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTMXXMLParser.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTMXXMLParser.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
          CCTransitionPageTurn.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTransition.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTransition.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTMXXMLParser.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTMXXMLParser.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTransitionPageTurn.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTransitionPageTurn.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCTransitionProgress.cpp
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTransitionProgress.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTransitionProgress.cpp)
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
          CCTweenFunction.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTweenFunction.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2872) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTweenFunction.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTransitionPageTurn.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTransitionPageTurn.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (CCTransitionProgress.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2864) : 参见“__useHeader”的前一个定义
-     1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (CCTransitionProgress.cpp)
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+                 E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sal.h(2882) : 参见“__on_failure”的前一个定义
        PreLinkEvent:
-         if not exist "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\" mkdir "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\freetype2\prebuilt\win32\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\glfw3\prebuilt\win32\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\curl\prebuilt\win32\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\jpeg\prebuilt\win32\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\png\prebuilt\win32\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\tiff\prebuilt\win32\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\webp\prebuilt\win32\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\websockets\prebuilt\win32\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\zlib\prebuilt\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\icon\prebuilt\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
-         xcopy /Y /Q "H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\gles\prebuilt\*.*" "H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\"
+         if not exist "E:\UnknownHero\proj.win32\Debug.win32\" mkdir "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\freetype2\prebuilt\win32\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\glfw3\prebuilt\win32\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\curl\prebuilt\win32\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\jpeg\prebuilt\win32\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\png\prebuilt\win32\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\tiff\prebuilt\win32\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\webp\prebuilt\win32\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\websockets\prebuilt\win32\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\zlib\prebuilt\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\icon\prebuilt\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
+         xcopy /Y /Q "E:\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\gles\prebuilt\*.*" "E:\UnknownHero\proj.win32\Debug.win32\"
          
          :VCEnd
          复制了 1 个文件
@@ -890,7 +890,7 @@
          复制了 2 个文件
          复制了 2 个文件
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\libcocos2d.lib" /NOLOGO Debug.win32\ConvertUTF.obj
+         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"E:\UnknownHero\proj.win32\Debug.win32\libcocos2d.lib" /NOLOGO Debug.win32\ConvertUTF.obj
          Debug.win32\ConvertUTFWrapper.obj
          Debug.win32\edtaa3func.obj
          Debug.win32\tinyxml2.obj
@@ -1067,9 +1067,9 @@
          Debug.win32\CCTransitionPageTurn.obj
          Debug.win32\CCTransitionProgress.obj
          Debug.win32\CCTweenFunction.obj
-         cocos2d.vcxproj -> H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\libcocos2d.lib
-     1>已完成生成项目“H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\cocos2d.vcxproj”(Rebuild 个目标)的操作。
+         cocos2d.vcxproj -> E:\UnknownHero\proj.win32\Debug.win32\libcocos2d.lib
+     1>已完成生成项目“E:\UnknownHero\cocos2d\cocos\2d\cocos2d.vcxproj”(Rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:01:24.93
+已用时间 00:02:08.14

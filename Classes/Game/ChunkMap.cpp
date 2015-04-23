@@ -10,7 +10,8 @@
 #include "SoldierPF.h"
 #include "Messaging\MessageListenerManager.h"
 
-#define GridLayer "GridLayer"
+#define GridLayer "GridLayer"	//网格数据层
+#define CreatureLayer "CreatureLayer"	//生物体数据层
 #define NULL_NODE -1
 
 //
@@ -89,7 +90,10 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				}
 			}
 		}
-
+		//生物体数据层加载
+		auto pCreatureLayer = getLayer(CreatureLayer);
+		auto sLayerSize = pGridLayer->getLayerSize();
+		auto sTileSize = pGridLayer->getMapTileSize();
 		//
 		SetEnableDebugDraw(EnableDebugDraw);
 		//
