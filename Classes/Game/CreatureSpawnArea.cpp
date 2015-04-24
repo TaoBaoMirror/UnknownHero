@@ -89,3 +89,32 @@ void CreatureSpawnArea::ExecuteSpawn()
 
 }
 
+void CreatureSpawnArea::ResumeSpawn()
+{
+	this->resume();
+}
+
+int CreatureSpawnArea::GetRandomCreatureID()
+{
+	if (CreateTypes.size())
+	{
+		int i = RandInt(0,CreateTypes.size());
+		return CreateTypes[i];
+	}
+
+	return -1;
+
+}
+
+GridPos CreatureSpawnArea::GetRandomGPos()
+{
+	if (GPosArea.size())
+	{
+		int i = RandInt(0,GPosArea.size());
+		return GPosArea[i];
+	}
+	
+	return -1;
+
+}
+
