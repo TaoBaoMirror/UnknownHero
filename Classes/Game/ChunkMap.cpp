@@ -96,7 +96,26 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 			Creature在编辑的时候，他们的属性应该是一致的，
 		*/
 		auto pCreatureLayer = getLayer(CreatureLayer);
+		for (int lx = 0 ; lx < sLayerSize.width; ++lx)
+		{
+			for (int ly = 0 ; ly < sLayerSize.height; ++ly)
+			{
+				auto gid = pGridLayer->getTileGIDAt(cocos2d::Vec2(lx,ly));
+				auto properties = getPropertiesForGID(gid);
+				if (!properties.isNull())
+				{
+					cocos2d::ValueMap& dict = properties.asValueMap();
+					int   type = dict["CreatureID"].asInt();
+					cocos2d::CCLog("type %d",type);
+					//通过CreatureID去生产响应的生物
+					// CreatureFactory
+					int	  direction = dict["Direction"].asInt();
+					//选择生物体
 
+				}
+				
+			}
+		}
 		//
 		SetEnableDebugDraw(EnableDebugDraw);
 		//
@@ -236,4 +255,9 @@ void ChunkMap::DeployCreature()
 	addChild(PlayerSoldier,10);
 	addChild(EnemySoldier,10);
 
+}
+
+Soldier* ChunkMap::InstantiateCreature( const int CreatureID,const GridPos& GPos,const int DirectionType )
+{
+	return 0;
 }

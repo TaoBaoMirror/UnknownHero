@@ -166,6 +166,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\ChunkMap.cpp" />
     <ClCompile Include="..\Classes\Game\CommonFunc.cpp" />
     <ClCompile Include="..\Classes\Game\CreatureBase.cpp" />
+    <ClCompile Include="..\Classes\Game\CreatureSpawnArea.cpp" />
     <ClCompile Include="..\Classes\Game\Debug\GizmoSoldier.cpp" />
     <ClCompile Include="..\Classes\Game\ExploreGoal_Evaluator.cpp" />
     <ClCompile Include="..\Classes\Game\GameInfluenceMap.cpp" />
@@ -177,6 +178,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Game\Goal_MoveStep.cpp" />
     <ClCompile Include="..\Classes\Game\Goal_MoveToPosition.cpp" />
     <ClCompile Include="..\Classes\Game\Goal_SoldierThink.cpp" />
+    <ClCompile Include="..\Classes\Game\GridPosArea.cpp" />
     <ClCompile Include="..\Classes\Game\MapManager.cpp" />
     <ClCompile Include="..\Classes\Game\MapNodeData.cpp" />
     <ClCompile Include="..\Classes\Game\ShieldData.cpp" />
@@ -234,6 +236,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\ChunkMap.h" />
     <ClInclude Include="..\Classes\Game\CommonFunc.h" />
     <ClInclude Include="..\Classes\Game\CreatureBase.h" />
+    <ClInclude Include="..\Classes\Game\CreatureSpawnArea.h" />
     <ClInclude Include="..\Classes\Game\Debug\GizmoSoldier.h" />
     <ClInclude Include="..\Classes\Game\ExploreGoal_Evaluator.h" />
     <ClInclude Include="..\Classes\Game\GameInfluenceMap.h" />
@@ -247,6 +250,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Game\Goal_MoveToPosition.h" />
     <ClInclude Include="..\Classes\Game\Goal_SoldierThink.h" />
     <ClInclude Include="..\Classes\Game\Goal_Type.h" />
+    <ClInclude Include="..\Classes\Game\GridPosArea.h" />
     <ClInclude Include="..\Classes\Game\MapManager.h" />
     <ClInclude Include="..\Classes\Game\MapNodeData.h" />
     <ClInclude Include="..\Classes\Game\Msg_Type.h" />

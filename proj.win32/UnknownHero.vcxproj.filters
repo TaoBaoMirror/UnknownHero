@@ -279,6 +279,12 @@
     <ClCompile Include="..\Classes\Game\Debug\GizmoSoldier.cpp">
       <Filter>Classes\Game\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\GridPosArea.cpp">
+      <Filter>Classes\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\CreatureSpawnArea.cpp">
+      <Filter>Classes\Game\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -490,6 +496,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Debug\GizmoSoldier.h">
       <Filter>Classes\Game\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\GridPosArea.h">
+      <Filter>Classes\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\CreatureSpawnArea.h">
+      <Filter>Classes\Game\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

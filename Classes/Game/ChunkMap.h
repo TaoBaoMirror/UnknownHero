@@ -39,6 +39,10 @@ public:
 	~ChunkMap();
 	//
 	bool	InitChunkMap(std::string tmxFile);
+	//
+	Soldier*	InstantiateCreature(const int CreatureID,const GridPos& GPos,const int DirectionType);
+
+
 	GridSceneMap&	GetGridSceneMap() { return mGridMap;}
 	GameInfluenceMap&	GetGameInfluenceMap() { return mIM;}
 	bool  CheckCanArrived(const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr = NULL);
