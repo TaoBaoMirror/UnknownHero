@@ -48,7 +48,7 @@ void CreatureSpawnArea::update( float dt )
 void CreatureSpawnArea::StartSpawn()
 {
 	cocos2d::CCDelayTime* dt = cocos2d::CCDelayTime::create(fTimeGap);
-	cocos2d::CCCallFunc*  cf = cocos2d::CCCallFunc::create(OnSpawn);
+	cocos2d::CCCallFunc*  cf = cocos2d::CCCallFunc::create(this,callfunc_selector(CreatureSpawnArea::OnSpawn));
 	cocos2d::CCSequence*  seq = cocos2d::CCSequence::create(dt,cf);
 	cocos2d::CCRepeatForever* rf = cocos2d::CCRepeatForever::create(seq);
 	rf->setTag(SPAWN_ACTION);
@@ -114,7 +114,7 @@ GridPos CreatureSpawnArea::GetRandomGPos()
 		return GPosArea[i];
 	}
 	
-	return -1;
+	return GridPos(-1,-1);
 
 }
 
