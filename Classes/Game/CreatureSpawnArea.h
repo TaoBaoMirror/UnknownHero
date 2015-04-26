@@ -43,9 +43,11 @@ public:
 
 	int		GetRandomCreatureID();
 	GridPos	GetRandomGPos();
+	virtual bool IsSpawnGPosLegit(const GridPos& GPos);
 protected:
 	std::vector<int>		CreateTypes;
 	float					fTimeGap;
+	const ChunkMap*			pChunkMap;
 public:
 	void OnSpawn();
 

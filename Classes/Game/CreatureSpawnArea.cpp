@@ -8,6 +8,7 @@ bool CreatureSpawnArea::Init( int CreatureType , float TimeGap , const GridPos& 
 		GridPosArea::Init(Pos,w,h,Chunk.GetGridSceneMap());
 		RegisterCreatureType(CreatureType);
 		fTimeGap = TimeGap;
+		pChunkMap = &Chunk;
 		return true;
 	}
 
@@ -47,10 +48,10 @@ void CreatureSpawnArea::update( float dt )
 
 void CreatureSpawnArea::StartSpawn()
 {
-	cocos2d::CCDelayTime* dt = cocos2d::CCDelayTime::create(fTimeGap);
-	cocos2d::CCCallFunc*  cf = cocos2d::CCCallFunc::create(this,callfunc_selector(CreatureSpawnArea::OnSpawn));
-	cocos2d::CCSequence*  seq = cocos2d::CCSequence::create(dt,cf);
-	cocos2d::CCRepeatForever* rf = cocos2d::CCRepeatForever::create(seq);
+	cocos2d::DelayTime* dt = cocos2d::DelayTime::create(fTimeGap);
+	cocos2d::CallFunc*  cf = cocos2d::CallFunc::create(CC_CALLBACK_0(CreatureSpawnArea::OnSpawn,this));
+	cocos2d::Sequence*  seq = cocos2d::Sequence::create(dt,cf);
+	cocos2d::RepeatForever* rf = cocos2d::RepeatForever::create(seq);
 	rf->setTag(SPAWN_ACTION);
 	this->runAction(rf);
 }
@@ -108,13 +109,38 @@ int CreatureSpawnArea::GetRandomCreatureID()
 
 GridPos CreatureSpawnArea::GetRandomGPos()
 {
+	const int MAX_RAND_NUM = 10;
 	if (GPosArea.size())
 	{
-		int i = RandInt(0,GPosArea.size());
-		return GPosArea[i];
+		for (int i = 0;i < MAX_RAND_NUM; ++i)
+		{
+			int index = RandInt(0,GPosArea.size());
+			auto node = pChunkMap->GetGridSceneMap().GetNode(index);
+			if (node.Index() != invalid_node_index)
+			{
+				if(IsSpawnGPosLegit(GPosArea[i]))
+				{
+					return GPosArea[i];
+				}
+			}
+		}
+
 	}
 	
 	return GridPos(-1,-1);
+
+}
+
+bool CreatureSpawnArea::IsSpawnGPosLegit(const GridPos& GPos)
+{
+	auto node = pChunkMap->GetGridSceneMap().GetNode(GPos);
+	auto data = Cast_MapNodeData(node.ExtraInfo());
+	if (data && data->Creature == NULL)
+	{
+		return true;
+	}
+
+	return false;
 
 }
 

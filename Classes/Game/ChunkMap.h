@@ -44,7 +44,9 @@ public:
 
 
 	GridSceneMap&	GetGridSceneMap() { return mGridMap;}
+	const GridSceneMap&	GetGridSceneMap() const { return mGridMap;}
 	GameInfluenceMap&	GetGameInfluenceMap() { return mIM;}
+	const GameInfluenceMap&	GetGameInfluenceMap() const{ return mIM;}
 	bool  CheckCanArrived(const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr = NULL);
 	// 一些重写的函数
 	void update(float delta) override;
