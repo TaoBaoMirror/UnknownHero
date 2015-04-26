@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="14" height="8" tilewidth="32" tileheight="32" nextobjectid="4">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="14" height="8" tilewidth="32" tileheight="32" nextobjectid="6">
  <tileset firstgid="1" name="Desert" tilewidth="32" tileheight="32" spacing="1" margin="1">
   <image source="tmw_desert_spacing.png" width="265" height="199"/>
  </tileset>
  <tileset firstgid="49" source="GridTile.tsx"/>
  <tileset firstgid="53" source="CreatureTile.tsx"/>
+ <objectgroup name="SpawnLayer">
+  <object id="4" x="96" y="0" width="32" height="32">
+   <properties>
+    <property name="AreaID" value="1"/>
+    <property name="CreatureIDs" value="1,2,3"/>
+    <property name="TimeGap" value="0.5"/>
+   </properties>
+  </object>
+  <object id="5" x="416" y="64" width="64" height="96">
+   <properties>
+    <property name="AreaID" value="2"/>
+    <property name="CreatureIDs" value="4,5,6"/>
+    <property name="TimeGap" value="0.5"/>
+   </properties>
+  </object>
+ </objectgroup>
  <layer name="GridLayer" width="14" height="8">
   <data encoding="base64" compression="zlib">
    eJwzYmBgMKICNkTDxKg3QlM7nPSRGy6kYgBAbRXN

@@ -69,6 +69,7 @@ void GameScene::TestMap()
 	auto pChunk = MapManager::GetInstance()->GetCurChunkMap();
 	addChild(pChunk,10);
 	//
+	pChunk->setPosition(100,100);
 	pChunk->DeployCreature();
 
 }

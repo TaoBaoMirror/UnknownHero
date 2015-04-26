@@ -63,6 +63,7 @@ public:
 	void FreeChunkData();
 	void DeployCreature();
 	//
+	void onEnter() override;
 
 	
 protected:
@@ -82,6 +83,7 @@ public:
 	void	SetEnableDebugDraw(bool enableDraw);
 	cocos2d::DrawNode*	pDebugDrawNode;
 	bool	EnableDebugDraw;
+	cocos2d::TTFConfig ttfConfig;
 };
 
 #endif // ChunkMap_h__

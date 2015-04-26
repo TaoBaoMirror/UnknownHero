@@ -27,6 +27,9 @@
 ChunkMap::ChunkMap():EnableDebugDraw(true)
 {
 	pDebugDrawNode = cocos2d::DrawNode::create();
+
+	//可以输出一些信息
+	ttfConfig = cocos2d::TTFConfig("fonts/arial.ttf", 12);
 }
 
 ChunkMap::~ChunkMap()
@@ -107,7 +110,7 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		{
 			for (int ly = 0 ; ly < sLayerSize.height; ++ly)
 			{
-				auto gid = pGridLayer->getTileGIDAt(cocos2d::Vec2(lx,ly));
+				auto gid = pCreatureLayer->getTileGIDAt(cocos2d::Vec2(lx,ly));
 				auto properties = getPropertiesForGID(gid);
 				if (!properties.isNull())
 				{
@@ -145,10 +148,10 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				CreatureSpawnArea::ParseCreatureIDs(dict["CreatureIDs"].asString(),IDVec);
 				float timegap = dict["TimeGap"].asFloat();
 				cocos2d::Size size( width/sTileSize.width,height/sTileSize.height );	//转换为Tile个数
-				GridPos BaseGPos(x/sTileSize.width,sLayerSize.height - y/sTileSize.height - 1);
+				GridPos BaseGPos(x/sTileSize.width,y/sTileSize.height);
 
 				CreatureSpawnArea* area = new CreatureSpawnArea();
-				if (GetSpawnArea(id))
+				if (!GetSpawnArea(id))
 				{
 					area->Init(id,IDVec.front(),timegap,BaseGPos,size.width,size.height,this);
 					SpawnAreaList.insert(std::make_pair(id,area));
@@ -177,9 +180,12 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 
 void ChunkMap::DebugRender()
 {
+	const int NodeIndexLabelTag = 0xf; 
+
 	if(!EnableDebugDraw) return;
 	//
 	pDebugDrawNode->clear();
+	pDebugDrawNode->removeChildByTag(NodeIndexLabelTag);
 	//
 	GridSceneMap::NavGraph::ConstNodeIterator NodeItr(mGridMap.GMap());
 	const GridSceneMap::NavGraph::NodeType* pN;
@@ -216,6 +222,30 @@ void ChunkMap::DebugRender()
 		}
 		
 		pDebugDrawNode->drawDot(cocos2d::Vec2(pNode->Pos().x,pNode->Pos().y),3,color);
+		pDebugDrawNode->removeChildByTag(NodeIndexLabelTag + pNode->Index());
+		char szIndex[8];
+		itoa(pNode->Index(),szIndex,10);
+		auto label = cocos2d::Label::createWithTTF(ttfConfig,std::string(szIndex));
+		label->setPosition(cocos2d::Vec2(pNode->Pos().x,pNode->Pos().y+10));
+		label->setColor(cocos2d::Color3B::BLACK);
+		pDebugDrawNode->addChild(label,1,NodeIndexLabelTag + pNode->Index());
+
+	}
+
+	//
+	for (auto it = SpawnAreaList.begin();it != SpawnAreaList.end();++it)
+	{
+		CreatureSpawnArea* pArea = it->second;
+		auto AreaGPos = pArea->GetArea();
+		for (GridPos GPos : AreaGPos)
+		{
+			Vector2D pos;
+
+			GetGridSceneMap().GridPosToWorldPos(GPos,pos);
+
+			pDebugDrawNode->drawDot(cocos2d::Vec2(pos.x,pos.y),14,cocos2d::Color4F::GREEN);
+
+		}
 	}
 }
 
@@ -344,5 +374,11 @@ void ChunkMap::Reset()
 
 void ChunkMap::OnAfterInit()
 {
+
+}
+
+void ChunkMap::onEnter()
+{
+	cocos2d::TMXTiledMap::onEnter();
 
 }
