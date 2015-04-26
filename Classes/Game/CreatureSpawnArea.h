@@ -22,8 +22,8 @@ class CreatureSpawnArea:public GridPosArea,public cocos2d::CCNode
 {
 public:
 	CreatureSpawnArea();
-	//生物体种类，时间间隔，Area的位置，宽，高，chunk
-	bool Init(int AreaID,int CreatureType , float TimeGap , const GridPos& Pos,int w,int h,ChunkMap& Chunk);
+	//区域ID，生物体种类，时间间隔，Area的位置，宽，高，chunk
+	bool Init(int AreaID,int CreatureType , float TimeGap , const GridPos& Pos,int w,int h,ChunkMap* Chunk);
 	int	 GetAreaID() {return nAreaID;}
 	//注册一个生物体种类
 	void RegisterCreatureType(int CType);

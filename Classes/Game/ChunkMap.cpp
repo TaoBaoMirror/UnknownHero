@@ -27,7 +27,6 @@
 ChunkMap::ChunkMap():EnableDebugDraw(true)
 {
 	pDebugDrawNode = cocos2d::DrawNode::create();
-	SpawnAreaList.reserve(16);
 }
 
 ChunkMap::~ChunkMap()
@@ -141,13 +140,19 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				float height = dict["height"].asFloat();
 
 				//下面都是AreaInit需要的
-				float SpawnType = dict["Type"].asInt();
+				int id = dict["AreaID"].asInt();
 				std::vector<int>	IDVec;
-				CreatureSpawnArea::ParseCreatureIDs(dict["IDS"].asString(),IDVec);
+				CreatureSpawnArea::ParseCreatureIDs(dict["CreatureIDs"].asString(),IDVec);
 				float timegap = dict["TimeGap"].asFloat();
 				cocos2d::Size size( width/sTileSize.width,height/sTileSize.height );	//转换为Tile个数
 				GridPos BaseGPos(x/sTileSize.width,sLayerSize.height - y/sTileSize.height - 1);
 
+				CreatureSpawnArea* area = new CreatureSpawnArea();
+				if (GetSpawnArea(id))
+				{
+					area->Init(id,IDVec.front(),timegap,BaseGPos,size.width,size.height,this);
+					SpawnAreaList.insert(std::make_pair(id,area));
+				}
 
 
 			}
@@ -161,6 +166,8 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 
 		//
 		SetEnableDebugDraw(EnableDebugDraw);
+		//
+		OnAfterInit();
 		//
 		return true;
 	}
@@ -303,4 +310,39 @@ void ChunkMap::DeployCreature()
 Soldier* ChunkMap::InstantiateCreature( const int CreatureID,const GridPos& GPos,const int DirectionType )
 {
 	return 0;
+}
+
+CreatureSpawnArea* ChunkMap::GetSpawnArea( int AreaID )
+{
+	auto it = SpawnAreaList.find(AreaID);
+
+	if (it != SpawnAreaList.end())
+	{
+		return it->second;
+	}
+
+	return nullptr;
+}
+
+void ChunkMap::Reset()
+{
+	mIM.Clear();
+	MapNodeDataList.clear();
+	mGridMap.Clear();
+	//
+	auto it = SpawnAreaList.begin();
+	while(it != SpawnAreaList.end())
+	{
+		it->second->release();
+		++it;
+	}
+	SpawnAreaList.clear();
+	//
+	bLoaded = false;
+	SetEnableDebugDraw(false);
+}
+
+void ChunkMap::OnAfterInit()
+{
+
 }

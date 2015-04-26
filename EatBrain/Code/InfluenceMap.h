@@ -46,6 +46,7 @@ public:
 	~InfluenceMap();
 	//
 	void Init(int WorldX,int WorldY,int TileWidth,int TileHeight);
+	void Clear(){StaticMap.clear();Fields.clear();NextID = 0;}
 
 	void AddStaticField(PFPotentialField* field);
 	void RemoveStaticField(PFPotentialField* field);

@@ -59,6 +59,8 @@ Soldier::~Soldier()
 	if(pAttackSystem) { delete pAttackSystem; pAttackSystem = NULL;}
 	if(pShieldSystem) { delete pShieldSystem; pShieldSystem = NULL;}
 	if(pTargetingSystem) { delete pTargetingSystem; pTargetingSystem = NULL;}
+	if (pSoldierPF) { delete pSoldierPF; pSoldierPF = NULL;}
+
 
 
 }

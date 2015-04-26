@@ -42,6 +42,8 @@ public:
 	~ChunkMap();
 	//
 	bool	InitChunkMap(std::string tmxFile);
+	virtual void OnAfterInit();
+	void	Reset();
 	//
 	Soldier*	InstantiateCreature(const int CreatureID,const GridPos& GPos,const int DirectionType);
 
@@ -50,19 +52,30 @@ public:
 	const GridSceneMap&	GetGridSceneMap() const { return mGridMap;}
 	GameInfluenceMap&	GetGameInfluenceMap() { return mIM;}
 	const GameInfluenceMap&	GetGameInfluenceMap() const{ return mIM;}
+	CreatureSpawnArea* GetSpawnArea(int AreaID);
+
+
+
 	bool  CheckCanArrived(const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr = NULL);
 	// 一些重写的函数
 	void update(float delta) override;
 	//
 	void FreeChunkData();
 	void DeployCreature();
+	//
 
 	
 protected:
 	GridSceneMap		mGridMap;
 	GameInfluenceMap	mIM;
+	//地图里面的数据信息
 	std::vector<MapNodeData>			MapNodeDataList;
-	std::vector<CreatureSpawnArea*>		SpawnAreaList;	//这里是只是保存指针，进行调用，而不想Ref++，所以没有使用cocos2d::Vector
+	//这里去管理Area
+	//这里是只是保存指针，进行调用，而不想Ref++，所以没有使用cocos2d::Vector Map
+	std::map<int,CreatureSpawnArea*>	SpawnAreaList;	
+	//是否已经载入
+	bool	bLoaded;
+
 private:
 public:
 	void	DebugRender();

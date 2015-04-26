@@ -1,15 +1,15 @@
 #include "CreatureSpawnArea.h"
 #include "ChunkMap.h"
-bool CreatureSpawnArea::Init( int AreaID , int CreatureType , float TimeGap , const GridPos& Pos,int w,int h,ChunkMap& Chunk )
+bool CreatureSpawnArea::Init( int AreaID , int CreatureType , float TimeGap , const GridPos& Pos,int w,int h,ChunkMap* Chunk )
 {
 	if(cocos2d::CCNode::init())
 	{
 		autorelease();
-		GridPosArea::Init(Pos,w,h,Chunk.GetGridSceneMap());
+		GridPosArea::Init(Pos,w,h,Chunk->GetGridSceneMap());
 		if(CreatureType != -1)RegisterCreatureType(CreatureType);
 		nAreaID = AreaID;
 		fTimeGap = TimeGap;
-		pChunkMap = &Chunk;
+		pChunkMap = Chunk;
 		return true;
 	}
 

@@ -537,4 +537,18 @@ NavGraphNode<void*>& GridSceneMap::GetNode(const  GridPos& GPos ) const
 	return MapGraph->GetNode(index);
 }
 
+void GridSceneMap::Clear()
+{
+	GMap().Clear();
+	BaseLT_Pos = Vector2D(0,0);
+	TileWidth = -1;
+	TileHeight = -1;
+	SizeNumX = -1;
+	SizeNumY = -1;
+	nWorldWidth = -1;
+	nWorldHeight = -1;
+	SceneFileName = "";
+}
+
+
 

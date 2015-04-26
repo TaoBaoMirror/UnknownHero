@@ -30,6 +30,8 @@ public:
 	~GridSceneMap();
 	//
 	void Init(int WorldWidth,int WorldHeight,int tileWidth,int tileHeight , Vector2D& BaseLTPos);
+	
+	void Clear();
 	bool Load(std::ifstream& in);
 	bool Save(std::ofstream& out);
 	int GetTileWidth()const {return TileWidth;}                        
