@@ -12,15 +12,19 @@
 #ifndef CreatureSpawnArea_h__
 #define CreatureSpawnArea_h__
 
+#include "cocos2d.h"
 #include "GridPosArea.h"
-#include "ChunkMap.h"
+
 #define  SPAWN_ACTION 1
+
+class ChunkMap;
 class CreatureSpawnArea:public GridPosArea,public cocos2d::CCNode
 {
 public:
 	CreatureSpawnArea();
 	//生物体种类，时间间隔，Area的位置，宽，高，chunk
-	bool Init(int CreatureType , float TimeGap , const GridPos& Pos,int w,int h,ChunkMap& Chunk);
+	bool Init(int AreaID,int CreatureType , float TimeGap , const GridPos& Pos,int w,int h,ChunkMap& Chunk);
+	int	 GetAreaID() {return nAreaID;}
 	//注册一个生物体种类
 	void RegisterCreatureType(int CType);
 	void UnregisterCreatureType(int CType);
@@ -43,13 +47,19 @@ public:
 
 	int		GetRandomCreatureID();
 	GridPos	GetRandomGPos();
+
 	virtual bool IsSpawnGPosLegit(const GridPos& GPos);
 protected:
 	std::vector<int>		CreateTypes;
-	float					fTimeGap;
 	const ChunkMap*			pChunkMap;
+	//
+	float					fTimeGap;
+	int						nAreaID;				
+
 public:
 	void OnSpawn();
+
+	static int	ParseCreatureIDs(const std::string& szParam,std::vector<int>& szVec);
 
 private:
 };

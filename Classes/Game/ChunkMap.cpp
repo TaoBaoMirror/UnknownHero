@@ -10,17 +10,24 @@
 #include "SoldierPF.h"
 #include "Messaging\MessageListenerManager.h"
 
+
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
+#define SpawnLayer "SpawnLayer"	//卵域数据层
+
+
+
 #define NULL_NODE -1
 
 //
 #include "Debug/GizmoSoldier.h"
+#include "CreatureSpawnArea.h"
 //
 
 ChunkMap::ChunkMap():EnableDebugDraw(true)
 {
 	pDebugDrawNode = cocos2d::DrawNode::create();
+	SpawnAreaList.reserve(16);
 }
 
 ChunkMap::~ChunkMap()
@@ -37,6 +44,7 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		auto pGridLayer = getLayer(GridLayer);
 		auto sLayerSize = pGridLayer->getLayerSize();
 		auto sTileSize = pGridLayer->getMapTileSize();
+		cocos2d::Size sMapSize(sLayerSize.width * sTileSize.width,sLayerSize.height * sTileSize.height);
 		//
 		mGridMap.Init(sTileSize.width * sLayerSize.width,
 					  sTileSize.height * sLayerSize.height,
@@ -91,7 +99,7 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 			}
 		}
 		/*
-		//	生物体数据层加载,这个是Obj类型的层
+		//	生物体数据层加载
 
 			Creature在编辑的时候，他们的属性应该是一致的，
 		*/
@@ -116,6 +124,41 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				
 			}
 		}
+		/*
+			Create Spawn Area
+		*/
+		auto pSpawnLayer = this->getObjectGroup(SpawnLayer);
+		{
+			auto& objects = pSpawnLayer->getObjects();
+
+			for (auto& obj : objects)
+			{
+				cocos2d::ValueMap& dict = obj.asValueMap();
+
+				float x = dict["x"].asFloat();
+				float y = dict["y"].asFloat();
+				float width = dict["width"].asFloat();
+				float height = dict["height"].asFloat();
+
+				//下面都是AreaInit需要的
+				float SpawnType = dict["Type"].asInt();
+				std::vector<int>	IDVec;
+				CreatureSpawnArea::ParseCreatureIDs(dict["IDS"].asString(),IDVec);
+				float timegap = dict["TimeGap"].asFloat();
+				cocos2d::Size size( width/sTileSize.width,height/sTileSize.height );	//转换为Tile个数
+				GridPos BaseGPos(x/sTileSize.width,sLayerSize.height - y/sTileSize.height - 1);
+
+
+
+			}
+
+
+		}
+
+
+
+
+
 		//
 		SetEnableDebugDraw(EnableDebugDraw);
 		//

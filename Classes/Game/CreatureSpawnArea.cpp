@@ -1,12 +1,13 @@
 #include "CreatureSpawnArea.h"
-
-bool CreatureSpawnArea::Init( int CreatureType , float TimeGap , const GridPos& Pos,int w,int h,ChunkMap& Chunk )
+#include "ChunkMap.h"
+bool CreatureSpawnArea::Init( int AreaID , int CreatureType , float TimeGap , const GridPos& Pos,int w,int h,ChunkMap& Chunk )
 {
 	if(cocos2d::CCNode::init())
 	{
 		autorelease();
 		GridPosArea::Init(Pos,w,h,Chunk.GetGridSceneMap());
-		RegisterCreatureType(CreatureType);
+		if(CreatureType != -1)RegisterCreatureType(CreatureType);
+		nAreaID = AreaID;
 		fTimeGap = TimeGap;
 		pChunkMap = &Chunk;
 		return true;
@@ -142,5 +143,19 @@ bool CreatureSpawnArea::IsSpawnGPosLegit(const GridPos& GPos)
 
 	return false;
 
+}
+
+int CreatureSpawnArea::ParseCreatureIDs( const std::string& szParam ,std::vector<int>& szVec)
+{
+	char *token = strtok(const_cast<char *>(szParam.c_str()), ",");  
+	while (token)  
+	{  
+		std::string strTemp = token; 
+		int id = atoi(strTemp.c_str());
+		szVec.push_back(id);  
+		token = strtok(NULL, ",");  
+	}  
+
+	return szVec.size();  
 }
 

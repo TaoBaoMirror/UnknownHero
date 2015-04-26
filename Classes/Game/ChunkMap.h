@@ -16,6 +16,8 @@
 #include "GridSceneMap.h"
 #include "GameInfluenceMap.h"
 #include "MapNodeData.h"
+
+
 /*
 	地图首先是分层的，这里单另着重数据层
 
@@ -31,6 +33,7 @@
 
 
 */
+class CreatureSpawnArea;
 
 class ChunkMap : public cocos2d::TMXTiledMap
 {
@@ -58,7 +61,8 @@ public:
 protected:
 	GridSceneMap		mGridMap;
 	GameInfluenceMap	mIM;
-	std::vector<MapNodeData>	MapNodeDataList;
+	std::vector<MapNodeData>			MapNodeDataList;
+	std::vector<CreatureSpawnArea*>		SpawnAreaList;	//这里是只是保存指针，进行调用，而不想Ref++，所以没有使用cocos2d::Vector
 private:
 public:
 	void	DebugRender();
