@@ -285,6 +285,9 @@
     <ClCompile Include="..\Classes\Game\CreatureSpawnArea.cpp">
       <Filter>Classes\Game\Map</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\UI\SkillBarUI.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -502,6 +505,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\CreatureSpawnArea.h">
       <Filter>Classes\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\SkillBarUI.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UICommon.h">
+      <Filter>Classes\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
