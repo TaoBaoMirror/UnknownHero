@@ -4,6 +4,7 @@
 #include "Scene/SelectHeroLayer.h"
 #include "UI/TellStoryLayer.h"
 #include "Game/MapManager.h"
+#include "UI/SkillBarUI.h"
 
 USING_NS_CC;
 
@@ -111,5 +112,7 @@ void GameScene::TestMap()
 	//
 	pChunk->setPosition(100,100);
 	pChunk->DeployCreature();
-
+	//
+	pSkillBarUI = (SkillBarUI*)SkillBarUI::CreateWithTag(111);
+	addChild(pSkillBarUI);
 }

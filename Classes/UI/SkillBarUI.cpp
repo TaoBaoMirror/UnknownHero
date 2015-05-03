@@ -13,6 +13,12 @@ SkillBarUI::~SkillBarUI()
 
 bool SkillBarUI::init()
 {
+	_touchGroup = Layer::create();
+	addChild(_touchGroup); 
+
+	_layout = static_cast<Layout*>(cocostudio::GUIReader::getInstance()->widgetFromBinaryFile("ui/Skill_UI.csb"));
+	_touchGroup->addChild(_layout);
+	//
 	return true;
 }
 

@@ -19,12 +19,13 @@
 
 #define UI_LAYER_CREATE_FUNC(UILayer_Class) \
 public: \
-static Layer* sceneWithTitle(const char * title) \
+static Layer* CreateWithTag(int nTag) \
 { \
 	UILayer_Class* uiLayer = new UILayer_Class(); \
 	if (uiLayer && uiLayer->init()) \
 	{ \
 		uiLayer->autorelease(); \
+		uiLayer->setTag(nTag); \
 	} \
 	else \
 	{ \

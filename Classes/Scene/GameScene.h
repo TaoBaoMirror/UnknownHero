@@ -5,6 +5,8 @@
 
 #include "Game\ChunkMap.h"
 
+class SkillBarUI;
+
 class GameScene : cocos2d::Scene
 {
 public:
@@ -25,6 +27,7 @@ public:
 	static int LayerTag;
 protected: 
 	void TestMap();
+	SkillBarUI*	pSkillBarUI;
 };
 
 #endif //__GAME_SCENE_H__
