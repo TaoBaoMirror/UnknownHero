@@ -4,17 +4,8 @@
 #include "GameStatus/GameStates.h"
 #include "Data/SaveData.h"
 
-enum GameStatus
-{
-	ST_Null = 0,
-	ST_Title,	//标题UI
-	ST_Plot,		//发生剧情
-	ST_Born,		//出生
-	ST_SelectHero,	//选择英雄
-	ST_City,		//主城中的自由探索
-	ST_Fight,		//野外
-	ST_GameOver,	//
-};
+#include <map>
+
 //---------------------------------------------------------
 enum FightStatus
 {
@@ -30,12 +21,6 @@ public:
 	~GameManager();
 
 	static GameManager* GetInstance();
-
-	//------------------------------
-	void SetGameStatus(GameStatus st);
-
-	GameStatus GetGameStatus();
-
 	//------------------------------
 	void Init();
 
@@ -64,6 +49,14 @@ public:
 	{
 		m_CurSaveData = index;
 	}
+
+	SaveData* GetCurSaveData();
+
+	bool CheckPlotIsHappen(int id);
+	void PlotHappen(int id);
+
+	int GetCurSpecialHeroProcess();
+	void SpecialHeroJoin();
 private:
 	//------------------------------
 	static GameManager* m_Instance;
@@ -87,11 +80,16 @@ private:
 	FightStatus m_CurFightST;	
 	//------------------------------
 	//Save Data
-	SaveData m_SData1;
-	SaveData m_SData2;
-	SaveData m_SData3;
+	SaveData* m_SData1;
+	SaveData* m_SData2;
+	SaveData* m_SData3;
 
 	int m_CurSaveData;
+	//------------------------------
+	//已发生的剧情
+	std::map<int,bool> m_GamePlotMap;
+	//已经启用到第几个特殊英雄
+	int m_SpecialHeroProcess;
 	//------------------------------
 };
 

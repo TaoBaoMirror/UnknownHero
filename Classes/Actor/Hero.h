@@ -10,10 +10,26 @@ public:
 	Hero(void);
 	~Hero(void);
 
-private:
+	static Hero* createWithHeroID(int id);
+
+	void NotAnActor();
+
+	void SetActionFrame();
+	//------------------------------
+	void SetHeroID(int id){m_HeroID = id;}
+
+	void SetHeroTexID(std::string heroTexID){m_HeroTexID = heroTexID;}
+
+	void SetHeroName(std::string name){m_HeroName = name;}
+
+protected:
+	//HeroID
+	int			m_HeroID;
 	//名字
 	std::string m_HeroName;
-	int m_HeroID;
+	//图片
+	std::string m_HeroTexID;
+	
 
 	//职业
 	CareerBase* m_pCareerData;
@@ -25,6 +41,7 @@ private:
 	//计步器
 	int m_AlreadyStep;
 	int m_MaxStep;
+	
 };
 
 #endif //__MAIN_ROLE_H__

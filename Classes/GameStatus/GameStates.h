@@ -1,6 +1,18 @@
 #ifndef __GAME_STATUS_H__
 #define __GAME_STATUS_H__
 
+enum GameStatus
+{
+	ST_Null = 0,
+	ST_Title,	//标题UI
+	ST_Plot,		//发生剧情
+	ST_Born,		//出生
+	ST_SelectHero,	//选择英雄
+	ST_City,		//主城中的自由探索
+	ST_Fight,		//野外
+	ST_GameOver,	//
+};
+
 //---------------------------------------------------------
 class GameStateProcess
 {
@@ -33,6 +45,8 @@ public:
 	GameState_Plot(void);
 	~GameState_Plot(void);
 
+	void SetNextStatus(GameStatus st);
+
 	static GameState_Plot* Instance();
 
 	void Enter();
@@ -40,6 +54,9 @@ public:
 	void Execute(float dt);
 
 	void Exit();
+
+private:
+	GameStatus m_NextST;
 };
 //---------------------------------------------------------
 class GameState_Born : public GameStateProcess

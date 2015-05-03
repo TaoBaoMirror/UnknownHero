@@ -3,6 +3,9 @@
 #include "Actor/PlayerManager.h";
 #include "Actor/EnemyManager.h";
 #include "Actor/NPCManager.h";
+#include "Game/MapManager.h"
+
+#include "GameStatus/GameStates.h"
 
 #include "ResDef.h"
 
@@ -20,6 +23,11 @@ GameManager* GameManager::GetInstance()
 
 GameManager::GameManager()
 {
+	m_SData1 = new SaveData();
+	m_SData2 = new SaveData();
+	m_SData3 = new SaveData();
+
+	m_CurGameST = nullptr;
 }
 
 
@@ -29,6 +37,11 @@ GameManager::~GameManager()
 
 void GameManager::SetGameST(GameStatus st)
 {
+	//----------------------------------
+	if (m_GameST == st)
+	{
+		return;
+	}
 	//----------------------------------
 	m_GameST = st;
 	//----------------------------------
@@ -186,6 +199,10 @@ void GameManager::NPCFight_Post()
 //--------------
 void GameManager::UpdateFight(float dt)
 {
+	auto pChunk = MapManager::GetInstance()->GetCurChunkMap();
+
+	pChunk->update(dt);
+
 	switch (m_CurFightST)
 	{
 	case SF_Hero:
@@ -224,9 +241,9 @@ void GameManager::UpdateCity(float dt)
 //-----------------------------------------------------------------
 void GameManager::LoadGameData()
 {
-	m_SData1.LoadSaveFile(ResDef::g_SaveDataFileName_1);
-	m_SData2.LoadSaveFile(ResDef::g_SaveDataFileName_2);
-	m_SData3.LoadSaveFile(ResDef::g_SaveDataFileName_3);
+	m_SData1->LoadSaveFile(ResDef::g_SaveDataFileName_1);
+	m_SData2->LoadSaveFile(ResDef::g_SaveDataFileName_2);
+	m_SData3->LoadSaveFile(ResDef::g_SaveDataFileName_3);
 }
 //-----------------------------------------------------------------
 void GameManager::SaveGameData()
@@ -234,16 +251,49 @@ void GameManager::SaveGameData()
 	switch (m_CurSaveData)
 	{
 	case 1:
-		m_SData1.WriteSaveFile(ResDef::g_SaveDataFileName_1);
+		m_SData1->WriteSaveFile(ResDef::g_SaveDataFileName_1);
 		break;
 	case 2:
-		m_SData2.WriteSaveFile(ResDef::g_SaveDataFileName_2);
+		m_SData2->WriteSaveFile(ResDef::g_SaveDataFileName_2);
 		break;
 	case 3:
-		m_SData3.WriteSaveFile(ResDef::g_SaveDataFileName_3);
+		m_SData3->WriteSaveFile(ResDef::g_SaveDataFileName_3);
 		break;
 	default:
 		break;
 	}
+}
+//-----------------------------------------------------------------
+SaveData* GameManager::GetCurSaveData()
+{
+	switch (m_CurSaveData)
+	{
+	case 1:
+		return m_SData1;
+	case 2:
+		return m_SData2;
+	case 3:
+		return m_SData3;
+	}
+
+	return nullptr;
+}
+//-----------------------------------------------------------------
+bool GameManager::CheckPlotIsHappen(int id)
+{
+	return false;
+}
+void GameManager::PlotHappen(int id)
+{
+	;
+}
+
+int GameManager::GetCurSpecialHeroProcess()
+{
+	return 0;
+}
+void GameManager::SpecialHeroJoin()
+{
+	;
 }
 //-----------------------------------------------------------------

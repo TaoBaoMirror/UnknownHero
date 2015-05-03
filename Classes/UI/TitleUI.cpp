@@ -3,6 +3,7 @@
 #include "Sound/SoundManager.h"
 #include "Scene/GameScene.h"
 #include "Scene/GameManager.h"
+#include "Scene/SelectHeroLayer.h"
 
 USING_NS_CC;
 
@@ -337,23 +338,18 @@ void TitleUI::StartStory_Game(Ref* sender)
 
 void TitleUI::Continue_Game_1(Ref* sender)
 {
-    //CircleRunScene.g_GameMode = RunGameMode.MODE_PVP;
-
-    //CircleRunScene.UseAI = false;
-
-    //if (ResDef.g_ConfigStruct.EnableAudio != 0)
-    //{
-    //    SimpleAudioEngine.sharedEngine().playEffect(ResDef.g_SelectSound);
-    //    //SimpleAudioEngine.sharedEngine().stopBackgroundMusic();
-    //}
-    //MusicManager.Instance().PlayEffect(ResDef.g_SelectSound);
-    //MusicManager.Instance().StopMusic();
-
-	//Director::getInstance()->replaceScene(SelectRoleUI.scene());
-
 	GameManager::GetInstance()->SetCurSaveData(1);
 
-	Director::getInstance()->replaceScene(GameScene::createScene());
+	SaveData* pData = GameManager::GetInstance()->GetCurSaveData();
+
+	if (pData->IsNewData)
+	{
+		NewGame();
+	}
+	else
+	{
+		LoadGame();		
+	}	
 }
 
 void TitleUI::Continue_Game_2(Ref* sender)
@@ -392,4 +388,34 @@ void TitleUI::Continue_Game_3(Ref* sender)
 
 	GameManager::GetInstance()->SetCurSaveData(2);
 
+}
+
+void TitleUI::NewGame()
+{
+	Director::getInstance()->replaceScene(SelectHeroLayer::createScene());
+}
+
+void TitleUI::LoadGame()
+{
+	SaveData* pData = GameManager::GetInstance()->GetCurSaveData();
+
+	int changeScene = pData->GetCurScene();
+
+	//临时--test
+	changeScene = 2;
+	//
+
+	if (changeScene == 0) //选人场景
+	{
+		Director::getInstance()->replaceScene(SelectHeroLayer::createScene());
+	}
+	else if(changeScene == 1)//城市
+	{
+
+	}
+	else //游戏场景
+	{
+		Director::getInstance()->replaceScene(GameScene::createScene());
+	}
+	
 }

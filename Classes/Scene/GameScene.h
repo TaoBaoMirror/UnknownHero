@@ -13,6 +13,7 @@ public:
 
 	static cocos2d::Scene* createScene();
 
+	bool SceneInit();
 	bool init() override;
 
 	virtual void update(float dt) override;

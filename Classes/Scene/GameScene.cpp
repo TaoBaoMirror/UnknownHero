@@ -1,7 +1,11 @@
 #include "GameScene.h"
 
 #include "Scene/GameManager.h"
+#include "Scene/SelectHeroLayer.h"
+#include "UI/TellStoryLayer.h"
 #include "Game/MapManager.h"
+
+USING_NS_CC;
 
 int GameScene::LayerTag = 1;
 
@@ -22,6 +26,9 @@ cocos2d::Scene* GameScene::createScene()
 	if (ret && ret->init())
 	{
 		ret->autorelease();
+
+		ret->SceneInit();
+
 		return ret;
 	}
 	else
@@ -29,38 +36,71 @@ cocos2d::Scene* GameScene::createScene()
 		CC_SAFE_DELETE(ret);
 		return nullptr;
 	}
-
 }
 
 bool GameScene::init()
 {
 	Scene::init();
-	//1 check 当前进度 如果是新进度 那么从头开始
+
 	TestMap();
+
+	scheduleUpdate();
+
+	return true;
+}
+
+bool GameScene::SceneInit()
+{
+//<<<<<<< .mine
+//	SaveData* pData = GameManager::GetInstance()->GetCurSaveData();
+//=======
+	
+//>>>>>>> .r21
+	//1 check 当前进度 如果是新进度 那么从头开始
+//<<<<<<< .mine
+//	if (pData->IsNewData)
+//	{
+//		NewGame();
+//	}
+//=======
+	
 	//2 如果是已有进度 那么继续之前的流程
 
 	//3 加入Update循环!
-	scheduleUpdate();
+	
+	//else
+	//{
+	//	Continue();
+	//}
 	return true;
 }
 
 void GameScene::update( float dt )
 {
-	//GameManager::GetInstance()->Update(dt);
-
-	auto pChunk = MapManager::GetInstance()->GetCurChunkMap();
-	pChunk->update(dt);
-
+	GameManager::GetInstance()->Update(dt);
 }
 
 void GameScene::NewGame()
 {
-	;
+	//1 切换到讲述故事背景的layer
+
+	//test 调试暂时不使用讲故事layer 直接跳转到选人场景
+
+	auto pLayer = SelectHeroLayer::create();
+	this->addChild(pLayer,1,SelectHeroLayer::LayerTag);
 }
 
 void GameScene::Continue()
 {
-	;
+	SaveData* pData = GameManager::GetInstance()->GetCurSaveData();
+
+	//1 加载当前地图
+	int sceneid = pData->CurSceneID;
+	//2 加载当前主角
+
+	//3 加载敌人
+
+	//4 
 }
 
 void GameScene::TestMap()

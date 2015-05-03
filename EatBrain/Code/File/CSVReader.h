@@ -31,7 +31,13 @@ public:
 	//
 	bool GetIntValue(unsigned int uiRow, unsigned int uiCol, unsigned int &riValue);
 	bool GetFloatValue(unsigned int uiRow, unsigned int uiCol, float &rfValue);
+
+	bool GetIntValue(std::string strAttribute, unsigned int uiRow, unsigned int &riValue);
+	bool GetFloatValue(std::string strAttribute, unsigned int uiRow, float &rfValue);
+
 	const std::string* GetStringValue(unsigned int uiRow, unsigned int uiCol);
+	const std::string* GetStringValueWithTitle(std::string strAttribute, unsigned int uiRow);
+
 	int GetParamFromString(std::string str, std::vector<std::string> &stringVec, char delim  = ',');
 	bool LoadCSV(const char *path);
 	bool SaveCSV(const char *path = NULL);
@@ -43,6 +49,8 @@ public:
 protected:
 	
 private:
+
+	std::map<std::string, unsigned int> m_TitleMap;  
 };
 
 #endif // CSVReader_h__

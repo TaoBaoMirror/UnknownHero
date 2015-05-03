@@ -5,6 +5,7 @@
 #include <map>
 
 #include "Data/TableData.h"
+#include "File/CSVReader.h"
 
 enum TableType
 {
@@ -21,19 +22,28 @@ public:
 
 	void LoadAllTable();
 
-	TableData* GetTable(TableType type);
+	//TableData* GetTable(TableType type);
+
+	//std::string GetTableData(TableType type, std::string tabTitle, int index);
+
+	CSVReader* GetTable(TableType type);
 
 	std::string GetTableData(TableType type, std::string tabTitle, int index);
+
+	int GetTableIntData(TableType type, std::string tabTitle, int index);
 
 private:
 	TableManager(void);
 
 	static TableManager* m_Instance;
-
 	//-----------------------
+	void LoadTable(TableType type);
 
-	std::map<TableType,TableData*> m_Tables;
-
+	std::string GetTablePath(TableType type);
+	//-----------------------
+	std::map<TableType,std::string> m_TablePaths;
+	//std::map<TableType,TableData*> m_Tables;
+	std::map<TableType,CSVReader*> m_Tables;
 
 };
 

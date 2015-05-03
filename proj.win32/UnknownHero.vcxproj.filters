@@ -276,8 +276,23 @@
     <ClCompile Include="..\Classes\Game\MapNodeData.cpp">
       <Filter>Classes\Game\Map</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\UI\TellStoryLayer.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\SelectHeroLayer.cpp">
+      <Filter>Classes\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\Game\Debug\GizmoSoldier.cpp">
       <Filter>Classes\Game\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\ActorBody.cpp">
+      <Filter>Classes\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\StandbyHero.cpp">
+      <Filter>Classes\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VisibleRect.cpp">
+      <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\GridPosArea.cpp">
       <Filter>Classes\Game\Map</Filter>
@@ -497,8 +512,23 @@
     <ClInclude Include="..\Classes\Game\MapNodeData.h">
       <Filter>Classes\Game\Map</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\UI\TellStoryLayer.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\SelectHeroLayer.h">
+      <Filter>Classes\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\Game\Debug\GizmoSoldier.h">
       <Filter>Classes\Game\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\ActorBody.h">
+      <Filter>Classes\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\StandbyHero.h">
+      <Filter>Classes\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VisibleRect.h">
+      <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\GridPosArea.h">
       <Filter>Classes\Game\Map</Filter>

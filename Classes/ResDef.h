@@ -43,6 +43,12 @@ public:
 	static const std::string g_GameResGUIPListFile;
 	static const std::string g_GameResGUITextureFile;
 
+	static const std::string g_StandByHeroPListFile;
+	static const std::string g_StandByHeroTextureFile;
+
+	static const std::string g_HeroResPlistFile;
+	static const std::string g_HeroResTextureFile;
+
 	static const std::string g_GameEffectPListFile;
 	static const std::string g_GameEffectTextureFile;
 
@@ -119,6 +125,8 @@ public:
 	void ReadConfig();
 
 	void ReadSaveData();
+
+	void ReadTables();
 
 	void loadRes();
 

@@ -65,6 +65,9 @@ private:
 	void Continue_Game_2(Ref* sender);
 	void Continue_Game_3(Ref* sender);
 
+	void NewGame();
+	void LoadGame();
+
 	//virtual void onEnter() override;
 
 };

@@ -13,6 +13,7 @@ public:
 	void WriteSaveFile(std::string filepath);
 	void LoadSaveFile(std::string filepath);
 
+	int GetCurScene(){return CurSceneID;}
 public:
 
 	int IsNewData; //是否为一个新的空的存档文件

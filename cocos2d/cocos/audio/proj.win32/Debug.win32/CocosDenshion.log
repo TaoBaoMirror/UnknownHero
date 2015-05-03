@@ -1,24 +1,24 @@
-﻿生成启动时间为 2015/4/22 0:27:06。
-     1>项目“E:\UnknownHero\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj”在节点 4 上(Rebuild 个目标)。
+﻿生成启动时间为 2015/5/4 0:36:29。
+     1>项目“H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj”在节点 6 上(Rebuild 个目标)。
      1>ClCompile:
-         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\include" /I..\Include /IE:\UnknownHero\cocos2d\cocos\2d\..\..\cocos /IE:\UnknownHero\cocos2d\cocos\2d\..\..\cocos\platform\win32 /IE:\UnknownHero\cocos2d\cocos\2d\..\..\cocos\platform\desktop /IE:\UnknownHero\cocos2d\cocos\2d\..\..\external\glfw3\include\win32 /I"E:\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4251 /analyze- /errorReport:prompt ..\win32\MciPlayer.cpp ..\win32\SimpleAudioEngine.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\include" /I..\Include /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\cocos /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\cocos\platform\win32 /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\cocos\platform\desktop /IH:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\glfw3\include\win32 /I"H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4251 /analyze- /errorReport:prompt ..\win32\MciPlayer.cpp ..\win32\SimpleAudioEngine.cpp
          MciPlayer.cpp
          SimpleAudioEngine.cpp
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\win32\MciPlayer.cpp)
-                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\sal.h(2864) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\win32\MciPlayer.cpp)
-                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\sal.h(2882) : 参见“__on_failure”的前一个定义
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\sal.h(2865) : 参见“__on_failure”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: “__useHeader”: 宏重定义 (..\win32\SimpleAudioEngine.cpp)
-                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\sal.h(2872) : 参见“__useHeader”的前一个定义
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\sal.h(2864) : 参见“__useHeader”的前一个定义
      1>c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: “__on_failure”: 宏重定义 (..\win32\SimpleAudioEngine.cpp)
-                 e:\program files (x86)\microsoft visual studio 11.0\vc\include\sal.h(2882) : 参见“__on_failure”的前一个定义
-     1>e:\unknownhero\cocos2d\cocos\2d\cclabel.h(276): warning C4244: “return”: 从“float”转换到“int”，可能丢失数据 (..\win32\SimpleAudioEngine.cpp)
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\sal.h(2865) : 参见“__on_failure”的前一个定义
+     1>h:\taocode\unknownhero\unknownhero\cocos2d\cocos\2d\cclabel.h(276): warning C4244: “return”: 从“float”转换到“int”，可能丢失数据 (..\win32\SimpleAudioEngine.cpp)
        Lib:
-         E:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"E:\UnknownHero\proj.win32\Debug.win32\libAudio.lib" /NOLOGO Debug.win32\MciPlayer.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\libAudio.lib" /NOLOGO Debug.win32\MciPlayer.obj
          Debug.win32\SimpleAudioEngine.obj
-         CocosDenshion.vcxproj -> E:\UnknownHero\proj.win32\Debug.win32\libAudio.lib
-     1>已完成生成项目“E:\UnknownHero\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj”(Rebuild 个目标)的操作。
+         CocosDenshion.vcxproj -> H:\TaoCode\UnknownHero\UnknownHero\proj.win32\Debug.win32\libAudio.lib
+     1>已完成生成项目“H:\TaoCode\UnknownHero\UnknownHero\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj”(Rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:02:13.35
+已用时间 00:01:24.80

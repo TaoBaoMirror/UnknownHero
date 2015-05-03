@@ -2,6 +2,7 @@
 
 //#include "Player/PlayerManager.h"
 #include "Scene/GameManager.h"
+#include "Data/TableManager.h"
 
 using namespace std;
 USING_NS_CC;
@@ -162,6 +163,12 @@ const string ResDef::g_GameResTextureFile = "plist//GameRes.png";
 const string ResDef::g_GameResGUIPListFile = "plist//GUI.plist";
 const string ResDef::g_GameResGUITextureFile = "plist//GUI.png";
 
+const string ResDef::g_StandByHeroPListFile = "plist//StandByHero.plist";
+const string ResDef::g_StandByHeroTextureFile = "plist//StandByHero.png";
+
+const string ResDef::g_HeroResPlistFile = "plist//HeroRes.plist";
+const string ResDef::g_HeroResTextureFile = "plist//HeroRes.png";
+
 const std::string ResDef::g_GameEffectPListFile = "plist//Effect.plist";
 const std::string ResDef::g_GameEffectTextureFile = "plist//images//Effect.png";
 
@@ -248,6 +255,8 @@ void ResDef::loadRes()
 	loadTextures();
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameResGUIPListFile);
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameResPListFile);
+	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_StandByHeroPListFile);
+	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_HeroResPlistFile);
 }
 
 void  ResDef::initRes(ProgressCount* progresscount)
@@ -279,6 +288,9 @@ void  ResDef::initRes(ProgressCount* progresscount)
         {
             ReadConfig();
 			ReadSaveData();
+
+			//table
+			ReadTables();
         }
 
         progresscount->setCount(60);
@@ -354,6 +366,11 @@ void ResDef::ReadConfig()
 void ResDef::ReadSaveData()
 {
 	GameManager::GetInstance()->LoadGameData();
+}
+
+void ResDef::ReadTables()
+{
+	TableManager::GetInstance()->LoadAllTable();
 }
 
 void ResDef::UnlockRoleID(int id)
