@@ -4,83 +4,83 @@
     <Filter Include="win32">
       <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes">
-      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
-    </Filter>
     <Filter Include="resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\BaseUI">
-      <UniqueIdentifier>{3245c531-6e8f-41bd-ac66-70484d645107}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\UI">
-      <UniqueIdentifier>{4a68596b-5fcb-4b4f-a0cf-f253fd78570f}</UniqueIdentifier>
+    <Filter Include="src\Actor">
+      <UniqueIdentifier>{1294ba68-cc50-4acc-8a78-2f6c7bedb47b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Actor">
-      <UniqueIdentifier>{6fde3292-a344-4024-94db-7dc3ca2ee0f2}</UniqueIdentifier>
+    <Filter Include="src\BaseUI">
+      <UniqueIdentifier>{07beef47-ebae-4f4b-9e73-bf703bf1bfa0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Building">
-      <UniqueIdentifier>{71820c49-a57a-4f46-add1-0bd280038936}</UniqueIdentifier>
+    <Filter Include="src\Building">
+      <UniqueIdentifier>{e5eb4c58-87ce-45eb-bf8e-6c8d3c76424a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Scene">
-      <UniqueIdentifier>{0281fd37-89f1-4175-b387-fc2d8c289293}</UniqueIdentifier>
+    <Filter Include="src\Career">
+      <UniqueIdentifier>{8f489359-c453-4eea-875c-491db3c74704}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Effect">
-      <UniqueIdentifier>{cc5f6031-8fdb-497f-898f-bdfa4ad1fc7a}</UniqueIdentifier>
+    <Filter Include="src\City">
+      <UniqueIdentifier>{71ed392c-8622-4627-8302-f52a9acad6ef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Sound">
-      <UniqueIdentifier>{6607e806-2d2f-43c3-8f15-c33d161db247}</UniqueIdentifier>
+    <Filter Include="src\Common">
+      <UniqueIdentifier>{b1dacc81-1fda-4987-8416-43d87c11b608}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Common">
-      <UniqueIdentifier>{386ae539-f269-456a-9dea-44057e44460e}</UniqueIdentifier>
+    <Filter Include="src\Data">
+      <UniqueIdentifier>{9c376fdc-f97f-432b-9dca-2250a40b6973}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Data">
-      <UniqueIdentifier>{2fd3cbc7-9e6a-46bd-bd6b-8030867c7aa1}</UniqueIdentifier>
+    <Filter Include="src\Effect">
+      <UniqueIdentifier>{57f07c76-cbf5-42fb-8810-0419dbf65fe7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game">
-      <UniqueIdentifier>{41b81c09-fea0-49fc-b46e-5b92cb5d57e7}</UniqueIdentifier>
+    <Filter Include="src\Game">
+      <UniqueIdentifier>{4b21b2bb-340d-44ae-9d36-87172dad8e8e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\AI">
-      <UniqueIdentifier>{972b8c32-0c46-4a05-975c-db8636fb2208}</UniqueIdentifier>
+    <Filter Include="src\GameStatus">
+      <UniqueIdentifier>{9682c681-68cb-47f5-8fa6-a09c5d296e10}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\Attack&amp;Shield">
-      <UniqueIdentifier>{71a04397-ba03-441b-936b-8e92ff528862}</UniqueIdentifier>
+    <Filter Include="src\Scene">
+      <UniqueIdentifier>{6149ba2b-1d06-47d4-a16d-660c8002ea50}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\DebugClass">
-      <UniqueIdentifier>{245533e3-fa5a-4033-9b5e-568f25416de4}</UniqueIdentifier>
+    <Filter Include="src\Sound">
+      <UniqueIdentifier>{db3b543d-f2ff-4f21-babd-1b51d152a80b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\Skill">
-      <UniqueIdentifier>{74c6b09c-29f2-4a49-b4f7-1d29cffbb005}</UniqueIdentifier>
+    <Filter Include="src\UI">
+      <UniqueIdentifier>{ccef3fd0-c37b-4049-92f4-9a6cf1d789ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\AI\atom">
-      <UniqueIdentifier>{005d65bd-bbc3-4aa0-93b4-d7a75fa4e897}</UniqueIdentifier>
+    <Filter Include="src\Village">
+      <UniqueIdentifier>{33b42198-ee55-4cea-9d93-2a5c87ebf1eb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\AI\composite">
-      <UniqueIdentifier>{831d6c84-1209-4cb7-9d97-d5d1e2d726d9}</UniqueIdentifier>
+    <Filter Include="src\Game\AI">
+      <UniqueIdentifier>{478c5bd4-9739-4f43-ab39-1c98068cd6fc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\AI\evaluation">
-      <UniqueIdentifier>{9da11b7b-3a24-488d-94f0-328c7c7fca93}</UniqueIdentifier>
+    <Filter Include="src\Game\Attack&amp;Shield">
+      <UniqueIdentifier>{96a415cb-492d-4b3a-916b-db46b55e7199}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\AI\IM">
-      <UniqueIdentifier>{00a14fc8-2ab2-4c36-8358-3f911da2df3f}</UniqueIdentifier>
+    <Filter Include="src\Game\Debug">
+      <UniqueIdentifier>{f3040f15-d272-4de0-a697-6b0fa0c409f8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\Map">
-      <UniqueIdentifier>{fe317075-2ef3-4152-8d30-30d7065f0de3}</UniqueIdentifier>
+    <Filter Include="src\Game\DebugClass">
+      <UniqueIdentifier>{ac5a5eb2-7baf-42c2-b7db-c6c1db30207f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\GameStatus">
-      <UniqueIdentifier>{65dd4efd-f66e-4f4c-99fc-3a9c536793af}</UniqueIdentifier>
+    <Filter Include="src\Game\Map">
+      <UniqueIdentifier>{b380d796-8fc0-4f34-a7c7-44a08b66fc22}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Career">
-      <UniqueIdentifier>{cb1e8bbf-e58a-4634-9818-555a77cc77a5}</UniqueIdentifier>
+    <Filter Include="src\Game\Skill">
+      <UniqueIdentifier>{e076a094-8731-4cc2-b7a3-d9ed3b620334}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\City">
-      <UniqueIdentifier>{f06b6669-6115-4ebd-8ea9-2a9d5ad71c93}</UniqueIdentifier>
+    <Filter Include="src\Game\AI\atom">
+      <UniqueIdentifier>{ad47f163-48ee-454d-9aa1-128eba997337}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Village">
-      <UniqueIdentifier>{47099139-6d20-4c66-b12c-c7c2b139ece8}</UniqueIdentifier>
+    <Filter Include="src\Game\AI\composite">
+      <UniqueIdentifier>{bf428ecb-02da-4173-8e27-7749df82a514}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Game\Debug">
-      <UniqueIdentifier>{fee03445-b1a2-4672-bc55-71e96a9db73e}</UniqueIdentifier>
+    <Filter Include="src\Game\AI\evaluation">
+      <UniqueIdentifier>{a8dc27f4-d31c-4b1c-b14f-f19dd470ed4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\AI\IM">
+      <UniqueIdentifier>{83309ba3-7b82-48bc-bd01-5e5779441e21}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -88,220 +88,220 @@
       <Filter>win32</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Classes</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\BaseUI\ProgressBar.cpp">
-      <Filter>Classes\BaseUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Common\CommonMethod.cpp">
-      <Filter>Classes\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Sound\SoundManager.cpp">
-      <Filter>Classes\Sound</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ResDef.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\GameMainLayer.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\GameScene.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\GameManager.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\ChunkMap.cpp">
-      <Filter>Classes\Game\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\GameInfluenceMap.cpp">
-      <Filter>Classes\Game\AI\IM</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\SoldierPF.cpp">
-      <Filter>Classes\Game\AI\IM</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackData.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackDataManager.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackDesc.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackRange_Cross.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackRange_H.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackRange_Quad.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackRange_Round.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackRange_V.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackRangeCreater.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackSystem.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\ShieldData.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\ShieldDataManager.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\ShieldSystem.cpp">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Camp.cpp">
-      <Filter>Classes\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\CommonFunc.cpp">
-      <Filter>Classes\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\CreatureBase.cpp">
-      <Filter>Classes\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\GeomorphologyCreater.cpp">
-      <Filter>Classes\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Soldier.cpp">
-      <Filter>Classes\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\SoldierFeature.cpp">
-      <Filter>Classes\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\SoldierManager.cpp">
-      <Filter>Classes\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Goal_Attack.cpp">
-      <Filter>Classes\Game\AI\atom</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Goal_MoveStep.cpp">
-      <Filter>Classes\Game\AI\atom</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\ExploreGoal_Evaluator.cpp">
-      <Filter>Classes\Game\AI\evaluation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\AttackTargetGoal_Evaluator.cpp">
-      <Filter>Classes\Game\AI\evaluation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Goal_AttackTarget.cpp">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Goal_Explore.cpp">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Goal_FollowPath.cpp">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Goal_MoveToPosition.cpp">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Goal_SoldierThink.cpp">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\TargetingSystem.cpp">
-      <Filter>Classes\Game\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Analyzer.cpp">
-      <Filter>Classes\Game\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Skill\BaseSkill.cpp">
-      <Filter>Classes\Game\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Skill\SkillFactory.cpp">
-      <Filter>Classes\Game\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Skill\SkillSystem.cpp">
-      <Filter>Classes\Game\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\EnemyManager.cpp">
-      <Filter>Classes\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\NPCManager.cpp">
-      <Filter>Classes\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\PlayerManager.cpp">
-      <Filter>Classes\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Data\SaveData.cpp">
-      <Filter>Classes\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\UI\LogoUI.cpp">
-      <Filter>Classes\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\UI\TitleUI.cpp">
-      <Filter>Classes\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\GameStatus\GameStates.cpp">
-      <Filter>Classes\GameStatus</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\Actor.cpp">
-      <Filter>Classes\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\Hero.cpp">
-      <Filter>Classes\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Career\CareerBase.cpp">
-      <Filter>Classes\Career</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\City\City.cpp">
-      <Filter>Classes\City</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Village\Village.cpp">
-      <Filter>Classes\Village</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\Monster.cpp">
-      <Filter>Classes\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Data\TableData.cpp">
-      <Filter>Classes\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Data\TableManager.cpp">
-      <Filter>Classes\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\MapManager.cpp">
-      <Filter>Classes\Game\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\MapNodeData.cpp">
-      <Filter>Classes\Game\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\UI\TellStoryLayer.cpp">
-      <Filter>Classes\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\SelectHeroLayer.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Game\Debug\GizmoSoldier.cpp">
-      <Filter>Classes\Game\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\ActorBody.cpp">
-      <Filter>Classes\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\StandbyHero.cpp">
-      <Filter>Classes\Actor</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\VisibleRect.cpp">
-      <Filter>Classes</Filter>
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Game\GridPosArea.cpp">
-      <Filter>Classes\Game\Map</Filter>
+    <ClCompile Include="..\Classes\Actor\Actor.cpp">
+      <Filter>src\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Game\CreatureSpawnArea.cpp">
-      <Filter>Classes\Game\Map</Filter>
+    <ClCompile Include="..\Classes\Actor\ActorBody.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\EnemyManager.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Hero.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Monster.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\NPCManager.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\PlayerManager.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\StandbyHero.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BaseUI\ProgressBar.cpp">
+      <Filter>src\BaseUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Career\CareerBase.cpp">
+      <Filter>src\Career</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\City\City.cpp">
+      <Filter>src\City</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\CommonMethod.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\SaveData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\TableData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\TableManager.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameStatus\GameStates.cpp">
+      <Filter>src\GameStatus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Village\Village.cpp">
+      <Filter>src\Village</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\LogoUI.cpp">
+      <Filter>src\UI</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UI\SkillBarUI.cpp">
-      <Filter>Classes\UI</Filter>
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\TellStoryLayer.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\TitleUI.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sound\SoundManager.cpp">
+      <Filter>src\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\GameMainLayer.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\GameManager.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\GameScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\SelectHeroLayer.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Skill\BaseSkill.cpp">
+      <Filter>src\Game\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Skill\SkillFactory.cpp">
+      <Filter>src\Game\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Skill\SkillSystem.cpp">
+      <Filter>src\Game\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\ChunkMap.cpp">
+      <Filter>src\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\CreatureSpawnArea.cpp">
+      <Filter>src\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\GridPosArea.cpp">
+      <Filter>src\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\MapManager.cpp">
+      <Filter>src\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\MapNodeData.cpp">
+      <Filter>src\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Debug\GizmoSoldier.cpp">
+      <Filter>src\Game\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackData.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackDataManager.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackDesc.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackRange_Cross.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackRange_H.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackRange_Quad.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackRange_Round.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackRange_V.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackRangeCreater.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackSystem.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\ShieldData.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\ShieldDataManager.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\ShieldSystem.cpp">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Analyzer.cpp">
+      <Filter>src\Game\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\TargetingSystem.cpp">
+      <Filter>src\Game\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_Attack.cpp">
+      <Filter>src\Game\AI\atom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_MoveStep.cpp">
+      <Filter>src\Game\AI\atom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_AttackTarget.cpp">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_Explore.cpp">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_FollowPath.cpp">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_MoveToPosition.cpp">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_SoldierThink.cpp">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\AttackTargetGoal_Evaluator.cpp">
+      <Filter>src\Game\AI\evaluation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\ExploreGoal_Evaluator.cpp">
+      <Filter>src\Game\AI\evaluation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\GameInfluenceMap.cpp">
+      <Filter>src\Game\AI\IM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\SoldierPF.cpp">
+      <Filter>src\Game\AI\IM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Camp.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\CommonFunc.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\CreatureBase.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\GeomorphologyCreater.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Soldier.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\SoldierFeature.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\SoldierManager.cpp">
+      <Filter>src\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -309,238 +309,238 @@
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>Classes</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\BaseUI\ProgressBar.h">
-      <Filter>Classes\BaseUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Common\CommonMethod.h">
-      <Filter>Classes\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Sound\SoundManager.h">
-      <Filter>Classes\Sound</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ResDef.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\GameMainLayer.h">
-      <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\GameScene.h">
-      <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\GameManager.h">
-      <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\ChunkMap.h">
-      <Filter>Classes\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\GameInfluenceMap.h">
-      <Filter>Classes\Game\AI\IM</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\SoldierPF.h">
-      <Filter>Classes\Game\AI\IM</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackData.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackDataManager.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackDesc.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackRange.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackRange_Cross.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackRange_H.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackRange_Quad.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackRange_Round.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackRange_V.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackRangeCreater.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackSystem.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\ShieldData.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\ShieldDataManager.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\ShieldSystem.h">
-      <Filter>Classes\Game\Attack&amp;Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Camp.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\CommonFunc.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\CreatureBase.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\GeomorphologyCreater.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Regulator.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Soldier.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\SoldierFeature.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\SoldierManager.h">
-      <Filter>Classes\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Goal_Attack.h">
-      <Filter>Classes\Game\AI\atom</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Goal_MoveStep.h">
-      <Filter>Classes\Game\AI\atom</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\ExploreGoal_Evaluator.h">
-      <Filter>Classes\Game\AI\evaluation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Goal_Evaluator.h">
-      <Filter>Classes\Game\AI\evaluation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\AttackTargetGoal_Evaluator.h">
-      <Filter>Classes\Game\AI\evaluation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Goal_AttackTarget.h">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Goal_Explore.h">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Goal_FollowPath.h">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Goal_MoveToPosition.h">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Goal_SoldierThink.h">
-      <Filter>Classes\Game\AI\composite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Goal_Type.h">
-      <Filter>Classes\Game\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\TargetingSystem.h">
-      <Filter>Classes\Game\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Msg_Type.h">
-      <Filter>Classes\Game\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Analyzer.h">
-      <Filter>Classes\Game\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Skill\BaseSkill.h">
-      <Filter>Classes\Game\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Skill\SkillFactory.h">
-      <Filter>Classes\Game\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Skill\SkillSystem.h">
-      <Filter>Classes\Game\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\EnemyManager.h">
-      <Filter>Classes\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\NPCManager.h">
-      <Filter>Classes\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\PlayerManager.h">
-      <Filter>Classes\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Data\SaveData.h">
-      <Filter>Classes\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\UI\LogoUI.h">
-      <Filter>Classes\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\UI\TitleUI.h">
-      <Filter>Classes\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\GameStatus\GameStates.h">
-      <Filter>Classes\GameStatus</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\Actor.h">
-      <Filter>Classes\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\Hero.h">
-      <Filter>Classes\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Career\CareerBase.h">
-      <Filter>Classes\Career</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\City\City.h">
-      <Filter>Classes\City</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Village\Village.h">
-      <Filter>Classes\Village</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\Monster.h">
-      <Filter>Classes\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Data\TableData.h">
-      <Filter>Classes\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Data\TableManager.h">
-      <Filter>Classes\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\MapManager.h">
-      <Filter>Classes\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\MapNodeData.h">
-      <Filter>Classes\Game\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\UI\TellStoryLayer.h">
-      <Filter>Classes\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\SelectHeroLayer.h">
-      <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Game\Debug\GizmoSoldier.h">
-      <Filter>Classes\Game\Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\ActorBody.h">
-      <Filter>Classes\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\StandbyHero.h">
-      <Filter>Classes\Actor</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\VisibleRect.h">
-      <Filter>Classes</Filter>
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Game\GridPosArea.h">
-      <Filter>Classes\Game\Map</Filter>
+    <ClInclude Include="..\Classes\Actor\Actor.h">
+      <Filter>src\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Game\CreatureSpawnArea.h">
-      <Filter>Classes\Game\Map</Filter>
+    <ClInclude Include="..\Classes\Actor\ActorBody.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\EnemyManager.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Hero.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Monster.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\NPCManager.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\PlayerManager.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\StandbyHero.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseUI\ProgressBar.h">
+      <Filter>src\BaseUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Career\CareerBase.h">
+      <Filter>src\Career</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\City\City.h">
+      <Filter>src\City</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\CommonMethod.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\SaveData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\TableData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\TableManager.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameStatus\GameStates.h">
+      <Filter>src\GameStatus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Village\Village.h">
+      <Filter>src\Village</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\LogoUI.h">
+      <Filter>src\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\UI\SkillBarUI.h">
-      <Filter>Classes\UI</Filter>
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\TellStoryLayer.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\TitleUI.h">
+      <Filter>src\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\UI\UICommon.h">
-      <Filter>Classes\UI</Filter>
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sound\SoundManager.h">
+      <Filter>src\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\GameMainLayer.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\GameManager.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\GameScene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\SelectHeroLayer.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Skill\BaseSkill.h">
+      <Filter>src\Game\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Skill\SkillFactory.h">
+      <Filter>src\Game\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Skill\SkillSystem.h">
+      <Filter>src\Game\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\ChunkMap.h">
+      <Filter>src\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\CreatureSpawnArea.h">
+      <Filter>src\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\GridPosArea.h">
+      <Filter>src\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\MapManager.h">
+      <Filter>src\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\MapNodeData.h">
+      <Filter>src\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Debug\GizmoSoldier.h">
+      <Filter>src\Game\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackData.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackDataManager.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackDesc.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackRange.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackRange_Cross.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackRange_H.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackRange_Quad.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackRange_Round.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackRange_V.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackRangeCreater.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackSystem.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\ShieldData.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\ShieldDataManager.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\ShieldSystem.h">
+      <Filter>src\Game\Attack&amp;Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Analyzer.h">
+      <Filter>src\Game\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_Type.h">
+      <Filter>src\Game\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Msg_Type.h">
+      <Filter>src\Game\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\TargetingSystem.h">
+      <Filter>src\Game\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_Attack.h">
+      <Filter>src\Game\AI\atom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_MoveStep.h">
+      <Filter>src\Game\AI\atom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_AttackTarget.h">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_Explore.h">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_FollowPath.h">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_MoveToPosition.h">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_SoldierThink.h">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\AttackTargetGoal_Evaluator.h">
+      <Filter>src\Game\AI\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\ExploreGoal_Evaluator.h">
+      <Filter>src\Game\AI\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_Evaluator.h">
+      <Filter>src\Game\AI\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\GameInfluenceMap.h">
+      <Filter>src\Game\AI\IM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\SoldierPF.h">
+      <Filter>src\Game\AI\IM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Camp.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\CommonFunc.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\CreatureBase.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\GeomorphologyCreater.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Regulator.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Soldier.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\SoldierFeature.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\SoldierManager.h">
+      <Filter>src\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

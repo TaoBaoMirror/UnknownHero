@@ -1,4 +1,5 @@
 #include "SoundManager.h"
+#include "SimpleAudioEngine.h"
 #include "ResDef.h"
 
 SoundManager* SoundManager::m_Instance = nullptr;

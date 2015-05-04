@@ -116,7 +116,7 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				{
 					cocos2d::ValueMap& dict = properties.asValueMap();
 					int   type = dict["CreatureID"].asInt();
-					cocos2d::CCLog("type %d",type);
+					//cocos2d::CCLog("type %d",type);
 					//通过CreatureID去生产响应的生物
 					// CreatureFactory
 					int	  direction = dict["Direction"].asInt();
