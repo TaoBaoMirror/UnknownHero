@@ -18,9 +18,11 @@ bool SkillBarUI::init()
 	//_layout = static_cast<Layout*>(cocostudio::GUIReader::getInstance()->widgetFromBinaryFile("ui/Skill_UI.csb"));
 	//_touchGroup->addChild(_layout);
 
-	Node* n = CSLoader::createNode("ui/Skill_UI.csb");
-	_touchGroup->addChild(n);
+	_layout = static_cast<Layout*>(CSLoader::createNode("ui/Skill_UI.csb"));
+	_touchGroup->addChild(_layout);
 	//
+	configureGUIScene();
+		//
 	return true;
 }
 
