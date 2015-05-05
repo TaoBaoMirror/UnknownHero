@@ -26,6 +26,11 @@ public:
 	//
 	bool init();
 	void touchEvent(Ref* pSender, Widget::TouchEventType type);
+	//
+	void Skill_0_touchEvent(Ref* pSender, Widget::TouchEventType type);
+	void Skill_1_touchEvent(Ref* pSender, Widget::TouchEventType type);
+	void Skill_2_touchEvent(Ref* pSender, Widget::TouchEventType type);
+	void Skill_3_touchEvent(Ref* pSender, Widget::TouchEventType type);
 
 	void configureGUIScene();
 	//
@@ -34,6 +39,15 @@ public:
 protected:
 	Layer* _touchGroup;
 	Layout* _layout;
+	//
+	Button* skill_button_0;
+	Button* skill_button_1;
+	Button* skill_button_2;
+	Button* skill_button_3;
+	//
+	Text*	hero_level_label;
+	ImageView* mini_hero_head_pic;
+
 private:
 };
 
