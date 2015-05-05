@@ -25,30 +25,40 @@ public:
 	~SkillBarUI();
 	//
 	bool init();
-	void touchEvent(Ref* pSender, Widget::TouchEventType type);
 	//
 	void Skill_0_touchEvent(Ref* pSender, Widget::TouchEventType type);
 	void Skill_1_touchEvent(Ref* pSender, Widget::TouchEventType type);
 	void Skill_2_touchEvent(Ref* pSender, Widget::TouchEventType type);
 	void Skill_3_touchEvent(Ref* pSender, Widget::TouchEventType type);
 
-	void configureGUIScene();
+	void ConfigureGUIScene();
 	//
 	UI_LAYER_CREATE_FUNC(SkillBarUI);
+public:
+	void	SetMiniHeroHead(const std::string& picName);
+	void	SetHeroLevel(int lvl);
+	void	SetSkill(int skill_slot,int skillID);
+	void	SetSkillIcon(int skill_slot,const std::string& picName);
+	void	SetSkillEnable(int skill_slot,bool enable);
+	void	RemoveSkillSlot(int skill_slot );
+
+
+
 
 protected:
 	Layer* _touchGroup;
 	Layout* _layout;
-	//
-	Button* skill_button_0;
-	Button* skill_button_1;
-	Button* skill_button_2;
-	Button* skill_button_3;
+
+	Vector<Button*>	skill_button;
 	//
 	Text*	hero_level_label;
 	ImageView* mini_hero_head_pic;
 
 private:
+	void	DoSetHeroLevelEffect();
+	void	DoSetSkillIconEffect();
+	void	DoSetSkillEnableEffect();
+
 };
 
 #endif // SkillBarUI_h__
