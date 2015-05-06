@@ -48,10 +48,10 @@ void SkillBarUI::ConfigureGUIScene()
 	skill_button.pushBack(skill_button_2);
 	skill_button.pushBack(skill_button_3);
 
-	button_click_effect.pushBack(ScaleTo::create(0.6f,0.8f));
-	button_click_effect.pushBack(ScaleTo::create(0.6f,0.8f));
-	button_click_effect.pushBack(ScaleTo::create(0.6f,0.8f));
-	button_click_effect.pushBack(ScaleTo::create(0.6f,0.8f));
+	button_click_effect.pushBack(ScaleTo::create(0.15f,0.9f));
+	button_click_effect.pushBack(ScaleTo::create(0.15f,0.9f));
+	button_click_effect.pushBack(ScaleTo::create(0.15f,0.9f));
+	button_click_effect.pushBack(ScaleTo::create(0.15f,0.9f));
 	button_click_effect.at(0)->setTag(BtnClickActionTag);
 	button_click_effect.at(1)->setTag(BtnClickActionTag);
 	button_click_effect.at(2)->setTag(BtnClickActionTag);
@@ -89,6 +89,13 @@ void SkillBarUI::Skill_0_touchEvent( Ref* pSender, Widget::TouchEventType type )
 
 			break;
 		}
+	case Widget::TouchEventType::CANCELED:
+		{
+			btn->stopActionByTag(BtnClickActionTag);
+			btn->setScale(1);
+			break;
+
+		}
 	case Widget::TouchEventType::ENDED:
 		{
 			btn->stopActionByTag(BtnClickActionTag);
@@ -120,6 +127,13 @@ void SkillBarUI::Skill_1_touchEvent( Ref* pSender, Widget::TouchEventType type )
 
 
 			break;
+		}
+	case Widget::TouchEventType::CANCELED:
+		{
+			btn->stopActionByTag(BtnClickActionTag);
+			btn->setScale(1);
+			break;
+			
 		}
 	case Widget::TouchEventType::ENDED:
 		{
@@ -153,6 +167,13 @@ void SkillBarUI::Skill_2_touchEvent( Ref* pSender, Widget::TouchEventType type )
 
 			break;
 		}
+	case Widget::TouchEventType::CANCELED:
+		{
+			btn->stopActionByTag(BtnClickActionTag);
+			btn->setScale(1);
+			break;
+
+		}
 	case Widget::TouchEventType::ENDED:
 		{
 			btn->stopActionByTag(BtnClickActionTag);
@@ -184,6 +205,13 @@ void SkillBarUI::Skill_3_touchEvent( Ref* pSender, Widget::TouchEventType type )
 
 
 			break;
+		}
+	case Widget::TouchEventType::CANCELED:
+		{
+			btn->stopActionByTag(BtnClickActionTag);
+			btn->setScale(1);
+			break;
+
 		}
 	case Widget::TouchEventType::ENDED:
 		{
