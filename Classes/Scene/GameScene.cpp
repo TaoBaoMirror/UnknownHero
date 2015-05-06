@@ -115,4 +115,10 @@ void GameScene::TestMap()
 	//
 	pSkillBarUI = (SkillBarUI*)SkillBarUI::CreateWithTag(111);
 	addChild(pSkillBarUI);
+	//
+	pSkillBarUI->SetSkillIcon(0,"skill_0");
+	pSkillBarUI->SetSkillIcon(1,"skill_1");
+	pSkillBarUI->SetSkillIcon(2,"skill_2");
+	pSkillBarUI->SetSkillIcon(3,"skill_3");
+
 }

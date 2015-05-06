@@ -1,6 +1,7 @@
 #include "SkillBarUI.h"
 #include "ui/CocosGUI.h"
 
+#define BtnClickActionTag 1
 SkillBarUI::SkillBarUI():_touchGroup(nullptr),_layout(nullptr)
 {
 
@@ -47,6 +48,16 @@ void SkillBarUI::ConfigureGUIScene()
 	skill_button.pushBack(skill_button_2);
 	skill_button.pushBack(skill_button_3);
 
+	button_click_effect.pushBack(ScaleTo::create(0.6f,0.8f));
+	button_click_effect.pushBack(ScaleTo::create(0.6f,0.8f));
+	button_click_effect.pushBack(ScaleTo::create(0.6f,0.8f));
+	button_click_effect.pushBack(ScaleTo::create(0.6f,0.8f));
+	button_click_effect.at(0)->setTag(BtnClickActionTag);
+	button_click_effect.at(1)->setTag(BtnClickActionTag);
+	button_click_effect.at(2)->setTag(BtnClickActionTag);
+	button_click_effect.at(3)->setTag(BtnClickActionTag);
+
+
 
 	hero_level_label = static_cast<Text*>(Helper::seekWidgetByName(root, "PlayerLevelLabel"));
 
@@ -59,12 +70,17 @@ void SkillBarUI::Skill_0_touchEvent( Ref* pSender, Widget::TouchEventType type )
 {
 	Button*	btn = dynamic_cast<Button*>(pSender);
 	auto skill = btn->getUserData();
+	ScaleTo* st = button_click_effect.at(0);
 	//
 	switch (type)
 	{
 	case Widget::TouchEventType::BEGAN:
 		{
-
+			auto act = btn->getActionByTag(BtnClickActionTag);
+			if ((act != nullptr && act->isDone()) || act == nullptr)
+			{
+				btn->runAction(st);
+			}
 			break;
 		}
 	case Widget::TouchEventType::MOVED:
@@ -75,7 +91,8 @@ void SkillBarUI::Skill_0_touchEvent( Ref* pSender, Widget::TouchEventType type )
 		}
 	case Widget::TouchEventType::ENDED:
 		{
-
+			btn->stopActionByTag(BtnClickActionTag);
+			btn->setScale(1);
 			break;
 		}
 	}
@@ -85,12 +102,17 @@ void SkillBarUI::Skill_1_touchEvent( Ref* pSender, Widget::TouchEventType type )
 {
 	Button*	btn = dynamic_cast<Button*>(pSender);
 	auto skill = btn->getUserData();
+	ScaleTo* st = button_click_effect.at(1);
 	//
 	switch (type)
 	{
 	case Widget::TouchEventType::BEGAN:
 		{
-
+			auto act = btn->getActionByTag(BtnClickActionTag);
+			if ((act != nullptr && act->isDone()) || act == nullptr)
+			{
+				btn->runAction(st);
+			}
 			break;
 		}
 	case Widget::TouchEventType::MOVED:
@@ -101,7 +123,8 @@ void SkillBarUI::Skill_1_touchEvent( Ref* pSender, Widget::TouchEventType type )
 		}
 	case Widget::TouchEventType::ENDED:
 		{
-
+			btn->stopActionByTag(BtnClickActionTag);
+			btn->setScale(1);
 			break;
 		}
 	}
@@ -111,12 +134,17 @@ void SkillBarUI::Skill_2_touchEvent( Ref* pSender, Widget::TouchEventType type )
 {
 	Button*	btn = dynamic_cast<Button*>(pSender);
 	auto skill = btn->getUserData();
+	ScaleTo* st = button_click_effect.at(2);
 	//
 	switch (type)
 	{
 	case Widget::TouchEventType::BEGAN:
 		{
-
+			auto act = btn->getActionByTag(BtnClickActionTag);
+			if ((act != nullptr && act->isDone()) || act == nullptr)
+			{
+				btn->runAction(st);
+			}
 			break;
 		}
 	case Widget::TouchEventType::MOVED:
@@ -127,7 +155,8 @@ void SkillBarUI::Skill_2_touchEvent( Ref* pSender, Widget::TouchEventType type )
 		}
 	case Widget::TouchEventType::ENDED:
 		{
-
+			btn->stopActionByTag(BtnClickActionTag);
+			btn->setScale(1);
 			break;
 		}
 	}
@@ -137,12 +166,17 @@ void SkillBarUI::Skill_3_touchEvent( Ref* pSender, Widget::TouchEventType type )
 {
 	Button*	btn = dynamic_cast<Button*>(pSender);
 	auto skill = btn->getUserData();
+	ScaleTo* st = button_click_effect.at(3);
 	//
 	switch (type)
 	{
 	case Widget::TouchEventType::BEGAN:
 		{
-
+			auto act = btn->getActionByTag(BtnClickActionTag);
+			if ((act != nullptr && act->isDone()) || act == nullptr)
+			{
+				btn->runAction(st);
+			}
 			break;
 		}
 	case Widget::TouchEventType::MOVED:
@@ -153,7 +187,8 @@ void SkillBarUI::Skill_3_touchEvent( Ref* pSender, Widget::TouchEventType type )
 		}
 	case Widget::TouchEventType::ENDED:
 		{
-
+			btn->stopActionByTag(BtnClickActionTag);
+			btn->setScale(1);
 			break;
 		}
 	}
@@ -175,12 +210,15 @@ void SkillBarUI::SetHeroLevel( int lvl )
 
 void SkillBarUI::SetSkillIcon( int skill_slot,const std::string& picName )
 {
+	const std::string szFilePath = "ui/";
+
 	Button*	skill_icon = skill_button.at(skill_slot);
 
-	std::string normalName = picName + "_normal";
-	std::string disableName = picName + "_disabled";
+	std::string normalName = szFilePath + picName + "_normal" + ".png";
+	std::string disableName = szFilePath + picName + "_disabled" +  + ".png";
 
 	skill_icon->loadTextureNormal(normalName);
+	skill_icon->loadTexturePressed(normalName);
 	skill_icon->loadTextureDisabled(disableName);
 
 

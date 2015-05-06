@@ -50,6 +50,7 @@ protected:
 	Layout* _layout;
 
 	Vector<Button*>	skill_button;
+	Vector<ScaleTo*>	button_click_effect;
 	//
 	Text*	hero_level_label;
 	ImageView* mini_hero_head_pic;
