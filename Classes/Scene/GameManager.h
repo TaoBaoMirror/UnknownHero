@@ -6,10 +6,13 @@
 
 #include <map>
 
+#include "cocos2d.h"
+
 //---------------------------------------------------------
 enum FightStatus
 {
-	SF_Hero = 0,	//自己行动
+	SF_Wait = 0,	//等待
+	SF_Hero,		//自己行动
 	SF_Enemy,		//敌人行动
 	SF_NPC,			//友军行动
 	SF_OneFightOver,
@@ -57,22 +60,32 @@ public:
 
 	int GetCurSpecialHeroProcess();
 	void SpecialHeroJoin();
+
+	void GameKeyPressed(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
+	void GameKeyReleased(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
 private:
 	//------------------------------
 	static GameManager* m_Instance;
 	GameManager();
 	//------------------------------
+	void Wait_Pre();
 	void HeroFight_Pre();
 	void EnemyFight_Pre();
 	void NPCFight_Pre();
 
+	void Wait_Post();
 	void HeroFight_Post();
 	void EnemyFight_Post();
 	void NPCFight_Post();
 
+	void Wait_Update(float dt);
 	void HeroFight_Update(float dt);
 	void EnemyFight_Update(float dt);
 	void NPCFight_Update(float dt);
+
+	//------------------------------
+	void ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
+	void ProcessKeyReleased_Fight(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
 	//------------------------------
 	GameStatus m_GameST;
 	GameStateProcess* m_CurGameST;

@@ -5,6 +5,10 @@
 #include "UI/TellStoryLayer.h"
 #include "Game/MapManager.h"
 #include "UI/SkillBarUI.h"
+#include "Actor/PlayerManager.h"
+#include "Actor/EnemyManager.h"
+#include "Actor/NPCManager.h"
+
 
 USING_NS_CC;
 
@@ -42,6 +46,13 @@ cocos2d::Scene* GameScene::createScene()
 bool GameScene::init()
 {
 	Scene::init();
+
+	//--------------------------
+	auto listenerKeyboard = EventListenerKeyboard::create();
+	listenerKeyboard->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
+	listenerKeyboard->onKeyReleased = CC_CALLBACK_2(GameScene::onKeyReleased, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerKeyboard, this);
+	//--------------------------
 
 	TestMap();
 
@@ -121,4 +132,29 @@ void GameScene::TestMap()
 	pSkillBarUI->SetSkillIcon(2,"skill_2");
 	pSkillBarUI->SetSkillIcon(3,"skill_3");
 
+	Hero* pHero = PlayerManager::GetInstance()->GetHero();
+
+	if (pHero != nullptr)
+	{
+		cocos2d::TMXLayer* pLayer = pChunk->GetCreatureLayer();
+		if (pLayer != nullptr)
+		{
+			//pChunk->addChild(pHero,pLayer->getTag());
+			pChunk->addChild(pHero,99);
+		}		
+	}
+	
+
+	GameManager::GetInstance()->SetGameST(ST_Fight);
+
+}
+
+void GameScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
+{
+	GameManager::GetInstance()->GameKeyPressed(code, event);
+}
+
+void GameScene::onKeyReleased(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
+{
+	GameManager::GetInstance()->GameKeyReleased(code, event);
 }

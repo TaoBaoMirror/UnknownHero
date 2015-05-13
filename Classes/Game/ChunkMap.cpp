@@ -382,3 +382,10 @@ void ChunkMap::onEnter()
 	cocos2d::TMXTiledMap::onEnter();
 
 }
+
+cocos2d::TMXLayer* ChunkMap::GetCreatureLayer()
+{
+	cocos2d::TMXLayer* pCreatureLayer = getLayer(CreatureLayer);
+
+	return pCreatureLayer;
+}

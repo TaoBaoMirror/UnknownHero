@@ -64,8 +64,8 @@ public:
 	bool MoveTo(const GridPos& GPos);
 	//这个move是动画移动的,需要cocos2dx的支持
 	virtual void BeginTraval() {}
-	virtual void EndTraval() {}
-	virtual void TravalTo(const GridPos& GPos){}
+	virtual void EndTraval();
+	virtual void TravalTo(const GridPos& GPos);
 	//得到一条到目标的路径
 	void GetPathToTarget(const GridPos& A,const GridPos& B,std::vector<GridPos>& path);
 	//向给定的GPos点靠近一步

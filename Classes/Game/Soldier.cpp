@@ -93,8 +93,18 @@ bool Soldier::MoveForward( int step /*= 1*/ )
 	GridPos NewGPos(StayGridPos);
 
 	NewGPos.Y = NewGPos.Y - 1;
-	//
-	MoveTo(NewGPos);
+
+	ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
+	if (pChunkMap != nullptr)
+	{
+		std::list<GridPos>	path;
+		if (pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		{
+			//
+			TravalTo(NewGPos);
+			return true;
+		}		
+	}
 	//
 	return false;
 
@@ -105,8 +115,19 @@ bool Soldier::MoveBackward( int step /*= 1*/ )
 	GridPos NewGPos(StayGridPos);
 
 	NewGPos.Y = NewGPos.Y + 1;
-	//
-	MoveTo(NewGPos);
+
+	ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
+	if (pChunkMap != nullptr)
+	{
+		std::list<GridPos>	path;
+		if (pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		{
+			//
+			TravalTo(NewGPos);
+			return true;
+		}		
+	}
+	
 	//
 	return false;
 
@@ -118,7 +139,17 @@ bool Soldier::MoveLeft( int step /*= 1*/ )
 
 	NewGPos.X = NewGPos.X - 1;
 	//
-	MoveTo(NewGPos);
+	ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
+	if (pChunkMap != nullptr)
+	{
+		std::list<GridPos>	path;
+		if (pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		{
+			//
+			TravalTo(NewGPos);
+			return true;
+		}		
+	}
 	//
 	return false;
 }
@@ -129,7 +160,17 @@ bool Soldier::MoveRight( int step /*= 1*/ )
 
 	NewGPos.X = NewGPos.X + 1;
 	//
-	MoveTo(NewGPos);
+	ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
+	if (pChunkMap != nullptr)
+	{
+		std::list<GridPos>	path;
+		if (pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		{
+			//
+			TravalTo(NewGPos);
+			return true;
+		}		
+	}
 	//
 	return false;
 
@@ -356,6 +397,26 @@ void Soldier::BeginMove()
 void Soldier::EndMove()
 {
 
+}
+
+void Soldier::TravalTo(const GridPos& GPos)
+{
+	LastStayGridPos = StayGridPos;
+
+	StayGridPos.SetTo(GPos.X,GPos.Y);
+
+	ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
+	if (pChunkMap != nullptr)
+	{
+		pChunkMap->GetGridSceneMap().GridPosToWorldPos(GPos,Position);
+	}
+}
+
+void Soldier::EndTraval()
+{
+	UpdateSoldierPFPosition();
+
+	UpdateNodeWithGPos();
 }
 
 void Soldier::TakePossession()

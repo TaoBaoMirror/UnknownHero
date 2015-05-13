@@ -35,6 +35,8 @@
 */
 class CreatureSpawnArea;
 
+class TMXLayer;
+
 class ChunkMap : public cocos2d::TMXTiledMap
 {
 public:
@@ -54,7 +56,7 @@ public:
 	const GameInfluenceMap&	GetGameInfluenceMap() const{ return mIM;}
 	CreatureSpawnArea* GetSpawnArea(int AreaID);
 
-
+	cocos2d::TMXLayer* GetCreatureLayer();
 
 	bool  CheckCanArrived(const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr = NULL);
 	// 一些重写的函数

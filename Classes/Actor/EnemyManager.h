@@ -23,6 +23,8 @@ public:
 
 	void CreateMonster(int monsterID);
 
+	void ReadyFight();
+
 private:
 	EnemyManager(void);
 
@@ -35,6 +37,8 @@ private:
 	std::vector<Actor*> m_LongRangeMonsters;
 
 	std::vector<Actor*> m_SpecialRangeMonsters;
+
+	Actor* m_pCurEnemy;
 };
 
 #endif //__ENEMY_MANAGER_H__

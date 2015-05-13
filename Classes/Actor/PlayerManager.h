@@ -15,9 +15,13 @@ public:
 
 	void Update(float dt);
 
+	void ReadyFight();
+
 	StandbyHero* RandomStandbyHero();
 
 	void HeroBorn(StandbyHero* pTempleHero);
+
+	Hero* GetHero(){return m_pMainRole;}
 
 	void HeroAdventureStart(); //英雄进入战斗场景的时候调用这个 初始化一些初次开战的数据
 

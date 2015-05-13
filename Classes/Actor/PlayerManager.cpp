@@ -1,6 +1,9 @@
 #include "PlayerManager.h"
 #include "Game/SoldierManager.h"
 
+#include "Scene/GameManager.h"
+#include "Actor/ActorStatus.h"
+
 //-------------------------------------------------------
 PlayerManager* PlayerManager::m_Instance = nullptr;
 
@@ -26,6 +29,21 @@ PlayerManager::~PlayerManager(void)
 void PlayerManager::Update(float dt)
 {
 	//¼ì²âÓ¢ÐÛÊÇ·ñÒÆ¶¯¹¥»÷Íê±Ï Èç¹ûÍê±Ï ÇÐ»»µ½µÐÈË
+	if (m_pMainRole != nullptr)
+	{
+		if(m_pMainRole->m_pFSM->GetStatus() == Actor_Stand::Instance())
+		{
+			GameManager::GetInstance()->RoundPassed();
+		}	
+	}
+}
+//-------------------------------------------------------
+void PlayerManager::ReadyFight()
+{
+	if (m_pMainRole != nullptr)
+	{
+		m_pMainRole->m_pFSM->SetStatus(Actor_Ready::Instance());
+	}
 }
 //-------------------------------------------------------
 void PlayerManager::HeroBorn(StandbyHero* pTempleHero)

@@ -24,6 +24,10 @@ public:
 
 	void Continue();
 
+	void onKeyPressed(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
+
+	void onKeyReleased(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
+
 	static int LayerTag;
 protected: 
 	void TestMap();

@@ -197,7 +197,10 @@ GameState_Fight* GameState_Fight::Instance()
 
 void GameState_Fight::Enter()
 {
-	;
+	//正常流程 应该是进入wait 然后ui播放 "准备开战"
+	//播放结束后进入SF_Hero
+	//GameManager::GetInstance()->SetFightST(SF_Wait);
+	GameManager::GetInstance()->SetFightST(SF_Hero);
 }
 
 void GameState_Fight::Execute(float dt)

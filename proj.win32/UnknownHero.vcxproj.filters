@@ -303,6 +303,12 @@
     <ClCompile Include="..\Classes\Game\SoldierManager.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Actor\ActorFSM.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\ActorStatus.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -541,6 +547,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\SoldierManager.h">
       <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\ActorFSM.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\ActorStatus.h">
+      <Filter>src\Actor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@
 #include "Game/MapManager.h"
 
 #include "GameStatus/GameStates.h"
+#include "Actor/ActorStatus.h"
 
 #include "ResDef.h"
 
@@ -130,6 +131,9 @@ void GameManager::SetFightST(FightStatus st)
 {
 	switch (m_CurFightST)
 	{
+	case  SF_Wait:
+		Wait_Post();
+		break;
 	case SF_Hero:
 		HeroFight_Post();
 		break;
@@ -149,6 +153,9 @@ void GameManager::SetFightST(FightStatus st)
 
 	switch (m_CurFightST)
 	{
+	case  SF_Wait:
+		Wait_Pre();
+		break;
 	case SF_Hero:
 		HeroFight_Pre();
 		break;
@@ -165,25 +172,38 @@ void GameManager::SetFightST(FightStatus st)
 	}
 }
 //--------------
-void GameManager::HeroFight_Pre()
+void GameManager::Wait_Pre()
 {
 	;
 }
+
+void GameManager::HeroFight_Pre()
+{
+	//将所有的角色状态都清除为 Actor_Ready
+	PlayerManager::GetInstance()->ReadyFight();
+}
 void GameManager::EnemyFight_Pre()
 {
-	if (EnemyManager::GetInstance()->IsAnyBodyHere() == false)
-	{
-		RoundPassed();
-	}
+	EnemyManager::GetInstance()->ReadyFight();
+	//if (EnemyManager::GetInstance()->IsAnyBodyHere() == false)
+	//{
+	//	RoundPassed();
+	//}
 }
 void GameManager::NPCFight_Pre()
 {
-	if (NPCManager::GetInstance()->IsAnyBodyHere() == false)
-	{
-		RoundPassed();
-	}
+	NPCManager::GetInstance()->ReadyFight();
+	//if (NPCManager::GetInstance()->IsAnyBodyHere() == false)
+	//{
+	//	RoundPassed();
+	//}
 }
 //--------------
+void GameManager::Wait_Post()
+{
+	;
+}
+
 void GameManager::HeroFight_Post()
 {
 	;
@@ -205,6 +225,9 @@ void GameManager::UpdateFight(float dt)
 
 	switch (m_CurFightST)
 	{
+	case  SF_Wait:
+		Wait_Update(dt);
+		break;
 	case SF_Hero:
 		HeroFight_Update(dt);
 		break;
@@ -215,10 +238,18 @@ void GameManager::UpdateFight(float dt)
 		NPCFight_Update(dt);
 		break;
 	case SF_OneFightOver:
+		{
+			SetFightST(FightStatus::SF_Hero);
+		}
 		break;
 	default:
 		break;
 	}
+}
+
+void GameManager::Wait_Update(float dt)
+{
+	;
 }
 
 void GameManager::HeroFight_Update(float dt)
@@ -297,3 +328,75 @@ void GameManager::SpecialHeroJoin()
 	;
 }
 //-----------------------------------------------------------------
+void GameManager::GameKeyPressed(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
+{
+	if (m_CurGameST != nullptr)
+	{		
+		if (m_CurGameST == GameState_Fight::Instance())
+		{
+			ProcessKeyPressed_Fight(code, event);
+		}
+	}
+	
+}
+//-----------------------------------------------------------------
+void GameManager::GameKeyReleased(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
+{
+	;
+}
+//-----------------------------------------------------------------
+void GameManager::ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
+{
+	if (m_CurFightST == SF_Hero)
+	{
+		Hero* pHero = PlayerManager::GetInstance()->GetHero();
+
+		if (pHero != nullptr)
+		{
+			if (pHero->m_pFSM->GetStatus() == Actor_Ready::Instance())
+			{
+				if (code == cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW)
+				{
+					if (pHero->MoveBackward() == true)
+					{
+					}
+				}	
+				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_DOWN_ARROW)
+				{
+					if (pHero->MoveForward() == true)
+					{
+					}
+				}
+				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW)
+				{
+					if (pHero->MoveLeft() == true)
+					{
+					}
+				}
+				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
+				{
+					if (pHero->MoveRight() == true)
+					{
+					}
+				}
+			}
+		}
+		
+	}	
+}
+void GameManager::ProcessKeyReleased_Fight(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
+{
+	if (code == cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW)
+	{
+		int i = 100;
+	}	
+	else if (code == cocos2d::EventKeyboard::KeyCode::KEY_DOWN_ARROW)
+	{
+	}
+	else if (code == cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW)
+	{
+	}
+	else if (code == cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
+	{
+	}
+}
