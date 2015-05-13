@@ -98,7 +98,7 @@ bool Soldier::MoveForward( int step /*= 1*/ )
 	if (pChunkMap != nullptr)
 	{
 		std::list<GridPos>	path;
-		if (pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
 		{
 			//
 			TravalTo(NewGPos);
@@ -120,7 +120,7 @@ bool Soldier::MoveBackward( int step /*= 1*/ )
 	if (pChunkMap != nullptr)
 	{
 		std::list<GridPos>	path;
-		if (pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
 		{
 			//
 			TravalTo(NewGPos);
@@ -143,7 +143,7 @@ bool Soldier::MoveLeft( int step /*= 1*/ )
 	if (pChunkMap != nullptr)
 	{
 		std::list<GridPos>	path;
-		if (pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
 		{
 			//
 			TravalTo(NewGPos);
@@ -164,7 +164,7 @@ bool Soldier::MoveRight( int step /*= 1*/ )
 	if (pChunkMap != nullptr)
 	{
 		std::list<GridPos>	path;
-		if (pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
 		{
 			//
 			TravalTo(NewGPos);
@@ -333,7 +333,7 @@ bool Soldier::canStay( const GridPos& GPos )
 		NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
 		MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
 		//
-		if (node.Walkable())
+		if (node.Index() != invalid_node_index && node.Walkable())
 		{
 			if (pMND->Creature == NULL)
 			{
