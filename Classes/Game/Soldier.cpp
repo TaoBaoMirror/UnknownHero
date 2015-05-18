@@ -407,12 +407,6 @@ bool Soldier::TravalTo(const GridPos& GPos)
 
 		StayGridPos.SetTo(GPos.X,GPos.Y);
 
-		ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
-		if (pChunkMap != nullptr)
-		{
-			pChunkMap->GetGridSceneMap().GridPosToWorldPos(GPos,Position);
-		}
-
 		return true;
 	}
 
@@ -424,6 +418,8 @@ void Soldier::EndTraval()
 	UpdateSoldierPFPosition();
 
 	UpdateNodeWithGPos();
+
+	UpdatePosition();
 }
 
 void Soldier::TakePossession()

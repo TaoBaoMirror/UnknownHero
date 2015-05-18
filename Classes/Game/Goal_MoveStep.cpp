@@ -11,14 +11,14 @@ void Goal_MoveStep::Activate()
 {
 	m_iStatus = active;
 
-	if(!m_pOwner->MoveTo(To))
-	{
-		m_iStatus = failed;
-	}
-	else
-	{
-		m_iStatus = completed;
-	}
+// 	if(!m_pOwner->MoveTo(To))
+// 	{
+// 		m_iStatus = failed;
+// 	}
+// 	else
+// 	{
+// 		m_iStatus = completed;
+// 	}
 
 	if(!m_pOwner->TravalTo(To))
 	{

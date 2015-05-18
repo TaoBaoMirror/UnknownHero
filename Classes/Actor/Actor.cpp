@@ -77,6 +77,8 @@ void Actor::EndTraval()
 //-------------------------
 bool Actor::TravalTo(const GridPos& GPos)
 {
+	if(Soldier::TravalTo(GPos) == false) return false;
+
 	m_pFSM->SetStatus(Actor_Move::Instance());
 
 	ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
@@ -101,7 +103,7 @@ bool Actor::TravalTo(const GridPos& GPos)
 		this->runAction(pSec);
 	}
 
-	return Soldier::TravalTo(GPos);
+	return true;
 }
 //-------------------------
 void Actor::AIThink()

@@ -18,7 +18,7 @@ void Goal_Explore::Activate()
 		{
 			G_GetSceneMap().GetRandomNodeLocation(m_CurrentDestination);
 
-		}while(!G_GetSceneMap().GetNode(m_CurrentDestination).Walkable());
+		}while( m_pOwner->CanSetTo(m_CurrentDestination) == false);
 
 		if(MapManager::GetInstance()->GetCurChunkMap()->CheckCanArrived(m_pOwner->GetStayGPos(),m_CurrentDestination,&path))
 		{

@@ -14,7 +14,9 @@
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
 #define SpawnLayer "SpawnLayer"	//卵域数据层
-
+#define GridLayerTag 0xa0	//网格数据层
+#define CreatureLayerTag 0xa1	//生物体数据层
+#define SpawnLayerTag 0xa2	//卵域数据层
 
 
 #define NULL_NODE -1
@@ -106,6 +108,11 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 			Creature在编辑的时候，他们的属性应该是一致的，
 		*/
 		auto pCreatureLayer = getLayer(CreatureLayer);
+		if (pCreatureLayer != nullptr)
+		{
+			this->addChild(cocos2d::Layer::create(),pCreatureLayer->getLocalZOrder() + 1,CreatureLayerTag);
+		}
+		
 		for (int lx = 0 ; lx < sLayerSize.width; ++lx)
 		{
 			for (int ly = 0 ; ly < sLayerSize.height; ++ly)
@@ -383,9 +390,14 @@ void ChunkMap::onEnter()
 
 }
 
-cocos2d::TMXLayer* ChunkMap::GetCreatureLayer()
+cocos2d::TMXLayer* ChunkMap::GetCreatureTMXLayer()
 {
 	cocos2d::TMXLayer* pCreatureLayer = getLayer(CreatureLayer);
 
 	return pCreatureLayer;
+}
+
+cocos2d::Layer* ChunkMap::GetCreatureLayer()
+{
+	return static_cast<cocos2d::Layer*>(this->getChildByTag(CreatureLayerTag));
 }

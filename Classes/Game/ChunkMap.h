@@ -56,7 +56,9 @@ public:
 	const GameInfluenceMap&	GetGameInfluenceMap() const{ return mIM;}
 	CreatureSpawnArea* GetSpawnArea(int AreaID);
 
-	cocos2d::TMXLayer* GetCreatureLayer();
+	cocos2d::TMXLayer* GetCreatureTMXLayer();
+	cocos2d::Layer* GetCreatureLayer();
+
 
 	bool  CheckCanArrived(const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr = NULL);
 	// 一些重写的函数

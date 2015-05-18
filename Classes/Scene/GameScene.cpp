@@ -136,11 +136,11 @@ void GameScene::TestMap()
 
 	if (pHero != nullptr)
 	{
-		cocos2d::TMXLayer* pLayer = pChunk->GetCreatureLayer();
+		auto* pLayer = pChunk->GetCreatureLayer();
 		if (pLayer != nullptr)
 		{
 			//pChunk->addChild(pHero,pLayer->getTag());
-			pChunk->addChild(pHero,99);
+			pLayer->addChild(pHero,99);
 		}		
 	}
 
@@ -148,11 +148,11 @@ void GameScene::TestMap()
 	Monster* pMonster = EnemyManager::GetInstance()->CreateMonster(0);
 	if (pMonster != nullptr)
 	{
-		cocos2d::TMXLayer* pLayer = pChunk->GetCreatureLayer();
+		auto* pLayer = pChunk->GetCreatureLayer();
 		if (pLayer != nullptr)
 		{
 			//pChunk->addChild(pMonster,pLayer->getTag());
-			pChunk->addChild(pMonster,99);
+			pLayer->addChild(pMonster,99);
 		}
 	}
 	
