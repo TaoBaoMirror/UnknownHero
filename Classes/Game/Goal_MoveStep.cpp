@@ -20,6 +20,14 @@ void Goal_MoveStep::Activate()
 		m_iStatus = completed;
 	}
 
+	if(!m_pOwner->TravalTo(To))
+	{
+		m_iStatus = failed;
+	}
+	else
+	{
+		m_iStatus = completed;
+	}
 }
 
 int Goal_MoveStep::Process()

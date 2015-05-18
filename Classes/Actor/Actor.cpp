@@ -2,6 +2,9 @@
 #include "Actor/ActorStatus.h"
 
 #include "Game/MapManager.h"
+#include "Game/AttackSystem.h"
+#include "Game/TargetingSystem.h"
+#include "Game/Goal_SoldierThink.h"
 
 const float Actor::g_ActorMoveTime = 0.5f;
 
@@ -72,7 +75,7 @@ void Actor::EndTraval()
 	m_pFSM->SetStatus(Actor_Stand::Instance());
 }
 //-------------------------
-void Actor::TravalTo(const GridPos& GPos)
+bool Actor::TravalTo(const GridPos& GPos)
 {
 	m_pFSM->SetStatus(Actor_Move::Instance());
 
@@ -98,6 +101,15 @@ void Actor::TravalTo(const GridPos& GPos)
 		this->runAction(pSec);
 	}
 
-	Soldier::TravalTo(GPos);
+	return Soldier::TravalTo(GPos);
+}
+//-------------------------
+void Actor::AIThink()
+{
+	GetAttackSystem()->Update();
+	//
+	GetTargetingSystem()->Update();
+
+	GetBrain()->Process();
 }
 //-------------------------

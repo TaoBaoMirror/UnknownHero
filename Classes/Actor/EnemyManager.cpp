@@ -3,6 +3,9 @@
 #include "Actor/ActorStatus.h"
 #include "Scene/GameManager.h"
 
+#include "Data/TableManager.h"
+#include "Game/SoldierManager.h"
+
 //-------------------------------------------------------
 EnemyManager* EnemyManager::m_Instance = nullptr;
 
@@ -38,6 +41,11 @@ void EnemyManager::Update(float dt)
 		m_pCurEnemy = nullptr;
 	}
 
+	if (m_pCurEnemy != nullptr && m_pCurEnemy->m_pFSM->GetStatus() == Actor_Ready::Instance())
+	{
+		m_pCurEnemy->AIThink();
+	}
+
 	//2 找一个当前要控制的敌人
 	//首先是有特殊动作的敌人
 	if (m_pCurEnemy == nullptr)
@@ -45,13 +53,13 @@ void EnemyManager::Update(float dt)
 		//查找有没有正在
 		for (int i=0; i<m_SpecialRangeMonsters.size(); ++i)
 		{
-			Actor* pActor = m_ShortRangeMonsters.at(i);
+			Actor* pActor = m_SpecialRangeMonsters.at(i);
 			if (pActor != nullptr && pActor->m_pFSM->GetStatus() == Actor_Ready::Instance())
 			{
 				m_pCurEnemy = pActor;
 				
 				//找到了一个空闲的actor,那么就让AI驱动他吧
-				//pActor->AIThink();
+				pActor->AIThink();
 			}
 		}
 	}
@@ -62,13 +70,14 @@ void EnemyManager::Update(float dt)
 		//查找有没有正在
 		for (int i=0; i<m_LongRangeMonsters.size(); ++i)
 		{
-			Actor* pActor = m_ShortRangeMonsters.at(i);
+			Actor* pActor = m_LongRangeMonsters.at(i);
 			if (pActor != nullptr && pActor->m_pFSM->GetStatus() == Actor_Ready::Instance())
 			{
 				m_pCurEnemy = pActor;
 
 				//找到了一个空闲的actor,那么就让AI驱动他吧
-				//pActor->AIThink();
+				pActor->AIThink();
+				//pActor->MoveRight();
 			}
 		}
 	}
@@ -85,7 +94,7 @@ void EnemyManager::Update(float dt)
 				m_pCurEnemy = pActor;
 
 				//找到了一个空闲的actor,那么就让AI驱动他吧
-				//pActor->AIThink();
+				pActor->AIThink();
 			}
 		}
 	}
@@ -122,7 +131,7 @@ void EnemyManager::ReadyFight()
 	//远程敌人
 	for (int i=0; i<m_LongRangeMonsters.size(); ++i)
 	{
-		Actor* pActor = m_ShortRangeMonsters.at(i);
+		Actor* pActor = m_LongRangeMonsters.at(i);
 		if (pActor != nullptr)
 		{
 			pActor->m_pFSM->SetStatus(Actor_Ready::Instance());
@@ -140,14 +149,72 @@ void EnemyManager::ReadyFight()
 	}
 }
 //-------------------------------------------------------
-void EnemyManager::CreateMonster(int monsterID)
+Monster* EnemyManager::CreateMonster(int monsterID)
 {
 	//1 根据怪物ID 读表 读取怪物基本信息
 
+	int monsterType = TableManager::GetInstance()->GetTableIntData(TableType::Table_Monster,"MonsterType",monsterID);
+
 	//2 根据怪物类型 创建怪物对象
 
+	Monster* pMonster = nullptr;
+
+	MonsterType mType = (MonsterType)monsterType;
+	switch (mType)
+	{
+	case MonsterType::MonsterType_Special:
+		pMonster = CreateSpecialMonster(monsterID);
+		break;
+	case MonsterType::MonsterType_LongRange:
+		pMonster = CreateLongMonster(monsterID);
+		break;
+	case MonsterType::MonsterType_ShortRange:
+		pMonster = CreateShortMonster(monsterID);
+		break;
+	default:
+		break;
+	}
+
+	SoldierManager::Instance()->RegisterSoldier(pMonster);
+
 	//3 根据怪物射程(MonsterType) 将怪物对象分别放入三个队列中
+
+	return pMonster;
 }
+Monster* EnemyManager::CreateSpecialMonster(int monsterID)
+{
+	//如果做了不同的敌人 这里要区分敌人 并分别创建
+	Monster* pMonster = Monster_Special::createWithMonsterID(monsterID);
+
+	m_SpecialRangeMonsters.push_back(pMonster);
+
+	return pMonster;
+}
+Monster* EnemyManager::CreateLongMonster(int monsterID)
+{
+	Monster* pMonster = Monster_Long::createWithMonsterID(monsterID);
+
+	m_LongRangeMonsters.push_back(pMonster);
+
+	return pMonster;
+}
+Monster* EnemyManager::CreateShortMonster(int monsterID)
+{
+	Monster* pMonster = Monster_Short::createWithMonsterID(monsterID);
+
+	m_ShortRangeMonsters.push_back(pMonster);
+
+	return pMonster;
+}
+//-------------------------------------------------------
+//void EnemyManager::CreateMonstersAtLayer(cocos2d::TMXLayer* pLayer, int zOrder)
+//{
+//	//1 根据怪物ID 读表 读取怪物基本信息
+//
+//	//2 根据怪物类型 创建怪物对象
+//
+//	//3 根据怪物射程(MonsterType) 将怪物对象分别放入三个队列中
+//}
 //-------------------------------------------------------
 bool EnemyManager::IsAnyBodyHere()
 {

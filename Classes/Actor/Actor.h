@@ -24,7 +24,7 @@ public:
 
 	virtual void BeginTraval() override;
 	virtual void EndTraval() override;
-	virtual void TravalTo(const GridPos& GPos) override;
+	virtual bool TravalTo(const GridPos& GPos) override;
 
 	virtual void playMoveAnimation(){};
 	virtual void playAttackAnimation(){};
@@ -56,6 +56,8 @@ public:
 	virtual void ActorWinStart(){}
 	virtual void ActorWinUpdate(float dt){}
 	virtual void ActorWinEnd(){}
+	//------
+	virtual void AIThink();
 	//------
 
 public:

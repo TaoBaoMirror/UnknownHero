@@ -18,7 +18,7 @@ TableManager::TableManager(void)
 {
 	m_TablePaths[TableType::Table_Hero] = "table/HeroTable.csv";
 
-	//m_TablePaths[TableType::Table_Hero] = "table/HeroTable.csv";
+	m_TablePaths[TableType::Table_Monster] = "table/MonsterTable.csv";
 
 	//m_TablePaths[TableType::Table_Hero] = "table/HeroTable.csv";
 
@@ -36,6 +36,7 @@ void TableManager::LoadAllTable()
 {
 	//这里加载所有的表
 	LoadTable(TableType::Table_Hero);
+	LoadTable(TableType::Table_Monster);
 }
 
 void TableManager::LoadTable(TableType type)

@@ -69,11 +69,11 @@ void Soldier::Update()
 {
 	UpdatePosition();
 	//
-	pAttackSystem->Update();
-	//
-	pTargetingSystem->Update();
-	//
-	pBrain->Process();
+	//pAttackSystem->Update();
+	////
+	//pTargetingSystem->Update();
+	////
+	//pBrain->Process();
 	
 }
 
@@ -399,17 +399,24 @@ void Soldier::EndMove()
 
 }
 
-void Soldier::TravalTo(const GridPos& GPos)
+bool Soldier::TravalTo(const GridPos& GPos)
 {
-	LastStayGridPos = StayGridPos;
-
-	StayGridPos.SetTo(GPos.X,GPos.Y);
-
-	ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
-	if (pChunkMap != nullptr)
+	if (canStay(GPos))
 	{
-		pChunkMap->GetGridSceneMap().GridPosToWorldPos(GPos,Position);
+		LastStayGridPos = StayGridPos;
+
+		StayGridPos.SetTo(GPos.X,GPos.Y);
+
+		ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
+		if (pChunkMap != nullptr)
+		{
+			pChunkMap->GetGridSceneMap().GridPosToWorldPos(GPos,Position);
+		}
+
+		return true;
 	}
+
+	return false;
 }
 
 void Soldier::EndTraval()

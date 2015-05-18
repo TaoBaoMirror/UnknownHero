@@ -143,6 +143,18 @@ void GameScene::TestMap()
 			pChunk->addChild(pHero,99);
 		}		
 	}
+
+	//EnemyManager::GetInstance()->CreateMonstersAtLayer(pChunk,pLayer->getTag());
+	Monster* pMonster = EnemyManager::GetInstance()->CreateMonster(0);
+	if (pMonster != nullptr)
+	{
+		cocos2d::TMXLayer* pLayer = pChunk->GetCreatureLayer();
+		if (pLayer != nullptr)
+		{
+			//pChunk->addChild(pMonster,pLayer->getTag());
+			pChunk->addChild(pMonster,99);
+		}
+	}
 	
 
 	GameManager::GetInstance()->SetGameST(ST_Fight);

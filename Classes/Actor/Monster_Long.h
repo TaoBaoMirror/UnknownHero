@@ -1,29 +1,13 @@
-#ifndef __MONSTER_H__
-#define __MONSTER_H__
+#ifndef __MONSTER_LONG_H__
+#define __MONSTER_LONG_H__
 
-#include "Actor/Actor.h"
+#include "Actor/Monster.h"
 
-enum  MonsterType
-{
-	MonsterType_ShortRange = 0,
-	MonsterType_LongRange,
-	MonsterType_Special,
-};
-
-class Monster : public Actor
+class Monster_Long : public Monster
 {
 public:
-	Monster(void);
-	~Monster(void);
-
-	static Monster* createWithMonsterID(int id);
-
-	void SetActionFrame();
-
-	//------------------------------
-	virtual void playMoveAnimation() override;
-	virtual void playAttackAnimation() override;
-
+	Monster_Long(void);
+	~Monster_Long(void);
 	//----------------------------------------
 	virtual void ActorReadyStart() override;
 	virtual void ActorReadyUpdate(float dt) override;
@@ -49,41 +33,11 @@ public:
 	virtual void ActorWinUpdate(float dt) override;
 	virtual void ActorWinEnd() override;
 	//----------------------------------------
+	
 	virtual void AIThink() override;
-	//------------------------------
 
-	void SetMonsterName(std::string name)
-	{
-		m_MonsterName = name;
-	}
-
-	void SetMonsterID(int id)
-	{
-		m_MonsterID = id;
-	}
-
-	void SetMonsterTexID(std::string texID)
-	{
-		m_MonsterTexID = texID;
-	}
-
-
-protected:
-	//Ãû×Ö
-	std::string m_MonsterName;
-
-	//MonsterType
-	MonsterType	m_MonsterType;
-
-	//HeroID
-	int			m_MonsterID;
-
-	//Í¼Æ¬
-	std::string m_MonsterTexID;
-
-	//Ö°Òµ
-	//CareerBase* m_pCareerData;
+	//----------------------------------------
 
 };
 
-#endif //__MONSTER_H__
+#endif //__MONSTER_LONG_H__

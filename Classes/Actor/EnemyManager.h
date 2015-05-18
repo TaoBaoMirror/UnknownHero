@@ -5,8 +5,9 @@
 #include <string.h>
 #include <vector>
 
-#include "Actor/Actor.h"
-#include "Actor/Monster.h"
+#include "Actor/Monster_Special.h"
+#include "Actor/Monster_Long.h"
+#include "Actor/Monster_Short.h"
 
 class EnemyManager
 {
@@ -21,7 +22,7 @@ public:
 
 	bool IsAnyBodyHere();//查看是否还有敌人在当前场景上
 
-	void CreateMonster(int monsterID);
+	Monster* CreateMonster(int monsterID);
 
 	void ReadyFight();
 
@@ -30,13 +31,17 @@ private:
 
 	static EnemyManager* m_Instance;
 	//--------------------------------------------------
+	Monster* CreateSpecialMonster(int monsterID);
+	Monster* CreateLongMonster(int monsterID);
+	Monster* CreateShortMonster(int monsterID);
+	//--------------------------------------------------
 	//要分成三个队列是因为,要让近程部队先动,远程后动,防止发生冲突
 	//(比如近程怪会阻挡攻击线路)
-	std::vector<Actor*> m_ShortRangeMonsters;
+	std::vector<Monster*> m_ShortRangeMonsters;
 
-	std::vector<Actor*> m_LongRangeMonsters;
+	std::vector<Monster*> m_LongRangeMonsters;
 
-	std::vector<Actor*> m_SpecialRangeMonsters;
+	std::vector<Monster*> m_SpecialRangeMonsters;
 
 	Actor* m_pCurEnemy;
 };

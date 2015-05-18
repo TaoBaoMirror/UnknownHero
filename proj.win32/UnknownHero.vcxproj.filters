@@ -309,6 +309,15 @@
     <ClCompile Include="..\Classes\Actor\ActorStatus.cpp">
       <Filter>src\Actor</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Monster_Long.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Monster_Short.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Monster_Special.cpp">
+      <Filter>src\Actor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -552,6 +561,15 @@
       <Filter>src\Actor</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Actor\ActorStatus.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Monster_Long.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Monster_Short.h">
+      <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Monster_Special.h">
       <Filter>src\Actor</Filter>
     </ClInclude>
   </ItemGroup>

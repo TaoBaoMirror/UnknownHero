@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <plist version="1.0">
     <dict>
         <key>frames</key>
@@ -7,7 +6,7 @@
             <key>Hero_1_attack_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,36},{32,32}}</string>
+                <string>{{2,70},{32,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +19,7 @@
             <key>Hero_1_die_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,36},{32,32}}</string>
+                <string>{{2,70},{32,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +32,7 @@
             <key>Hero_1_move_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,36},{32,32}}</string>
+                <string>{{2,70},{32,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +45,7 @@
             <key>Hero_1_stand_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,36},{32,32}}</string>
+                <string>{{2,70},{32,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +58,7 @@
             <key>Hero_1_stand_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{32,32}}</string>
+                <string>{{2,36},{32,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,7 +71,7 @@
             <key>Hero_1_stand_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,36},{32,32}}</string>
+                <string>{{2,70},{32,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +84,72 @@
             <key>Hero_1_win_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,36},{32,32}}</string>
+                <string>{{2,70},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>Monster_1_attack_0.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>Monster_1_die_0.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>Monster_1_move_0.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>Monster_1_stand_0.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>Monster_1_win_0.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{32,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>

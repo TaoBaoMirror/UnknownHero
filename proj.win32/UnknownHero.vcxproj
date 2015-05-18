@@ -146,6 +146,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Actor\EnemyManager.cpp" />
     <ClCompile Include="..\Classes\Actor\Hero.cpp" />
     <ClCompile Include="..\Classes\Actor\Monster.cpp" />
+    <ClCompile Include="..\Classes\Actor\Monster_Long.cpp" />
+    <ClCompile Include="..\Classes\Actor\Monster_Short.cpp" />
+    <ClCompile Include="..\Classes\Actor\Monster_Special.cpp" />
     <ClCompile Include="..\Classes\Actor\NPCManager.cpp" />
     <ClCompile Include="..\Classes\Actor\PlayerManager.cpp" />
     <ClCompile Include="..\Classes\Actor\StandbyHero.cpp" />
@@ -223,6 +226,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Actor\EnemyManager.h" />
     <ClInclude Include="..\Classes\Actor\Hero.h" />
     <ClInclude Include="..\Classes\Actor\Monster.h" />
+    <ClInclude Include="..\Classes\Actor\Monster_Long.h" />
+    <ClInclude Include="..\Classes\Actor\Monster_Short.h" />
+    <ClInclude Include="..\Classes\Actor\Monster_Special.h" />
     <ClInclude Include="..\Classes\Actor\NPCManager.h" />
     <ClInclude Include="..\Classes\Actor\PlayerManager.h" />
     <ClInclude Include="..\Classes\Actor\StandbyHero.h" />
