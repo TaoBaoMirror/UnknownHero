@@ -17,7 +17,7 @@
 #include "AttackData.h"
 
 
-struct AttackData;
+class AttackData;
 struct AttackDataBase;
 struct AttackRangeData;
 class  AttackRange;

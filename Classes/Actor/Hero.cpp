@@ -2,6 +2,7 @@
 #include "Actor/ActorStatus.h"
 
 #include "Data/TableManager.h"
+#include "Game/CommonFunc.h"
 //----------------------------------------------
 Hero::Hero(void)
 {
@@ -148,7 +149,21 @@ void Hero::ActorMoveEnd()
 //-----
 void Hero::ActorAttackStart()
 {
+	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
+
 	auto anim = createAttackAnimation(ActorAnimType::ActorAnim_Attack);
+
+	auto func_1 = cocos2d::CallFuncN::create( CC_CALLBACK_0(Hero::playMoveAnimation , this ) );
+	auto func_2 = cocos2d::CallFunc::create( CC_CALLBACK_0(Hero::CalcAttack , this , m_pTempAtkData));
+
+	pAcs.pushBack(anim);
+	pAcs.pushBack(func_1);
+	pAcs.pushBack(func_2);
+
+	auto seq = cocos2d::Sequence::create(pAcs);
+	seq->setTag(ActorAnimType::ActorAnim_Attack);
+	this->runAction(seq);
+
 }
 void Hero::ActorAttackUpdate(float dt)
 {
@@ -182,4 +197,10 @@ void Hero::ActorWinEnd()
 {
 	;
 }
+#include "Game/AttackData.h"
+void Hero::CalcAttack( AttackData* pAtkData )
+{
+	CommonFunc::CalcDamage(pAtkData);
+}
+
 //------------------------------------------------------------------------------------

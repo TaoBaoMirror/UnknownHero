@@ -55,6 +55,7 @@ public:
 	virtual void Enter(Actor* pActor) override;
 	virtual void Execute(Actor* pActor, float dt) override;
 	virtual void Exit(Actor* pActor) override;
+
 private:
 	static Actor_Attack* m_instance;
 };

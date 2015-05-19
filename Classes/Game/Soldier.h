@@ -27,6 +27,8 @@ class ShieldSystem;
 class TargetingSystem;
 //
 class SoldierPF;
+class AttackData;
+class DamageData;
 //
 
 class Soldier:public MessageListener,public CreatureBase
@@ -70,7 +72,9 @@ public:
 	virtual void EndTraval();
 	virtual bool TravalTo(const GridPos& GPos);
 	//攻击操作
+	//攻击动画完成后，去核算攻击数据
 	virtual void Attack(Soldier* other);
+	virtual void GetHurt(DamageData* damageData);
 	//得到一条到目标的路径
 	void GetPathToTarget(const GridPos& A,const GridPos& B,std::vector<GridPos>& path);
 	//向给定的GPos点靠近一步

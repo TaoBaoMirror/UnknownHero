@@ -13,6 +13,7 @@
 #define AttackData_h__
 
 #include "GridPos.h"
+#include "cocos2d.h"
 
 struct AttackDataBase
 { 
@@ -31,7 +32,7 @@ public:
 	bool	HasEmitter;			//是否有发射器
 };
 
-struct AttackData : public AttackDataBase
+class AttackData : public AttackDataBase
 {
 public:
 	AttackData();
@@ -41,6 +42,16 @@ public:
 	int		ProviderID;			//提供伤害的SoldierID
 	int		BearerID;			//承受伤害的SoldierID
 	GridPos		TargetGPos;
+};
+
+class DamageData
+{
+public: 
+	DamageData(int damage,int P_Id,int B_Id);
+	//
+	int		ProviderID;
+	int		BearerID;
+	int		DamagePt;
 };
 
 #endif // AttackData_h__

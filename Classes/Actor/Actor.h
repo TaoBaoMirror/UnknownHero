@@ -70,6 +70,12 @@ public:
 
 public:
 	ActorFSM* m_pFSM;
+	//
+
+
+	// add by Hitman [5/19/2015]
+protected:
+	AttackData* m_pTempAtkData;
 
 protected:
 	std::map<std::string,cocos2d::Vector<cocos2d::SpriteFrame*>> m_framesDict;

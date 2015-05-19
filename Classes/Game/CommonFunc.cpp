@@ -14,7 +14,7 @@ const GridSceneMap& G_GetSceneMap()
 //////////////////////////////////////////////////////////////////////////
 void CommonFunc::CalcDamage( const AttackData* atkData )
 {
-	const AttackData* pAtkData = pAtkData;
+	const AttackData* pAtkData = atkData;
 	auto provider = SoldierManager::Instance()->GetSoldier(pAtkData->ProviderID);
 	std::vector<Soldier*> Soldiers;
 	auto chunkMap = MapManager::GetInstance()->GetCurChunkMap();
@@ -58,6 +58,7 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 			center_Damage = (AtkPt - pShdData->ShieldPt) * hit_Rate;
 			//TODO 
 			//  e.g.Bearer.GetDamage(xxxxxxx);
+			bearer->GetHurt(new DamageData(center_Damage,pAtkData->ProviderID,pAtkData->BearerID));
 
 
 
@@ -81,6 +82,7 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 
 			//TODO 
 			//  e.g.Bearer.GetDamage(xxxxxxx);
+			soldier->GetHurt(new DamageData(newDamage,pAtkData->ProviderID,pAtkData->BearerID));
 		}
 	}
 	

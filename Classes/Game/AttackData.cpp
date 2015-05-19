@@ -34,3 +34,11 @@ AttackData::AttackData( const AttackDataBase& ADB,int P_Id,const GridPos& GPos )
 {
 	BearerID = -1;
 }
+//
+//
+//
+DamageData::DamageData( int damage,int P_Id,int B_Id )
+	:ProviderID(P_Id),BearerID(B_Id),DamagePt(damage)
+{
+
+}

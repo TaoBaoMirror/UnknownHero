@@ -117,7 +117,10 @@ void Actor::AIThink()
 
 void Actor::Attack( Soldier* other )
 {
-	Soldier::Attack(other);
+	//Soldier::Attack(other);
+	auto atkData = GetAttackSystem()->CreateAttackData(other->GetID());
+	//
+	m_pTempAtkData = atkData;
 	//
 	m_pFSM->SetStatus(Actor_Attack::Instance());
 
@@ -132,5 +135,6 @@ cocos2d::Animate* Actor::createAttackAnimation( int ani_type )
 
 	return animaction;
 }
+
 
 //-------------------------

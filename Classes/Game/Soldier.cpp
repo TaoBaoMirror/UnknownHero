@@ -441,12 +441,21 @@ void Soldier::Attack( Soldier* other )
 {
 // 	AttackData* ad = GetAttackSystem()->CreateAttackData(other->GetID());
 // 
-// 	CommonFunc::CalcDamage(ad);
+// 	
 }
+
 
 void Soldier::UpdateSoldierPFPosition()
 {
 	pSoldierPF->position.X = StayGridPos.X;
 	pSoldierPF->position.Y = StayGridPos.Y;
+
+}
+
+void Soldier::GetHurt( DamageData* damageData )
+{
+	CreatureBase::CurHP -= damageData->DamagePt;
+
+	//释放用过之后的DamageData~
 
 }
