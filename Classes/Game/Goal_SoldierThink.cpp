@@ -18,7 +18,7 @@ Goal_SoldierThink::Goal_SoldierThink(Soldier* pSoldier)
 	double AttackBias = RandInRange(LowRangeOfBias, HighRangeOfBias);
 
 	m_Evaluators.push_back(new ExploreGoal_Evaluator(ExploreBias));
-	//m_Evaluators.push_back(new AttackTargetGoal_Evaluator(AttackBias));
+	m_Evaluators.push_back(new AttackTargetGoal_Evaluator(AttackBias));
 }
 
 Goal_SoldierThink::~Goal_SoldierThink()

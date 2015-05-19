@@ -122,7 +122,7 @@ void GameScene::TestMap()
 	addChild(pChunk,10);
 	//
 	pChunk->setPosition(100,100);
-	pChunk->DeployCreature();
+	//pChunk->DeployCreature();
 	//
 	pSkillBarUI = (SkillBarUI*)SkillBarUI::CreateWithTag(111);
 	addChild(pSkillBarUI);

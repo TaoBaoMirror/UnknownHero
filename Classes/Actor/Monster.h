@@ -3,6 +3,7 @@
 
 #include "Actor/Actor.h"
 
+class AttackData;
 enum  MonsterType
 {
 	MonsterType_ShortRange = 0,
@@ -52,6 +53,7 @@ public:
 	//----------------------------------------
 	virtual void AIThink() override;
 	//------------------------------
+	void CalcAttack( AttackData* pAtkData );
 
 	void SetMonsterName(std::string name)
 	{

@@ -322,7 +322,7 @@ void ChunkMap::DeployCreature()
 	SoldierManager::Instance()->Init();
 	//
 	int StartIndex = 0;
-
+	
 	GizmoSoldier* PlayerSoldier = GizmoSoldier::create();
 	const GridPos& GPos_1 = GridPos(0,0);
 	PlayerSoldier->SetToGPos(GPos_1);
@@ -343,7 +343,7 @@ void ChunkMap::DeployCreature()
 
 	addChild(PlayerSoldier,10);
 	addChild(EnemySoldier,10);
-
+	
 }
 
 Soldier* ChunkMap::InstantiateCreature( const int CreatureID,const GridPos& GPos,const int DirectionType )

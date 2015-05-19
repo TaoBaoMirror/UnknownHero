@@ -2,6 +2,7 @@
 #include "Data/TableManager.h"
 
 #include "Actor/ActorStatus.h"
+#include "Game/CommonFunc.h"
 
 Monster::Monster(void)
 {
@@ -139,6 +140,20 @@ void Monster::ActorMoveEnd()
 //-----
 void Monster::ActorAttackStart()
 {
+	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
+
+	auto anim = createAttackAnimation(ActorAnimType::ActorAnim_Attack);
+
+	auto func_1 = cocos2d::CallFuncN::create( CC_CALLBACK_0(Monster::playMoveAnimation , this ) );
+	auto func_2 = cocos2d::CallFunc::create( CC_CALLBACK_0(Monster::CalcAttack , this , m_pTempAtkData));
+
+	pAcs.pushBack(anim);
+	pAcs.pushBack(func_1);
+	pAcs.pushBack(func_2);
+
+	auto seq = cocos2d::Sequence::create(pAcs);
+	seq->setTag(ActorAnimType::ActorAnim_Attack);
+	this->runAction(seq);
 }
 void Monster::ActorAttackUpdate(float dt)
 {
@@ -178,3 +193,10 @@ void Monster::AIThink()
 	Actor::AIThink();
 }
 //----------------------------------------------
+#include "Game/AttackData.h"
+void Monster::CalcAttack( AttackData* pAtkData )
+{
+	CommonFunc::CalcDamage(pAtkData);
+	//
+	m_pFSM->SetStatus(Actor_Stand::Instance());
+}

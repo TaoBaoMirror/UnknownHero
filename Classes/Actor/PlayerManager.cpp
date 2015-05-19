@@ -4,6 +4,8 @@
 #include "Scene/GameManager.h"
 #include "Actor/ActorStatus.h"
 
+#include "Game/Camp.h"
+
 //-------------------------------------------------------
 PlayerManager* PlayerManager::m_Instance = nullptr;
 
@@ -56,6 +58,8 @@ void PlayerManager::HeroBorn(StandbyHero* pTempleHero)
 	m_pMainRole = Hero::createWithHeroID(pTempleHero->m_HeroID);
 
 	SoldierManager::Instance()->RegisterSoldier(m_pMainRole);
+	// add by Hitman [5/20/2015]
+	Camp::GetCamp(CampType_Player)->RegisterUnit(m_pMainRole);
 }
 //-------------------------------------------------------
 StandbyHero* PlayerManager::RandomStandbyHero()

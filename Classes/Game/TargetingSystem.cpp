@@ -25,7 +25,7 @@ void TargetingSystem::Update()
 
 	Soldier* ClosestSoldier = NULL;
 	int ClosestSteps = 999999;
-
+	//得到最近的一个士兵
 	if (Soldiers.size())
 	{
 		for (int i = 0 ; i < Soldiers.size(); ++i)
@@ -44,9 +44,10 @@ void TargetingSystem::Update()
 			}
 		}
 		//
-		m_pCurrentTarget = ClosestSoldier;
+		
 	}
-
+	//
+	m_pCurrentTarget = ClosestSoldier;
 
 }
 

@@ -12,6 +12,8 @@ void Goal_Attack::Activate()
 	m_iStatus = active;
 	//
 	m_pOwner->Attack(m_pTargetBot);
+	//
+	m_iStatus = completed;
 }
 
 int Goal_Attack::Process()

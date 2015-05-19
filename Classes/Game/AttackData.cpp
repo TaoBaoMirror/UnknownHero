@@ -2,10 +2,10 @@
 
 AttackDataBase::AttackDataBase()
 	:	ID(-1),
-		AttackPt(0),		//最大攻击力
-		CritPt(0),				//暴击值
-		CritRate(0),			//暴击率
-		SputteringRadius(0),	//溅射范围
+		AttackPt(1),		//最大攻击力
+		CritPt(1),				//暴击值
+		CritRate(0.5f),			//暴击率
+		SputteringRadius(1),	//溅射范围
 		SputteringFallout(1),	//溅射衰减
 		SputteringType(1),
 		AtkType(0),				//攻击类型

@@ -17,6 +17,12 @@
 
 class Soldier;
 
+#define CampType_Player 0
+#define CampType_Monster 1
+#define CampType_NPC 2
+
+
+
 class Camp
 {
 public:

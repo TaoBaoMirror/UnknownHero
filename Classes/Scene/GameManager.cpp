@@ -9,6 +9,9 @@
 #include "Actor/ActorStatus.h"
 
 #include "ResDef.h"
+//
+// add by Hitman [5/20/2015]
+#include "Game/Camp.h"
 
 GameManager* GameManager::m_Instance = nullptr;
 
@@ -29,6 +32,8 @@ GameManager::GameManager()
 	m_SData3 = new SaveData();
 
 	m_CurGameST = nullptr;
+
+	Camp::CreateCamps(3);
 }
 
 
