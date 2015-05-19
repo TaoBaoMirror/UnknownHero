@@ -42,6 +42,8 @@ public:
 	bool	Save(std::ofstream& os);
 	//
 	AttackData*		CreateAttackData(int BearerID);
+	AttackData*		CreateAttackData(const GridPos& Gpos);
+
 
 protected:
 

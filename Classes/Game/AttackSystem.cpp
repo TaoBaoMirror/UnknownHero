@@ -31,6 +31,11 @@ void AttackSystem::SetOriginalAttackDataBase( int data_id )
 		{
 			
 		}
+		else
+		{
+			//如果添加成功了，就给现有的CurAtkDataBase赋值
+			m_CurAttackDataBase = m_OriginalAttackDataBase;
+		}
 	}
 }
 
@@ -83,4 +88,16 @@ bool AttackSystem::Save( std::ofstream& os )
 {
 	return true;
 
+}
+
+#include "CommonFunc.h"
+
+AttackData* AttackSystem::CreateAttackData( const GridPos& Gpos )
+{
+	return new AttackData(m_CurAttackDataBase,m_pOwner->GetID(),Gpos);
+}
+
+AttackData* AttackSystem::CreateAttackData( int BearerID )
+{
+	return new AttackData(m_CurAttackDataBase,m_pOwner->GetID(),BearerID);
 }

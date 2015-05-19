@@ -24,6 +24,7 @@ public:
 	virtual void playMoveAnimation() override;
 	virtual void playAttackAnimation() override;
 
+
 	//----------------------------------------
 	virtual void ActorReadyStart() override;
 	virtual void ActorReadyUpdate(float dt) override;

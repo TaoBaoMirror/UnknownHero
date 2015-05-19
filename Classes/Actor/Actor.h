@@ -26,8 +26,13 @@ public:
 	virtual void EndTraval() override;
 	virtual bool TravalTo(const GridPos& GPos) override;
 
+	virtual void Attack(Soldier* other) override;
+
 	virtual void playMoveAnimation(){};
 	virtual void playAttackAnimation(){};
+	// modify by Hitman [5/19/2015]
+	// 很多攻击是跟着动画一起去完成的，所以，应该先得到合适的动画，然后在状态中去合成一个动作序列
+	virtual cocos2d::Animate* createAttackAnimation(int ani_type);
 
 	//------
 	void SetResource(std::string name);	
@@ -59,6 +64,9 @@ public:
 	//------
 	virtual void AIThink();
 	//------
+	virtual void ActorHurtStart(){}
+	virtual void ActorHurtUpdate(float dt){}
+	virtual void ActorHurtEnd(){}
 
 public:
 	ActorFSM* m_pFSM;

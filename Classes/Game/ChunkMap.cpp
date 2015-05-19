@@ -10,6 +10,8 @@
 #include "SoldierPF.h"
 #include "Messaging\MessageListenerManager.h"
 
+#include "AttackRange.h"
+
 
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
@@ -400,4 +402,47 @@ cocos2d::TMXLayer* ChunkMap::GetCreatureTMXLayer()
 cocos2d::Layer* ChunkMap::GetCreatureLayer()
 {
 	return static_cast<cocos2d::Layer*>(this->getChildByTag(CreatureLayerTag));
+}
+
+void ChunkMap::FindSoldiersInRange( const GridPos& CenterGPos , int RangeSize , int RType ,std::vector<Soldier*>& out_SoldierList )
+{
+	std::vector<GridPos>	GPosList;
+	switch(RType)
+	{
+	case RangeType::CIRCLE:
+		GetGridSceneMap().FindTilesInCircle(GPosList,CenterGPos,RangeSize);
+		break;
+	case RangeType::QUAD:
+		GetGridSceneMap().FindTilesInQuad(CenterGPos,RangeSize,GPosList);
+		break;
+	case RangeType::CROSS:
+		GetGridSceneMap().FindTilesInCross(CenterGPos,RangeSize,RangeSize,GPosList);
+		break;
+	}
+	//
+	out_SoldierList.reserve(16);
+	//
+	//	搜索soldier的方法 可以遍历点，从点的NodeMapData的Creature中寻找，
+	//	或者可以通过SoldierManager里面的GetSoldier（GPos）寻找
+	//
+	for (int i = 0;i<GPosList.size();++i)
+	{
+		const GridPos& GPos = GPosList[i];
+		int index = invalid_node_index;
+		GetGridSceneMap().GetIndex(GPos,index);
+		if (index != invalid_node_index)
+		{
+			NavGraphNode<void*>& node = GetGridSceneMap().GetNode(index);
+			auto pNMD = (MapNodeData*)node.ExtraInfo();
+			if (pNMD)
+			{
+				Soldier* soldier = pNMD->Creature;
+				if (soldier != NULL)
+				{
+					out_SoldierList.push_back(soldier);
+				}
+			}
+
+		}
+	}
 }

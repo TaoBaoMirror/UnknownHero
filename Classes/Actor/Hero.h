@@ -20,6 +20,7 @@ public:
 	virtual void playMoveAnimation() override;
 	virtual void playAttackAnimation() override;
 
+
 	//------------------------------
 
 	void SetHeroID(int id){m_HeroID = id;}

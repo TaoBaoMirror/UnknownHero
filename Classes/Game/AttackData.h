@@ -12,7 +12,7 @@
 #ifndef AttackData_h__
 #define AttackData_h__
 
-
+#include "GridPos.h"
 
 struct AttackDataBase
 { 
@@ -25,6 +25,7 @@ public:
 	int		CritPt;				//暴击值
 	float   CritRate;			//暴击率
 	int		SputteringRadius;	//溅射范围
+	int		SputteringType;		//溅射类型
 	float   SputteringFallout;	//溅射衰减
 	//
 	bool	HasEmitter;			//是否有发射器
@@ -35,8 +36,11 @@ struct AttackData : public AttackDataBase
 public:
 	AttackData();
 	AttackData(const AttackDataBase& ADB,int P_Id,int B_Id);
+	AttackData(const AttackDataBase& ADB,int P_Id,const GridPos& GPos);
+
 	int		ProviderID;			//提供伤害的SoldierID
 	int		BearerID;			//承受伤害的SoldierID
+	GridPos		TargetGPos;
 };
 
 #endif // AttackData_h__

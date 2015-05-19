@@ -78,18 +78,23 @@ void Monster::playMoveAnimation()
 	//animaction->setDuration(0.4f);
 
 	cocos2d::RepeatForever* pRepeat = cocos2d::RepeatForever::create(animaction);
+	pRepeat->setTag((int)ActorAnimType::ActorAnim_Move);
 	this->runAction(pRepeat);
 }
-void Monster::playAttackAnimation() 
+
+
+void Monster::playAttackAnimation()
 {
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Attack];
+	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Move];
 	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
 	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
 	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
-	//animaction->setDuration(0.4f);
 
 	this->runAction(animaction);
 }
+
+
+
 //------------------------------------------------------------------------------------
 void Monster::ActorReadyStart()
 {

@@ -7,6 +7,7 @@ AttackDataBase::AttackDataBase()
 		CritRate(0),			//暴击率
 		SputteringRadius(0),	//溅射范围
 		SputteringFallout(1),	//溅射衰减
+		SputteringType(1),
 		AtkType(0),				//攻击类型
 		HasEmitter(false)		//
 {
@@ -17,7 +18,7 @@ AttackDataBase::AttackDataBase()
 AttackData::AttackData()
 	:AttackDataBase(),		
 	ProviderID(-1),			//提供伤害的SoldierID
-	BearerID(-1)			//承受伤害的SoldierID
+	BearerID(-1)		//承受伤害的SoldierID
 {
 
 }
@@ -25,5 +26,11 @@ AttackData::AttackData()
 AttackData::AttackData( const AttackDataBase& ADB,int P_Id,int B_Id )
 	:AttackDataBase(ADB),ProviderID(P_Id),BearerID(B_Id)
 {
-	
+	TargetGPos.SetTo(-1,-1);
+}
+
+AttackData::AttackData( const AttackDataBase& ADB,int P_Id,const GridPos& GPos )
+	:AttackDataBase(ADB),ProviderID(P_Id),TargetGPos(GPos)
+{
+	BearerID = -1;
 }

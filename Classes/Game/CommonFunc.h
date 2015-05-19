@@ -17,4 +17,17 @@
 const GridSceneMap& G_GetSceneMap();
 
 
+class AttackData;
+
+class CommonFunc
+{
+public:
+
+	static void CalcDamage(const AttackData* atkData);
+	
+private:
+};
+
+
+
 #endif // CommonFunc_h__

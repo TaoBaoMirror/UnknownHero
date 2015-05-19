@@ -83,5 +83,16 @@ private:
 	static Actor_Win* m_instance;
 };
 //--------------------------------------------------------------
+// add by Hitman [5/19/2015]
+class Actor_Hurt : public ActorStatus
+{
+public:
+	static Actor_Hurt* Instance();
 
+	virtual void Enter(Actor* pActor) override;
+	virtual void Execute(Actor* pActor, float dt) override;
+	virtual void Exit(Actor* pActor) override;
+private:
+	static Actor_Hurt* m_instance;
+};
 #endif //__ACTOR_STATUS_H__

@@ -65,7 +65,7 @@ void Actor::SetResource(std::string name)
 //-------------------------
 void Actor::BeginTraval()
 {
-	;
+	Soldier::BeginTraval();
 }
 //-------------------------
 void Actor::EndTraval()
@@ -114,4 +114,23 @@ void Actor::AIThink()
 
 	GetBrain()->Process();
 }
+
+void Actor::Attack( Soldier* other )
+{
+	Soldier::Attack(other);
+	//
+	m_pFSM->SetStatus(Actor_Attack::Instance());
+
+}
+
+cocos2d::Animate* Actor::createAttackAnimation( int ani_type )
+{
+	std::string name = ActionsName[(int)ani_type];
+	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
+	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
+	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
+
+	return animaction;
+}
+
 //-------------------------

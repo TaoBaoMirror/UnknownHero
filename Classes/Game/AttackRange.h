@@ -17,7 +17,7 @@
 
 enum RangeType
 {
-	CIRCLE,
+	CIRCLE = 0,
 	CROSS,
 	QUAD,
 	HORIZONTAL,

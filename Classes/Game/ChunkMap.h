@@ -69,6 +69,10 @@ public:
 	//
 	void onEnter() override;
 
+
+	//
+	void FindSoldiersInRange(const GridPos& CenterGPos , int RangeSize , int RType ,std::vector<Soldier*>&	out_SoldierList);
+
 	
 protected:
 	GridSceneMap		mGridMap;

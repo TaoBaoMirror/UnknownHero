@@ -38,6 +38,9 @@ public:
 		Human,Orc
 	};
 public:
+
+	static int NextCreateID;
+
 	Soldier(int atk,int race);
 	virtual ~Soldier();
 
@@ -66,6 +69,8 @@ public:
 	virtual void BeginTraval() {}
 	virtual void EndTraval();
 	virtual bool TravalTo(const GridPos& GPos);
+	//攻击操作
+	virtual void Attack(Soldier* other);
 	//得到一条到目标的路径
 	void GetPathToTarget(const GridPos& A,const GridPos& B,std::vector<GridPos>& path);
 	//向给定的GPos点靠近一步
@@ -104,8 +109,6 @@ public:
 	Goal_SoldierThink* GetBrain() {return pBrain;}
 	SoldierPF*		GetSoldierPF() {return pSoldierPF;}
 
-
-	void Attack(Soldier* other);
 
 public:
 	//玩家操作时候用的

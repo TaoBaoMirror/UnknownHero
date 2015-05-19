@@ -156,3 +156,27 @@ void Actor_Win::Exit(Actor* pActor)
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
+Actor_Hurt* Actor_Hurt::m_instance = nullptr;
+
+Actor_Hurt* Actor_Hurt::Instance()
+{
+	if (m_instance == NULL)
+	{
+		m_instance = new Actor_Hurt();
+	}
+	return m_instance;
+}
+void Actor_Hurt::Enter(Actor* pActor) 
+{
+	pActor->ActorHurtStart();
+}
+
+void Actor_Hurt::Execute(Actor* pActor, float dt) 
+{
+	pActor->ActorHurtUpdate(dt);
+}
+
+void Actor_Hurt::Exit(Actor* pActor) 
+{
+	pActor->ActorHurtEnd();
+}

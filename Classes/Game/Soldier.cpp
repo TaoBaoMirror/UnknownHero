@@ -26,6 +26,8 @@
 
 #include "SoldierPF.h"
 
+int Soldier::NextCreateID = 0;
+
 Soldier::Soldier( int atk,int race ):
 	CreatureBase(),
 	MessageListener(),
@@ -33,7 +35,8 @@ Soldier::Soldier( int atk,int race ):
 	RaceIndex(race),
 	CampIndex(-1)
 {
-	ID = -1;
+	ID = NextCreateID++;
+	//
 	bShowAttackRange = false;
 	pBrain = new Goal_SoldierThink(this);
 	//
@@ -433,10 +436,12 @@ void Soldier::Exorcise()
 
 	bPossessed = false;
 }
-
+//确定已经可以攻击到了
 void Soldier::Attack( Soldier* other )
 {
-
+// 	AttackData* ad = GetAttackSystem()->CreateAttackData(other->GetID());
+// 
+// 	CommonFunc::CalcDamage(ad);
 }
 
 void Soldier::UpdateSoldierPFPosition()
