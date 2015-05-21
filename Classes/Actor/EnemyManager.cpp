@@ -220,6 +220,12 @@ Monster* EnemyManager::CreateShortMonster(int monsterID)
 //-------------------------------------------------------
 bool EnemyManager::IsAnyBodyHere()
 {
+	if (m_ShortRangeMonsters.size() != 0 ||
+		m_LongRangeMonsters.size() != 0 ||
+		m_SpecialRangeMonsters.size() != 0)
+	{
+		return true;
+	}
 	return false;
 }
 //-------------------------------------------------------

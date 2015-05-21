@@ -202,6 +202,8 @@ void Hero::ActorWinEnd()
 void Hero::CalcAttack( AttackData* pAtkData )
 {
 	CommonFunc::CalcDamage(pAtkData);
+
+	m_pFSM->SetStatus(Actor_Stand::Instance());
 }
 
 //------------------------------------------------------------------------------------

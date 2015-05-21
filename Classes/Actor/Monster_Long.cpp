@@ -123,7 +123,5 @@ void Monster_Long::AIThink()
 void Monster_Long::CalcAttack( AttackData* pAtkData )
 {
 	Monster::CalcAttack(pAtkData);
-
-	int i=1000;
 }
 //----------------------------------------------

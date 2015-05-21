@@ -24,6 +24,10 @@ public:
 
 	void Continue();
 
+	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+
 	void onKeyPressed(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
 
 	void onKeyReleased(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
@@ -32,6 +36,9 @@ public:
 protected: 
 	void TestMap();
 	SkillBarUI*	pSkillBarUI;
+
+	cocos2d::EventListenerTouchOneByOne* _touchListener;
+	cocos2d::EventListenerKeyboard* _keyboardListener;
 };
 
 #endif //__GAME_SCENE_H__

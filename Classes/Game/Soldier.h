@@ -99,6 +99,8 @@ public:
 	bool CanSetTo(const GridPos& GPos){return canStay(GPos);}
 	//是否可以在此GPos上停留
 	virtual bool canStay(const GridPos& GPos);
+	Soldier* canAttack( const GridPos& GPos );
+	bool canSelect( const GridPos& GPos );
 
 
 	const GridPos& GetStayGPos() const {return StayGridPos;}

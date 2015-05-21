@@ -75,12 +75,12 @@ public:
 
 	void HideRangeData();
 
-
 	//
 	void FindSoldiersInRange(const GridPos& CenterGPos , int RangeSize , int RType ,std::vector<Soldier*>&	out_SoldierList);
 	// add by Hitman [5/21/2015]
 	bool GridPosToTiledGridPos(const GridPos& GPos,cocos2d::Vec2& out_TPos);
 	bool TiledGridPosToGridPos(const cocos2d::Vec2& TPos,GridPos& out_GPos);
+
 	
 protected:
 	GridSceneMap		mGridMap;

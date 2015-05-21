@@ -520,6 +520,7 @@ void ChunkMap::HideRangeData()
 		}
 	}
 }
+//------------------------------------------------------------=======
 
 bool ChunkMap::GridPosToTiledGridPos(const GridPos& GPos,cocos2d::Vec2& out_TPos)
 {

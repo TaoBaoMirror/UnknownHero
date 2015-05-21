@@ -61,6 +61,10 @@ public:
 	int GetCurSpecialHeroProcess();
 	void SpecialHeroJoin();
 
+	bool MouseDown(const cocos2d::Vec2& p);
+	void MouseUp(const cocos2d::Vec2& p);
+	void MouseMove(const cocos2d::Vec2& p);
+
 	void GameKeyPressed(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
 	void GameKeyReleased(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
 private:

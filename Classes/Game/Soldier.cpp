@@ -325,6 +325,27 @@ void Soldier::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
 	*/
 }
 
+bool Soldier::canSelect( const GridPos& GPos )
+{
+	int index = -1;
+	G_GetSceneMap().GetIndex(GPos,index);
+	//
+	if ((index < G_GetSceneMap().NodesCount()) &&
+		(index >=0) )
+	{
+		NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
+		MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
+		//
+		if (node.Index() != invalid_node_index && node.Walkable())
+		{
+			return true;
+		}
+
+	}
+
+	return false;
+}
+
 bool Soldier::canStay( const GridPos& GPos )
 {
 	int index = -1;
@@ -347,6 +368,41 @@ bool Soldier::canStay( const GridPos& GPos )
 	}
 	
 	return false;
+}
+
+Soldier* Soldier::canAttack( const GridPos& GPos )
+{
+	int index = -1;
+	G_GetSceneMap().GetIndex(GPos,index);
+
+	auto attsys = this->GetAttackSystem();
+	if (attsys != nullptr )
+	{
+		AttackRange* attrange = attrange = attsys->GetAttackRange();	
+
+		if (attrange != nullptr && attrange->Inspect(GPos) == true)
+		{
+			if ((index < G_GetSceneMap().NodesCount()) &&
+				(index >=0) )
+			{
+				NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
+				MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
+				//
+				if (node.Index() != invalid_node_index && node.Walkable())
+				{
+					if (pMND->Creature != NULL)
+					{
+						return pMND->Creature;
+					}
+				}
+
+			}
+		}
+	}
+	//
+	
+
+	return nullptr;
 
 }
 

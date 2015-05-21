@@ -7,6 +7,8 @@
 
 #include "GameStatus/GameStates.h"
 #include "Actor/ActorStatus.h"
+#include "Game/AttackSystem.h"
+#include "Game/AttackRange.h"
 
 #include "ResDef.h"
 //
@@ -329,6 +331,104 @@ int GameManager::GetCurSpecialHeroProcess()
 	return 0;
 }
 void GameManager::SpecialHeroJoin()
+{
+	;
+}
+//-----------------------------------------------------------------
+bool GameManager::MouseDown(const cocos2d::Vec2& touchpos)
+{
+	if (m_GameST == GameStatus::ST_Fight)
+	{
+		auto pHero = PlayerManager::GetInstance()->GetHero();
+		if (pHero->m_pFSM!= nullptr && pHero->m_pFSM->GetStatus() == Actor_Ready::Instance())
+		{
+			auto pChunk = MapManager::GetInstance()->GetCurChunkMap();
+
+			if (pChunk != nullptr)
+			{
+				cocos2d::Vec2 atChunkPos = pChunk->convertToNodeSpace(touchpos);
+				Vector2D worldpos(atChunkPos.x,atChunkPos.y);
+				GridPos gridPos;
+				pChunk->GetGridSceneMap().WorldPosToGridPos(worldpos,gridPos);
+
+				//移动
+				std::list<GridPos> path;
+				if (pHero->canSelect(gridPos) )
+				{
+					pChunk->CheckCanArrived(pHero->GetStayGPos(),gridPos,&path);
+
+					Soldier* pTargetSoldier = nullptr;
+					pTargetSoldier = pHero->canAttack(gridPos);
+
+					//1 这说明是在英雄身边的一个格子 如果是移动 就直接移动了,如果能攻击就直接攻击了
+					if (path.size() == 2)
+					{
+						if (pTargetSoldier != nullptr)
+						{							
+							pHero->Attack(pTargetSoldier);
+						}
+						else if (pHero->canStay(gridPos) )
+						{
+							path.pop_front();
+							GridPos firstpos = path.front();
+
+							pHero->TravalTo(firstpos);
+						}
+					}
+					else if(
+						EnemyManager::GetInstance()->IsAnyBodyHere() == true ||
+						NPCManager::GetInstance()->IsAnyBodyHere() == true
+						)
+					//2 如果是好几步才能走到,而且当前场景有敌人或npc ,那么先显示出路径,然后走第一格
+					{
+						if (pHero->IsShowAttackRange() == true)
+						{
+							//close attack range
+							pChunk->HideRangeData();
+							pHero->SetShowAttackRange(false);
+
+							//attack
+							if (pTargetSoldier != nullptr)
+							{
+								//attack
+								pHero->Attack(pTargetSoldier);
+							}
+						}
+						else
+						{
+							//move
+							if (path.size() != 0)
+							{
+								path.pop_front();
+								if (path.size() != 0)
+								{
+									GridPos firstpos = path.front();
+									pHero->TravalTo(firstpos);
+								}
+							}
+						}
+					}
+					else
+					//3 记录下这个路径让英雄一路跑过去
+					{
+						
+					}
+
+					//MapNodeData
+				}				
+				
+			}
+		}
+	}
+	
+	return true;
+	
+}
+void GameManager::MouseUp(const cocos2d::Vec2& touchpos)
+{
+	;
+}
+void GameManager::MouseMove(const cocos2d::Vec2& touchpos)
 {
 	;
 }

@@ -22,6 +22,8 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
+	_eventDispatcher->removeEventListener(_touchListener);
+	_eventDispatcher->removeEventListener(_keyboardListener);
 }
 
 cocos2d::Scene* GameScene::createScene()
@@ -48,10 +50,21 @@ bool GameScene::init()
 	Scene::init();
 
 	//--------------------------
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+
+	listener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(GameScene::onTouchMoved, this);
+	listener->onTouchEnded = CC_CALLBACK_2(GameScene::onTouchEnded, this);
+
+	_eventDispatcher->addEventListenerWithFixedPriority(listener, -10);
+	_touchListener = listener;
+	//--------------------------
 	auto listenerKeyboard = EventListenerKeyboard::create();
 	listenerKeyboard->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
 	listenerKeyboard->onKeyReleased = CC_CALLBACK_2(GameScene::onKeyReleased, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerKeyboard, this);
+	_keyboardListener = listenerKeyboard;
 	//--------------------------
 
 	TestMap();
@@ -160,6 +173,38 @@ void GameScene::TestMap()
 	GameManager::GetInstance()->SetGameST(ST_Fight);
 
 }
+
+
+bool GameScene::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	auto touchLocation = touch->getLocation();    
+
+	auto nodePosition = convertToNodeSpace( touchLocation );
+	log("GameScene::onTouchBegan, pos: %f,%f -> %f,%f", touchLocation.x, touchLocation.y, nodePosition.x, nodePosition.y);
+
+	return GameManager::GetInstance()->MouseDown(touchLocation);
+}
+
+void GameScene::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	auto touchLocation = touch->getLocation();    
+	auto nodePosition = convertToNodeSpace( touchLocation );
+
+	log("GameScene::onTouchMoved, pos: %f,%f -> %f,%f", touchLocation.x, touchLocation.y, nodePosition.x, nodePosition.y);
+
+	GameManager::GetInstance()->MouseMove(nodePosition);  
+}
+
+void GameScene::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	auto touchLocation = touch->getLocation();    
+	auto nodePosition = convertToNodeSpace( touchLocation );
+
+	log("GameScene::onTouchEnded, pos: %f,%f -> %f,%f", touchLocation.x, touchLocation.y, nodePosition.x, nodePosition.y);
+
+	GameManager::GetInstance()->MouseUp(nodePosition);
+}
+
 
 void GameScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
 {
