@@ -14,6 +14,7 @@
 //
 // add by Hitman [5/20/2015]
 #include "Game/Camp.h"
+#include "MarkTileManager.h"
 
 GameManager* GameManager::m_Instance = nullptr;
 
@@ -362,9 +363,14 @@ bool GameManager::MouseDown(const cocos2d::Vec2& touchpos)
 
 					//1 这说明是在英雄身边的一个格子 如果是移动 就直接移动了,如果能攻击就直接攻击了
 					if (path.size() == 2)
-					{
+					{	
+						if (pHero->IsShowAttackRange() == true)
+						{
+							MarkTileManager::GetInstance()->ClearMarkTiles("ActorAttack");
+							pHero->SetShowAttackRange(false);
+						}
 						if (pTargetSoldier != nullptr)
-						{							
+						{								
 							pHero->Attack(pTargetSoldier);
 						}
 						else if (pHero->canStay(gridPos) )
@@ -381,10 +387,12 @@ bool GameManager::MouseDown(const cocos2d::Vec2& touchpos)
 						)
 					//2 如果是好几步才能走到,而且当前场景有敌人或npc ,那么先显示出路径,然后走第一格
 					{
+						
 						if (pHero->IsShowAttackRange() == true)
 						{
 							//close attack range
-							pChunk->HideRangeData();
+							//pChunk->HideRangeData();
+							MarkTileManager::GetInstance()->ClearMarkTiles("ActorAttack");
 							pHero->SetShowAttackRange(false);
 
 							//attack
@@ -396,6 +404,13 @@ bool GameManager::MouseDown(const cocos2d::Vec2& touchpos)
 						}
 						else
 						{
+							/*if (pHero->IsShowMovePath() == true)
+							{
+							}
+							else
+							{
+
+							}*/
 							//move
 							if (path.size() != 0)
 							{

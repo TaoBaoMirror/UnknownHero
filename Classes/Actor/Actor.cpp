@@ -5,6 +5,7 @@
 #include "Game/AttackSystem.h"
 #include "Game/TargetingSystem.h"
 #include "Game/Goal_SoldierThink.h"
+#include "Scene/MarkTileManager.h"
 
 const float Actor::g_ActorMoveTime = 0.5f;
 
@@ -172,8 +173,10 @@ void Actor::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
 	ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
 	if (pChunkMap != nullptr)
 	{
-		pChunkMap->HideRangeData();
-		pChunkMap->ShowRangeData(AttackGPosList);
+		//pChunkMap->HideRangeData();
+		//pChunkMap->ShowRangeData(AttackGPosList);
 	}
+
+	MarkTileManager::GetInstance()->SetMarkTiles(MarkTile_Attack,"ActorAttack",AttackGPosList);
 }
 //-------------------------

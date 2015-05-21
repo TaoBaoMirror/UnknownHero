@@ -54,6 +54,9 @@ public:
 
 	static const std::string g_GameParticlePListFile;
 	static const std::string g_GameParticleTextureFile;
+
+	static const std::string g_GameMiscPListFile;
+	static const std::string g_GameMiscTextureFile;
 	//
 	static const std::string g_BlankTextureFile;
 

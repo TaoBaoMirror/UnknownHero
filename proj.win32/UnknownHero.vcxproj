@@ -209,6 +209,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Scene\GameMainLayer.cpp" />
     <ClCompile Include="..\Classes\Scene\GameManager.cpp" />
     <ClCompile Include="..\Classes\Scene\GameScene.cpp" />
+    <ClCompile Include="..\Classes\Scene\MarkTileManager.cpp" />
     <ClCompile Include="..\Classes\Scene\SelectHeroLayer.cpp" />
     <ClCompile Include="..\Classes\Sound\SoundManager.cpp" />
     <ClCompile Include="..\Classes\UI\LogoUI.cpp" />
@@ -295,6 +296,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Scene\GameMainLayer.h" />
     <ClInclude Include="..\Classes\Scene\GameManager.h" />
     <ClInclude Include="..\Classes\Scene\GameScene.h" />
+    <ClInclude Include="..\Classes\Scene\MarkTileManager.h" />
     <ClInclude Include="..\Classes\Scene\SelectHeroLayer.h" />
     <ClInclude Include="..\Classes\Sound\SoundManager.h" />
     <ClInclude Include="..\Classes\UI\LogoUI.h" />

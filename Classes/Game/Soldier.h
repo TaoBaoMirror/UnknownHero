@@ -94,6 +94,9 @@ public:
 	//释放显示攻击范围
 	void SetShowAttackRange(bool s){bShowAttackRange = s;}
 	bool IsShowAttackRange(){return bShowAttackRange;}
+	//显示移动路径
+	void SetShowMovePath(bool s){bShowMovePath = s;}
+	bool IsShowMovePath(){return bShowMovePath;}
 	//强制移动到GPos上,不建议直接使用
 	void SetToGPos(const GridPos& GPos);
 	bool CanSetTo(const GridPos& GPos){return canStay(GPos);}
@@ -142,6 +145,7 @@ private:
 	GridPos	 LastStayGridPos;		//上次所在的网格位置
 	//
 	bool	bShowAttackRange;
+	bool	bShowMovePath;
 
 	AttackSystem*	pAttackSystem;
 	ShieldSystem*   pShieldSystem;

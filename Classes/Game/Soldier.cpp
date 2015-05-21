@@ -38,6 +38,7 @@ Soldier::Soldier( int atk,int race ):
 	ID = NextCreateID++;
 	//
 	bShowAttackRange = false;
+	bShowMovePath = false;
 	pBrain = new Goal_SoldierThink(this);
 	//
 	pAttackSystem = new AttackSystem(this);
@@ -84,10 +85,6 @@ void Soldier::Render()
 {
 	//
 	//¹¥»÷·¶Î§
-	if (bShowAttackRange)
-	{
-		showAttackRange(pAttackSystem->GetAttackRange()->GetRangeGPosList());
-	}
 
 }
 

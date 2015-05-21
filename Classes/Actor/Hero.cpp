@@ -213,6 +213,8 @@ void Hero::ClickAttack()
 	if (this->IsShowAttackRange() == false)
 	{
 		this->SetShowAttackRange(true);
+
+		this->showAttackRange(GetAttackSystem()->GetAttackRange()->GetRangeGPosList());
 	}
 
 	//2 直接攻击前方
