@@ -3,6 +3,7 @@
 
 #include "Data/TableManager.h"
 #include "Game/CommonFunc.h"
+#include "Game/AttackSystem.h"
 //----------------------------------------------
 Hero::Hero(void)
 {
@@ -203,4 +204,15 @@ void Hero::CalcAttack( AttackData* pAtkData )
 	CommonFunc::CalcDamage(pAtkData);
 }
 
+//------------------------------------------------------------------------------------
+void Hero::ClickAttack()
+{
+	//1 显示攻击范围
+	if (this->IsShowAttackRange() == false)
+	{
+		this->SetShowAttackRange(true);
+	}
+
+	//2 直接攻击前方
+}
 //------------------------------------------------------------------------------------

@@ -59,6 +59,8 @@ public:
 	cocos2d::TMXLayer* GetCreatureTMXLayer();
 	cocos2d::Layer* GetCreatureLayer();
 
+	cocos2d::TMXLayer* GetRangeLayer();
+
 
 	bool  CheckCanArrived(const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr = NULL);
 	// 一些重写的函数
@@ -68,6 +70,10 @@ public:
 	void DeployCreature();
 	//
 	void onEnter() override;
+
+	void ShowRangeData(const std::vector<GridPos>&	AttackGPosList);
+
+	void HideRangeData();
 
 
 	//

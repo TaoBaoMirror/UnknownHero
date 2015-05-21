@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="14" height="8" tilewidth="32" tileheight="32" nextobjectid="6">
+<map version="1.0" orientation="orthogonal" width="14" height="8" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Desert" tilewidth="32" tileheight="32" spacing="1" margin="1">
   <image source="tmw_desert_spacing.png" width="265" height="199"/>
  </tileset>
  <tileset firstgid="49" source="GridTile.tsx"/>
  <tileset firstgid="53" source="CreatureTile.tsx"/>
- <objectgroup name="SpawnLayer">
-  <object id="4" x="96" y="0" width="32" height="32">
+ <objectgroup name="SpawnLayer" width="0" height="0">
+  <object x="96" y="0" width="32" height="32">
    <properties>
     <property name="AreaID" value="1"/>
     <property name="CreatureIDs" value="1,2,3"/>
     <property name="TimeGap" value="0.5"/>
    </properties>
   </object>
-  <object id="5" x="416" y="64" width="64" height="96">
+  <object x="416" y="64" width="64" height="96">
    <properties>
     <property name="AreaID" value="2"/>
     <property name="CreatureIDs" value="4,5,6"/>
@@ -26,14 +26,19 @@
    eJwzYmBgMKICNkTDxKg3QlM7nPSRGy6kYgBAbRXN
   </data>
  </layer>
+ <layer name="Layer 0" width="14" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxTY2BgkCMRa0BpRiBmAmJmIJYEYikolkaSY0JSA9PPCcRcQMwNxIpArALEqkCsDJUTAWIhIBaFqsGlTweIdZH0cSOpw6cP3T5i9aHbJwP1myyaPkGo+4WBWBOItaBYG0lOCEkNSI8+GfFgAMQA2rgKjA==
+  </data>
+ </layer>
  <layer name="CreatureLayer" width="14" height="8">
   <data encoding="base64" compression="zlib">
    eJxjYCAdmJGhZxTgB+Zk6gMAYVAAbg==
   </data>
  </layer>
- <layer name="Layer 0" width="14" height="8">
+ <layer name="RangeLayer" width="14" height="8" opacity="0.31">
   <data encoding="base64" compression="zlib">
-   eJxTY2BgkCMRa0BpRiBmAmJmIJYEYikolkaSY0JSA9PPCcRcQMwNxIpArALEqkCsDJUTAWIhIBaFqsGlTweIdZH0cSOpw6cP3T5i9aHbJwP1myyaPkGo+4WBWBOItaBYG0lOCEkNSI8+GfFgAMQA2rgKjA==
+   eJzjZ2Bg4B/FQxYDAM0rBpE=
   </data>
  </layer>
 </map>

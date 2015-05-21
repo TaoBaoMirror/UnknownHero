@@ -37,11 +37,11 @@ private:
 	//--------------------------------------------------
 	//要分成三个队列是因为,要让近程部队先动,远程后动,防止发生冲突
 	//(比如近程怪会阻挡攻击线路)
-	std::vector<Monster*> m_ShortRangeMonsters;
+	std::vector<Monster_Short*> m_ShortRangeMonsters;
 
-	std::vector<Monster*> m_LongRangeMonsters;
+	std::vector<Monster_Long*> m_LongRangeMonsters;
 
-	std::vector<Monster*> m_SpecialRangeMonsters;
+	std::vector<Monster_Special*> m_SpecialRangeMonsters;
 
 	Actor* m_pCurEnemy;
 };

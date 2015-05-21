@@ -16,9 +16,12 @@
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
 #define SpawnLayer "SpawnLayer"	//卵域数据层
+#define RangeLayer "RangeLayer"	//显示的行走层
+
 #define GridLayerTag 0xa0	//网格数据层
 #define CreatureLayerTag 0xa1	//生物体数据层
 #define SpawnLayerTag 0xa2	//卵域数据层
+#define RangeLayerTag 0xa0	//显示的行走范围层
 
 
 #define NULL_NODE -1
@@ -104,6 +107,29 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				}
 			}
 		}
+
+		/*
+		//	攻击范围层加载
+
+			Creature在编辑的时候，他们的属性应该是一致的，
+		*/
+		auto pRangeLayer = getLayer(RangeLayer);
+		if (pRangeLayer != nullptr)
+		{
+			this->addChild(cocos2d::Layer::create(),pRangeLayer->getLocalZOrder() + 1,RangeLayerTag);
+		}
+		
+		for (int lx = 0 ; lx < sLayerSize.width; ++lx)
+		{
+			for (int ly = 0 ; ly < sLayerSize.height; ++ly)
+			{
+				cocos2d::Sprite* pSprite = pRangeLayer->getTileAt(cocos2d::Vec2(lx,ly));
+				if (pSprite != nullptr)
+				{
+					pSprite->setVisible(false);
+				}				
+			}
+		}
 		/*
 		//	生物体数据层加载
 
@@ -168,8 +194,6 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 
 
 			}
-
-
 		}
 
 
@@ -315,6 +339,7 @@ void ChunkMap::update( float delta )
 {
 	SoldierManager::Instance()->Update();
 
+	SoldierManager::Instance()->Render();
 }
 
 void ChunkMap::DeployCreature()
@@ -404,6 +429,13 @@ cocos2d::Layer* ChunkMap::GetCreatureLayer()
 	return static_cast<cocos2d::Layer*>(this->getChildByTag(CreatureLayerTag));
 }
 
+cocos2d::TMXLayer* ChunkMap::GetRangeLayer()
+{
+	cocos2d::TMXLayer* pRangeLayer = getLayer(RangeLayer);
+
+	return pRangeLayer;
+}
+
 void ChunkMap::FindSoldiersInRange( const GridPos& CenterGPos , int RangeSize , int RType ,std::vector<Soldier*>& out_SoldierList )
 {
 	std::vector<GridPos>	GPosList;
@@ -443,6 +475,48 @@ void ChunkMap::FindSoldiersInRange( const GridPos& CenterGPos , int RangeSize , 
 				}
 			}
 
+		}
+	}
+}
+
+void ChunkMap::ShowRangeData(const std::vector<GridPos>&	AttackGPosList)
+{
+	auto pRangeLayer = GetRangeLayer();
+	if (pRangeLayer != nullptr)
+	{
+		for (int i = 0 ; i < AttackGPosList.size(); ++i)
+		{
+			GridPos pGPos = AttackGPosList[i];
+
+			cocos2d::Vec2 vecPos;
+			vecPos.x = pGPos.X;
+			vecPos.y = pGPos.Y;
+
+			cocos2d::Sprite* pSprite = pRangeLayer->getTileAt(vecPos);
+			if (pSprite != nullptr)
+			{
+				pSprite->setVisible(true);
+			}				
+		}
+	}	
+}
+
+void ChunkMap::HideRangeData()
+{
+	auto pRangeLayer = GetRangeLayer();
+	if (pRangeLayer != nullptr)
+	{
+		cocos2d::Size getsize = this->getMapSize();
+		for (int lx = 0 ; lx < getsize.width; ++lx)
+		{
+			for (int ly = 0 ; ly < getsize.height; ++ly)
+			{
+				cocos2d::Sprite* pSprite = pRangeLayer->getTileAt(cocos2d::Vec2(lx,ly));
+				if (pSprite != nullptr)
+				{
+					pSprite->setVisible(false);
+				}				
+			}
 		}
 	}
 }

@@ -72,8 +72,8 @@ void Soldier::Update()
 {
 	UpdatePosition();
 	//
-	//pAttackSystem->Update();
-	////
+	pAttackSystem->Update();
+	//
 	//pTargetingSystem->Update();
 	////
 	//pBrain->Process();

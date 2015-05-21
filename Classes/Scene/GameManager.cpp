@@ -384,6 +384,10 @@ void GameManager::ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, 
 					{
 					}
 				}
+				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_G)
+				{
+					pHero->ClickAttack();
+				}
 			}
 		}
 		

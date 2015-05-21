@@ -108,8 +108,6 @@ bool Actor::TravalTo(const GridPos& GPos)
 //-------------------------
 void Actor::AIThink()
 {
-	GetAttackSystem()->Update();
-	//
 	GetTargetingSystem()->Update();
 
 	GetBrain()->Process();
@@ -137,4 +135,45 @@ cocos2d::Animate* Actor::createAttackAnimation( int ani_type )
 }
 
 
+//-------------------------
+void Actor::ActorAttackStart()
+{
+	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
+
+	auto anim = createAttackAnimation(ActorAnimType::ActorAnim_Attack);
+
+	auto func_1 = cocos2d::CallFuncN::create( CC_CALLBACK_0(Actor::playMoveAnimation , this ) );
+	auto func_2 = cocos2d::CallFunc::create( CC_CALLBACK_0(Actor::CalcAttack , this , m_pTempAtkData));
+
+	pAcs.pushBack(anim);
+	pAcs.pushBack(func_1);
+	pAcs.pushBack(func_2);
+
+	auto seq = cocos2d::Sequence::create(pAcs);
+	seq->setTag(ActorAnimType::ActorAnim_Attack);
+	this->runAction(seq);
+}
+void Actor::ActorAttackUpdate(float dt)
+{
+	;
+}
+void Actor::ActorAttackEnd()
+{
+	;
+}
+//-------------------------
+void Actor::CalcAttack( AttackData* pAtkData )
+{
+	int i= 100;
+}
+//-------------------------
+void Actor::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
+{
+	ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
+	if (pChunkMap != nullptr)
+	{
+		pChunkMap->HideRangeData();
+		pChunkMap->ShowRangeData(AttackGPosList);
+	}
+}
 //-------------------------

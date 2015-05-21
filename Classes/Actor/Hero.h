@@ -54,6 +54,7 @@ public:
 	virtual void ActorWinUpdate(float dt) override;
 	virtual void ActorWinEnd() override;
 	//----------------------------------------
+	void ClickAttack();
 
 protected:
 	//HeroID

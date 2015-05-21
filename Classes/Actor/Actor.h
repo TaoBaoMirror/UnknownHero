@@ -50,9 +50,9 @@ public:
 	virtual void ActorMoveUpdate(float dt){}
 	virtual void ActorMoveEnd(){}
 
-	virtual void ActorAttackStart(){}
-	virtual void ActorAttackUpdate(float dt){}
-	virtual void ActorAttackEnd(){}
+	virtual void ActorAttackStart();
+	virtual void ActorAttackUpdate(float dt);
+	virtual void ActorAttackEnd();
 
 	virtual void ActorDieStart(){}
 	virtual void ActorDieUpdate(float dt){}
@@ -63,10 +63,16 @@ public:
 	virtual void ActorWinEnd(){}
 	//------
 	virtual void AIThink();
+
+	virtual void CalcAttack( AttackData* pAtkData );
 	//------
 	virtual void ActorHurtStart(){}
 	virtual void ActorHurtUpdate(float dt){}
 	virtual void ActorHurtEnd(){}
+	//------
+
+protected:
+	virtual void showAttackRange(const std::vector<GridPos>&	AttackGPosList) override;
 
 public:
 	ActorFSM* m_pFSM;

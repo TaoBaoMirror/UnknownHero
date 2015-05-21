@@ -130,7 +130,7 @@ public:
 	//更新PF位置
 	void UpdateSoldierPFPosition();
 protected:
-	void showAttackRange(const std::vector<GridPos>&	AttackGPosList);
+	virtual void showAttackRange(const std::vector<GridPos>&	AttackGPosList);
 private:
 	Vector2D Position;				//所在的世界位置
 	int		 ID;					//ID

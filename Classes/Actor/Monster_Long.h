@@ -8,6 +8,8 @@ class Monster_Long : public Monster
 public:
 	Monster_Long(void);
 	~Monster_Long(void);
+
+	static Monster* createWithMonsterID(int id);
 	//----------------------------------------
 	virtual void ActorReadyStart() override;
 	virtual void ActorReadyUpdate(float dt) override;
@@ -35,6 +37,7 @@ public:
 	//----------------------------------------
 	
 	virtual void AIThink() override;
+	void CalcAttack( AttackData* pAtkData );
 
 	//----------------------------------------
 

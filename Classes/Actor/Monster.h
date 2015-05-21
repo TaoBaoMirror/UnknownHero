@@ -53,7 +53,7 @@ public:
 	//----------------------------------------
 	virtual void AIThink() override;
 	//------------------------------
-	void CalcAttack( AttackData* pAtkData );
+	virtual void CalcAttack( AttackData* pAtkData ) override;
 
 	void SetMonsterName(std::string name)
 	{

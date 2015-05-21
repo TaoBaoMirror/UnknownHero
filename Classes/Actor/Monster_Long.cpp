@@ -10,6 +10,30 @@ Monster_Long::~Monster_Long(void)
 {
 }
 
+Monster* Monster_Long::createWithMonsterID(int id)
+{
+	Monster_Long* pMonster = new Monster_Long();
+
+	pMonster->m_MonsterID = id;
+
+	std::string monsterTexID = TableManager::GetInstance()->GetTableData(TableType::Table_Monster,"MonsterTextureID",id);
+	pMonster->SetMonsterTexID(monsterTexID);
+
+	std::string monsterName = TableManager::GetInstance()->GetTableData(TableType::Table_Monster,"MonsterName",id);
+	pMonster->SetMonsterName(monsterName);
+
+	pMonster->SetActionFrame();
+
+	//res
+	std::string tex_monster = "Monster_" + monsterTexID;
+	pMonster->SetResource(tex_monster);
+
+	//release
+	pMonster->autorelease();
+
+	return pMonster;
+}
+
 //------------------------------------------------------------------------------------
 void Monster_Long::ActorReadyStart()
 {
@@ -54,6 +78,7 @@ void Monster_Long::ActorMoveEnd()
 //-----
 void Monster_Long::ActorAttackStart()
 {
+	Monster::ActorAttackStart();
 }
 void Monster_Long::ActorAttackUpdate(float dt)
 {
@@ -93,5 +118,12 @@ void Monster_Long::AIThink()
 	Monster::AIThink();
 	//
 	
+}
+//----------------------------------------------
+void Monster_Long::CalcAttack( AttackData* pAtkData )
+{
+	Monster::CalcAttack(pAtkData);
+
+	int i=1000;
 }
 //----------------------------------------------

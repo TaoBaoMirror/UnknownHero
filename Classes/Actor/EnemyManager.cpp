@@ -186,7 +186,7 @@ Monster* EnemyManager::CreateMonster(int monsterID)
 Monster* EnemyManager::CreateSpecialMonster(int monsterID)
 {
 	//如果做了不同的敌人 这里要区分敌人 并分别创建
-	Monster* pMonster = Monster_Special::createWithMonsterID(monsterID);
+	Monster_Special* pMonster = (Monster_Special*)Monster_Special::createWithMonsterID(monsterID);
 
 	m_SpecialRangeMonsters.push_back(pMonster);
 
@@ -194,7 +194,7 @@ Monster* EnemyManager::CreateSpecialMonster(int monsterID)
 }
 Monster* EnemyManager::CreateLongMonster(int monsterID)
 {
-	Monster* pMonster = Monster_Long::createWithMonsterID(monsterID);
+	Monster_Long* pMonster = (Monster_Long*)Monster_Long::createWithMonsterID(monsterID);
 
 	m_LongRangeMonsters.push_back(pMonster);
 
@@ -202,7 +202,7 @@ Monster* EnemyManager::CreateLongMonster(int monsterID)
 }
 Monster* EnemyManager::CreateShortMonster(int monsterID)
 {
-	Monster* pMonster = Monster_Short::createWithMonsterID(monsterID);
+	Monster_Short* pMonster = (Monster_Short*)Monster_Short::createWithMonsterID(monsterID);
 
 	m_ShortRangeMonsters.push_back(pMonster);
 
