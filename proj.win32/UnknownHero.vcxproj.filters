@@ -82,6 +82,9 @@
     <Filter Include="src\Game\AI\IM">
       <UniqueIdentifier>{83309ba3-7b82-48bc-bd01-5e5779441e21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Game\Bullet">
+      <UniqueIdentifier>{1ac940b2-95b6-401e-8f5c-86accc4d0ae4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -317,6 +320,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Actor\Monster_Special.cpp">
       <Filter>src\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\BulletSystem.cpp">
+      <Filter>src\Game\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -571,6 +577,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Actor\Monster_Special.h">
       <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\BulletSystem.h">
+      <Filter>src\Game\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

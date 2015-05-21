@@ -489,8 +489,8 @@ void ChunkMap::ShowRangeData(const std::vector<GridPos>&	AttackGPosList)
 			GridPos pGPos = AttackGPosList[i];
 
 			cocos2d::Vec2 vecPos;
-			vecPos.x = pGPos.X;
-			vecPos.y = pGPos.Y;
+
+			GridPosToTiledGridPos(pGPos,vecPos);
 
 			cocos2d::Sprite* pSprite = pRangeLayer->getTileAt(vecPos);
 			if (pSprite != nullptr)
@@ -519,4 +519,24 @@ void ChunkMap::HideRangeData()
 			}
 		}
 	}
+}
+
+bool ChunkMap::GridPosToTiledGridPos(const GridPos& GPos,cocos2d::Vec2& out_TPos)
+{
+	auto pGridLayer = getLayer(GridLayer);
+	if(pGridLayer == nullptr) return false;
+	auto sLayerSize = pGridLayer->getLayerSize();
+	//
+	out_TPos.set(GPos.X,sLayerSize.height - GPos.Y - 1);
+	return true;
+}
+
+bool ChunkMap::TiledGridPosToGridPos( const cocos2d::Vec2& TPos,GridPos& out_GPos )
+{
+	auto pGridLayer = getLayer(GridLayer);
+	if(pGridLayer == nullptr) return false;
+	auto sLayerSize = pGridLayer->getLayerSize();
+	//
+	out_GPos.SetTo(TPos.x,sLayerSize.height - TPos.y - 1);
+	return true;
 }

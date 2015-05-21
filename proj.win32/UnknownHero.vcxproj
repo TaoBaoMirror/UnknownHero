@@ -173,6 +173,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Game\AttackRange_V.cpp" />
     <ClCompile Include="..\Classes\Game\AttackSystem.cpp" />
     <ClCompile Include="..\Classes\Game\AttackTargetGoal_Evaluator.cpp" />
+    <ClCompile Include="..\Classes\Game\BulletSystem.cpp" />
     <ClCompile Include="..\Classes\Game\Camp.cpp" />
     <ClCompile Include="..\Classes\Game\ChunkMap.cpp" />
     <ClCompile Include="..\Classes\Game\CommonFunc.cpp" />
@@ -254,6 +255,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Game\AttackRange_V.h" />
     <ClInclude Include="..\Classes\Game\AttackSystem.h" />
     <ClInclude Include="..\Classes\Game\AttackTargetGoal_Evaluator.h" />
+    <ClInclude Include="..\Classes\Game\BulletSystem.h" />
     <ClInclude Include="..\Classes\Game\Camp.h" />
     <ClInclude Include="..\Classes\Game\ChunkMap.h" />
     <ClInclude Include="..\Classes\Game\CommonFunc.h" />
