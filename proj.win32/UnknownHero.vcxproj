@@ -154,6 +154,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Actor\StandbyHero.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\BaseUI\ProgressBar.cpp" />
+    <ClCompile Include="..\Classes\Bullet\GameBullet.cpp" />
     <ClCompile Include="..\Classes\Career\CareerBase.cpp" />
     <ClCompile Include="..\Classes\City\City.cpp" />
     <ClCompile Include="..\Classes\Common\CommonMethod.cpp" />
@@ -236,6 +237,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Actor\StandbyHero.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\BaseUI\ProgressBar.h" />
+    <ClInclude Include="..\Classes\Bullet\GameBullet.h" />
     <ClInclude Include="..\Classes\Career\CareerBase.h" />
     <ClInclude Include="..\Classes\City\City.h" />
     <ClInclude Include="..\Classes\Common\CommonMethod.h" />
