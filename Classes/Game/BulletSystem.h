@@ -33,13 +33,16 @@ public:
 	int				mExplodeFrameNum;
 	//
 	bool			mHitIfCollide;
+	bool			mExplodeIfArrived;
 
 	
 };
 
 class BulletBase
 {
+	
 public:
+	enum{ Bullet_Start = 0, Bullet_Flying , Bullet_Exploding , Bullet_End };
 	~BulletBase();
 	//
 	virtual void Init(int bullet_data_id , AttackData* pAtkData);
@@ -55,6 +58,10 @@ public:
 	//
 	const BulletData*	GetBulletData(){return mBulletDataPtr;}
 	const AttackData*	GetAttackData(){return mAttackDataPtr;}
+	//
+	int		GetStatus(){return mBulletStatus; }
+	void	SetStatus(int s){  mBulletStatus = s;}
+	void	StepNextStatus(){ mBulletStatus++; }
 
 protected:
 	bool				mAlive;
@@ -62,7 +69,8 @@ protected:
 	const BulletData*	mBulletDataPtr;
 	const AttackData*	mAttackDataPtr;
 	BulletBase();
-
+	//
+	int		mBulletStatus;
 
 private:
 };

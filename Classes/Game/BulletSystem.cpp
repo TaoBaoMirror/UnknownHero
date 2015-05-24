@@ -1,6 +1,11 @@
 #include "BulletSystem.h"
 
-BulletBase::BulletBase():mRoundCounter(0),mBulletDataPtr(nullptr),mAlive(false),mAttackDataPtr(nullptr)
+BulletBase::BulletBase():
+	mRoundCounter(0),
+	mBulletDataPtr(nullptr),
+	mAlive(true),
+	mAttackDataPtr(nullptr),
+	mBulletStatus(Bullet_Start)
 {
 
 }
@@ -60,13 +65,14 @@ void BulletDataManager::ReadCSV( const std::string& csvName )
 	//Test
 	BulletData BD;
 	BD.mId = 0;
-	BD.mAliveRoundNum = 1;
+	BD.mAliveRoundNum = 3;
 	strcpy(BD.mBulletSpriteName,"effect_posion");
 	BD.mNormalFrameNum = 8;
 	strcpy(BD.mBulletExplodeName,"effect_StramBoom");
 	BD.mExplodeFrameNum = 6;
-	BD.mSpeed = 20;
-	BD.mHitIfCollide = false;
+	BD.mSpeed = 40;
+	BD.mHitIfCollide = true;
+	BD.mExplodeIfArrived = false;
 	//
 	BulletDataDict[BD.mId] = BD;
 }

@@ -134,6 +134,10 @@ void GameManager:: RoundPassed()
 	{
 		SetFightST(FightStatus::SF_OneFightOver);		 
 	}
+	//每过一回合，子弹系统也更新一下
+	// add by Hitman [5/24/2015]
+	GameBulletManager::GetInstance()->UpdateRound();
+
 }
 
 void GameManager::SetFightST(FightStatus st)
@@ -254,6 +258,11 @@ void GameManager::UpdateFight(float dt)
 	default:
 		break;
 	}
+
+	// add by Hitman [5/24/2015]
+	// 子弹系统每帧更新的地方
+
+	GameBulletManager::GetInstance()->UpdateFrame(dt);
 }
 
 void GameManager::Wait_Update(float dt)

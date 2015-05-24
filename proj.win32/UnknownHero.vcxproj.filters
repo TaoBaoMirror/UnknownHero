@@ -324,7 +324,12 @@
     <ClCompile Include="..\Classes\Game\BulletSystem.cpp">
       <Filter>src\Game\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Scene\MarkTileManager.cpp" />
+    <ClCompile Include="..\Classes\Bullet\GameBullet.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\MarkTileManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -582,7 +587,12 @@
     <ClInclude Include="..\Classes\Game\BulletSystem.h">
       <Filter>src\Game\Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Scene\MarkTileManager.h" />
+    <ClInclude Include="..\Classes\Bullet\GameBullet.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\MarkTileManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

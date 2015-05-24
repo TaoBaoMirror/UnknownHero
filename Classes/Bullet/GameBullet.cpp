@@ -94,7 +94,8 @@ void GameBullet::OnEmitStart()
 
 void GameBullet::OnFly()
 {
-	if (GetBulletData()->mHitIfCollide)
+	if (GetStatus() == Bullet_Flying &&
+		GetBulletData()->mHitIfCollide)
 	{
 		auto pData = GetMapNodeDataWhereExploded();
 		//
@@ -102,6 +103,10 @@ void GameBullet::OnFly()
 
 		if (soldier != nullptr)
 		{
+			if (GetAttackData()->ProviderID == soldier->GetID())
+			{
+				return;
+			}
 			//
 			if (GetAttackData()->BearerID != -1 && 
 				GetAttackData()->BearerID != soldier->GetID())
@@ -115,8 +120,10 @@ void GameBullet::OnFly()
 			}
 			//
 			stopAllActions();
-
-			OnArriveDestination();
+			//
+			PlayExplodeAnimation();
+			//
+			StepNextStatus(); //这个时候状态应该是 explode
 		}
 	}
 }
@@ -126,12 +133,21 @@ void GameBullet::OnArriveDestination()
 	//停止移动和飞行动画
 	stopAllActions();
 	//
-	PlayExplodeAnimation();
+	if (GetBulletData()->mExplodeIfArrived)
+	{
+		PlayExplodeAnimation();
+		//
+		StepNextStatus(); //这个时候状态应该是 explode
+	}
+
+
 }
 
 void GameBullet::OnHit()
 {
 	stopAllActions();
+	//
+	StepNextStatus();	//这个时候状态应该是 End
 	//
 	CommonFunc::CalcDamage(GetAttackData());
 	//
@@ -140,9 +156,10 @@ void GameBullet::OnHit()
 
 void GameBullet::OnDestroy()
 {
-	stopAllActions();
+	mAlive = false;
+	//从管理器中删除自己
+	removeFromParentAndCleanup(true);
 
-	Sprite::removeFromParentAndCleanup(true);
 }
 bool GameBullet::Emit()
 {
@@ -207,8 +224,9 @@ bool GameBullet::Emit( const cocos2d::Vec2& start,const cocos2d::Vec2& end )
 
 		this->runAction(pSec);
 	}
+	//子弹状态更新到下一个
+	StepNextStatus();
 	//
-		//
 	return true;
 }
 
@@ -245,21 +263,11 @@ void GameBullet::UpdateRound()
 {
 	StepRound();
 	//
-	if (mAlive == false)
-	{
-		Destroy();
-	}
 }
 
 void GameBullet::Destroy()
 {
-	mAlive = false;
-
-	OnDestroy();
-	//从管理器中删除自己
-
-
-	//
+	GameBulletManager::GetInstance()->RemoveBullet(this);
 }
 
 MapNodeData* GameBullet::GetMapNodeDataWhereExploded()
@@ -303,12 +311,14 @@ GameBullet* GameBulletManager::CreateBullet(int bullet_data_id,AttackData* pAtkD
 	if (bullet != nullptr)
 	{
 		bullet->Init(bullet_data_id,pAtkData);
+		BulletPool.push_back(bullet);
 	}
 	return bullet;
 }
 
 void GameBulletManager::RemoveBullet( GameBullet* bullet )
-{
+{	
+	bullet->OnDestroy();
 	BulletPool.remove(bullet);
 	bullet->release();
 	//
@@ -323,4 +333,41 @@ GameBulletManager::GameBulletManager()
 GameBulletManager::~GameBulletManager()
 {
 	ReleaseAllBullets();
+}
+
+void GameBulletManager::UpdateFrame( float dt )
+{
+	auto it = BulletPool.begin();
+	auto end = BulletPool.end();
+	//
+	while (it != end)
+	{
+		auto bullet = (*it);
+
+		if (bullet->mAlive == false)
+		{
+			bullet->OnDestroy();
+			bullet->release();
+			it = BulletPool.erase(it);
+		}
+		else
+		{
+			bullet->OnFly();
+			it++;
+		}
+
+	}
+}
+
+void GameBulletManager::UpdateRound()
+{
+	
+	auto it = BulletPool.begin();
+	auto end = BulletPool.end();
+	//
+	while (it != end)
+	{
+		(*it)->UpdateRound();
+		it++;
+	}
 }

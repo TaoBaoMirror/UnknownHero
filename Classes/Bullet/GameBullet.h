@@ -75,6 +75,8 @@ public:
 	//
 	void RemoveBullet(GameBullet* bullet);
 	//
+	void UpdateFrame(float dt);
+	void UpdateRound();
 protected:
 	GameBulletManager();
 	//
