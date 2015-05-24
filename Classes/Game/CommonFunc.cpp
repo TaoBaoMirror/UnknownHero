@@ -15,6 +15,7 @@ const GridSceneMap& G_GetSceneMap()
 void CommonFunc::CalcDamage( const AttackData* atkData )
 {
 	const AttackData* pAtkData = atkData;
+	if(pAtkData == nullptr) return;
 	auto provider = SoldierManager::Instance()->GetSoldier(pAtkData->ProviderID);
 	std::vector<Soldier*> Soldiers;
 	auto chunkMap = MapManager::GetInstance()->GetCurChunkMap();
