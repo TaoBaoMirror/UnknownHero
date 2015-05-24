@@ -4,11 +4,14 @@
 #include "Game/MapNodeData.h"
 #include "Game/AttackData.h"
 #include "Game/Soldier.h"
+#include "Game/SoldierManager.h"
+#include "Actor/Actor.h"
 
 void GameBullet::Init( int bullet_data_id , AttackData* pAtkData )
 {
 	BulletBase::Init(bullet_data_id,pAtkData);
 	//
+	SetResource(GetBulletData()->mBulletSpriteName,GetBulletData()->mBulletExplodeName);
 }
 
 GameBullet::GameBullet():BulletBase()
@@ -120,6 +123,9 @@ void GameBullet::OnFly()
 
 void GameBullet::OnArriveDestination()
 {
+	//停止移动和飞行动画
+	stopAllActions();
+	//
 	PlayExplodeAnimation();
 }
 
@@ -135,12 +141,37 @@ void GameBullet::OnHit()
 void GameBullet::OnDestroy()
 {
 	stopAllActions();
+
+	Sprite::removeFromParentAndCleanup(true);
+}
+bool GameBullet::Emit()
+{
+	auto atkData = GetAttackData();
+	auto soldier = SoldierManager::Instance()->GetSoldier(atkData->ProviderID);
+	auto actor = static_cast<Actor*>(soldier);
+	cocos2d::Vec2 start = actor->getPosition();
+	cocos2d::Vec2 end;
+	//
+	if (atkData->BearerID != -1)
+	{
+		auto soldier = SoldierManager::Instance()->GetSoldier(atkData->BearerID);
+		auto actor = static_cast<Actor*>(soldier);
+		end = actor->getPosition();
+	}
+	else
+	{
+		const GridPos& GPos = atkData->TargetGPos;
+		Vector2D WPos;
+		G_GetSceneMap().GridPosToWorldPos(GPos,WPos);
+		end.set(WPos.x,WPos.y);
+	}
+	//
+	return Emit(start,end);
 }
 
 bool GameBullet::Emit( const cocos2d::Vec2& start,const cocos2d::Vec2& end )
 {
 	setPosition(start);
-
 
 	OnEmitStart();
 
@@ -198,7 +229,7 @@ void GameBullet::PlayExplodeAnimation()
 {
 	std::string name = "explode";
 	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
+	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.15f);
 	cocos2d::Animate* animation = cocos2d::Animate::create(ani);
 	//
 	cocos2d::CallFuncN* pCallFunc = cocos2d::CallFuncN::create(CC_CALLBACK_0(GameBullet::OnHit,this));
@@ -238,4 +269,58 @@ MapNodeData* GameBullet::GetMapNodeDataWhereExploded()
 	auto node = G_GetSceneMap().GetNode(GPos);
 	MapNodeData* pData = static_cast<MapNodeData*>(node.ExtraInfo());
 	return pData;
+}
+//////////////////////////////////////////////////////////////////////////
+/*
+
+	GameBulletManager
+
+*/
+GameBulletManager* GameBulletManager::GetInstance()
+{
+	static GameBulletManager T;
+	return &T;
+}
+
+void GameBulletManager::ReleaseAllBullets()
+{
+	auto it = BulletPool.begin();
+	auto end = BulletPool.end();
+	//
+	while (it != end)
+	{
+		(*it)->OnDestroy();
+		(*it)->release();
+		it++;
+	}
+	//
+	BulletPool.clear();
+}
+
+GameBullet* GameBulletManager::CreateBullet(int bullet_data_id,AttackData* pAtkData)
+{
+	GameBullet* bullet = new	GameBullet();
+	if (bullet != nullptr)
+	{
+		bullet->Init(bullet_data_id,pAtkData);
+	}
+	return bullet;
+}
+
+void GameBulletManager::RemoveBullet( GameBullet* bullet )
+{
+	BulletPool.remove(bullet);
+	bullet->release();
+	//
+	return;
+}
+
+GameBulletManager::GameBulletManager()
+{
+
+}
+
+GameBulletManager::~GameBulletManager()
+{
+	ReleaseAllBullets();
 }

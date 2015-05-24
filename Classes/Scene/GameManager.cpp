@@ -1,8 +1,8 @@
 #include "GameManager.h"
 
-#include "Actor/PlayerManager.h";
-#include "Actor/EnemyManager.h";
-#include "Actor/NPCManager.h";
+#include "Actor/PlayerManager.h"
+#include "Actor/EnemyManager.h"
+#include "Actor/NPCManager.h"
 #include "Game/MapManager.h"
 
 #include "GameStatus/GameStates.h"
@@ -15,6 +15,7 @@
 // add by Hitman [5/20/2015]
 #include "Game/Camp.h"
 #include "MarkTileManager.h"
+#include "Bullet/GameBullet.h"
 
 GameManager* GameManager::m_Instance = nullptr;
 
@@ -502,6 +503,18 @@ void GameManager::ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, 
 				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_G)
 				{
 					pHero->ClickAttack();
+				}
+				// add by Hitman [5/24/2015]
+				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B)
+				{
+					//Emit a Bullet
+					GameBullet* bullet = GameBulletManager::GetInstance()->CreateBullet(
+						0,pHero->GetAttackSystem()->CreateAttackData(GridPos(6,6)));
+					//
+					auto layer = MapManager::GetInstance()->GetCurChunkMap()->GetEffectLayer();
+					layer->addChild(bullet);
+					//
+					bullet->Emit();
 				}
 			}
 		}

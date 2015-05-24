@@ -170,7 +170,7 @@ const string ResDef::g_HeroResPlistFile = "plist//HeroRes.plist";
 const string ResDef::g_HeroResTextureFile = "plist//HeroRes.png";
 
 const std::string ResDef::g_GameEffectPListFile = "plist//Effect.plist";
-const std::string ResDef::g_GameEffectTextureFile = "plist//images//Effect.png";
+const std::string ResDef::g_GameEffectTextureFile = "plist//Effect.png";
 
 const std::string ResDef::g_GameParticlePListFile = "plist//Particle.plist";
 const std::string ResDef::g_GameParticleTextureFile = "plist//images//Particle.png";
@@ -261,6 +261,8 @@ void ResDef::loadRes()
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_StandByHeroPListFile);
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_HeroResPlistFile);
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameMiscPListFile);
+	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameEffectPListFile);
+
 }
 
 void  ResDef::initRes(ProgressCount* progresscount)

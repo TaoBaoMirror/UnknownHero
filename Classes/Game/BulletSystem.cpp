@@ -35,6 +35,10 @@ BulletDataManager::BulletDataManager()
 {
 	mCSVFile = "";
 	BulletDataDict.rehash(128);
+	//
+	// add by Hitman [5/24/2015]
+	//TEST!!!!!
+	ReadCSV("");
 }
 
 BulletDataManager::~BulletDataManager()
@@ -51,9 +55,20 @@ BulletDataManager* BulletDataManager::GetInstance()
 	return instance;
 }
 
-void BulletDataManager::ReadCSV( std::string& csvName )
+void BulletDataManager::ReadCSV( const std::string& csvName )
 {
-
+	//Test
+	BulletData BD;
+	BD.mId = 0;
+	BD.mAliveRoundNum = 1;
+	strcpy(BD.mBulletSpriteName,"effect_posion");
+	BD.mNormalFrameNum = 8;
+	strcpy(BD.mBulletExplodeName,"effect_StramBoom");
+	BD.mExplodeFrameNum = 6;
+	BD.mSpeed = 20;
+	BD.mHitIfCollide = false;
+	//
+	BulletDataDict[BD.mId] = BD;
 }
 
 void BulletDataManager::FreeAll()
@@ -61,7 +76,7 @@ void BulletDataManager::FreeAll()
 	BulletDataDict.clear();
 }
 
-bool BulletDataManager::GetBulletData( int Id,const BulletData* BData ) const
+bool BulletDataManager::GetBulletData( int Id,const BulletData*& BData ) const
 {
 	auto it = BulletDataDict.find(Id);
 

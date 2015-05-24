@@ -74,10 +74,10 @@ public:
 	static BulletDataManager* GetInstance();
 	~BulletDataManager();
 	//
-	void ReadCSV(std::string& csvName);
+	void ReadCSV(const std::string& csvName);
 	void FreeAll();
 	//
-	bool	GetBulletData(int Id,const BulletData* BData) const;
+	bool	GetBulletData(int Id,const BulletData*& BData) const;
 protected:
 	std::string		mCSVFile;
 	BulletDataManager();

@@ -14,10 +14,12 @@
 
 #include "Game/BulletSystem.h"
 #include <cocos2d.h>
+#include <list>
 
 class MapNodeData;
 class GameBullet : public BulletBase , public cocos2d::Sprite
 {
+	friend class GameBulletManager;
 public:
 
 	~GameBullet();
@@ -42,6 +44,7 @@ public:
 	void Destroy();
 	//发射,起点和终点
 	bool Emit(const cocos2d::Vec2& start,const cocos2d::Vec2& end);
+	bool Emit();
 	//设置资源
 	void SetResource(const std::string& ani_name,const std::string& explode_name);
 	//
@@ -56,5 +59,28 @@ protected:
 
 private:
 };
+//////////////////////////////////////////////////////////////////////////
+//
+//
+//////////////////////////////////////////////////////////////////////////
+class GameBulletManager
+{
+public:
+	static GameBulletManager* GetInstance();
+	~GameBulletManager(); 
+	//
+	void ReleaseAllBullets();
+	//
+	GameBullet*	CreateBullet(int bullet_data_id,AttackData* pAtkData);
+	//
+	void RemoveBullet(GameBullet* bullet);
+	//
+protected:
+	GameBulletManager();
+	//
+	std::list<GameBullet*>	BulletPool;
+private:
+};
+
 
 #endif // GameBullet_h__
