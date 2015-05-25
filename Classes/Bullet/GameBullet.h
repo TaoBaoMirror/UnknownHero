@@ -48,7 +48,7 @@ public:
 	//…Ë÷√◊ ‘¥
 	void SetResource(const std::string& ani_name,const std::string& explode_name);
 	//
-	MapNodeData*	GetMapNodeDataWhereExploded();
+	MapNodeData*	GetMapNodeDataWhereBulletStay();
 protected:
 	std::map<std::string,cocos2d::Vector<cocos2d::SpriteFrame*>> m_framesDict;
 	//
@@ -77,6 +77,7 @@ public:
 	//
 	void UpdateFrame(float dt);
 	void UpdateRound();
+	//
 protected:
 	GameBulletManager();
 	//

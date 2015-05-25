@@ -90,14 +90,16 @@ void GameBullet::SetResource( const std::string& ani_name,const std::string& exp
 void GameBullet::OnEmitStart()
 {
 	PlayFlyAnimation();
+	//子弹状态更新到下一个
+	StepNextStatus();
 }
 
 void GameBullet::OnFly()
 {
-	if (GetStatus() == Bullet_Flying &&
+	if ((GetStatus() == Bullet_Flying || GetStatus() == Bullet_Arrived) &&
 		GetBulletData()->mHitIfCollide)
 	{
-		auto pData = GetMapNodeDataWhereExploded();
+		auto pData = GetMapNodeDataWhereBulletStay();
 		//
 		Soldier* soldier = pData->Creature;
 
@@ -132,6 +134,8 @@ void GameBullet::OnArriveDestination()
 {
 	//停止移动和飞行动画
 	stopAllActions();
+	//
+	StepNextStatus(); //这个时候状态应该是 arrived
 	//
 	if (GetBulletData()->mExplodeIfArrived)
 	{
@@ -224,8 +228,7 @@ bool GameBullet::Emit( const cocos2d::Vec2& start,const cocos2d::Vec2& end )
 
 		this->runAction(pSec);
 	}
-	//子弹状态更新到下一个
-	StepNextStatus();
+
 	//
 	return true;
 }
@@ -270,7 +273,7 @@ void GameBullet::Destroy()
 	GameBulletManager::GetInstance()->RemoveBullet(this);
 }
 
-MapNodeData* GameBullet::GetMapNodeDataWhereExploded()
+MapNodeData* GameBullet::GetMapNodeDataWhereBulletStay()
 {
 	GridPos GPos;
 	G_GetSceneMap().WorldPosToGridPos(Vector2D(getPositionX(),getPositionY()),GPos);

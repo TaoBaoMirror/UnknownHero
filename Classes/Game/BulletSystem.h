@@ -42,7 +42,7 @@ class BulletBase
 {
 	
 public:
-	enum{ Bullet_Start = 0, Bullet_Flying , Bullet_Exploding , Bullet_End };
+	enum{ Bullet_Start = 0, Bullet_Flying , Bullet_Arrived,Bullet_Exploding , Bullet_End };
 	~BulletBase();
 	//
 	virtual void Init(int bullet_data_id , AttackData* pAtkData);
