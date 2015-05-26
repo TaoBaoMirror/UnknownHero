@@ -1,5 +1,6 @@
 #include "Monster_Special.h"
 #include "Data/TableManager.h"
+#include "EnemyManager.h"
 
 Monster_Special::Monster_Special(void)
 {
@@ -91,5 +92,12 @@ void Monster_Special::ActorWinEnd()
 void Monster_Special::AIThink()
 {
 	;
+}
+//----------------------------------------------
+void Monster_Special::CalcDie()
+{
+	EnemyManager::GetInstance()->RemoveSpecialMonster(this);
+
+	Monster::CalcDie();
 }
 //----------------------------------------------

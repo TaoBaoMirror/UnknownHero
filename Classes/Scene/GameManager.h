@@ -40,6 +40,8 @@ public:
 
 	void RoundPassed();
 
+	bool CheckNoDyingActor();
+
 	void UpdateFight(float dt);	
 	//------------------------------
 	void UpdateCity(float dt);

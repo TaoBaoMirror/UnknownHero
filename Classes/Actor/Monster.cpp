@@ -3,6 +3,7 @@
 
 #include "Actor/ActorStatus.h"
 #include "Game/CommonFunc.h"
+#include "EnemyManager.h"
 
 Monster::Monster(void)
 {
@@ -86,13 +87,24 @@ void Monster::playMoveAnimation()
 
 void Monster::playAttackAnimation()
 {
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Move];
+	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Attack];
 	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
 	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
 	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
 
 	this->runAction(animaction);
 }
+
+void Monster::playDieAnimation()
+{
+	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Die];
+	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
+	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
+	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
+
+	this->runAction(animaction);
+}
+
 
 
 
@@ -153,14 +165,15 @@ void Monster::ActorAttackEnd()
 //-----
 void Monster::ActorDieStart()
 {
+	Actor::ActorDieStart();
 }
 void Monster::ActorDieUpdate(float dt)
 {
-	;
+	Actor::ActorDieUpdate(dt);
 }
 void Monster::ActorDieEnd()
 {
-	;
+	Actor::ActorDieEnd();
 }
 //-----
 void Monster::ActorWinStart()
@@ -187,4 +200,10 @@ void Monster::CalcAttack( AttackData* pAtkData )
 	CommonFunc::CalcDamage(pAtkData);
 	//
 	m_pFSM->SetStatus(Actor_Stand::Instance());
+}
+
+void Monster::CalcDie()
+{
+	EnemyManager::GetInstance()->ClearCurEnemy(this);
+	Actor::CalcDie();
 }

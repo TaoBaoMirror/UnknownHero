@@ -6,6 +6,8 @@
 #include "Game/TargetingSystem.h"
 #include "Game/Goal_SoldierThink.h"
 #include "Scene/MarkTileManager.h"
+#include "Game/SoldierManager.h"
+#include "Game/Camp.h"
 
 const float Actor::g_ActorMoveTime = 0.5f;
 
@@ -125,6 +127,16 @@ void Actor::Attack( Soldier* other )
 
 }
 
+void Actor::GetHurt(const DamageData& damageData)
+{
+	Soldier::GetHurt(damageData);
+
+	if (CreatureBase::CurHP <= 0)
+	{
+		m_pFSM->SetStatus(Actor_Die::Instance());
+	}
+}
+
 cocos2d::Animate* Actor::createAttackAnimation( int ani_type )
 {
 	std::string name = ActionsName[(int)ani_type];
@@ -163,9 +175,44 @@ void Actor::ActorAttackEnd()
 	;
 }
 //-------------------------
+void Actor::ActorDieStart()
+{
+	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
+
+	auto anim = createAttackAnimation(ActorAnimType::ActorAnim_Die);
+
+	auto func_1 = cocos2d::CallFuncN::create( CC_CALLBACK_0(Actor::playDieAnimation , this ) );
+	auto func_2 = cocos2d::CallFunc::create( CC_CALLBACK_0(Actor::CalcDie , this));
+
+	pAcs.pushBack(anim);
+	pAcs.pushBack(func_1);
+	pAcs.pushBack(func_2);
+
+	auto seq = cocos2d::Sequence::create(pAcs);
+	seq->setTag(ActorAnimType::ActorAnim_Attack);
+	this->runAction(seq);
+}
+void Actor::ActorDieUpdate(float dt)
+{
+	;
+}
+void Actor::ActorDieEnd()
+{
+	;
+}
+//-------------------------
 void Actor::CalcAttack( AttackData* pAtkData )
 {
 	int i= 100;
+}
+
+void Actor::CalcDie()
+{
+	this->removeFromParentAndCleanup(true);
+	SoldierManager::Instance()->UnregisterSoldier(this);
+	Camp::GetCamp(CampType_Player)->UnregisterUnit(GetID());
+
+	//this->release();
 }
 //-------------------------
 void Actor::showAttackRange(const std::vector<GridPos>&	AttackGPosList)

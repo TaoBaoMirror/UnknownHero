@@ -120,6 +120,24 @@ void GameManager::Update(float dt)
 	}
 }
 //-----------------------------------------------------------------
+bool GameManager::CheckNoDyingActor()
+{
+	if (PlayerManager::GetInstance()->CheckNoDyingActor() == false)
+	{
+		return false;
+	}
+
+	if (EnemyManager::GetInstance()->CheckNoDyingActor() == false)
+	{
+		return false;
+	}
+
+	if (NPCManager::GetInstance()->CheckNoDyingActor() == false)
+	{
+		return false;
+	}
+}
+//-----------------------------------------------------------------
 void GameManager:: RoundPassed()
 {
 	if (m_CurFightST == FightStatus::SF_Hero)

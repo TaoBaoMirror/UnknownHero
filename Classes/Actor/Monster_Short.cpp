@@ -1,5 +1,6 @@
 #include "Monster_Short.h"
 #include "Data/TableManager.h"
+#include "EnemyManager.h"
 
 Monster_Short::Monster_Short(void)
 {
@@ -66,14 +67,15 @@ void Monster_Short::ActorAttackEnd()
 //-----
 void Monster_Short::ActorDieStart()
 {
+	Monster::ActorDieStart();
 }
 void Monster_Short::ActorDieUpdate(float dt)
 {
-	;
+	Monster::ActorDieUpdate(dt);
 }
 void Monster_Short::ActorDieEnd()
 {
-	;
+	Monster::ActorDieEnd();
 }
 //-----
 void Monster_Short::ActorWinStart()
@@ -91,5 +93,12 @@ void Monster_Short::ActorWinEnd()
 void Monster_Short::AIThink()
 {
 	;
+}
+
+void Monster_Short::CalcDie()
+{
+	EnemyManager::GetInstance()->RemoveShortMonster(this);
+
+	Monster::CalcDie();
 }
 //----------------------------------------------

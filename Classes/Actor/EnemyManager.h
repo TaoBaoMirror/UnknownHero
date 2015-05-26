@@ -22,9 +22,17 @@ public:
 
 	bool IsAnyBodyHere();//查看是否还有敌人在当前场景上
 
+	bool CheckNoDyingActor();
+
 	Monster* CreateMonster(int monsterID);
 
 	void ReadyFight();
+
+	void ClearCurEnemy(Actor* checkActor);
+
+	void RemoveShortMonster(Monster_Short* pMonster);
+	void RemoveLongMonster(Monster_Long* pMonster);
+	void RemoveSpecialMonster(Monster_Special* pMonster);
 
 private:
 	EnemyManager(void);

@@ -33,10 +33,13 @@ void PlayerManager::Update(float dt)
 	//¼ì²âÓ¢ÐÛÊÇ·ñÒÆ¶¯¹¥»÷Íê±Ï Èç¹ûÍê±Ï ÇÐ»»µ½µÐÈË
 	if (m_pMainRole != nullptr)
 	{
-		if(m_pMainRole->m_pFSM->GetStatus() == Actor_Stand::Instance())
+		if (GameManager::GetInstance()->CheckNoDyingActor())
 		{
-			GameManager::GetInstance()->RoundPassed();
-		}	
+			if(m_pMainRole->m_pFSM->GetStatus() == Actor_Stand::Instance())
+			{
+				GameManager::GetInstance()->RoundPassed();
+			}
+		}			
 	}
 }
 //-------------------------------------------------------
@@ -46,6 +49,16 @@ void PlayerManager::ReadyFight()
 	{
 		m_pMainRole->m_pFSM->SetStatus(Actor_Ready::Instance());
 	}
+}
+//-------------------------------------------------------
+bool PlayerManager::CheckNoDyingActor()
+{
+	if (m_pMainRole != nullptr && m_pMainRole->m_pFSM->GetStatus() != Actor_Die::Instance())
+	{
+		return true;
+	}
+
+	return false;
 }
 //-------------------------------------------------------
 void PlayerManager::HeroBorn(StandbyHero* pTempleHero)

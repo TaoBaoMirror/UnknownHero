@@ -151,6 +151,14 @@ void EnemyManager::ReadyFight()
 	}
 }
 //-------------------------------------------------------
+void EnemyManager::ClearCurEnemy(Actor* checkActor)
+{
+	if (checkActor == m_pCurEnemy)
+	{
+		m_pCurEnemy = nullptr;
+	}
+}
+//-------------------------------------------------------
 Monster* EnemyManager::CreateMonster(int monsterID)
 {
 	//1 根据怪物ID 读表 读取怪物基本信息
@@ -212,6 +220,45 @@ Monster* EnemyManager::CreateShortMonster(int monsterID)
 
 	return pMonster;
 }
+
+void EnemyManager::RemoveShortMonster(Monster_Short* pMonster)
+{
+	std::vector<Monster_Short*>::iterator it = m_ShortRangeMonsters.begin();
+	for ( ; it != m_ShortRangeMonsters.end(); ++it)
+	{
+		if ((*it) == pMonster)
+		{
+			m_ShortRangeMonsters.erase(it);
+			break;
+		}
+	}
+}
+
+void EnemyManager::RemoveLongMonster(Monster_Long* pMonster)
+{
+	std::vector<Monster_Long*>::iterator it = m_LongRangeMonsters.begin();
+	for ( ; it != m_LongRangeMonsters.end(); ++it)
+	{
+		if ((*it) == pMonster)
+		{
+			m_LongRangeMonsters.erase(it);
+			break;
+		}
+	}
+}
+
+void EnemyManager::RemoveSpecialMonster(Monster_Special* pMonster)
+{
+	std::vector<Monster_Special*>::iterator it = m_SpecialRangeMonsters.begin();
+	for ( ; it != m_SpecialRangeMonsters.end(); ++it)
+	{
+		if ((*it) == pMonster)
+		{
+			m_SpecialRangeMonsters.erase(it);
+			break;
+		}
+	}
+}
 //-------------------------------------------------------
 //void EnemyManager::CreateMonstersAtLayer(cocos2d::TMXLayer* pLayer, int zOrder)
 //{
@@ -231,5 +278,39 @@ bool EnemyManager::IsAnyBodyHere()
 		return true;
 	}
 	return false;
+}
+//-------------------------------------------------------
+bool EnemyManager::CheckNoDyingActor()
+{
+	for (int i=0; i<m_SpecialRangeMonsters.size(); ++i)
+	{
+		Actor* pActor = m_SpecialRangeMonsters.at(i);
+		if (pActor != nullptr && pActor->m_pFSM->GetStatus() == Actor_Die::Instance())
+		{
+			return false;
+		}
+	}
+
+	//远程敌人
+	for (int i=0; i<m_LongRangeMonsters.size(); ++i)
+	{
+		Actor* pActor = m_LongRangeMonsters.at(i);
+		if (pActor != nullptr && pActor->m_pFSM->GetStatus() == Actor_Die::Instance())
+		{
+			return false;
+		}
+	}	
+
+	//近程敌人
+	for (int i=0; i<m_ShortRangeMonsters.size(); ++i)
+	{
+		Actor* pActor = m_ShortRangeMonsters.at(i);
+		if (pActor != nullptr && pActor->m_pFSM->GetStatus() == Actor_Die::Instance())
+		{
+			return false;
+		}
+	}
+
+	return true;
 }
 //-------------------------------------------------------

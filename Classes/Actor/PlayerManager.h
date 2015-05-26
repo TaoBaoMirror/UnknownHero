@@ -17,6 +17,8 @@ public:
 
 	void ReadyFight();
 
+	bool CheckNoDyingActor();
+
 	StandbyHero* RandomStandbyHero();
 
 	void HeroBorn(StandbyHero* pTempleHero);

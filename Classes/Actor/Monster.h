@@ -24,7 +24,7 @@ public:
 	//------------------------------
 	virtual void playMoveAnimation() override;
 	virtual void playAttackAnimation() override;
-
+	virtual void playDieAnimation() override;
 
 	//----------------------------------------
 	virtual void ActorReadyStart() override;
@@ -54,6 +54,8 @@ public:
 	virtual void AIThink() override;
 	//------------------------------
 	virtual void CalcAttack( AttackData* pAtkData ) override;
+
+	virtual void CalcDie() override;
 
 	void SetMonsterName(std::string name)
 	{

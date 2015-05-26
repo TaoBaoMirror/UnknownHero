@@ -37,6 +37,7 @@ public:
 
 	virtual void AIThink() override;
 
+	virtual void CalcDie() override;
 	//----------------------------------------
 
 };

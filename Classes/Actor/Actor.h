@@ -27,9 +27,11 @@ public:
 	virtual bool TravalTo(const GridPos& GPos) override;
 
 	virtual void Attack(Soldier* other) override;
+	virtual void GetHurt(const DamageData& damageData) override;
 
 	virtual void playMoveAnimation(){};
 	virtual void playAttackAnimation(){};
+	virtual void playDieAnimation(){};
 	// modify by Hitman [5/19/2015]
 	// 很多攻击是跟着动画一起去完成的，所以，应该先得到合适的动画，然后在状态中去合成一个动作序列
 	virtual cocos2d::Animate* createAttackAnimation(int ani_type);
@@ -55,9 +57,9 @@ public:
 	virtual void ActorAttackUpdate(float dt);
 	virtual void ActorAttackEnd();
 
-	virtual void ActorDieStart(){}
-	virtual void ActorDieUpdate(float dt){}
-	virtual void ActorDieEnd(){}
+	virtual void ActorDieStart();
+	virtual void ActorDieUpdate(float dt);
+	virtual void ActorDieEnd();
 
 	virtual void ActorWinStart(){}
 	virtual void ActorWinUpdate(float dt){}
@@ -66,6 +68,8 @@ public:
 	virtual void AIThink();
 
 	virtual void CalcAttack( AttackData* pAtkData );
+
+	virtual void CalcDie();
 	//------
 	virtual void ActorHurtStart(){}
 	virtual void ActorHurtUpdate(float dt){}

@@ -18,6 +18,8 @@ public:
 
 	void Update(float dt);
 
+	bool CheckNoDyingActor(){return true;}
+
 	bool IsAnyBodyHere();//查看是否还有NPC在当前场景上
 
 	void ReadyFight();

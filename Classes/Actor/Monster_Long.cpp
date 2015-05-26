@@ -1,5 +1,6 @@
 #include "Monster_Long.h"
 #include "Data/TableManager.h"
+#include "EnemyManager.h"
 #include "Bullet/GameBullet.h"
 #include "Actor/ActorStatus.h"
 #include "Game/MapManager.h"
@@ -109,14 +110,15 @@ void Monster_Long::ActorAttackEnd()
 //-----
 void Monster_Long::ActorDieStart()
 {
+	Monster::ActorDieStart();
 }
 void Monster_Long::ActorDieUpdate(float dt)
 {
-	;
+	Monster::ActorDieUpdate(dt);
 }
 void Monster_Long::ActorDieEnd()
 {
-	;
+	Monster::ActorDieEnd();
 }
 //-----
 void Monster_Long::ActorWinStart()
@@ -142,6 +144,14 @@ void Monster_Long::CalcAttack( AttackData* pAtkData )
 {
 	//Monster::CalcAttack(pAtkData);
 }
+//----------------------------------------------
+void Monster_Long::CalcDie()
+{
+	EnemyManager::GetInstance()->RemoveLongMonster(this);
+
+	Monster::CalcDie();
+}
+//----------------------------------------------
 
 void Monster_Long::ShootBullet()
 {
