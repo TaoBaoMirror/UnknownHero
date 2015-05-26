@@ -532,3 +532,17 @@ bool Soldier::HandleMessage( const Telegram& telegram )
 
 	return false;
 }
+
+void Soldier::ClearNodeWithGPos()
+{
+	int index = -1;
+	G_GetSceneMap().GetIndex(GetStayGPos(),index);
+
+	if ((index < G_GetSceneMap().NodesCount()) &&
+		(index >=0) )
+	{
+		NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
+		MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
+		pMND->Creature = NULL;
+	}
+}

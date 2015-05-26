@@ -138,6 +138,8 @@ public:
 	void UpdatePosition();
 	//更新GPos
 	void UpdateNodeWithGPos();
+	//死亡时候删除nodedata用的
+	void ClearNodeWithGPos();
 	//更新PF位置
 	void UpdateSoldierPFPosition();
 protected:

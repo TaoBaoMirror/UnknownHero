@@ -8,6 +8,7 @@
 #include "Scene/MarkTileManager.h"
 #include "Game/SoldierManager.h"
 #include "Game/Camp.h"
+#include "Messaging/MessageListenerManager.h"
 
 const float Actor::g_ActorMoveTime = 0.5f;
 
@@ -208,10 +209,11 @@ void Actor::CalcAttack( AttackData* pAtkData )
 
 void Actor::CalcDie()
 {
+	this->ClearNodeWithGPos();
 	this->removeFromParentAndCleanup(true);
 	SoldierManager::Instance()->UnregisterSoldier(this);
 	Camp::GetCamp(CampType_Player)->UnregisterUnit(GetID());
-
+	MessageListenerManager::Instance()->UnregisterMessageListene(this);
 	//this->release();
 }
 //-------------------------
