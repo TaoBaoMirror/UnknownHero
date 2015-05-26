@@ -2,6 +2,7 @@
 #include "AttackSystem.h"
 #include "TargetingSystem.h"
 #include "Goal_Attack.h"
+#include "Goal_HuntTarget.h"
 
 void Goal_AttackTarget::Activate()
 {
@@ -19,14 +20,16 @@ void Goal_AttackTarget::Activate()
 	}
 
 	//判断是否可以打的到~
-	if (m_pOwner->GetTargetingSystem()->isTargetShootable())
+	if (m_pOwner->GetTargetingSystem()->isTargetWithinAttackRange())
 	{		
 		AddSubgoal(new Goal_Attack(m_pOwner, m_pOwner->GetTargetingSystem()->GetTarget()));		
 	}
 	//如果目标不在攻击范围内,就去追击
 	else
 	{
-		//AddSubgoal(new Goal_HuntTarget(m_pOwner));
+		//m_iStatus = completed;
+
+		AddSubgoal(new Goal_HuntTarget(m_pOwner));
 	}
 }
 

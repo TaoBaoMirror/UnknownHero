@@ -37,9 +37,12 @@ public:
 	//----------------------------------------
 	
 	virtual void AIThink() override;
+	//如果是远程怪物，则 攻击计算 是子弹触发的
 	void CalcAttack( AttackData* pAtkData );
 
 	//----------------------------------------
+	void ShootBullet();
+	virtual void CallBack_AttackFinish() override;
 
 };
 

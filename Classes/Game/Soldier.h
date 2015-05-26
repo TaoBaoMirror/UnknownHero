@@ -74,7 +74,11 @@ public:
 	//攻击操作
 	//攻击动画完成后，去核算攻击数据
 	virtual void Attack(Soldier* other);
-	virtual void GetHurt(DamageData* damageData);
+	virtual void GetHurt(const DamageData& damageData);//这里传递的引用，如果要动画，应该memcpy
+	/* 攻击完成 */
+	virtual void CallBack_AttackFinish();
+	/* 攻击成功 */
+	virtual void CallBack_AttackSuccess(const DamageData& damageData); //这里传递的引用，如果要动画，应该memcpy
 	//得到一条到目标的路径
 	void GetPathToTarget(const GridPos& A,const GridPos& B,std::vector<GridPos>& path);
 	//向给定的GPos点靠近一步
@@ -117,8 +121,10 @@ public:
 	TargetingSystem* GetTargetingSystem() {return pTargetingSystem;}
 	Goal_SoldierThink* GetBrain() {return pBrain;}
 	SoldierPF*		GetSoldierPF() {return pSoldierPF;}
-
-
+	/*
+		Override
+	*/
+	virtual bool HandleMessage(const Telegram& telegram) override;
 public:
 	//玩家操作时候用的
 	bool    bPossessed;

@@ -263,7 +263,7 @@ void ChunkMap::DebugRender()
 		pDebugDrawNode->drawDot(cocos2d::Vec2(pNode->Pos().x,pNode->Pos().y),3,color);
 		pDebugDrawNode->removeChildByTag(NodeIndexLabelTag + pNode->Index());
 		char szIndex[8];
-		itoa(pNode->Index(),szIndex,10);
+		_itoa(pNode->Index(),szIndex,10);
 		auto label = cocos2d::Label::createWithTTF(ttfConfig,std::string(szIndex));
 		label->setPosition(cocos2d::Vec2(pNode->Pos().x,pNode->Pos().y+10));
 		label->setColor(cocos2d::Color3B::BLACK);

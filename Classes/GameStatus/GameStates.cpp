@@ -1,8 +1,8 @@
 #include "GameStates.h"
 
-#include "Actor/PlayerManager.h";
-#include "Actor/EnemyManager.h";
-#include "Actor/NPCManager.h";
+#include "Actor/PlayerManager.h"
+#include "Actor/EnemyManager.h"
+#include "Actor/NPCManager.h"
 
 #include "Scene/GameManager.h"
 

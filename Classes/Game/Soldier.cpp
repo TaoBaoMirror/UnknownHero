@@ -505,10 +505,30 @@ void Soldier::UpdateSoldierPFPosition()
 
 }
 
-void Soldier::GetHurt( DamageData* damageData )
+void Soldier::GetHurt( const DamageData&  damageData )
 {
-	CreatureBase::CurHP -= damageData->DamagePt;
+	CreatureBase::CurHP -= damageData.DamagePt;
 
 	//释放用过之后的DamageData~
 
+}
+
+void Soldier::CallBack_AttackFinish( )
+{
+
+}
+
+void Soldier::CallBack_AttackSuccess( const DamageData& damageData )
+{
+
+}
+
+bool Soldier::HandleMessage( const Telegram& telegram )
+{
+	if (pBrain != nullptr)
+	{
+		return pBrain->HandleMessage(telegram);
+	}
+
+	return false;
 }

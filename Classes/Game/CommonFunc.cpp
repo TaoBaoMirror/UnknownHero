@@ -17,6 +17,9 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 	const AttackData* pAtkData = atkData;
 	if(pAtkData == nullptr) return;
 	auto provider = SoldierManager::Instance()->GetSoldier(pAtkData->ProviderID);
+
+	if(provider != nullptr) provider->CallBack_AttackFinish();
+
 	std::vector<Soldier*> Soldiers;
 	auto chunkMap = MapManager::GetInstance()->GetCurChunkMap();
 	assert(chunkMap != 0);
@@ -41,6 +44,9 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 	{
 		//指向敌人的
 		auto bearer = SoldierManager::Instance()->GetSoldier(pAtkData->BearerID);
+
+		if(bearer == nullptr) return;
+
 		const ShieldDataBase* pShdData = bearer->GetShieldSystem()->GetCurShieldDataBase();
 		//
 		if (RandInt(0,100) < pShdData->MissRate)
@@ -59,16 +65,16 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 			center_Damage = (AtkPt - pShdData->ShieldPt) * hit_Rate;
 			//TODO 
 			//  e.g.Bearer.GetDamage(xxxxxxx);
-			bearer->GetHurt(new DamageData(center_Damage,pAtkData->ProviderID,pAtkData->BearerID));
-
-
-
+			DamageData DD(center_Damage,pAtkData->ProviderID,pAtkData->BearerID);
+			if(provider != nullptr) provider->CallBack_AttackSuccess(DD);
+			bearer->GetHurt(DD);
 			//
 			if (pAtkData->SputteringRadius > 0)
 			{
-				chunkMap->FindSoldiersInRange(pAtkData->TargetGPos,pAtkData->SputteringRadius,pAtkData->SputteringType,Soldiers);
+				centerGPos = bearer->GetStayGPos();
+
+				chunkMap->FindSoldiersInRange(centerGPos,pAtkData->SputteringRadius,pAtkData->SputteringType,Soldiers);
 			
-				centerGPos = pAtkData->TargetGPos;
 			}
 		}
 	}
@@ -76,15 +82,21 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 	for (int i = 0;i< Soldiers.size();++i)
 	{
 		Soldier* soldier = Soldiers[i];
-		if (soldier->GetID() != provider->GetID())
+		if(provider != nullptr && ((soldier->GetID() == provider->GetID())))
+		{
+			continue;
+		}
+		//
 		{
 			//用于衰减，溅射伤害无法躲避，而且不计算护甲，直接造成伤害
 			float newDamage = center_Damage * pAtkData->SputteringFallout;
 
 			//TODO 
 			//  e.g.Bearer.GetDamage(xxxxxxx);
-			soldier->GetHurt(new DamageData(newDamage,pAtkData->ProviderID,pAtkData->BearerID));
+			DamageData DD(center_Damage,pAtkData->ProviderID,pAtkData->BearerID);
+			if(provider != nullptr) provider->CallBack_AttackSuccess(DD);
+			soldier->GetHurt(DD);
 		}
 	}
-	
+	//
 }

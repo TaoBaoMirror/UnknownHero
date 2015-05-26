@@ -38,7 +38,7 @@ public:
 	//返回Target消失在范围内
 	double      GetTimeTargetHasBeenOutOfView()const;
 
-	Soldier* GetTarget()const{return m_pCurrentTarget;}
+	Soldier*  GetTarget()const{return m_pCurrentTarget;}
 
 	void       ClearTarget(){m_pCurrentTarget=0;}
 protected:

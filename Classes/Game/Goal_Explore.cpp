@@ -1,5 +1,8 @@
 #include "Goal_Explore.h"
 #include "Goal_FollowPath.h"
+#include "Game/Soldier.h"
+#include "Goal_SoldierThink.h"
+#include "Game/TargetingSystem.h"
 //
 #include "MapManager.h"
 #include "CommonFunc.h"
@@ -40,10 +43,26 @@ int Goal_Explore::Process()
 
 	m_iStatus = ProcessSubgoals();
 
+	if (m_pOwner->GetTargetingSystem()->isTargetPresent()) 
+	{
+		RemoveAllSubgoals();
+
+		m_iStatus = completed;
+	}
+
 	return m_iStatus;
 }
 
+#include "Game/Msg_Type.h"
+
 bool Goal_Explore::HandleMessage( const Telegram& msg )
 {
+	if (msg.Msg == Msg_FoundTarget)
+	{
+		m_iStatus = completed;
+
+		m_pOwner->GetBrain()->AddGoal_AttackTarget();
+	}
+
 	return true;
 }

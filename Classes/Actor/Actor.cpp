@@ -179,4 +179,10 @@ void Actor::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
 
 	MarkTileManager::GetInstance()->SetMarkTiles(MarkTile_Attack,"ActorAttack",AttackGPosList);
 }
+
+void Actor::UpdateToCCWorldPos()
+{
+	setPosition(GetPosition().x,GetPosition().y);
+}
+
 //-------------------------

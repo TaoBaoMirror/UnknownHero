@@ -1,5 +1,8 @@
 #include "Monster_Long.h"
 #include "Data/TableManager.h"
+#include "Bullet/GameBullet.h"
+#include "Actor/ActorStatus.h"
+#include "Game/MapManager.h"
 
 Monster_Long::Monster_Long(void)
 {
@@ -79,6 +82,21 @@ void Monster_Long::ActorMoveEnd()
 void Monster_Long::ActorAttackStart()
 {
 	Monster::ActorAttackStart();
+	//
+	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
+
+	auto anim = createAttackAnimation(ActorAnimType::ActorAnim_Attack);
+
+	auto func_1 = cocos2d::CallFuncN::create(  CC_CALLBACK_0( Actor::playMoveAnimation  , this ));
+	auto func_2 = cocos2d::CallFuncN::create(  CC_CALLBACK_0( Monster_Long::ShootBullet , this ));
+
+	pAcs.pushBack(anim);
+	pAcs.pushBack(func_1);
+	pAcs.pushBack(func_2);
+
+	auto seq = cocos2d::Sequence::create(pAcs);
+	seq->setTag(ActorAnimType::ActorAnim_Attack);
+	this->runAction(seq);
 }
 void Monster_Long::ActorAttackUpdate(float dt)
 {
@@ -122,6 +140,18 @@ void Monster_Long::AIThink()
 //----------------------------------------------
 void Monster_Long::CalcAttack( AttackData* pAtkData )
 {
-	Monster::CalcAttack(pAtkData);
+	//Monster::CalcAttack(pAtkData);
 }
+
+void Monster_Long::ShootBullet()
+{
+	auto bullet = GameBulletManager::GetInstance()->CreateBullet(0,m_pTempAtkData);
+	bullet->Emit();
+}
+
+void Monster_Long::CallBack_AttackFinish()
+{
+	m_pFSM->SetStatus(Actor_Stand::Instance());
+}
+
 //----------------------------------------------

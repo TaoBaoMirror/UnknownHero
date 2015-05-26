@@ -36,6 +36,7 @@ public:
 
 	//------
 	void SetResource(std::string name);	
+	void UpdateToCCWorldPos();
 
 	//------
 	virtual void ActorReadyStart(){}

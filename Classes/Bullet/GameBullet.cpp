@@ -6,6 +6,7 @@
 #include "Game/Soldier.h"
 #include "Game/SoldierManager.h"
 #include "Actor/Actor.h"
+#include "Game/MapManager.h"
 
 void GameBullet::Init( int bullet_data_id , AttackData* pAtkData )
 {
@@ -136,6 +137,11 @@ void GameBullet::OnArriveDestination()
 	stopAllActions();
 	//
 	StepNextStatus(); //这个时候状态应该是 arrived
+	//
+	if( mOnArriveFunction )
+	{
+		mOnArriveFunction();
+	}
 	//
 	if (GetBulletData()->mExplodeIfArrived)
 	{
@@ -281,6 +287,12 @@ MapNodeData* GameBullet::GetMapNodeDataWhereBulletStay()
 	MapNodeData* pData = static_cast<MapNodeData*>(node.ExtraInfo());
 	return pData;
 }
+
+void GameBullet::SetArriveFunc( const std::function<void()>& func )
+{
+	mOnArriveFunction = func;
+}
+
 //////////////////////////////////////////////////////////////////////////
 /*
 
@@ -315,6 +327,18 @@ GameBullet* GameBulletManager::CreateBullet(int bullet_data_id,AttackData* pAtkD
 	{
 		bullet->Init(bullet_data_id,pAtkData);
 		BulletPool.push_back(bullet);
+		//
+		auto chunk = MapManager::GetInstance()->GetCurChunkMap();
+		if (chunk != nullptr)
+		{
+			auto layer = MapManager::GetInstance()->GetCurChunkMap()->GetEffectLayer();
+
+			if (layer != nullptr)
+			{
+				layer->addChild(bullet);
+			}
+		}
+		
 	}
 	return bullet;
 }

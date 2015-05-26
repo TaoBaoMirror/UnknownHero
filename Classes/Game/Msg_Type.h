@@ -14,7 +14,9 @@
 
 enum message_type
 {
-	Msg_MoveStepOver
+	Msg_MoveStepOver,
+
+	Msg_FoundTarget,
 };
 
 #endif // Msg_Type_h__

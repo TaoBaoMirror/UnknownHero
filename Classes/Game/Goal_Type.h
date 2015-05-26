@@ -21,6 +21,7 @@ enum
 	goal_move_step,
 	goal_attack_target,
 	goal_attack,
+	goal_hunt_target,
 
 };
 

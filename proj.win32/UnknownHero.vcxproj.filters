@@ -330,6 +330,9 @@
     <ClCompile Include="..\Classes\Scene\MarkTileManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_HuntTarget.cpp">
+      <Filter>src\Game\AI\composite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -592,6 +595,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Scene\MarkTileManager.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_HuntTarget.h">
+      <Filter>src\Game\AI\composite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

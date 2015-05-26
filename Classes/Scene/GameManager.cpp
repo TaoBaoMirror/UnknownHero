@@ -520,9 +520,6 @@ void GameManager::ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, 
 					GameBullet* bullet = GameBulletManager::GetInstance()->CreateBullet(
 						0,pHero->GetAttackSystem()->CreateAttackData(GridPos(6,6)));
 					//
-					auto layer = MapManager::GetInstance()->GetCurChunkMap()->GetEffectLayer();
-					layer->addChild(bullet);
-					//
 					bullet->Emit();
 				}
 			}

@@ -6,6 +6,8 @@
 #include "Data/TableManager.h"
 #include "Game/SoldierManager.h"
 #include "Game/Camp.h"
+
+#include "Messaging/MessageListenerManager.h"
 //-------------------------------------------------------
 EnemyManager* EnemyManager::m_Instance = nullptr;
 
@@ -178,6 +180,8 @@ Monster* EnemyManager::CreateMonster(int monsterID)
 	SoldierManager::Instance()->RegisterSoldier(pMonster);
 	// add by Hitman [5/20/2015]
 	Camp::GetCamp(CampType_Monster)->RegisterUnit(pMonster);
+	// add by Hitman [5/26/2015]
+	MessageListenerManager::Instance()->RegisterMessageListener(pMonster);
 
 	//3 根据怪物射程(MonsterType) 将怪物对象分别放入三个队列中
 

@@ -25,6 +25,9 @@ public:
 	~GameBullet();
 	//
 	virtual void Init(int bullet_data_id,AttackData* pAtkData) override;
+	//
+	void	SetArriveFunc(const std::function<void()>& func);
+
 	//发射启动的时候
 	virtual void OnEmitStart()override;
 	//每帧循环执行OnFly,这个是 遇到敌人的格子 就出发 ,撞击这个格子内的士兵
@@ -53,6 +56,9 @@ protected:
 	std::map<std::string,cocos2d::Vector<cocos2d::SpriteFrame*>> m_framesDict;
 	//
 	GameBullet();
+	//
+	std::function<void()>	mOnArriveFunction;
+
 
 
 

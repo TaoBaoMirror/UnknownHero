@@ -153,7 +153,11 @@ void GameScene::TestMap()
 		if (pLayer != nullptr)
 		{
 			//pChunk->addChild(pHero,pLayer->getTag());
+			pHero->SetToGPos(GridPos(0,0));
+			pHero->UpdatePosition();
+			pHero->UpdateToCCWorldPos();
 			pLayer->addChild(pHero,99);
+
 		}		
 	}
 
@@ -165,9 +169,14 @@ void GameScene::TestMap()
 		if (pLayer != nullptr)
 		{
 			//pChunk->addChild(pMonster,pLayer->getTag());
+			pMonster->SetToGPos(GridPos(3,6));
+			pMonster->UpdatePosition();
+			pMonster->UpdateToCCWorldPos();
 			pLayer->addChild(pMonster,99);
+
 		}
 	}
+
 	
 
 	GameManager::GetInstance()->SetGameST(ST_Fight);

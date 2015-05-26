@@ -82,7 +82,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4267;4251;4244;4018;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -188,6 +188,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Game\Goal_AttackTarget.cpp" />
     <ClCompile Include="..\Classes\Game\Goal_Explore.cpp" />
     <ClCompile Include="..\Classes\Game\Goal_FollowPath.cpp" />
+    <ClCompile Include="..\Classes\Game\Goal_HuntTarget.cpp" />
     <ClCompile Include="..\Classes\Game\Goal_MoveStep.cpp" />
     <ClCompile Include="..\Classes\Game\Goal_MoveToPosition.cpp" />
     <ClCompile Include="..\Classes\Game\Goal_SoldierThink.cpp" />
@@ -273,6 +274,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Game\Goal_Evaluator.h" />
     <ClInclude Include="..\Classes\Game\Goal_Explore.h" />
     <ClInclude Include="..\Classes\Game\Goal_FollowPath.h" />
+    <ClInclude Include="..\Classes\Game\Goal_HuntTarget.h" />
     <ClInclude Include="..\Classes\Game\Goal_MoveStep.h" />
     <ClInclude Include="..\Classes\Game\Goal_MoveToPosition.h" />
     <ClInclude Include="..\Classes\Game\Goal_SoldierThink.h" />

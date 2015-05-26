@@ -71,7 +71,7 @@ void BulletDataManager::ReadCSV( const std::string& csvName )
 	strcpy(BD.mBulletExplodeName,"effect_StramBoom");
 	BD.mExplodeFrameNum = 6;
 	BD.mSpeed = 40;
-	BD.mHitIfCollide = true;
+	BD.mHitIfCollide = false;
 	BD.mExplodeIfArrived = true;
 	//
 	BulletDataDict[BD.mId] = BD;
