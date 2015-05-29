@@ -22,7 +22,7 @@ typedef class _BaseTreeNode
 {
 public:
 	static const int RootID = 0;	//默认RootID的
-	static const int InvalidID = -1;	//默认RootID的
+	static const int InvalidID = -1;	//无效ID
 
 
 	_BaseTreeNode();
@@ -45,6 +45,7 @@ public:
 	virtual void RemoveKid(_BaseTreeNode* node);
 	//如果父节点是激活的，子节点才可以激活
 	virtual void SetActive(bool active);
+	virtual void OnActive(){}
 	//
 	virtual bool SetLocked();
 	virtual bool SetUnLocked();

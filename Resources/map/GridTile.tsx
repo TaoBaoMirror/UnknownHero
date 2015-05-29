@@ -11,4 +11,14 @@
    <property name="Cost" value="0"/>
   </properties>
  </tile>
+ <tile id="2">
+  <properties>
+   <property name="Cost" value="1"/>
+  </properties>
+ </tile>
+ <tile id="3">
+  <properties>
+   <property name="Cost" value="5"/>
+  </properties>
+ </tile>
 </tileset>

@@ -16,6 +16,26 @@
 //////////////////////////////////////////////////////////////////////////
 #include "..\Soldier.h"
 
+class BaseSkillData
+{
+public:
+	const static int MAXName = 32;
+	enum SkillDamageType
+	{
+		General,Reinforce,Magic
+	};
+	//
+	int nOwnerID;
+	int mMaxCD;
+	int mCost;
+	char mSkillTextureName[MAXName];
+	char mSkillEffectName[MAXName];
+	//
+	int	 mDamageType;	//SkillDamageType
+	int  mAttackDataID;	//携带一个AttackDataBase的数据ID
+
+};
+
 
 class BaseSkill : public _BaseSkillTreeNode<Soldier>
 {

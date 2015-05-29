@@ -36,9 +36,12 @@
 class CreatureSpawnArea;
 
 class TMXLayer;
+class Actor;
 
 class ChunkMap : public cocos2d::TMXTiledMap
 {
+public: 
+	static Actor*	InstantiateCreature(const std::string& CreatureType,const int TableID,const int DirectionType,const GridPos& GPos);
 public:
 	ChunkMap();
 	~ChunkMap();
@@ -47,7 +50,6 @@ public:
 	virtual void OnAfterInit();
 	void	Reset();
 	//
-	Soldier*	InstantiateCreature(const int CreatureID,const GridPos& GPos,const int DirectionType);
 
 
 	GridSceneMap&	GetGridSceneMap() { return mGridMap;}

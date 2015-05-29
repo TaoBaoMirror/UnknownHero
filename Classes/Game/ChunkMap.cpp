@@ -12,6 +12,10 @@
 
 #include "AttackRange.h"
 
+#include "Actor/PlayerManager.h"
+#include "Actor/Hero.h"
+#include "Actor/Monster.h"
+#include "Actor/EnemyManager.h"
 
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
@@ -33,8 +37,36 @@
 //
 #include "Debug/GizmoSoldier.h"
 #include "CreatureSpawnArea.h"
-//
+///-------------------------
+// 静态函数
+// add by Hitman [5/30/2015]
+Actor* ChunkMap::InstantiateCreature(const std::string& CreatureType,const int TableID,const int DirectionType,const GridPos& GPos)
+{
+	static int nextID = 0;
 
+	if (CreatureType.compare("Hero") == 0)
+	{
+		Hero* pHero = PlayerManager::GetInstance()->GetHero();
+		pHero->SetToGPos(GPos);
+		pHero->UpdatePosition();
+		pHero->UpdateToCCWorldPos();
+		return pHero;
+	}
+
+	if (CreatureType.compare("Monster") == 0)
+	{
+		Monster* pMonster = EnemyManager::GetInstance()->CreateMonster(nextID);
+		pMonster->SetToGPos(GPos);
+		pMonster->UpdatePosition();
+		pMonster->UpdateToCCWorldPos();
+		return pMonster;
+
+	}
+
+	return 0;
+}
+
+//ctor
 ChunkMap::ChunkMap():EnableDebugDraw(true)
 {
 	pDebugDrawNode = cocos2d::DrawNode::create();
@@ -140,9 +172,11 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 			Creature在编辑的时候，他们的属性应该是一致的，
 		*/
 		auto pCreatureLayer = getLayer(CreatureLayer);
+		cocos2d::Layer* pRenderCreatureLayer = nullptr;
 		if (pCreatureLayer != nullptr)
 		{
 			this->addChild(cocos2d::Layer::create(),pCreatureLayer->getLocalZOrder() + 1,CreatureLayerTag);
+			pRenderCreatureLayer = GetCreatureLayer();
 		}
 		
 		for (int lx = 0 ; lx < sLayerSize.width; ++lx)
@@ -154,13 +188,17 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				if (!properties.isNull())
 				{
 					cocos2d::ValueMap& dict = properties.asValueMap();
-					int   type = dict["CreatureID"].asInt();
+					std::string   type = dict["Type"].asString();
+					int   tableID = dict["TableID"].asInt();
 					//cocos2d::CCLog("type %d",type);
 					//通过CreatureID去生产响应的生物
 					// CreatureFactory
 					int	  direction = dict["Direction"].asInt();
 					//选择生物体
-
+					int fix_y = sLayerSize.height - ly - 1 ;// 从0计数的
+					auto actor = InstantiateCreature(type,tableID,direction,GridPos(lx,fix_y));
+					pRenderCreatureLayer->addChild(actor);
+					mIM.AddDynamicField(actor->GetSoldierPF());
 				}
 				
 			}
@@ -169,6 +207,7 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 			Create Spawn Area
 		*/
 		auto pSpawnLayer = this->getObjectGroup(SpawnLayer);
+		if(pSpawnLayer != nullptr)
 		{
 			auto& objects = pSpawnLayer->getObjects();
 
@@ -230,6 +269,7 @@ void ChunkMap::DebugRender()
 	const GridSceneMap::NavGraph::NodeType* pN;
 	for (pN = NodeItr.begin(); !NodeItr.end(); pN=NodeItr.next())
 	{
+		if(pN == nullptr) break;
 		const NavGraphNode<void*>* pNode = (const NavGraphNode<void*>*)pN;
 		GridSceneMap::NavGraph::ConstEdgeIterator EdgeItr(mGridMap.GMap(), pN->Index());
 		for (const GridSceneMap::NavGraph::EdgeType* pE = EdgeItr.begin(); 
@@ -377,10 +417,6 @@ void ChunkMap::DeployCreature()
 	
 }
 
-Soldier* ChunkMap::InstantiateCreature( const int CreatureID,const GridPos& GPos,const int DirectionType )
-{
-	return 0;
-}
 
 CreatureSpawnArea* ChunkMap::GetSpawnArea( int AreaID )
 {

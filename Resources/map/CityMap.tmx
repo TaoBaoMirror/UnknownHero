@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="City_Tile" tilewidth="32" tileheight="32">
+  <image source="City_Tile.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="1025" source="GridTile.tsx"/>
+ <tileset firstgid="1029" source="CreatureTile.tsx"/>
+ <layer name="GridLayer" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztlVEKwCAMQ+f0/mcegwkyTE1TJ/vwI7Ch7WtK1VSOI20t19lIiVHieznY/TnIRnkS+L5VHiHfvZosv8jDO75yrZ57uGy8xfX2edQ7tm7vPLFcb12IW/9brvf8tPPBcDPIqXKVPs/gRu4claveU8wZttYi3NFMW+uruOws/tlvRApXqaP3frFc5v2Z7Rd5VGvxcLe+0wXu6hA1
+  </data>
+ </layer>
+ <layer name="CreatureLayer" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDGfAy0K8OC61o2AUsA2RtDGahkfBKBgFwxkAACEWAE8=
+  </data>
+ </layer>
+ <layer name="Layer0" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJytlrFPFEEUh3dmCBcaWktibKnsCDGA/gE2YGMIR7aisRGoTMAcDQoUoEhojosJp4AUFCI2UgnE0sLEgiOSaIyVLQbO3zIzuXfvZvZmD4pvdnbezHw3b2d2T0RRJDwMoLgPBsEQGAOPWNsD4R8fggJtjFEEHoNxMAFmwQJrmxSN4yhdTbwD4C7jKQJL4AV4Cd6Cbda2LBrHUfpAf4C3QCghsA7K4A04MtC296J+DMW68448pHkTPiN4AA7BbwNts/1icA5OZRSdONwcnzdm/hnlrl/+NrgOpK7nhHYXUuYqGOdNcIt5y57+nHvgJzy/pK73O7wuqJN6Q8ZabzvWn1O6nrRdBOSZ72NX7tL4Jupx7a19zPNX1ePbTzZ39v61g5B8XJ4leP4xuHcErrys5S5p6wEroJfQHeCMA71Jvyk4p1l+N8FDsAs+gD3w0cSOQSXSZ+eO8q835H3B+QKeofNzMAfmwfdIn1e7h6qGE8eeasV7A53+4LqB6ybYAu/AmYnZfjuq3m2dFeSuKrN7YzN/J8Yuor4EOqRu+0qexyrxVqPaPk6cFxnXS88S99L4J9RLsuYcVnrOotLOakYvPUsur43flvrdKc2a7bMtepw+b848N3qWXF4aL+H6Suq1Um+W758Ll5fzhJyjVrwzjnPYzBuz+yxePvYqhHp9uW71tzTzjqDIN/mP1Cpp3ikU0+CHun6OU7xFFGui8XtxHVRSvP8B6VpGUA==
+  </data>
+ </layer>
+ <layer name="RangeLayer" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztw8EJAAAMA6HbOftD1+hDwVVTVVVfPzx7UPo=
+  </data>
+ </layer>
+</map>

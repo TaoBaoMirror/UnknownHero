@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="CreatureTile" tilewidth="32" tileheight="32">
- <image source="CreatureTile.png" width="512" height="512"/>
- <tile id="0">
-  <properties>
-   <property name="CreatureID" value="0"/>
-  </properties>
- </tile>
+ <image source="CreatureTile.png" width="512" height="96"/>
  <tile id="1">
   <properties>
-   <property name="CreatureID" value="1"/>
+   <property name="Direction" value="0"/>
+   <property name="TableID" value="1"/>
+   <property name="Type" value="Hero"/>
   </properties>
  </tile>
- <tile id="2">
+ <tile id="8">
   <properties>
-   <property name="CreatureID" value="2"/>
+   <property name="Direction" value="0"/>
+   <property name="TableID" value="1"/>
+   <property name="Type" value="Monster"/>
   </properties>
  </tile>
 </tileset>

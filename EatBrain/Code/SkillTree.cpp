@@ -44,6 +44,11 @@ void _BaseTreeNode::RemoveKid( _BaseTreeNode* node )
 void _BaseTreeNode::SetActive( bool active )
 {
 	mActive= active;
+	//
+	if (mActive)
+	{
+		OnActive();
+	}
 }
 
 bool _BaseTreeNode::SetLocked()

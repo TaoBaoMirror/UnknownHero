@@ -134,16 +134,18 @@ void GameScene::TestMap()
 	auto pChunk = MapManager::GetInstance()->GetCurChunkMap();
 	addChild(pChunk,10);
 	//
-	pChunk->setPosition(100,100);
+	pChunk->setPosition(0,0);
 	//pChunk->DeployCreature();
 	//
 	pSkillBarUI = (SkillBarUI*)SkillBarUI::CreateWithTag(111);
-	addChild(pSkillBarUI);
+	addChild(pSkillBarUI,100);
 	//
 	pSkillBarUI->SetSkillIcon(0,"skill_0");
 	pSkillBarUI->SetSkillIcon(1,"skill_1");
 	pSkillBarUI->SetSkillIcon(2,"skill_2");
 	pSkillBarUI->SetSkillIcon(3,"skill_3");
+
+	/*
 
 	Hero* pHero = PlayerManager::GetInstance()->GetHero();
 
@@ -177,7 +179,7 @@ void GameScene::TestMap()
 		}
 	}
 
-	
+	*/
 
 	GameManager::GetInstance()->SetGameST(ST_Fight);
 

@@ -34,7 +34,7 @@ ChunkMap* MapManager::ChangeMap(int index)
 // 	std::string strIndex = ss.str();
 // 	std::string mapName = "Map_" + strIndex;
 
-	CurSceneMap->InitChunkMap("map\\testMap.tmx");
+	CurSceneMap->InitChunkMap("map\\CityMap.tmx");
 
 	return CurSceneMap;
 }

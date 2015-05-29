@@ -391,6 +391,8 @@ public:
 		{
 			GetNextValidNode(curNode);
 
+			if (end()) return 0;
+
 			return &(*curNode);
 		}
       }
