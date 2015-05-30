@@ -384,7 +384,7 @@ bool GameManager::MouseDown(const cocos2d::Vec2& touchpos)
 				std::list<GridPos> path;
 				if (pHero->canSelect(gridPos) )
 				{
-					pChunk->CheckCanArrived(pHero->GetStayGPos(),gridPos,&path);
+					pChunk->CheckCanArrived(pHero,pHero->GetStayGPos(),gridPos,&path);
 
 					Soldier* pTargetSoldier = nullptr;
 					pTargetSoldier = pHero->canAttack(gridPos);

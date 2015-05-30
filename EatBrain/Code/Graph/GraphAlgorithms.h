@@ -556,17 +556,22 @@ private:
   //the A* search algorithm
   void Search();
 
+  // add by Hitman [5/30/2015]
+  void*							m_Owner;
+
 public:
 
   Graph_SearchAStar(graph_type &graph,
                     int   source,
-                    int   target):m_Graph(graph),
+                    int   target,
+					void* owner	):m_Graph(graph),
                                   m_ShortestPathTree(graph.NumNodes()),                              
                                   m_SearchFrontier(graph.NumNodes()),
                                   m_GCosts(graph.NumNodes(), 0.0),
                                   m_FCosts(graph.NumNodes(), 0.0),
                                   m_iSource(source),
-                                  m_iTarget(target)
+                                  m_iTarget(target),
+								  m_Owner(owner)
   {
     Search();   
   }
@@ -588,6 +593,7 @@ public:
 template <class graph_type, class heuristic>
 void Graph_SearchAStar<graph_type, heuristic>::Search()
 {
+	const int MaxCost_Unwalkable = 99999;
   //create an indexed priority queue of nodes. The nodes with the
   //lowest overall F cost (G+H) are positioned at the front.
   IndexedPriorityQLow<double> pq(m_FCosts, m_Graph.NumNodes());
@@ -617,10 +623,11 @@ void Graph_SearchAStar<graph_type, heuristic>::Search()
          pE=ConstEdgeItr.next())
     {
       //calculate the heuristic cost from this node to the target (H)                       
-      double HCost = heuristic::Calculate(m_Graph, m_iTarget, pE->To()); 
+      double HCost = heuristic::Calculate(m_Graph, m_iTarget, pE->To(),m_Owner); 
 
+	  double EdgeCost = heuristic::CalculateEdgeCost(m_Graph,pE,m_Owner);
       //calculate the 'real' cost to this node from the source (G)
-      double GCost = m_GCosts[NextClosestNode] + pE->Cost();
+      double GCost = m_GCosts[NextClosestNode] + EdgeCost;
 
       //if the node has not been added to the frontier, add it and update
       //the G and F costs

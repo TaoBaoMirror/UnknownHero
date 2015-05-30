@@ -23,7 +23,7 @@ void Goal_Explore::Activate()
 
 		}while( m_pOwner->CanSetTo(m_CurrentDestination) == false);
 
-		if(MapManager::GetInstance()->GetCurChunkMap()->CheckCanArrived(m_pOwner->GetStayGPos(),m_CurrentDestination,&path))
+		if(MapManager::GetInstance()->GetCurChunkMap()->CheckCanArrived(m_pOwner,m_pOwner->GetStayGPos(),m_CurrentDestination,&path))
 		{
 			RemoveAllSubgoals();
 

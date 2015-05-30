@@ -98,7 +98,7 @@ bool Soldier::MoveForward( int step /*= 1*/ )
 	if (pChunkMap != nullptr)
 	{
 		std::list<GridPos>	path;
-		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(this,StayGridPos, NewGPos, &path))
 		{
 			//
 			TravalTo(NewGPos);
@@ -120,7 +120,7 @@ bool Soldier::MoveBackward( int step /*= 1*/ )
 	if (pChunkMap != nullptr)
 	{
 		std::list<GridPos>	path;
-		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(this,StayGridPos, NewGPos, &path))
 		{
 			//
 			TravalTo(NewGPos);
@@ -143,7 +143,7 @@ bool Soldier::MoveLeft( int step /*= 1*/ )
 	if (pChunkMap != nullptr)
 	{
 		std::list<GridPos>	path;
-		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(this,StayGridPos, NewGPos, &path))
 		{
 			//
 			TravalTo(NewGPos);
@@ -164,7 +164,7 @@ bool Soldier::MoveRight( int step /*= 1*/ )
 	if (pChunkMap != nullptr)
 	{
 		std::list<GridPos>	path;
-		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(StayGridPos, NewGPos, &path))
+		if (canStay(NewGPos) && pChunkMap->CheckCanArrived(this,StayGridPos, NewGPos, &path))
 		{
 			//
 			TravalTo(NewGPos);
@@ -204,7 +204,7 @@ void Soldier::MoveCloseToGPos( const GridPos& other,GridPos& out_nextGPos )
 	std::list<GridPos>	Path;
 	//先 测试是否可以到那个点
 	//如果可以,靠近一步;如果不行,随机一步
-	if(MapManager::GetInstance()->GetCurChunkMap()->CheckCanArrived(StayGridPos,other,&Path))
+	if(MapManager::GetInstance()->GetCurChunkMap()->CheckCanArrived(this,StayGridPos,other,&Path))
 	{
 		if (Path.begin() != Path.end())
 		{

@@ -16,6 +16,7 @@
 #include "Actor/Hero.h"
 #include "Actor/Monster.h"
 #include "Actor/EnemyManager.h"
+#include "Actor/ActorPathFinderCalculateFunc.h"
 
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
@@ -350,9 +351,9 @@ void ChunkMap::FreeChunkData()
 	MapNodeDataList.clear();
 }
 
-bool ChunkMap::CheckCanArrived( const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr /*= NULL*/ )
+bool ChunkMap::CheckCanArrived( Soldier* who,const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr /*= NULL*/ )
 {
-	typedef Graph_SearchAStar<GridSceneMap::NavGraph, Heuristic_Euclid> AStarSearch;
+	typedef Graph_SearchAStar<GridSceneMap::NavGraph, ActorPathFinderCalculateFunc> AStarSearch;
 
 	int iSource = -1;
 	int iTarget = -1;
@@ -360,7 +361,7 @@ bool ChunkMap::CheckCanArrived( const GridPos& A,const GridPos& B,std::list<Grid
 	mGridMap.GetIndex(A,iSource);
 	mGridMap.GetIndex(B,iTarget);
 
-	AStarSearch	AStar(mGridMap.GMap(),iSource,iTarget);
+	AStarSearch	AStar(mGridMap.GMap(),iSource,iTarget,who);
 	std::list<int> path(AStar.GetPathToTarget());
 	int path_node_num = path.size();
 	if (path_node_num == 0)

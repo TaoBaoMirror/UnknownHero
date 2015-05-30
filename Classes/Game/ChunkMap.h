@@ -64,7 +64,7 @@ public:
 	cocos2d::TMXLayer* GetRangeLayer();
 
 
-	bool  CheckCanArrived(const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr = NULL);
+	bool  CheckCanArrived(Soldier* who ,const GridPos& A,const GridPos& B,std::list<GridPos>* GPosListPtr = NULL);
 	// 一些重写的函数
 	void update(float delta) override;
 	//
