@@ -36,7 +36,7 @@ public:
 	virtual void ActorWinEnd() override;
 	//----------------------------------------
 	
-	virtual void AIThink() override;
+	virtual void AIThink(float dt) override;
 	//如果是远程怪物，则 攻击计算 是子弹触发的
 	void CalcAttack( AttackData* pAtkData );
 	void CalcDie();

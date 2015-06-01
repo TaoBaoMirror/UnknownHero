@@ -110,9 +110,9 @@ bool Actor::TravalTo(const GridPos& GPos)
 	return true;
 }
 //-------------------------
-void Actor::AIThink()
+void Actor::AIThink(float dt)
 {
-	GetTargetingSystem()->Update();
+	GetTargetingSystem()->Update(dt);
 
 	GetBrain()->Process();
 }

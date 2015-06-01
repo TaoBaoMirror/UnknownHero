@@ -188,9 +188,9 @@ void Monster::ActorWinEnd()
 	;
 }
 //----------------------------------------------
-void Monster::AIThink()
+void Monster::AIThink(float dt)
 {
-	Actor::AIThink();
+	Actor::AIThink(dt);
 }
 //----------------------------------------------
 #include "Game/AttackData.h"

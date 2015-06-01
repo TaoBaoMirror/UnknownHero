@@ -89,7 +89,7 @@ void Monster_Special::ActorWinEnd()
 	;
 }
 //----------------------------------------------
-void Monster_Special::AIThink()
+void Monster_Special::AIThink(float dt)
 {
 	;
 }

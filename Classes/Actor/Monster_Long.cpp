@@ -133,9 +133,9 @@ void Monster_Long::ActorWinEnd()
 	;
 }
 //----------------------------------------------
-void Monster_Long::AIThink()
+void Monster_Long::AIThink(float dt)
 {
-	Monster::AIThink();
+	Monster::AIThink(dt);
 	//
 	
 }

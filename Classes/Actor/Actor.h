@@ -65,7 +65,7 @@ public:
 	virtual void ActorWinUpdate(float dt){}
 	virtual void ActorWinEnd(){}
 	//------
-	virtual void AIThink();
+	virtual void AIThink(float dt);
 
 	virtual void CalcAttack( AttackData* pAtkData );
 

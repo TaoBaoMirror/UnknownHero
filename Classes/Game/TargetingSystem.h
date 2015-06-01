@@ -21,7 +21,7 @@ public:
 	TargetingSystem(Soldier* owner);
 	~TargetingSystem();
 	//
-	void       Update();
+	void       Update(float dt);
 
 	//是否指定了对象
 	bool       isTargetPresent()const{return m_pCurrentTarget != 0;}
@@ -38,15 +38,20 @@ public:
 	//返回Target消失在范围内
 	double      GetTimeTargetHasBeenOutOfView()const;
 
-	Soldier*  GetTarget()const{return m_pCurrentTarget;}
+	Soldier*    GetTarget()const{return m_pCurrentTarget;}
 
-	void       ClearTarget(){m_pCurrentTarget=0;}
+	void        ClearTarget(){m_pCurrentTarget = nullptr;}
 protected:
 	
 private:
 	Soldier*  m_pOwner;
 
 	Soldier*  m_pCurrentTarget;
+
+	//
+	double	m_TargetHasBeenVisible;
+	double	m_TargetHasBeenOutOfView;
+
 };
 
 #endif // TargetingSystem_h__

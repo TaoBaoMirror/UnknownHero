@@ -35,7 +35,7 @@ public:
 	virtual void ActorWinEnd() override;
 	//----------------------------------------
 
-	virtual void AIThink() override;
+	virtual void AIThink(float dt) override;
 
 	virtual void CalcDie() override;
 	//----------------------------------------

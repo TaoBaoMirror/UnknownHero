@@ -90,7 +90,7 @@ void Monster_Short::ActorWinEnd()
 	;
 }
 //----------------------------------------------
-void Monster_Short::AIThink()
+void Monster_Short::AIThink(float dt)
 {
 	;
 }

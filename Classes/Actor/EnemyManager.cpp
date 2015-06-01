@@ -45,7 +45,7 @@ void EnemyManager::Update(float dt)
 
 	if (m_pCurEnemy != nullptr && m_pCurEnemy->m_pFSM->GetStatus() == Actor_Ready::Instance())
 	{
-		m_pCurEnemy->AIThink();
+		m_pCurEnemy->AIThink(dt);
 	}
 
 	//2 找一个当前要控制的敌人
@@ -61,7 +61,7 @@ void EnemyManager::Update(float dt)
 				m_pCurEnemy = pActor;
 				
 				//找到了一个空闲的actor,那么就让AI驱动他吧
-				pActor->AIThink();
+				pActor->AIThink(dt);
 			}
 		}
 	}
@@ -78,7 +78,7 @@ void EnemyManager::Update(float dt)
 				m_pCurEnemy = pActor;
 
 				//找到了一个空闲的actor,那么就让AI驱动他吧
-				pActor->AIThink();
+				pActor->AIThink(dt);
 				//pActor->MoveRight();
 			}
 		}
@@ -96,7 +96,7 @@ void EnemyManager::Update(float dt)
 				m_pCurEnemy = pActor;
 
 				//找到了一个空闲的actor,那么就让AI驱动他吧
-				pActor->AIThink();
+				pActor->AIThink(dt);
 			}
 		}
 	}
