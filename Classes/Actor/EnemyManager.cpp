@@ -62,6 +62,7 @@ void EnemyManager::Update(float dt)
 				
 				//找到了一个空闲的actor,那么就让AI驱动他吧
 				pActor->AIThink(dt);
+				break;
 			}
 		}
 	}
@@ -80,6 +81,7 @@ void EnemyManager::Update(float dt)
 				//找到了一个空闲的actor,那么就让AI驱动他吧
 				pActor->AIThink(dt);
 				//pActor->MoveRight();
+				break;
 			}
 		}
 	}
@@ -97,6 +99,7 @@ void EnemyManager::Update(float dt)
 
 				//找到了一个空闲的actor,那么就让AI驱动他吧
 				pActor->AIThink(dt);
+				break;
 			}
 		}
 	}
