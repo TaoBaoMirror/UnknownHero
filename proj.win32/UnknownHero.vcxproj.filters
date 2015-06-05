@@ -333,6 +333,9 @@
     <ClCompile Include="..\Classes\Game\Goal_HuntTarget.cpp">
       <Filter>src\Game\AI\composite</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\MapRule.cpp">
+      <Filter>src\Game\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -601,6 +604,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Actor\ActorPathFinderCalculateFunc.h">
       <Filter>src\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\MapRule.h">
+      <Filter>src\Game\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

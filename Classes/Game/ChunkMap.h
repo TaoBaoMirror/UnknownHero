@@ -16,6 +16,7 @@
 #include "GridSceneMap.h"
 #include "GameInfluenceMap.h"
 #include "MapNodeData.h"
+#include "MapRule.h"
 
 
 /*
@@ -83,7 +84,8 @@ public:
 	bool GridPosToTiledGridPos(const GridPos& GPos,cocos2d::Vec2& out_TPos);
 	bool TiledGridPosToGridPos(const cocos2d::Vec2& TPos,GridPos& out_GPos);
 
-	
+	//
+	MapRuleSystem&	GetMapRuleSys(){return mMapRuleSys;}
 protected:
 	GridSceneMap		mGridMap;
 	GameInfluenceMap	mIM;
@@ -94,6 +96,9 @@ protected:
 	std::map<int,CreatureSpawnArea*>	SpawnAreaList;	
 	//是否已经载入
 	bool	bLoaded;
+
+	//
+	MapRuleSystem		mMapRuleSys;
 
 private:
 public:

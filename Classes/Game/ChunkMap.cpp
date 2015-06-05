@@ -247,7 +247,7 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 
 
 		//
-		SetEnableDebugDraw(EnableDebugDraw);
+		//SetEnableDebugDraw(EnableDebugDraw);
 		//
 		OnAfterInit();
 		//
@@ -384,9 +384,13 @@ bool ChunkMap::CheckCanArrived( Soldier* who,const GridPos& A,const GridPos& B,s
 
 void ChunkMap::update( float delta )
 {
+	mMapRuleSys.Update(delta);
+
 	SoldierManager::Instance()->Update();
 
 	SoldierManager::Instance()->Render();
+
+
 }
 
 void ChunkMap::DeployCreature()
@@ -446,12 +450,13 @@ void ChunkMap::Reset()
 	SpawnAreaList.clear();
 	//
 	bLoaded = false;
-	SetEnableDebugDraw(false);
+	//SetEnableDebugDraw(false);
 }
 
 void ChunkMap::OnAfterInit()
 {
-
+	//…Ë÷√πÊ‘Ú
+	mMapRuleSys.SetCurrentState(MapRule_FastMonster);
 }
 
 void ChunkMap::onEnter()

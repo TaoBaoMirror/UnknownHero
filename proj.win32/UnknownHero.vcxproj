@@ -195,6 +195,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Game\GridPosArea.cpp" />
     <ClCompile Include="..\Classes\Game\MapManager.cpp" />
     <ClCompile Include="..\Classes\Game\MapNodeData.cpp" />
+    <ClCompile Include="..\Classes\Game\MapRule.cpp" />
     <ClCompile Include="..\Classes\Game\ShieldData.cpp" />
     <ClCompile Include="..\Classes\Game\ShieldDataManager.cpp" />
     <ClCompile Include="..\Classes\Game\ShieldSystem.cpp" />
@@ -283,6 +284,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Game\GridPosArea.h" />
     <ClInclude Include="..\Classes\Game\MapManager.h" />
     <ClInclude Include="..\Classes\Game\MapNodeData.h" />
+    <ClInclude Include="..\Classes\Game\MapRule.h" />
     <ClInclude Include="..\Classes\Game\Msg_Type.h" />
     <ClInclude Include="..\Classes\Game\Regulator.h" />
     <ClInclude Include="..\Classes\Game\ShieldData.h" />

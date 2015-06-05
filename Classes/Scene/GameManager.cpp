@@ -212,6 +212,8 @@ void GameManager::HeroFight_Pre()
 {
 	//将所有的角色状态都清除为 Actor_Ready
 	PlayerManager::GetInstance()->ReadyFight();
+	//
+	MapManager::GetInstance()->GetCurChunkMap()->GetMapRuleSys().BeginRound();
 }
 void GameManager::EnemyFight_Pre()
 {
@@ -270,6 +272,8 @@ void GameManager::UpdateFight(float dt)
 		break;
 	case SF_OneFightOver:
 		{
+			MapManager::GetInstance()->GetCurChunkMap()->GetMapRuleSys().EndRound();
+
 			SetFightST(FightStatus::SF_Hero);
 		}
 		break;

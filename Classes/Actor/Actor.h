@@ -82,7 +82,9 @@ protected:
 public:
 	ActorFSM* m_pFSM;
 	//
+	int		m_OneRoundActionTimes;
 
+	void	SetActionTimesInRound(int n);
 
 	// add by Hitman [5/19/2015]
 protected:

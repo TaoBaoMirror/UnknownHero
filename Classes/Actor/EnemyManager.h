@@ -34,6 +34,8 @@ public:
 	void RemoveLongMonster(Monster_Long* pMonster);
 	void RemoveSpecialMonster(Monster_Special* pMonster);
 
+	void SetActiontTimesInOneRound(int n);
+
 private:
 	EnemyManager(void);
 

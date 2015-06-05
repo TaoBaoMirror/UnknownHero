@@ -13,7 +13,7 @@
 const float Actor::g_ActorMoveTime = 0.5f;
 
 Actor::Actor(void) :
-	Soldier(0,0)
+	Soldier(0,0),m_OneRoundActionTimes(1)
 {	
 }
 
@@ -76,7 +76,17 @@ void Actor::EndTraval()
 {
 	Soldier::EndTraval();
 
-	m_pFSM->SetStatus(Actor_Stand::Instance());
+	m_OneRoundActionTimes -= 1;
+
+	if (m_OneRoundActionTimes <= 0)
+	{
+		m_OneRoundActionTimes = 1;
+		m_pFSM->SetStatus(Actor_Stand::Instance());
+	}
+	else
+	{
+		m_pFSM->SetStatus(Actor_Ready::Instance());
+	}
 }
 //-------------------------
 bool Actor::TravalTo(const GridPos& GPos)
@@ -232,6 +242,11 @@ void Actor::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
 void Actor::UpdateToCCWorldPos()
 {
 	setPosition(GetPosition().x,GetPosition().y);
+}
+
+void Actor::SetActionTimesInRound( int n )
+{
+	m_OneRoundActionTimes = n;
 }
 
 //-------------------------

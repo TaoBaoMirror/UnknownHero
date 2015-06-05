@@ -316,4 +316,27 @@ bool EnemyManager::CheckNoDyingActor()
 
 	return true;
 }
+
+void EnemyManager::SetActiontTimesInOneRound( int n )
+{
+
+	for(int i = 0 ;i< m_ShortRangeMonsters.size();++i)
+	{
+		Actor* monster = m_ShortRangeMonsters[i];
+		monster->SetActionTimesInRound(n);
+	}
+
+	for(int i = 0 ;i< m_LongRangeMonsters.size();++i)
+	{
+		Actor* monster = m_LongRangeMonsters[i];
+		monster->SetActionTimesInRound(n);
+	}
+
+	for(int i = 0 ;i< m_SpecialRangeMonsters.size();++i)
+	{
+		Actor* monster = m_SpecialRangeMonsters[i];
+		monster->SetActionTimesInRound(n);
+	}
+}
+
 //-------------------------------------------------------
