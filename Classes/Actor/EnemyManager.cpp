@@ -339,4 +339,13 @@ void EnemyManager::SetActiontTimesInOneRound( int n )
 	}
 }
 
+void EnemyManager::GetMonsters(std::vector<Actor*>& monsters) const
+{
+	monsters.reserve(m_ShortRangeMonsters.size() + m_LongRangeMonsters.size() +m_SpecialRangeMonsters.size());
+	monsters.assign(m_ShortRangeMonsters.begin(),m_ShortRangeMonsters.end());
+	monsters.insert(monsters.end(),m_LongRangeMonsters.begin(),m_LongRangeMonsters.end());
+	monsters.insert(monsters.end(),m_SpecialRangeMonsters.begin(),m_SpecialRangeMonsters.end());
+
+}
+
 //-------------------------------------------------------

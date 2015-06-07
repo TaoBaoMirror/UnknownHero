@@ -53,6 +53,9 @@ public:
 	virtual void RuleUpdate(float dt);
 	virtual void RuleEnd();	
 	//
+	virtual void EndRound();
+
+
 	virtual int GetRuleType() override { return MapRule_Poison;}
 
 protected:

@@ -1,5 +1,8 @@
 #include "MapRule.h"
 #include "Actor/EnemyManager.h"
+#include "Actor/Actor.h"
+#include "Actor/PlayerManager.h"
+#include "Game/AttackData.h"
 MapRuleBase* MapRuleSystem::RuleList[MapRule_Num] = 
 {
 	new MapRuleNull() ,
@@ -74,6 +77,25 @@ void MapRulePoison::RuleEnd()
 {
 
 }
+
+void MapRulePoison::EndRound()
+{
+	std::vector<Actor*> monsters;
+	DamageData DD(1,-1,-1);
+	PlayerManager::GetInstance()->GetHero()->GetHurt(DD);
+	//
+	EnemyManager::GetInstance()->GetMonsters(monsters);
+	for (int i = 0;i< monsters.size();++i)
+	{
+		auto m = monsters[i];
+
+		if (m)
+		{
+			m->GetHurt(DD);
+		}
+	}
+}
+//////////////////////////////////////////////////////////////////////////
 
 void MapRuleFastMonster::RuleStart()
 {

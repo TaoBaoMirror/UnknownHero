@@ -207,6 +207,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Game\SoldierManager.cpp" />
     <ClCompile Include="..\Classes\Game\SoldierPF.cpp" />
     <ClCompile Include="..\Classes\Game\TargetingSystem.cpp" />
+    <ClCompile Include="..\Classes\Game\Trigger\GameTrigger.cpp" />
+    <ClCompile Include="..\Classes\Game\Trigger\TriggerBase.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\ResDef.cpp" />
     <ClCompile Include="..\Classes\Scene\GameMainLayer.cpp" />
@@ -298,6 +300,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Game\SoldierManager.h" />
     <ClInclude Include="..\Classes\Game\SoldierPF.h" />
     <ClInclude Include="..\Classes\Game\TargetingSystem.h" />
+    <ClInclude Include="..\Classes\Game\Trigger\GameTrigger.h" />
+    <ClInclude Include="..\Classes\Game\Trigger\TriggerBase.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\ResDef.h" />
     <ClInclude Include="..\Classes\Scene\GameMainLayer.h" />

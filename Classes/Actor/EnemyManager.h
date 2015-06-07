@@ -36,6 +36,8 @@ public:
 
 	void SetActiontTimesInOneRound(int n);
 
+	void GetMonsters(std::vector<Actor*>& monsters) const;
+
 private:
 	EnemyManager(void);
 

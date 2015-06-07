@@ -85,6 +85,9 @@
     <Filter Include="src\Game\Bullet">
       <UniqueIdentifier>{1ac940b2-95b6-401e-8f5c-86accc4d0ae4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Game\Trigger">
+      <UniqueIdentifier>{b8a224a4-965f-461a-9c4b-8a713ef890a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -335,6 +338,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\MapRule.cpp">
       <Filter>src\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Trigger\TriggerBase.cpp">
+      <Filter>src\Game\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Trigger\GameTrigger.cpp">
+      <Filter>src\Game\Trigger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -607,6 +616,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\MapRule.h">
       <Filter>src\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Trigger\TriggerBase.h">
+      <Filter>src\Game\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Trigger\GameTrigger.h">
+      <Filter>src\Game\Trigger</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
