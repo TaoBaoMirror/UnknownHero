@@ -9,6 +9,7 @@
 #include "Game/SoldierManager.h"
 #include "Game/Camp.h"
 #include "Messaging/MessageListenerManager.h"
+#include "Game/Trigger/GameTrigger.h"
 
 const float Actor::g_ActorMoveTime = 0.5f;
 
@@ -75,7 +76,10 @@ void Actor::BeginTraval()
 void Actor::EndTraval()
 {
 	Soldier::EndTraval();
-
+	// add by Hitman [6/8/2015]
+	//在移动完毕的时候，刷一遍Triggers
+	TriggerManager::GetInstance()->UpdateRound();
+	//
 	m_OneRoundActionTimes -= 1;
 
 	if (m_OneRoundActionTimes <= 0)

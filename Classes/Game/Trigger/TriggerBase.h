@@ -27,7 +27,6 @@ class TriggerData
 {
 public:
 	int mID;
-	int mType;
 	int mW;
 	int mH;
 	//

@@ -62,6 +62,8 @@ public:
 	cocos2d::TMXLayer* GetCreatureTMXLayer();
 	cocos2d::Layer* GetCreatureLayer();
 	cocos2d::Layer* GetEffectLayer();
+	cocos2d::Layer* GetTriggerLayer();
+	
 	cocos2d::TMXLayer* GetRangeLayer();
 
 

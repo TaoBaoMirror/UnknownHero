@@ -18,11 +18,15 @@
 #include "Actor/EnemyManager.h"
 #include "Actor/ActorPathFinderCalculateFunc.h"
 
+#include "Game/Trigger/GameTrigger.h"
+
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
 #define SpawnLayer "SpawnLayer"	//卵域数据层
 #define RangeLayer "RangeLayer"	//显示的行走层
 #define EffectLayer "EffectLayer"	//显示的特效层，包括子弹
+#define TriggerLayer "TriggerLayer"	//显示的特效层，包括子弹
+
 
 
 #define GridLayerTag 0xa0	//网格数据层
@@ -30,6 +34,8 @@
 #define SpawnLayerTag 0xa2	//卵域数据层
 #define RangeLayerTag 0xa3	//显示的行走范围层
 #define EffectLayerTag 0xa4	//显示的行走范围层
+#define TriggerLayerTag 0xa5	//显示的trigger范围层
+
 
 
 
@@ -239,12 +245,45 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 
 			}
 		}
+
+		/*
+			Trigger 
+		*/
+		auto pTriggerLayer = this->getObjectGroup(TriggerLayer);
+
+		if(pTriggerLayer != nullptr)
+		{
+			this->addChild(cocos2d::Layer::create(),pCreatureLayer->getLocalZOrder() + 2,TriggerLayerTag);
+
+			auto& objects = pTriggerLayer->getObjects();
+
+			for (auto& obj : objects)
+			{
+				cocos2d::ValueMap& dict = obj.asValueMap();
+
+				float x = dict["x"].asFloat();
+				float y = dict["y"].asFloat();
+
+				//下面都是AreaInit需要的
+				int type = dict["TriggerType"].asInt();
+				GridPos BaseGPos(x/sTileSize.width,y/sTileSize.height);
+
+				auto trigger = TriggerManager::GetInstance()->CreateTrigger(nullptr,type,BaseGPos);
+				if (trigger)
+				{
+					trigger->Born();
+				}
+				//
+
+			}
+		}
 		//增加一些其他的图层
 		{
 			this->addChild(cocos2d::Layer::create(),pCreatureLayer->getLocalZOrder() + 3 + 1,EffectLayerTag);
 		}
 
-
+		auto s = cocos2d::Sprite::createWithSpriteFrameName("effect_posion_4.png");
+		GetEffectLayer()->addChild(s);
 
 		//
 		//SetEnableDebugDraw(EnableDebugDraw);
@@ -476,6 +515,13 @@ cocos2d::Layer* ChunkMap::GetCreatureLayer()
 {
 	return static_cast<cocos2d::Layer*>(this->getChildByTag(CreatureLayerTag));
 }
+
+
+cocos2d::Layer* ChunkMap::GetTriggerLayer()
+{
+	return static_cast<cocos2d::Layer*>(this->getChildByTag(TriggerLayerTag));
+}
+
 
 cocos2d::Layer* ChunkMap::GetEffectLayer()
 {

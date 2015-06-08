@@ -86,4 +86,27 @@ private:
 };
 
 
+
+//////////////////////////////////////////////////////////////////////////
+//
+//		**************Other Trigger********************
+//
+//////////////////////////////////////////////////////////////////////////
+
+class Poison_GameTrigger : public GameTrigger
+{
+public:
+	Poison_GameTrigger(){}
+	~Poison_GameTrigger(){}
+protected:
+	virtual void EnterTrigger(Soldier*		soldier) override;
+	virtual void InsideTrigger(Soldier*		soldier) override {}
+	virtual void ExitTrigger(Soldier*		soldier) override {}
+	//
+	virtual void UpdateTriggerRound() override {}
+	virtual void UpdateTriggerFrame(float dt) override {}
+private:
+};
+
+
 #endif // GameTrigger_h__

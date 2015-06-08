@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="32" tileheight="32" nextobjectid="2">
  <tileset firstgid="1" name="City_Tile" tilewidth="32" tileheight="32">
   <image source="City_Tile.png" width="1024" height="1024"/>
  </tileset>
@@ -25,4 +25,11 @@
    eJztw8EJAAAMA6HbOftD1+hDwVVTVVVfPzx7UPo=
   </data>
  </layer>
+ <objectgroup name="TriggerLayer">
+  <object id="1" x="160" y="544" width="32" height="32">
+   <properties>
+    <property name="TriggerType" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

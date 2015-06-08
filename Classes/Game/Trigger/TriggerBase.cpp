@@ -53,10 +53,10 @@ void TriggerDataManager::ReadCSV( const std::string& csvName )
 	BD.mW = 1;
 	BD.mH = 1;
 
-	strcpy(BD.mTriggerNormalTex,"effect_posion");
-	BD.mNormalAnimationFrameNum = 8;
+	strcpy(BD.mTriggerNormalTex,"effect_HeavyHit");
+	BD.mNormalAnimationFrameNum = 5;
 	strcpy(BD.mTriggerExplodeTex,"effect_StramBoom");
-	BD.mExplodeAnimationFrameNum = 6;
+	BD.mExplodeAnimationFrameNum = 5;
 	//
 	TriggerDataDict[BD.mID] = BD;
 }

@@ -26,7 +26,7 @@ void GameTrigger::SetResource( const std::string& NormalName,const std::string& 
 	const int numAnim = 2 ;// 飞行普通动画，爆炸动画
 	const std::string ActionsName[numAnim] = {"normal","explode"};
 	if(mTriggerData == nullptr) return;
-	int ActionsFrameCount[numAnim] = { mTriggerData->mNormalAnimationFrameNum , mTriggerData->mNormalAnimationFrameNum};
+	int ActionsFrameCount[numAnim] = { mTriggerData->mNormalAnimationFrameNum , mTriggerData->mExplodeAnimationFrameNum};
 	std::string nameList[numAnim] = {NormalName,ExplodeName};
 	std::string name = "";
 
@@ -83,6 +83,10 @@ void GameTrigger::Init( const TriggerData* TD , const GridPos& Pos,ChunkMap* Chu
 	TriggerBase::Init(TD,Pos,Chunk);
 
 	SetResource(TD->mTriggerNormalTex,TD->mTriggerExplodeTex);
+
+	Vector2D WPos;
+	G_GetSceneMap().GridPosToWorldPos(Pos,WPos);
+	setPosition(WPos.x,WPos.y);
 }
 
 void GameTrigger::PlayNormalAnimation()
@@ -195,7 +199,7 @@ GameTrigger* TriggerManager::CreateTrigger( Soldier* owner,int triggerType,const
 	switch (triggerType)
 	{
 	case 0:
-		trigger = new	GameTrigger();
+		trigger = new Poison_GameTrigger();
 		break;
 	default:
 		break;
@@ -215,7 +219,7 @@ GameTrigger* TriggerManager::CreateTrigger( Soldier* owner,int triggerType,const
 		//
 		if (chunk != nullptr)
 		{
-			auto layer = MapManager::GetInstance()->GetCurChunkMap()->GetEffectLayer();
+			auto layer = MapManager::GetInstance()->GetCurChunkMap()->GetTriggerLayer();
 
 			if (layer != nullptr)
 			{
@@ -306,3 +310,15 @@ void TriggerManager::UpdateRound()
 	}
 }
 
+
+void Poison_GameTrigger::EnterTrigger( Soldier* soldier )
+{
+	//
+	MapManager::GetInstance()->GetCurChunkMap()->GetMapRuleSys().ChangeRule(MapRule_Poison);
+	//
+	stopAllActions();
+	//
+	mState = TriggerDestory;
+	//
+	PlayExplodeAnimation();
+}
