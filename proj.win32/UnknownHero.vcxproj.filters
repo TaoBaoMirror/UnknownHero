@@ -345,6 +345,9 @@
     <ClCompile Include="..\Classes\Game\Trigger\GameTrigger.cpp">
       <Filter>src\Game\Trigger</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\UI\MainControllerPanel.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -622,6 +625,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Trigger\GameTrigger.h">
       <Filter>src\Game\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\MainControllerPanel.h">
+      <Filter>src\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

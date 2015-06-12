@@ -8,7 +8,7 @@
 #include "Actor/PlayerManager.h"
 #include "Actor/EnemyManager.h"
 #include "Actor/NPCManager.h"
-
+#include "UI/MainControllerPanel.h"
 
 USING_NS_CC;
 
@@ -57,7 +57,7 @@ bool GameScene::init()
 	listener->onTouchMoved = CC_CALLBACK_2(GameScene::onTouchMoved, this);
 	listener->onTouchEnded = CC_CALLBACK_2(GameScene::onTouchEnded, this);
 
-	_eventDispatcher->addEventListenerWithFixedPriority(listener, -10);
+	//_eventDispatcher->addEventListenerWithFixedPriority(listener, -10);
 	_touchListener = listener;
 	//--------------------------
 	auto listenerKeyboard = EventListenerKeyboard::create();
@@ -132,18 +132,22 @@ void GameScene::TestMap()
 {
 	MapManager::GetInstance()->ChangeMap(0);
 	auto pChunk = MapManager::GetInstance()->GetCurChunkMap();
+	pChunk->setPosition(0,0);
 	addChild(pChunk,10);
 	//
-	pChunk->setPosition(0,0);
-	//pChunk->DeployCreature();
 	//
 	pSkillBarUI = (SkillBarUI*)SkillBarUI::CreateWithTag(111);
-	addChild(pSkillBarUI,100);
+	//addChild(pSkillBarUI,100);
 	//
 	pSkillBarUI->SetSkillIcon(0,"skill_0");
 	pSkillBarUI->SetSkillIcon(1,"skill_1");
 	pSkillBarUI->SetSkillIcon(2,"skill_2");
 	pSkillBarUI->SetSkillIcon(3,"skill_3");
+
+	pMainPanel = new MainControllerPanel();
+	pMainPanel->setPosition(200,200);
+	pMainPanel->Init();
+	addChild(pMainPanel,101);
 
 	/*
 

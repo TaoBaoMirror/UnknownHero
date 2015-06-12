@@ -218,6 +218,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Scene\SelectHeroLayer.cpp" />
     <ClCompile Include="..\Classes\Sound\SoundManager.cpp" />
     <ClCompile Include="..\Classes\UI\LogoUI.cpp" />
+    <ClCompile Include="..\Classes\UI\MainControllerPanel.cpp" />
     <ClCompile Include="..\Classes\UI\SkillBarUI.cpp" />
     <ClCompile Include="..\Classes\UI\TellStoryLayer.cpp" />
     <ClCompile Include="..\Classes\UI\TitleUI.cpp" />
@@ -311,6 +312,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Scene\SelectHeroLayer.h" />
     <ClInclude Include="..\Classes\Sound\SoundManager.h" />
     <ClInclude Include="..\Classes\UI\LogoUI.h" />
+    <ClInclude Include="..\Classes\UI\MainControllerPanel.h" />
     <ClInclude Include="..\Classes\UI\SkillBarUI.h" />
     <ClInclude Include="..\Classes\UI\TellStoryLayer.h" />
     <ClInclude Include="..\Classes\UI\TitleUI.h" />

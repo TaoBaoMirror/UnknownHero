@@ -6,6 +6,7 @@
 #include "Game\ChunkMap.h"
 
 class SkillBarUI;
+class MainControllerPanel;
 
 class GameScene : cocos2d::Scene
 {
@@ -36,6 +37,7 @@ public:
 protected: 
 	void TestMap();
 	SkillBarUI*	pSkillBarUI;
+	MainControllerPanel*	pMainPanel;
 
 	cocos2d::EventListenerTouchOneByOne* _touchListener;
 	cocos2d::EventListenerKeyboard* _keyboardListener;
