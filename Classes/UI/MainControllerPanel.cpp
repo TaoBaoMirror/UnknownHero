@@ -1,7 +1,9 @@
 #include "MainControllerPanel.h"
 //
 
-const std::string WheelIcon::IconDict[4] = { "rateme_normal.png" , "sound_normal.png" , "help_normal.png" ,"help_hover.png"};
+const std::string WheelIcon::IconDict[3] = { "rateme_normal.png" , "sound_normal.png" , "help_normal.png"};
+const std::string WheelIcon::IconDict_HighLight[3] = { "rateme_hover.png" , "sound_hover.png" , "help_hover.png"};
+
 
 
 const std::string& WheelIcon::GetIconName( int iconID )
@@ -9,10 +11,19 @@ const std::string& WheelIcon::GetIconName( int iconID )
 	return IconDict[iconID];
 }
 
+const std::string& WheelIcon::GetIconName_HighLight( int iconID )
+{
+	return IconDict_HighLight[iconID];
+}
 
 
 //
-WheelIcon::WheelIcon()
+WheelIcon::WheelIcon():
+	Sprite(),
+	pNormalSpriteFrame(nullptr),
+	pHighlightSpriteFrame(nullptr),
+	mNum(1),
+	mIconID(-1)
 {
 
 }
@@ -25,7 +36,12 @@ WheelIcon::~WheelIcon()
 
 void WheelIcon::SetResource( int num,int iconID )
 {
-	initWithSpriteFrameName(WheelIcon::GetIconName(iconID));
+	if(pNormalSpriteFrame) pNormalSpriteFrame = nullptr;
+	pNormalSpriteFrame  = cocos2d::SpriteFrameCache::getInstance()->getSpriteFrameByName(WheelIcon::GetIconName(iconID));
+	if(pHighlightSpriteFrame) pHighlightSpriteFrame = nullptr;
+	pHighlightSpriteFrame = cocos2d::SpriteFrameCache::getInstance()->getSpriteFrameByName(WheelIcon::GetIconName_HighLight(iconID));
+	//
+	initWithSpriteFrame(pNormalSpriteFrame);
 	//
 	mNum = num;
 	mIconID = iconID;
@@ -33,7 +49,6 @@ void WheelIcon::SetResource( int num,int iconID )
 
 void WheelIcon::Init( int num,int iconID )
 {
-
 	SetResource(num,iconID);
 	//
 	autorelease();
@@ -43,12 +58,30 @@ bool WheelIcon::PickOne()
 {
 	return (mNum--) > 0;
 }
+
+void WheelIcon::TurnOn()
+{
+	if (pHighlightSpriteFrame != nullptr)
+	{
+		setSpriteFrame(pHighlightSpriteFrame);
+	}
+}
+
+void WheelIcon::TurnOff()
+{
+	if (pNormalSpriteFrame != nullptr)
+	{
+		setSpriteFrame(pNormalSpriteFrame);
+	}
+}
+
+
 //////////////////////////////////////////////////////////////////////////
 //
 //////////////////////////////////////////////////////////////////////////
 void ActionWheel::Init()
 {
-	int a[4]={0,1,2,3};  
+	int a[4]={0,1,2,0};  
 	std::vector<int>  ids(a,a+4);
 	ActionWheel::Init( ids );
 }
@@ -149,7 +182,7 @@ void ActionWheel::CallBack_RollToNextIcon()
 		//
 		icon->setPosition(mIconBasePos);
 		//
-		int iconID = cocos2d::random(0,3);
+		int iconID = cocos2d::random(0,2);
 		//
 		mIconIDs[mNeedResetIconIndex] = iconID;
 
@@ -201,6 +234,9 @@ void ActionWheel::onTouchesBegan( const std::vector<cocos2d::Touch*>& touches, c
 	if (rect.containsPoint(point))
 	{
 		mPickedID = Pick();
+		//点亮选择的icon
+		WheelIcon* icon = mWheelIcons.at(mCurrentIconIndex);
+		icon->TurnOn();
 	}
 }
 
@@ -219,9 +255,11 @@ void ActionWheel::onTouchesEnded( const std::vector<cocos2d::Touch*>& touches, c
 
 
 		//是否轮盘上还有数量
-		auto wheel = mWheelIcons.at(mCurrentIconIndex);
-		if (wheel->PickOne())
+		auto icon = mWheelIcons.at(mCurrentIconIndex);
+		if (icon->PickOne())
 		{
+			icon->TurnOff();
+			//
 			RollToNextIcon();
 		}
 		//
@@ -253,7 +291,7 @@ ActionWheel::ActionWheel():
 
 ActionWheel::~ActionWheel()
 {
-
+	mWheelIcons.clear();
 }
 
 int ActionWheel::ClipperTag = 0;
@@ -277,10 +315,17 @@ void MainControllerPanel::Init()
 	if(!Layer::init()) return;
 	this->autorelease();
 	//
-	ActionWheel* wheel = new ActionWheel();
-	wheel->Init();
-	wheel->autorelease();
-	addChild(wheel);
+	for (int i = 0 ;i < WheelsNum;++i)
+	{
+		ActionWheel* wheel = new ActionWheel();
+		wheel->Init();
+		wheel->autorelease();
+		wheel->setPosition(i * 60,0);
+		addChild(wheel);
+		//
+		mWheelList.pushBack(wheel);
+	}
+
 	//
 	auto listener = cocos2d::EventListenerTouchAllAtOnce::create();
 	listener->onTouchesBegan = CC_CALLBACK_2(MainControllerPanel::onTouchesBegan, this);
@@ -305,3 +350,5 @@ void MainControllerPanel::onTouchesEnded( const std::vector<cocos2d::Touch*>& to
 {
 
 }
+
+int MainControllerPanel::WheelsNum = 3;

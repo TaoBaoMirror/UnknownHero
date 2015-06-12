@@ -23,7 +23,10 @@ class WheelIcon : public cocos2d::Sprite
 {
 public:
 	static const std::string  IconDict[];	
+	static const std::string  IconDict_HighLight[];	
 	static const std::string& GetIconName(int iconID);
+	static const std::string& GetIconName_HighLight(int iconID);
+
 public:
 	WheelIcon();
 	~WheelIcon();
@@ -32,11 +35,18 @@ public:
 	void SetResource(int num,int iconID);
 	//如果返回false 说明，已经没有这个icon道具了
 	bool PickOne();
+	//
+	void TurnOn();
+	void TurnOff();
 
 protected:
 	int  mNum;
 	int  mIconID;
 	//字体
+
+	//
+	cocos2d::SpriteFrame*		pHighlightSpriteFrame;
+	cocos2d::SpriteFrame*		pNormalSpriteFrame;
 
 private:
 };
@@ -95,6 +105,7 @@ private:
 
 class MainControllerPanel : public cocos2d::Layer
 {
+	static int WheelsNum;
 public:
 	MainControllerPanel();
 	~MainControllerPanel();
@@ -106,7 +117,7 @@ public:
 	void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 protected:
-	
+	cocos2d::Vector<ActionWheel*>	mWheelList;							
 private:
 };
 
