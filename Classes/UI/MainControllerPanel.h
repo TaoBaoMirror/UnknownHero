@@ -51,6 +51,68 @@ protected:
 private:
 };
 
+class BlurWheel : public cocos2d::Sprite
+{
+public:
+	static int AnimationTag;
+	static int ValueByTag;
+	static int MoveByTag;
+	//
+	~BlurWheel();
+	bool initWithTexture(cocos2d::Texture2D* texture, const cocos2d::Rect&  rect);
+	void initGLProgram();
+
+	static BlurWheel* create(const char *SpriteFrameName);
+	void setBlurRadiusX(float radius);
+	void setBlurSampleNumX(float num);
+	void setBlurRadiusY(float radius);
+	void setBlurSampleNumY(float num);
+
+	void Init();
+	void virtual update(float delta) override ;
+
+	void PlayAccelerateAnimation();
+	void StopAccelerateAnimation();
+
+	void PlayRollAnimation();
+	void StopRollAnimation();
+
+	void PlaySlowdownAnimation();
+	void StopSlowdownAnimation();
+
+protected:
+	float _blurRadiusX;
+	float _blurSampleNumX;
+	float _blurRadiusY;
+	float _blurSampleNumY;
+
+	static int  maxAccelerateBlur;
+	static int  maxBlur;
+
+	static float accelerateTime;
+	static float slowdownTime;
+	static float rollTime;
+
+	//
+	cocos2d::RepeatForever*	mAnimation;
+
+
+
+	void playWink();
+	void blurX();
+	void clearX();
+
+	cocos2d::Sequence*	mAccelerate;
+
+	cocos2d::RepeatForever*	mSlowdown;
+
+	//
+	cocos2d::Vector<cocos2d::SpriteFrame*> mAnimFrames;
+
+
+
+};
+
 class ActionWheel : public cocos2d::Layer
 {
 public:
@@ -66,7 +128,11 @@ public:
 	//随机滚动
 	void  RandomRoll();
 	void  PlayRandomRollAnimation();
-	void  CallBack_RandomRollAnimation();
+	void  CallBack_AccelerateRollOver();
+	void  CallBack_RollOver();
+	void  CallBack_SlowdownRollOver();
+	void  CallBack_RandomRollOver();
+
 	//
 	void  Init();
 	void  Init(const std::vector<int>& IconIDs);
@@ -79,6 +145,7 @@ public:
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 
 protected:
+	//
 	float  mAccelerateTime;		//开始加速
 	float  mRollTime;			//滚动时间
 	float  mSlowdownTime;		//减速
@@ -94,6 +161,9 @@ protected:
 	cocos2d::Vector<WheelIcon*>  mWheelIcons;
 	std::vector<int>			 mIconIDs;
 	cocos2d::Vec2			     mIconBasePos;
+	/*  */
+	BlurWheel*		mBlurWheel;
+	cocos2d::Vec2	mBlurWheelBasePos;
 
 private:
 };
@@ -111,14 +181,53 @@ public:
 	~MainControllerPanel();
 	//
 	void Init();
+	cocos2d::Rect	GetWheelHandleRect();
 	//
 	/* 监听 */
 	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 	void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 protected:
-	cocos2d::Vector<ActionWheel*>	mWheelList;							
+	cocos2d::Vector<ActionWheel*>	mWheelList;	
+	cocos2d::Sprite*				mWheelHandle;
 private:
+};
+
+
+//////////////////////////////////////////////////////////////////////////
+//
+////
+
+class ValueBy : public cocos2d::ActionInterval
+{
+public:
+	/** creates the action */
+	static ValueBy* create(float duration, float startValue , float deltaValue , float* pValue);
+
+	//
+	// Overrides
+	//
+	virtual ValueBy* clone() const override;
+	virtual void startWithTarget(cocos2d::Node *target) override;
+	virtual void update(float time) override;
+
+protected:
+	ValueBy() {}
+	virtual ~ValueBy() {}
+
+	/** initializes the action */
+	bool initWithDuration(float duration, float startValue ,float deltaValue, float* pValue);
+
+protected:
+	float*		mValue;
+	float		mDeltaValue;
+	float		mPreviousValue;
+	float		mStartValue;
+
+
+private:
+	ValueBy(const ValueBy &); 
+	ValueBy &operator =(const ValueBy &);
 };
 
 #endif // MainControllerPanel_h__

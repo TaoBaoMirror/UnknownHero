@@ -137,6 +137,21 @@ void ActionWheel::Init( const std::vector<int>& IconIDs )
 	listener->onTouchesEnded = CC_CALLBACK_2(ActionWheel::onTouchesEnded, this);
 	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	_eventDispatcher->addEventListenerWithFixedPriority(listener, -11);
+	//////////////////////////////////////////////////////////////////////////
+	mBlurWheel = BlurWheel::create("images/wheel_0.png");
+	mBlurWheelBasePos = mIconBasePos + cocos2d::Vec2(0,mBlurWheel->getContentSize().height*0.5f + SFrame->getRect().size.height * 0.5f);
+	mBlurWheel->setPosition(mBlurWheelBasePos);
+	mBlurWheel->setVisible(false);
+	clipper->addChild(mBlurWheel);
+
+	//动画变量初始化
+	mRollNextIconTime = 1.0f;
+
+	mSlowdownTime = 1.3f;
+
+	mRollTime = 3.0f;
+
+	mAccelerateTime = 1.0f;
 
 }
 
@@ -196,28 +211,121 @@ void ActionWheel::CallBack_RollToNextIcon()
 
 void ActionWheel::RandomRoll()
 {
+
 	// 判断当前状态是否符合运动
+	if (mState != WheelIdle) return;
 
 	// 改变状态
-
+	mState = WheelRoll;
 	// 所有的iconID已经设置Ok
-
+	int a[4]={0,1,2,0};  
+	mIconIDs.assign(a,a+4);
 	// 播放动画
+	PlayRandomRollAnimation();
 }
 
 void ActionWheel::PlayRandomRollAnimation()
 {
 	// 1- 开始向下运动
-
-	// 2- 模糊一段时间
-
-	// 3- 不再模糊,开始减速,然后停止
+	mBlurWheel->setPosition(mBlurWheelBasePos);
+	mBlurWheel->setVisible(true);
+	mBlurWheel->PlayAccelerateAnimation();
+	//
+	int iconNum = mWheelIcons.size();
+	int moveby_dis = 0;
+	for (int i = 0;i<iconNum;++i)
+	{
+		WheelIcon* icon = mWheelIcons.at(i);
+		moveby_dis = -icon->getContentSize().height * iconNum;
+		auto moveby = cocos2d::MoveBy::create(mAccelerateTime,cocos2d::Vec2(0,moveby_dis));
+		auto eei = cocos2d::EaseIn::create(moveby,2);
+		icon->runAction(eei);
+	}
+	//
+	auto moveby = cocos2d::MoveBy::create(mAccelerateTime,cocos2d::Vec2(0,moveby_dis));
+	auto eei = cocos2d::EaseIn::create(moveby,2);
+	auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_AccelerateRollOver , this ));
+	auto seq = cocos2d::Sequence::create(eei,func,nullptr);
+	seq->setTag(BlurWheel::MoveByTag);
+	mBlurWheel->runAction(seq);
 }
 
-void ActionWheel::CallBack_RandomRollAnimation()
+
+void ActionWheel::CallBack_AccelerateRollOver()
 {
-	// 改变状态,此时数据和画面已经一致了
+	// 1- 装配新的icon，设置他们的位置
+	mCurrentIconIndex = 2;
+	mNeedResetIconIndex = 3;
+	//
+	int iconNum = mWheelIcons.size();
+	for (int i = 0;i<iconNum;++i)
+	{
+		WheelIcon* icon = mWheelIcons.at(i);
+		icon->SetResource(1,mIconIDs[i]);
+		//位置是clipperNode上面的位置
+		icon->setPosition(mIconBasePos.x, 
+			mIconBasePos.y - icon->getContentSize().height * i + icon->getContentSize().height * (iconNum - 1));
+	}
+	// 2- 模糊一段时间
+	mBlurWheel->StopAccelerateAnimation();
+	mBlurWheel->PlayRollAnimation();
+	auto delay = cocos2d::DelayTime::create(mRollTime);
+	auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_RollOver , this ));
+	auto seq = cocos2d::Sequence::create(delay,func,nullptr);
+	runAction(seq);
 }
+
+
+void ActionWheel::CallBack_RollOver()
+{
+	mBlurWheel->StopRollAnimation();
+	mBlurWheel->PlaySlowdownAnimation();
+	//
+	auto delay = cocos2d::DelayTime::create(3);
+	auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_SlowdownRollOver , this ));
+	auto seq = cocos2d::Sequence::create(delay,func,nullptr);
+	runAction(seq);
+}
+
+
+void ActionWheel::CallBack_SlowdownRollOver()
+{
+	mBlurWheel->StopSlowdownAnimation();
+	//
+	// 1- 继续开始向下运动
+	//
+	int iconNum = mWheelIcons.size();
+	int moveby_dis = 0;
+	for (int i = 0;i<iconNum;++i)
+	{
+		WheelIcon* icon = mWheelIcons.at(i);
+		moveby_dis = -icon->getContentSize().height * (iconNum - 1);
+		auto moveby = cocos2d::MoveBy::create(mSlowdownTime,cocos2d::Vec2(0,moveby_dis));
+		auto eei = cocos2d::EaseOut::create(moveby,2);
+		icon->runAction(eei);
+	}
+	//
+	auto moveby = cocos2d::MoveBy::create(mSlowdownTime,cocos2d::Vec2(0,moveby_dis));
+	auto eei = cocos2d::EaseOut::create(moveby,2);
+	auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_RandomRollOver , this ));
+	auto seq = cocos2d::Sequence::create(eei,func,nullptr);
+	seq->setTag(BlurWheel::MoveByTag);
+	mBlurWheel->runAction(seq);
+}
+
+
+void ActionWheel::CallBack_RandomRollOver()
+{
+	if (mState == WheelRoll)
+	{
+		// 改变状态,此时数据和画面已经一致了
+		//
+		mState = WheelIdle;
+		//
+		mBlurWheel->setVisible(false);
+	}
+}
+
 
 int ActionWheel::Pick()
 {
@@ -325,20 +433,31 @@ void MainControllerPanel::Init()
 		//
 		mWheelList.pushBack(wheel);
 	}
-
+	//
+	mWheelHandle = cocos2d::Sprite::createWithSpriteFrameName("play_normal.png");
+	mWheelHandle->setPosition(190,0);
+	addChild(mWheelHandle);
 	//
 	auto listener = cocos2d::EventListenerTouchAllAtOnce::create();
 	listener->onTouchesBegan = CC_CALLBACK_2(MainControllerPanel::onTouchesBegan, this);
 	listener->onTouchesMoved = CC_CALLBACK_2(MainControllerPanel::onTouchesMoved, this);
 	listener->onTouchesEnded = CC_CALLBACK_2(MainControllerPanel::onTouchesEnded, this);
-	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-	_eventDispatcher->addEventListenerWithFixedPriority(listener, -12);
+	mWheelHandle->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
 }
 
 void MainControllerPanel::onTouchesBegan( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
 {
-
+	cocos2d::Touch *touch = touches[0];
+	cocos2d::Vec2 point = mWheelHandle->convertToNodeSpace(cocos2d::Director::getInstance()->convertToGL(touch->getLocationInView()));
+	auto rect = GetWheelHandleRect();
+	if (rect.containsPoint(point))
+	{
+		for (int i = 0;i< mWheelList.size();++i)
+		{
+			mWheelList.at(i)->RandomRoll();
+		}	
+	}
 }
 
 void MainControllerPanel::onTouchesMoved( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
@@ -351,4 +470,280 @@ void MainControllerPanel::onTouchesEnded( const std::vector<cocos2d::Touch*>& to
 
 }
 
+cocos2d::Rect MainControllerPanel::GetWheelHandleRect()
+{
+	float w = mWheelHandle->getContentSize().width;
+	float h = mWheelHandle->getContentSize().height;
+	return cocos2d::Rect(0,0,w,h);
+}
+
 int MainControllerPanel::WheelsNum = 3;
+//////////////////////////////////////////////////////////////////////////
+//
+//			BlurWheel
+//
+//////////////////////////////////////////////////////////////////////////
+
+BlurWheel::~BlurWheel()
+{
+
+}
+
+bool BlurWheel::initWithTexture( cocos2d::Texture2D* texture, const cocos2d::Rect& rect )
+{
+	_blurRadiusX = 0;
+	_blurSampleNumX = 1;
+	_blurRadiusY = 0;
+	_blurSampleNumY = 1;
+	//
+	mAnimation = nullptr;
+
+	if( cocos2d::Sprite::initWithTexture(texture, rect) ) 
+	{
+#if CC_ENABLE_CACHE_TEXTURE_DATA
+		auto listener = EventListenerCustom::create(EVENT_RENDERER_RECREATED, [this](EventCustom* event){
+			setGLProgram(nullptr);
+			initGLProgram();
+		});
+
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+#endif
+
+		initGLProgram();
+
+		return true;
+	}
+
+	return false;
+}
+
+void BlurWheel::initGLProgram()
+{
+	GLchar * fragSource = (GLchar*) cocos2d::String::createWithContentsOfFile(
+		cocos2d::FileUtils::getInstance()->fullPathForFilename("Shaders/example_Blur.fsh").c_str())->getCString();  
+	auto program = cocos2d::GLProgram::createWithByteArrays(cocos2d::ccPositionTextureColor_noMVP_vert, fragSource);
+
+	auto glProgramState = cocos2d::GLProgramState::getOrCreateWithGLProgram(program);
+	setGLProgramState(glProgramState);
+
+	auto size = getTexture()->getContentSizeInPixels();
+	getGLProgramState()->setUniformVec2("resolution", size);
+	getGLProgramState()->setUniformFloat("XRadius", _blurRadiusX);
+	getGLProgramState()->setUniformFloat("YRadius", _blurRadiusY);
+
+	getGLProgramState()->setUniformFloat("sampleNumX", _blurSampleNumX);
+	getGLProgramState()->setUniformFloat("sampleNumY", _blurSampleNumY);
+
+}
+
+BlurWheel* BlurWheel::create( const char *SpriteFrameName )
+{
+	BlurWheel* pRet = new BlurWheel();
+	if (pRet && pRet->initWithFile(SpriteFrameName))
+	{
+		pRet->Init();
+		pRet->autorelease();
+	}
+	else
+	{
+		CC_SAFE_DELETE(pRet);
+	}
+
+	return pRet;
+}
+
+void BlurWheel::setBlurRadiusX( float radius )
+{
+	_blurRadiusX = radius;
+	getGLProgramState()->setUniformFloat("XRadius", _blurRadiusX);
+}
+
+void BlurWheel::setBlurSampleNumX( float num )
+{
+	_blurSampleNumX = num;
+	getGLProgramState()->setUniformFloat("sampleNumX", _blurSampleNumX);
+}
+
+void BlurWheel::setBlurRadiusY( float radius )
+{
+	_blurRadiusY = radius;
+	getGLProgramState()->setUniformFloat("YRadius", _blurRadiusY);
+}
+
+void BlurWheel::setBlurSampleNumY( float num )
+{
+	_blurSampleNumY = num;
+	getGLProgramState()->setUniformFloat("sampleNumY", _blurSampleNumY);
+}
+
+void BlurWheel::Init()
+{
+	cocos2d::SpriteFrame* sf_0 = cocos2d::SpriteFrame::create("images/wheel_0.png",cocos2d::Rect(0,0,42,129));
+	cocos2d::SpriteFrame* sf_1 = cocos2d::SpriteFrame::create("images/wheel_1.png",cocos2d::Rect(0,0,42,129));
+	cocos2d::SpriteFrame* sf_2 = cocos2d::SpriteFrame::create("images/wheel_2.png",cocos2d::Rect(0,0,42,129));
+	//
+	mAnimFrames.reserve(3);
+	mAnimFrames.pushBack(sf_0);
+	mAnimFrames.pushBack(sf_1);
+	mAnimFrames.pushBack(sf_2);
+}
+
+void BlurWheel::PlayRollAnimation()
+{
+	//图片闪动
+	playWink();
+	//此时，继续加速blur
+	ValueBy* vb = ValueBy::create(rollTime,maxAccelerateBlur,maxBlur - maxAccelerateBlur,&_blurRadiusY);
+	runAction(vb);
+}
+
+void BlurWheel::StopRollAnimation()
+{
+	stopActionByTag(ValueByTag);
+}
+
+void BlurWheel::PlayAccelerateAnimation()
+{
+	//模糊X
+	blurX();
+	//差值模糊加速
+	ValueBy* vb = ValueBy::create(accelerateTime,0,maxAccelerateBlur,&_blurRadiusY);
+	vb->setTag(ValueByTag);
+	runAction(vb);
+	//开始更新update，用于blur设置
+	scheduleUpdate();
+}
+
+void BlurWheel::StopAccelerateAnimation()
+{
+	stopActionByTag(ValueByTag);
+}
+
+void BlurWheel::PlaySlowdownAnimation()
+{
+	ValueBy* vb = ValueBy::create(slowdownTime,maxBlur,-maxBlur,&_blurRadiusY);
+	runAction(vb);
+}
+
+void BlurWheel::StopSlowdownAnimation()
+{
+	stopActionByTag(AnimationTag);
+	stopActionByTag(ValueByTag);
+	//取消更新update
+	unscheduleUpdate();
+	//清除X的blur
+	clearX();
+	//
+	mAnimation = nullptr;
+}
+
+void BlurWheel::playWink()
+{
+	if(mAnimation == nullptr)
+	{
+		auto animation = cocos2d::Animation::createWithSpriteFrames(mAnimFrames, 0.2f);
+		auto animate = cocos2d::Animate::create(animation);
+		mAnimation = cocos2d::RepeatForever::create(animate);
+		mAnimation->setTag(AnimationTag);
+	}
+	if (getActionByTag(AnimationTag) == nullptr)
+	{
+		runAction(mAnimation);
+	}
+
+}
+
+
+void BlurWheel::update( float delta )
+{
+	setBlurRadiusY(_blurRadiusY);
+	setBlurSampleNumY(6);
+
+}
+
+
+void BlurWheel::blurX()
+{
+	setBlurRadiusX(3);
+	setBlurSampleNumX(6);
+}
+
+void BlurWheel::clearX()
+{
+	setBlurRadiusX(0);
+	setBlurSampleNumX(1);
+}
+
+
+
+float BlurWheel::rollTime = 1.2f;
+
+float BlurWheel::slowdownTime = 1.7f;
+
+float BlurWheel::accelerateTime = 0.4f;
+
+int BlurWheel::maxAccelerateBlur = 3.0f;
+
+int BlurWheel::maxBlur = 11;
+
+int BlurWheel::AnimationTag = 1;
+
+int BlurWheel::ValueByTag = 2;
+
+int BlurWheel::MoveByTag = 3;
+
+
+
+
+//////////////////////////////////////////////////////////////////////////
+//
+//		ValueBy
+//
+//////////////////////////////////////////////////////////////////////////
+
+
+ValueBy* ValueBy::create( float duration, float startValue , float deltaValue , float* pValue )
+{
+	ValueBy *ret = new ValueBy();
+	ret->initWithDuration(duration, startValue , deltaValue, pValue);
+	ret->autorelease();
+
+	return ret;
+}
+
+ValueBy* ValueBy::clone() const 
+{
+	return nullptr;
+}
+
+void ValueBy::startWithTarget( cocos2d::Node *target )
+{
+	ActionInterval::startWithTarget(target);
+	mPreviousValue = mStartValue;
+}
+
+void ValueBy::update( float time )
+{
+	if (_target)
+	{
+		float currentFloat = *mValue;
+		float diff = currentFloat - mPreviousValue;
+		mStartValue = mStartValue + diff;
+		float newfloat =  mStartValue + (mDeltaValue * time);
+		*mValue = newfloat;
+		mPreviousValue = newfloat;
+	}
+}
+
+bool ValueBy::initWithDuration( float duration, float startValue , float deltaValue, float* pValue )
+{
+	if (ActionInterval::initWithDuration(duration))
+	{
+		mStartValue = startValue;
+		mDeltaValue = deltaValue;
+		mValue = pValue;
+		return true;
+	}
+
+	return false;
+}
