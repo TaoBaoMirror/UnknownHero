@@ -132,6 +132,8 @@ public:
 	void  CallBack_RollOver();
 	void  CallBack_SlowdownRollOver();
 	void  CallBack_RandomRollOver();
+	//
+	void  AssetIconIDs();
 
 	//
 	void  Init();
@@ -139,6 +141,8 @@ public:
 	//
 	int	  Pick();
 	cocos2d::Rect	GetTouchRect();
+	int		GetState() const;
+	void    SetRollTime(float t) { mRollTime = t;}
 	/* ¼àÌý */
 	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 	void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);

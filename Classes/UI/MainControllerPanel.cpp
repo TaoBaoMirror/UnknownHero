@@ -216,10 +216,12 @@ void ActionWheel::RandomRoll()
 	if (mState != WheelIdle) return;
 
 	// 改变状态
-	mState = WheelRoll;
+	mState = WheelAccelerate;
 	// 所有的iconID已经设置Ok
-	int a[4]={0,1,2,0};  
-	mIconIDs.assign(a,a+4);
+
+	AssetIconIDs();
+
+
 	// 播放动画
 	PlayRandomRollAnimation();
 }
@@ -239,7 +241,9 @@ void ActionWheel::PlayRandomRollAnimation()
 		moveby_dis = -icon->getContentSize().height * iconNum;
 		auto moveby = cocos2d::MoveBy::create(mAccelerateTime,cocos2d::Vec2(0,moveby_dis));
 		auto eei = cocos2d::EaseIn::create(moveby,2);
-		icon->runAction(eei);
+		auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_AccelerateRollOver , this ));
+		auto seq = cocos2d::Sequence::create(eei,func,nullptr);
+		icon->runAction(seq);
 	}
 	//
 	auto moveby = cocos2d::MoveBy::create(mAccelerateTime,cocos2d::Vec2(0,moveby_dis));
@@ -253,70 +257,82 @@ void ActionWheel::PlayRandomRollAnimation()
 
 void ActionWheel::CallBack_AccelerateRollOver()
 {
-	// 1- 装配新的icon，设置他们的位置
-	mCurrentIconIndex = 2;
-	mNeedResetIconIndex = 3;
-	//
-	int iconNum = mWheelIcons.size();
-	for (int i = 0;i<iconNum;++i)
+	if (mState == WheelAccelerate)
 	{
-		WheelIcon* icon = mWheelIcons.at(i);
-		icon->SetResource(1,mIconIDs[i]);
-		//位置是clipperNode上面的位置
-		icon->setPosition(mIconBasePos.x, 
-			mIconBasePos.y - icon->getContentSize().height * i + icon->getContentSize().height * (iconNum - 1));
+		mState = WheelRoll;
+		// 1-
+		mBlurWheel->stopActionByTag(BlurWheel::MoveByTag);
+		// 2- 模糊一段时间
+		mBlurWheel->StopAccelerateAnimation();
+		mBlurWheel->PlayRollAnimation();
+		auto delay = cocos2d::DelayTime::create(mRollTime);
+		auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_RollOver , this ));
+		auto seq = cocos2d::Sequence::create(delay,func,nullptr);
+		runAction(seq);
 	}
-	// 2- 模糊一段时间
-	mBlurWheel->StopAccelerateAnimation();
-	mBlurWheel->PlayRollAnimation();
-	auto delay = cocos2d::DelayTime::create(mRollTime);
-	auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_RollOver , this ));
-	auto seq = cocos2d::Sequence::create(delay,func,nullptr);
-	runAction(seq);
+
 }
 
 
 void ActionWheel::CallBack_RollOver()
 {
-	mBlurWheel->StopRollAnimation();
-	mBlurWheel->PlaySlowdownAnimation();
-	//
-	auto delay = cocos2d::DelayTime::create(3);
-	auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_SlowdownRollOver , this ));
-	auto seq = cocos2d::Sequence::create(delay,func,nullptr);
-	runAction(seq);
+	if (mState == WheelRoll)
+	{
+		//
+		mBlurWheel->StopRollAnimation();
+		mBlurWheel->PlaySlowdownAnimation();
+		//
+		auto delay = cocos2d::DelayTime::create(3);
+		auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_SlowdownRollOver , this ));
+		auto seq = cocos2d::Sequence::create(delay,func,nullptr);
+		runAction(seq);
+	}
 }
 
 
 void ActionWheel::CallBack_SlowdownRollOver()
 {
-	mBlurWheel->StopSlowdownAnimation();
-	//
-	// 1- 继续开始向下运动
-	//
-	int iconNum = mWheelIcons.size();
-	int moveby_dis = 0;
-	for (int i = 0;i<iconNum;++i)
+	if (mState == WheelRoll)
 	{
-		WheelIcon* icon = mWheelIcons.at(i);
-		moveby_dis = -icon->getContentSize().height * (iconNum - 1);
+		mState = WheelSlowdown;
+		//
+		mBlurWheel->StopSlowdownAnimation();
+		//
+		// 1- 继续开始向下运动
+		//
+		// 1- 装配新的icon，设置他们的位置
+		mCurrentIconIndex = 2;
+		mNeedResetIconIndex = 3;
+		int iconNum = mWheelIcons.size();
+		int moveby_dis = 0;
+		for (int i = 0;i<iconNum;++i)
+		{
+			WheelIcon* icon = mWheelIcons.at(i);
+			icon->SetResource(1,mIconIDs[i]);
+			//位置是clipperNode上面的位置
+			icon->setPosition(mIconBasePos.x, 
+				mIconBasePos.y - icon->getContentSize().height * i + icon->getContentSize().height * (iconNum - 1));
+			moveby_dis = -icon->getContentSize().height * (iconNum - 1);
+			auto moveby = cocos2d::MoveBy::create(mSlowdownTime,cocos2d::Vec2(0,moveby_dis));
+			auto eei = cocos2d::EaseOut::create(moveby,2);
+			auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_RandomRollOver , this ));
+			auto seq = cocos2d::Sequence::create(eei,func,nullptr);
+			icon->runAction(seq);
+		}
+		//
 		auto moveby = cocos2d::MoveBy::create(mSlowdownTime,cocos2d::Vec2(0,moveby_dis));
 		auto eei = cocos2d::EaseOut::create(moveby,2);
-		icon->runAction(eei);
+		auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_RandomRollOver , this ));
+		auto seq = cocos2d::Sequence::create(eei,func,nullptr);
+		seq->setTag(BlurWheel::MoveByTag);
+		mBlurWheel->runAction(seq);
 	}
-	//
-	auto moveby = cocos2d::MoveBy::create(mSlowdownTime,cocos2d::Vec2(0,moveby_dis));
-	auto eei = cocos2d::EaseOut::create(moveby,2);
-	auto func = cocos2d::CallFuncN::create(CC_CALLBACK_0(ActionWheel::CallBack_RandomRollOver , this ));
-	auto seq = cocos2d::Sequence::create(eei,func,nullptr);
-	seq->setTag(BlurWheel::MoveByTag);
-	mBlurWheel->runAction(seq);
 }
 
 
 void ActionWheel::CallBack_RandomRollOver()
 {
-	if (mState == WheelRoll)
+	if (mState == WheelSlowdown)
 	{
 		// 改变状态,此时数据和画面已经一致了
 		//
@@ -383,6 +399,14 @@ cocos2d::Rect ActionWheel::GetTouchRect()
 	return cocos2d::Rect(0,icon->getPositionY() - h * 0.5f,w,h);
 }
 
+
+void ActionWheel::AssetIconIDs()
+{
+	int a[4]={cocos2d::random(0,2),cocos2d::random(0,2),cocos2d::random(0,2),cocos2d::random(0,2)};  
+	mIconIDs.assign(a,a+4);
+}
+
+
 ActionWheel::ActionWheel():
 	Layer(),
 	mPickedID(-1),
@@ -400,6 +424,11 @@ ActionWheel::ActionWheel():
 ActionWheel::~ActionWheel()
 {
 	mWheelIcons.clear();
+}
+
+int ActionWheel::GetState() const
+{
+	return mState;
 }
 
 int ActionWheel::ClipperTag = 0;
@@ -431,6 +460,8 @@ void MainControllerPanel::Init()
 		wheel->setPosition(i * 60,0);
 		addChild(wheel);
 		//
+		wheel->SetRollTime(2 + i);
+		//
 		mWheelList.pushBack(wheel);
 	}
 	//
@@ -453,10 +484,25 @@ void MainControllerPanel::onTouchesBegan( const std::vector<cocos2d::Touch*>& to
 	auto rect = GetWheelHandleRect();
 	if (rect.containsPoint(point))
 	{
+		bool canRoll = true;
+		//
 		for (int i = 0;i< mWheelList.size();++i)
 		{
-			mWheelList.at(i)->RandomRoll();
-		}	
+			if(mWheelList.at(i)->GetState() != WheelIdle)
+			{
+				canRoll = false;
+				break;
+			}
+		}
+		//
+		if(canRoll)
+		{
+			for (int i = 0;i< mWheelList.size();++i)
+			{
+				mWheelList.at(i)->RandomRoll();
+			}
+		}
+
 	}
 }
 
@@ -594,6 +640,7 @@ void BlurWheel::PlayRollAnimation()
 	playWink();
 	//此时，继续加速blur
 	ValueBy* vb = ValueBy::create(rollTime,maxAccelerateBlur,maxBlur - maxAccelerateBlur,&_blurRadiusY);
+	vb->setTag(ValueByTag);
 	runAction(vb);
 }
 
@@ -622,6 +669,7 @@ void BlurWheel::StopAccelerateAnimation()
 void BlurWheel::PlaySlowdownAnimation()
 {
 	ValueBy* vb = ValueBy::create(slowdownTime,maxBlur,-maxBlur,&_blurRadiusY);
+	vb->setTag(ValueByTag);
 	runAction(vb);
 }
 
@@ -657,15 +705,15 @@ void BlurWheel::playWink()
 void BlurWheel::update( float delta )
 {
 	setBlurRadiusY(_blurRadiusY);
-	setBlurSampleNumY(6);
+	setBlurSampleNumY(8);
 
 }
 
 
 void BlurWheel::blurX()
 {
-	setBlurRadiusX(3);
-	setBlurSampleNumX(6);
+	setBlurRadiusX(2);
+	setBlurSampleNumX(3);
 }
 
 void BlurWheel::clearX()
@@ -684,7 +732,7 @@ float BlurWheel::accelerateTime = 0.4f;
 
 int BlurWheel::maxAccelerateBlur = 3.0f;
 
-int BlurWheel::maxBlur = 11;
+int BlurWheel::maxBlur = 24;
 
 int BlurWheel::AnimationTag = 1;
 
