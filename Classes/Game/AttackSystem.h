@@ -36,15 +36,15 @@ public:
 	AttackRange*	GetAttackRange();
 	AttackRangeData*	GetAttackRangeData();
 	//
-	void	Update();
+	virtual void	Update();
 	//
-	bool	Load(std::ifstream& is);
-	bool	Save(std::ofstream& os);
+	virtual bool	Load(std::ifstream& is);
+	virtual bool	Save(std::ofstream& os);
 	//
 	AttackData*		CreateAttackData(int BearerID);
 	AttackData*		CreateAttackData(const GridPos& Gpos);
 
-
+	virtual void	AttackLogic(int WeaponOwerID, int HurtActorID){}
 protected:
 
 	Soldier*				m_pOwner;

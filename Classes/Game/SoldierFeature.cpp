@@ -1,6 +1,7 @@
 #include "SoldierFeature.h"
 #include "Soldier.h"
 #include "AttackSystem.h"
+#include "Weapon/GameSkill.h"
 
 double SoldierFeature::Health( Soldier* pBot )
 {

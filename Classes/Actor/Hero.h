@@ -7,7 +7,7 @@
 class Hero : public Actor
 {	
 public:
-	Hero(void);
+	Hero(int weaponID);
 	~Hero(void);
 
 	static Hero* createWithHeroID(int id);
@@ -54,7 +54,7 @@ public:
 	virtual void ActorWinUpdate(float dt) override;
 	virtual void ActorWinEnd() override;
 	//----------------------------------------
-	void ClickAttack();
+	void ClickAttack(int groupID);
 
 protected:
 	//HeroID

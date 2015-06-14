@@ -139,6 +139,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\Action\GameAction.cpp" />
+    <ClCompile Include="..\Classes\Action\GameActionSystem.cpp" />
+    <ClCompile Include="..\Classes\Action\GameAction_Sword.cpp" />
     <ClCompile Include="..\Classes\Actor\Actor.cpp" />
     <ClCompile Include="..\Classes\Actor\ActorBody.cpp" />
     <ClCompile Include="..\Classes\Actor\ActorFSM.cpp" />
@@ -224,9 +227,16 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\UI\TitleUI.cpp" />
     <ClCompile Include="..\Classes\Village\Village.cpp" />
     <ClCompile Include="..\Classes\VisibleRect.cpp" />
+    <ClCompile Include="..\Classes\Weapon\SkillList.cpp" />
+    <ClCompile Include="..\Classes\Weapon\GameSkill.cpp" />
+    <ClCompile Include="..\Classes\Weapon\WeaponFactory.cpp" />
+    <ClCompile Include="..\Classes\Weapon\Weapon_Sword.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\Action\GameAction.h" />
+    <ClInclude Include="..\Classes\Action\GameActionSystem.h" />
+    <ClInclude Include="..\Classes\Action\GameAction_Sword.h" />
     <ClInclude Include="..\Classes\Actor\Actor.h" />
     <ClInclude Include="..\Classes\Actor\ActorBody.h" />
     <ClInclude Include="..\Classes\Actor\ActorFSM.h" />
@@ -319,6 +329,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\UI\UICommon.h" />
     <ClInclude Include="..\Classes\Village\Village.h" />
     <ClInclude Include="..\Classes\VisibleRect.h" />
+    <ClInclude Include="..\Classes\Weapon\SkillList.h" />
+    <ClInclude Include="..\Classes\Weapon\GameSkill.h" />
+    <ClInclude Include="..\Classes\Weapon\WeaponFactory.h" />
+    <ClInclude Include="..\Classes\Weapon\Weapon_Sword.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

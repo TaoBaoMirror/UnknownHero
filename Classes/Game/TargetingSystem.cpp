@@ -4,6 +4,7 @@
 #include "MapNodeData.h"
 #include "Soldier.h"
 #include "AttackSystem.h"
+#include "Weapon/GameSkill.h"
 #include "AttackRange.h"
 
 TargetingSystem::TargetingSystem( Soldier* owner ):m_pOwner(owner),m_pCurrentTarget(0)

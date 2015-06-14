@@ -23,6 +23,8 @@
 #include "Goal_SoldierThink.h"
 #include "CommonFunc.h"
 
+#include "Weapon/WeaponFactory.h"
+#include "Weapon/SkillList.h"
 
 #include "SoldierPF.h"
 
@@ -41,9 +43,9 @@ Soldier::Soldier( int atk,int race ):
 	bShowMovePath = false;
 	pBrain = new Goal_SoldierThink(this);
 	//
-	pAttackSystem = new AttackSystem(this);
-	pAttackSystem->SetAttackRange(CIRCLE);
-	pAttackSystem->SetOriginalAttackDataBase(0);
+	//pAttackSystem = new AttackSystem(this);
+	pMainWeapon = WeaponFactory::GetInstance()->CreateWeapon(atk,this);
+	pSkillList = new SkillList(this);
 	//
 	pShieldSystem = new ShieldSystem(this);
 	pShieldSystem->SetOriginalShieldDataBase(0);
@@ -60,7 +62,8 @@ Soldier::Soldier( int atk,int race ):
 
 Soldier::~Soldier()
 {
-	if(pAttackSystem) { delete pAttackSystem; pAttackSystem = NULL;}
+	//if(pMainWeapon) { delete pMainWeapon; pMainWeapon = NULL;}
+	if(pSkillList) { delete pSkillList; pSkillList = NULL;}	
 	if(pShieldSystem) { delete pShieldSystem; pShieldSystem = NULL;}
 	if(pTargetingSystem) { delete pTargetingSystem; pTargetingSystem = NULL;}
 	if (pSoldierPF) { delete pSoldierPF; pSoldierPF = NULL;}
@@ -73,7 +76,10 @@ void Soldier::Update()
 {
 	UpdatePosition();
 	//
-	pAttackSystem->Update();
+	//pMainWeapon->Update();
+
+	pSkillList->Update();
+	
 	//
 	//pTargetingSystem->Update();
 	////
@@ -369,6 +375,10 @@ bool Soldier::canStay( const GridPos& GPos )
 
 Soldier* Soldier::canAttack( const GridPos& GPos )
 {
+	//AI要调用这个
+
+	//所以 怪物都使用mainWeapon？
+
 	int index = -1;
 	G_GetSceneMap().GetIndex(GPos,index);
 
@@ -490,12 +500,16 @@ void Soldier::Exorcise()
 	bPossessed = false;
 }
 //确定已经可以攻击到了
-void Soldier::Attack( Soldier* other )
+void Soldier::Attack( Soldier* other , int number )
 {
 // 	AttackData* ad = GetAttackSystem()->CreateAttackData(other->GetID());
 // 
 // 	
 }
+
+//void Soldier::UseDeputyWeapon( Soldier* other, int DWeaponNumber )
+//{ 	
+//}
 
 
 void Soldier::UpdateSoldierPFPosition()

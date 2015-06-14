@@ -9,12 +9,15 @@
 #include "Game/SoldierManager.h"
 #include "Game/Camp.h"
 #include "Messaging/MessageListenerManager.h"
+#include "Game/Soldier.h"
+#include "Weapon/GameSkill.h"
+#include "Weapon/SkillList.h"
 #include "Game/Trigger/GameTrigger.h"
 
 const float Actor::g_ActorMoveTime = 0.5f;
 
-Actor::Actor(void) :
-	Soldier(0,0),m_OneRoundActionTimes(1)
+Actor::Actor(int weaponID) :
+	Soldier(weaponID,0),m_OneRoundActionTimes(1)
 {	
 }
 
@@ -131,16 +134,35 @@ void Actor::AIThink(float dt)
 	GetBrain()->Process();
 }
 
-void Actor::Attack( Soldier* other )
+void Actor::Attack( Soldier* other , int number)
 {
 	//Soldier::Attack(other);
-	auto atkData = GetAttackSystem()->CreateAttackData(other->GetID());
+	//auto atkData = GetAttackSystem()->CreateAttackData(other->GetID());
 	//
-	m_pTempAtkData = atkData;
-	//
-	m_pFSM->SetStatus(Actor_Attack::Instance());
+	//m_pTempAtkData = atkData;
+	////
+	//m_pFSM->SetStatus(Actor_Attack::Instance());
+
+	SkillList* pSkillList = GetSkillList(number);
+
 
 }
+
+//void Actor::UseDeputyWeapon( Soldier* other, int index )
+//{
+//	//Soldier::Attack(other);
+//	//auto atkData = GetAttackSystem()->CreateAttackData(other->GetID());
+//	GameActions* pGameActions = GetGameActions(index);
+//	ActionBase* pDepWeapon = pGameActions->GetWeapon(index);
+//	if (pDepWeapon != nullptr)
+//	{
+//		auto depData = pDepWeapon->CreateAttackData(other->GetID());
+//
+//		m_pTempAtkData = depData;
+//
+//		m_pFSM->SetStatus(Actor_Attack::Instance());
+//	}
+//}
 
 void Actor::GetHurt(const DamageData& damageData)
 {

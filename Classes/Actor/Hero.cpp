@@ -4,8 +4,12 @@
 #include "Data/TableManager.h"
 #include "Game/CommonFunc.h"
 #include "Game/AttackSystem.h"
+#include "Game/Soldier.h"
+#include "Weapon/GameSkill.h"
+#include "Action/GameActionSystem.h"
 //----------------------------------------------
-Hero::Hero(void)
+Hero::Hero(int weaponID) :
+	Actor(weaponID)
 {
 	std::string test[5] = {"stand", "move", "attack", "die", "win"};
 	//ActionsName = test; 
@@ -26,7 +30,9 @@ Hero::~Hero(void)
 
 Hero* Hero::createWithHeroID(int id)
 {
-	Hero* pHero = new Hero();
+	int iMainWeaponID = TableManager::GetInstance()->GetTableIntData(TableType::Table_Hero,"MainWeaponID",id);
+
+	Hero* pHero = new Hero(iMainWeaponID);
 	
 	pHero->SetHeroID(id);
 
@@ -207,15 +213,16 @@ void Hero::CalcAttack( AttackData* pAtkData )
 }
 
 //------------------------------------------------------------------------------------
-void Hero::ClickAttack()
+void Hero::ClickAttack(int groupID)
 {
+	GameActionSystem::GetInstance()->ClickAction(groupID);
 	//1 显示攻击范围
-	if (this->IsShowAttackRange() == false)
-	{
-		this->SetShowAttackRange(true);
+	//if (this->IsShowAttackRange() == false)
+	//{
+	//	this->SetShowAttackRange(true);
 
-		this->showAttackRange(GetAttackSystem()->GetAttackRange()->GetRangeGPosList());
-	}
+	//	this->showAttackRange(GetAttackSystem()->GetAttackRange()->GetRangeGPosList());
+	//}
 
 	//2 直接攻击前方
 }

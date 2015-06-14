@@ -8,6 +8,7 @@
 #include "GameStatus/GameStates.h"
 #include "Actor/ActorStatus.h"
 #include "Game/AttackSystem.h"
+#include "Weapon/GameSkill.h"
 #include "Game/AttackRange.h"
 
 #include "ResDef.h"
@@ -136,6 +137,8 @@ bool GameManager::CheckNoDyingActor()
 	{
 		return false;
 	}
+
+	return true;
 }
 //-----------------------------------------------------------------
 void GameManager:: RoundPassed()
@@ -403,7 +406,7 @@ bool GameManager::MouseDown(const cocos2d::Vec2& touchpos)
 						}
 						if (pTargetSoldier != nullptr)
 						{								
-							pHero->Attack(pTargetSoldier);
+							pHero->Attack(pTargetSoldier,0);
 						}
 						else if (pHero->canStay(gridPos) )
 						{
@@ -431,7 +434,7 @@ bool GameManager::MouseDown(const cocos2d::Vec2& touchpos)
 							if (pTargetSoldier != nullptr)
 							{
 								//attack
-								pHero->Attack(pTargetSoldier);
+								pHero->Attack(pTargetSoldier,0);
 							}
 						}
 						else
@@ -533,7 +536,7 @@ void GameManager::ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, 
 				}
 				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_G)
 				{
-					pHero->ClickAttack();
+					pHero->ClickAttack(1);
 				}
 				// add by Hitman [5/24/2015]
 				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B)

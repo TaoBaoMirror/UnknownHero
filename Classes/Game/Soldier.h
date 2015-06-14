@@ -29,7 +29,13 @@ class TargetingSystem;
 class SoldierPF;
 class AttackData;
 class DamageData;
+
+class SkillList;
+
+class GameSkill;
 //
+
+//老虎机的三个轴
 
 class Soldier:public MessageListener,public CreatureBase
 {
@@ -73,8 +79,10 @@ public:
 	virtual bool TravalTo(const GridPos& GPos);
 	//攻击操作
 	//攻击动画完成后，去核算攻击数据
-	virtual void Attack(Soldier* other);
+	virtual void Attack(Soldier* other , int number);
 	virtual void GetHurt(const DamageData& damageData);//这里传递的引用，如果要动画，应该memcpy
+
+	//virtual void UseDeputyWeapon(Soldier* other, int DWeaponNumber);
 	/* 攻击完成 */
 	virtual void CallBack_AttackFinish();
 	/* 攻击成功 */
@@ -116,7 +124,11 @@ public:
 
 
 
-	AttackSystem* GetAttackSystem() {return pAttackSystem;}
+	GameSkill* GetAttackSystem() {return pMainWeapon;}
+	SkillList* GetSkillList(int index) 
+	{
+		return pSkillList;
+	}
 	ShieldSystem* GetShieldSystem() { return pShieldSystem;}
 	TargetingSystem* GetTargetingSystem() {return pTargetingSystem;}
 	Goal_SoldierThink* GetBrain() {return pBrain;}
@@ -155,7 +167,9 @@ private:
 	bool	bShowAttackRange;
 	bool	bShowMovePath;
 
-	AttackSystem*	pAttackSystem;
+	GameSkill*	pMainWeapon;
+	SkillList*  pSkillList;
+
 	ShieldSystem*   pShieldSystem;
 	TargetingSystem* pTargetingSystem;
 	Goal_SoldierThink*  pBrain;

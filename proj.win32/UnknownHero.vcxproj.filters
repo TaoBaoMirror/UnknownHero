@@ -85,8 +85,14 @@
     <Filter Include="src\Game\Bullet">
       <UniqueIdentifier>{1ac940b2-95b6-401e-8f5c-86accc4d0ae4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Weapon">
+      <UniqueIdentifier>{0500378b-7176-43e0-ab11-7706dcd877ad}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Game\Trigger">
       <UniqueIdentifier>{b8a224a4-965f-461a-9c4b-8a713ef890a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Action">
+      <UniqueIdentifier>{28de2687-13ed-4f38-98f4-3cbd08fdb382}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -336,6 +342,12 @@
     <ClCompile Include="..\Classes\Game\Goal_HuntTarget.cpp">
       <Filter>src\Game\AI\composite</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Weapon\Weapon_Sword.cpp">
+      <Filter>src\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Weapon\WeaponFactory.cpp">
+      <Filter>src\Weapon</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\Game\MapRule.cpp">
       <Filter>src\Game\Map</Filter>
     </ClCompile>
@@ -344,6 +356,21 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Trigger\GameTrigger.cpp">
       <Filter>src\Game\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Action\GameActionSystem.cpp">
+      <Filter>src\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Weapon\GameSkill.cpp">
+      <Filter>src\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Weapon\SkillList.cpp">
+      <Filter>src\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Action\GameAction.cpp">
+      <Filter>src\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Action\GameAction_Sword.cpp">
+      <Filter>src\Action</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UI\MainControllerPanel.cpp">
       <Filter>src\UI</Filter>
@@ -617,6 +644,12 @@
     <ClInclude Include="..\Classes\Actor\ActorPathFinderCalculateFunc.h">
       <Filter>src\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Weapon\Weapon_Sword.h">
+      <Filter>src\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Weapon\WeaponFactory.h">
+      <Filter>src\Weapon</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\Game\MapRule.h">
       <Filter>src\Game\Map</Filter>
     </ClInclude>
@@ -625,6 +658,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Trigger\GameTrigger.h">
       <Filter>src\Game\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Action\GameActionSystem.h">
+      <Filter>src\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Weapon\GameSkill.h">
+      <Filter>src\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Weapon\SkillList.h">
+      <Filter>src\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Action\GameAction.h">
+      <Filter>src\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Action\GameAction_Sword.h">
+      <Filter>src\Action</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\UI\MainControllerPanel.h">
       <Filter>src\UI</Filter>
