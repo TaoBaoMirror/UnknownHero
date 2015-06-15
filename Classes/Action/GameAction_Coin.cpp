@@ -4,6 +4,8 @@
 GameAction_Coin::GameAction_Coin(int typeID) : 
 	GameAction(typeID)
 {
+	m_IconID = 2;
+
 }
 
 

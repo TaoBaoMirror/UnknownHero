@@ -4,6 +4,8 @@
 GameAction_Bow::GameAction_Bow(int typeID) : 
 	GameAction(typeID)
 {
+	m_IconID = 1;
+
 }
 
 

@@ -4,6 +4,7 @@
 GameAction_MonsterStrong::GameAction_MonsterStrong(int typeID) : 
 	GameAction(typeID)
 {
+	m_IconID = 0;
 }
 
 

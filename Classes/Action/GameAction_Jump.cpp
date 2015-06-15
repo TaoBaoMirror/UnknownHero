@@ -4,6 +4,7 @@
 GameAction_Jump::GameAction_Jump(int typeID) : 
 	GameAction(typeID)
 {
+	m_IconID = 3;
 }
 
 

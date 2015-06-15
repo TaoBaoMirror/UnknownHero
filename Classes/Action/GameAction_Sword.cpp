@@ -4,6 +4,8 @@
 GameAction_Sword::GameAction_Sword(int typeID) : 
 	GameAction(typeID)
 {
+	m_IconID = 1;
+
 }
 
 

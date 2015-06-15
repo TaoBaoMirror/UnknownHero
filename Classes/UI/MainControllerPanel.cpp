@@ -3,8 +3,8 @@
 #include "Action/GameActionSystem.h"
 //
 
-const std::string WheelIcon::IconDict[3] = { "rateme_normal.png" , "sound_normal.png" , "help_normal.png"};
-const std::string WheelIcon::IconDict_HighLight[3] = { "rateme_hover.png" , "sound_hover.png" , "help_hover.png"};
+const std::string WheelIcon::IconDict[4] = { "rateme_normal.png" , "sound_normal.png" , "help_normal.png" , "sound_disable_normal.png" };
+const std::string WheelIcon::IconDict_HighLight[4] = { "rateme_hover.png" , "sound_hover.png" , "help_hover.png", "sound_hover.png"};
 
 
 
@@ -58,7 +58,7 @@ void WheelIcon::Init( int num,int iconID )
 
 void WheelIcon::Init( GameAction* gameAction )
 {
-	Init(1,gameAction->GetTypeID());
+	Init(1,gameAction->GetIconID());
 }
 
 bool WheelIcon::PickOne()
@@ -209,7 +209,7 @@ void ActionWheel::CallBack_RollToNextIcon()
 
 		GameActionSystem::GetInstance()->RollGroup(mGroupID);
 
-		iconID = GameActionSystem::GetInstance()->GetAction(mGroupID,NextNextAction)->GetTypeID();
+		iconID = GameActionSystem::GetInstance()->GetAction(mGroupID,NextNextAction)->GetIconID();
 		//
 		mIconIDs[mNeedResetIconIndex] = iconID;
 
@@ -416,10 +416,10 @@ void ActionWheel::AssetIconIDs()
 {
 	GameActionSystem::GetInstance()->RoleMachine();
 	//
-	mIconIDs[NextNextAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,NextNextAction)->GetTypeID();
-	mIconIDs[NextAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,NextAction)->GetTypeID();
-	mIconIDs[CurAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,CurAction)->GetTypeID();
-	mIconIDs[PreAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,PreAction)->GetTypeID();
+	mIconIDs[NextNextAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,NextNextAction)->GetIconID();
+	mIconIDs[NextAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,NextAction)->GetIconID();
+	mIconIDs[CurAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,CurAction)->GetIconID();
+	mIconIDs[PreAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,PreAction)->GetIconID();
 }
 
 
@@ -477,22 +477,25 @@ void MainControllerPanel::Init()
 		wheel->SetGroupID(i);
 		addChild(wheel);
 		//
-		wheel->SetRollTime(2 + i);
 		//
 		mWheelList.pushBack(wheel);
 	}
 	//
 	GameActionSystem::GetInstance()->RoleMachine();
 	//
+	const int IconNum = 4;
 	for (int i = 0 ;i < mWheelList.size();++i)
 	{
-		std::vector<int>  ids(4,-1);
-		for (int k = 0;k< ids.size();++k)
+		std::vector<int>  ids(IconNum,-1);
+
+		for (int k = 0;k < IconNum;++k)
 		{
 			auto act = GameActionSystem::GetInstance()->GetAction(i,k);
-			ids[k] = act->GetTypeID();  // GetIconID()   ?
-			mWheelList.at(i)->Init(ids);
+			ids[k] = act->GetIconID();  // GetIconID()   ?
 		}
+
+		mWheelList.at(i)->Init(ids);
+		mWheelList.at(i)->SetRollTime(2 + i);
 	}
 	//
 	mWheelHandle = cocos2d::Sprite::createWithSpriteFrameName("play_normal.png");
