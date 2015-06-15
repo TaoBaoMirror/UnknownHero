@@ -156,35 +156,35 @@ void GameActionSystem::CreateActionAtReserve(GameActionType type, int weight)
 
 void GameActionSystem::ClickAction(int GroupID)
 {
-	if (GroupID == 1)
+	if (GroupID == 0)
 	{
 		if (m_Action_Group1[CurAction] != nullptr)
 		{
 			m_Action_Group1[CurAction]->ClickAction();
 		}
 	}
-	else if (GroupID == 2)
+	else if (GroupID == 1)
 	{
 		if (m_Action_Group2[CurAction] != nullptr)
 		{
 			m_Action_Group2[CurAction]->ClickAction();
 		}
 	}
-	else if (GroupID == 3)
+	else if (GroupID == 2)
 	{
 		if (m_Action_Group3[CurAction] != nullptr)
 		{
 			m_Action_Group3[CurAction]->ClickAction();
 		}
 	}
-	else if (GroupID == 4)
+	else if (GroupID == 3)
 	{
 		if (m_Action_Group4[CurAction] != nullptr)
 		{	
 			m_Action_Group4[CurAction]->ClickAction();
 		}
 	}
-	else if (GroupID == 5)
+	else if (GroupID == 4)
 	{
 		if (m_Action_Group5[CurAction] != nullptr)
 		{			
@@ -202,7 +202,7 @@ void GameActionSystem::UseAction(int GroupID)
 		mustRoll[i] = false;
 	}
 
-	if (GroupID == 1)
+	if (GroupID == 0)
 	{
 		if (m_Action_Group1[CurAction] != nullptr)
 		{
@@ -234,7 +234,7 @@ void GameActionSystem::UseAction(int GroupID)
 			m_Action_Group1[CurAction]->UseAction(level);
 		}
 	}
-	else if (GroupID == 2)
+	else if (GroupID == 1)
 	{
 		if (m_Action_Group2[CurAction] != nullptr)
 		{
@@ -266,7 +266,7 @@ void GameActionSystem::UseAction(int GroupID)
 			m_Action_Group2[CurAction]->UseAction(level);
 		}
 	}
-	else if (GroupID == 3)
+	else if (GroupID == 2)
 	{
 		if (m_Action_Group3[CurAction] != nullptr)
 		{
@@ -298,7 +298,7 @@ void GameActionSystem::UseAction(int GroupID)
 			m_Action_Group3[CurAction]->UseAction(level);
 		}
 	}
-	else if (GroupID == 4)
+	else if (GroupID == 3)
 	{
 		mustRoll[3] = true;
 		if (m_Action_Group4[CurAction] != nullptr)
@@ -330,7 +330,7 @@ void GameActionSystem::UseAction(int GroupID)
 			m_Action_Group4[CurAction]->UseAction(level);
 		}
 	}
-	else if (GroupID == 5)
+	else if (GroupID == 4)
 	{
 		mustRoll[4] = true;
 		if (m_Action_Group5[CurAction] != nullptr)
@@ -368,23 +368,23 @@ void GameActionSystem::UseAction(int GroupID)
 	//3 滚动老虎机使用了技能那组
 	if (mustRoll[0] == true)
 	{
-		RollGroup(1);
+		RollGroup(0);
 	}
 	if (mustRoll[1] == true)
 	{
-		RollGroup(2);
+		RollGroup(1);
 	}
 	if (mustRoll[2] == true)
 	{
-		RollGroup(3);
+		RollGroup(2);
 	}
 	if (mustRoll[3] == true)
 	{
-		RollGroup(4);
+		RollGroup(3);
 	}
 	if (mustRoll[4] == true)
 	{
-		RollGroup(5);
+		RollGroup(4);
 	}
 	
 }
@@ -394,7 +394,7 @@ void GameActionSystem::RollGroup(int nGroupID)
 	GameAction* newAction = RandomAction();
 	if (newAction != nullptr)
 	{
-		if (nGroupID == 1)
+		if (nGroupID == 0)
 		{
 			//one by one
 			m_Action_Group1[PreAction] = m_Action_Group1[CurAction];
@@ -402,7 +402,7 @@ void GameActionSystem::RollGroup(int nGroupID)
 			m_Action_Group1[NextAction] = m_Action_Group1[NextNextAction];
 			m_Action_Group1[NextNextAction] = newAction;
 		}
-		else if (nGroupID == 2)
+		else if (nGroupID == 1)
 		{
 			//one by one
 			m_Action_Group2[PreAction] = m_Action_Group2[CurAction];
@@ -410,7 +410,7 @@ void GameActionSystem::RollGroup(int nGroupID)
 			m_Action_Group2[NextAction] = m_Action_Group2[NextNextAction];
 			m_Action_Group3[NextNextAction] = newAction;
 		}
-		else if (nGroupID == 3)
+		else if (nGroupID == 2)
 		{
 			//one by one
 			m_Action_Group3[PreAction] = m_Action_Group3[CurAction];
@@ -418,7 +418,7 @@ void GameActionSystem::RollGroup(int nGroupID)
 			m_Action_Group3[NextAction] = m_Action_Group3[NextNextAction];
 			m_Action_Group3[NextNextAction] = newAction;
 		}
-		else if (nGroupID == 4)
+		else if (nGroupID == 3)
 		{
 			//one by one
 			m_Action_Group4[PreAction] = m_Action_Group4[CurAction];
@@ -426,7 +426,7 @@ void GameActionSystem::RollGroup(int nGroupID)
 			m_Action_Group4[NextAction] = m_Action_Group4[NextNextAction];
 			m_Action_Group4[NextNextAction] = newAction;
 		}
-		else if (nGroupID == 5)
+		else if (nGroupID == 4)
 		{
 			//one by one
 			m_Action_Group5[PreAction] = m_Action_Group5[CurAction];
@@ -498,23 +498,23 @@ GameAction* GameActionSystem::GetAction(int groupID, int actionOrder)
 		return nullptr;
 	}
 
-	if (groupID == 1)
+	if (groupID == 0)
 	{
 		return m_Action_Group1[actionOrder];
 	}
-	else if(groupID == 2)
+	else if(groupID == 1)
 	{
 		return m_Action_Group2[actionOrder];
 	}
-	else if(groupID == 3)
+	else if(groupID == 2)
 	{
 		return m_Action_Group3[actionOrder];
 	}
-	else if(groupID == 4)
+	else if(groupID == 3)
 	{
 		return m_Action_Group4[actionOrder];
 	}
-	else if(groupID == 5)
+	else if(groupID == 4)
 	{
 		return m_Action_Group5[actionOrder];
 	}
