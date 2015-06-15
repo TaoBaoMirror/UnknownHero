@@ -2,6 +2,11 @@
 #include "base\ccMacros.h"
 
 #include "Action/GameAction_Sword.h"
+#include "GameAction_Jump.h"
+#include "GameAction_Bomb.h"
+#include "GameAction_Coin.h"
+#include "GameAction_MonsterStrong.h"
+#include "GameAction_Bow.h"
 
 
 GameActionSystem* GameActionSystem::m_Instance = nullptr;
@@ -80,7 +85,17 @@ void GameActionSystem::CalculateActionsRate()
 	}
 }
 
-void GameActionSystem::CreateActionAtReserve(GameActionType type)
+void GameActionSystem::InitCreateReserveWithList(std::vector<std::pair<GameActionType,int>> types)
+{
+	std::vector<std::pair<GameActionType,int>>::iterator it = types.begin();
+	for ( ; it != types.end(); ++it)
+	{
+		CreateActionAtReserve((*it).first, (*it).second);
+	}
+	
+}
+
+void GameActionSystem::CreateActionAtReserve(GameActionType type, int weight)
 {
 	GameAction* pNewAction = nullptr;
 
@@ -92,14 +107,26 @@ void GameActionSystem::CreateActionAtReserve(GameActionType type)
 		}
 		break;
 	case GameActionType_Jump:
+		{
+			pNewAction = new GameAction_Jump((int)type);
+		}
 		break;
 	case GameActionType_Bomb:
+		{
+			pNewAction = new GameAction_Bomb((int)type);
+		}
 		break;
 	case GameActionType_Coin:
+		{
+			pNewAction = new GameAction_Coin((int)type);
+		}
 		break;
 	case GameActionType_Cure:
 		break;
 	case GameActionType_MonsterStrong:
+		{
+			pNewAction = new GameAction_MonsterStrong((int)type);
+		}
 		break;
 	case GameActionType_MonsterAppear:
 		break;
@@ -110,6 +137,9 @@ void GameActionSystem::CreateActionAtReserve(GameActionType type)
 	case GameActionType_Magic_Freeze:
 		break;
 	case GameActionType_Bow:
+		{
+			pNewAction = new GameAction_Bow((int)type);
+		}
 		break;
 	case GameActionType_Trap_Hurt:
 		break;
@@ -119,6 +149,7 @@ void GameActionSystem::CreateActionAtReserve(GameActionType type)
 
 	if (pNewAction != nullptr)
 	{
+		pNewAction->SetWeight(weight);
 		m_ActionReserve[type] = pNewAction;
 	}	
 }
@@ -365,13 +396,6 @@ void GameActionSystem::RollGroup(int nGroupID)
 	{
 		if (nGroupID == 1)
 		{
-			//del last
-			if (m_Action_Group1[PreAction] != nullptr)
-			{
-				GameAction* pOldAct = m_Action_Group1[PreAction];
-				delete pOldAct;
-			}
-
 			//one by one
 			m_Action_Group1[PreAction] = m_Action_Group1[CurAction];
 			m_Action_Group1[CurAction] = m_Action_Group1[NextAction];
@@ -380,13 +404,6 @@ void GameActionSystem::RollGroup(int nGroupID)
 		}
 		else if (nGroupID == 2)
 		{
-			//del last
-			if (m_Action_Group2[PreAction] != nullptr)
-			{
-				GameAction* pOldAct = m_Action_Group2[PreAction];
-				delete pOldAct;
-			}
-
 			//one by one
 			m_Action_Group2[PreAction] = m_Action_Group2[CurAction];
 			m_Action_Group2[CurAction] = m_Action_Group2[NextAction];
@@ -395,13 +412,6 @@ void GameActionSystem::RollGroup(int nGroupID)
 		}
 		else if (nGroupID == 3)
 		{
-			//del last
-			if (m_Action_Group3[PreAction] != nullptr)
-			{
-				GameAction* pOldAct = m_Action_Group3[PreAction];
-				delete pOldAct;
-			}
-
 			//one by one
 			m_Action_Group3[PreAction] = m_Action_Group3[CurAction];
 			m_Action_Group3[CurAction] = m_Action_Group3[NextAction];
@@ -410,13 +420,6 @@ void GameActionSystem::RollGroup(int nGroupID)
 		}
 		else if (nGroupID == 4)
 		{
-			//del last
-			if (m_Action_Group4[PreAction] != nullptr)
-			{
-				GameAction* pOldAct = m_Action_Group4[PreAction];
-				delete pOldAct;
-			}
-
 			//one by one
 			m_Action_Group4[PreAction] = m_Action_Group4[CurAction];
 			m_Action_Group4[CurAction] = m_Action_Group4[NextAction];
@@ -425,22 +428,11 @@ void GameActionSystem::RollGroup(int nGroupID)
 		}
 		else if (nGroupID == 5)
 		{
-			//del last
-			if (m_Action_Group5[PreAction] != nullptr)
-			{
-				GameAction* pOldAct = m_Action_Group5[PreAction];
-				delete pOldAct;
-			}
-
 			//one by one
 			m_Action_Group5[PreAction] = m_Action_Group5[CurAction];
 			m_Action_Group5[CurAction] = m_Action_Group5[NextAction];
 			m_Action_Group5[NextAction] = m_Action_Group5[NextNextAction];
 			m_Action_Group5[NextNextAction] = newAction;
-		}
-		else
-		{
-			delete newAction;
 		}
 	}	
 }

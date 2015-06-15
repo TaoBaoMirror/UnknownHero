@@ -3,6 +3,7 @@
 
 #include "Action/GameAction.h"
 #include <map>
+#include <vector>
 
 enum GameActionType
 {
@@ -36,7 +37,9 @@ public:
 	static GameActionSystem* GetInstance();
 	~GameActionSystem(void);
 
-	void CreateActionAtReserve(GameActionType type);
+	void InitCreateReserveWithList(std::vector<std::pair<GameActionType,int>> types);
+
+	void CreateActionAtReserve(GameActionType type, int weight);
 
 	void ClickAction(int GroupID);
 

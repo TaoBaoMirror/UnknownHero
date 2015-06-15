@@ -141,6 +141,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
   <ItemGroup>
     <ClCompile Include="..\Classes\Action\GameAction.cpp" />
     <ClCompile Include="..\Classes\Action\GameActionSystem.cpp" />
+    <ClCompile Include="..\Classes\Action\GameAction_Bomb.cpp" />
+    <ClCompile Include="..\Classes\Action\GameAction_Bow.cpp" />
+    <ClCompile Include="..\Classes\Action\GameAction_Coin.cpp" />
+    <ClCompile Include="..\Classes\Action\GameAction_Jump.cpp" />
+    <ClCompile Include="..\Classes\Action\GameAction_MonsterStrong.cpp" />
     <ClCompile Include="..\Classes\Action\GameAction_Sword.cpp" />
     <ClCompile Include="..\Classes\Actor\Actor.cpp" />
     <ClCompile Include="..\Classes\Actor\ActorBody.cpp" />
@@ -236,6 +241,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
   <ItemGroup>
     <ClInclude Include="..\Classes\Action\GameAction.h" />
     <ClInclude Include="..\Classes\Action\GameActionSystem.h" />
+    <ClInclude Include="..\Classes\Action\GameAction_Bomb.h" />
+    <ClInclude Include="..\Classes\Action\GameAction_Bow.h" />
+    <ClInclude Include="..\Classes\Action\GameAction_Coin.h" />
+    <ClInclude Include="..\Classes\Action\GameAction_Jump.h" />
+    <ClInclude Include="..\Classes\Action\GameAction_MonsterStrong.h" />
     <ClInclude Include="..\Classes\Action\GameAction_Sword.h" />
     <ClInclude Include="..\Classes\Actor\Actor.h" />
     <ClInclude Include="..\Classes\Actor\ActorBody.h" />

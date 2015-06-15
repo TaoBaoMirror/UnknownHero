@@ -11,13 +11,12 @@ public:
 
 	virtual void UseAction(int level); //老虎机摇出两个一样的 就是2级 3个 就是三级
 
+	void SetWeight(int wei){ m_Weight = wei; }
 	int GetWeight(){return m_Weight;}
 
 	int GetTypeID(){return m_TypeID;}
 
 	int GetIconID(){return m_IconID;}
-
-
 protected:
 	int m_Weight;
 

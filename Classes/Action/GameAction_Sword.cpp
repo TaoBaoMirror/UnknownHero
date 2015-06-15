@@ -11,7 +11,7 @@ GameAction_Sword::~GameAction_Sword(void)
 {
 }
 
-void GameAction_Sword::UseAction(int level)
+void GameAction_Sword::UseAction(int nlevel)
 {
 	;
 }

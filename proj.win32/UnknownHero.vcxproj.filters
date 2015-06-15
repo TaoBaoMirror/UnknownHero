@@ -375,6 +375,21 @@
     <ClCompile Include="..\Classes\UI\MainControllerPanel.cpp">
       <Filter>src\UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Action\GameAction_Bomb.cpp">
+      <Filter>src\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Action\GameAction_Coin.cpp">
+      <Filter>src\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Action\GameAction_Jump.cpp">
+      <Filter>src\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Action\GameAction_Bow.cpp">
+      <Filter>src\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Action\GameAction_MonsterStrong.cpp">
+      <Filter>src\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -676,6 +691,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\UI\MainControllerPanel.h">
       <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Action\GameAction_Bomb.h">
+      <Filter>src\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Action\GameAction_Coin.h">
+      <Filter>src\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Action\GameAction_Jump.h">
+      <Filter>src\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Action\GameAction_Bow.h">
+      <Filter>src\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Action\GameAction_MonsterStrong.h">
+      <Filter>src\Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

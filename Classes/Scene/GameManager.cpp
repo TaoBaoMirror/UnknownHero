@@ -17,6 +17,7 @@
 #include "Game/Camp.h"
 #include "MarkTileManager.h"
 #include "Bullet/GameBullet.h"
+#include "Action/GameActionSystem.h"
 
 GameManager* GameManager::m_Instance = nullptr;
 
@@ -39,6 +40,16 @@ GameManager::GameManager()
 	m_CurGameST = nullptr;
 
 	Camp::CreateCamps(3);
+
+	//temp test//
+	std::vector<std::pair<GameActionType,int>> testlist;
+	testlist.push_back(std::make_pair(GameActionType::GameActionType_Sword,20));
+	testlist.push_back(std::make_pair(GameActionType::GameActionType_Jump,20));
+	testlist.push_back(std::make_pair(GameActionType::GameActionType_Coin,20));
+	testlist.push_back(std::make_pair(GameActionType::GameActionType_Bow,20));
+	GameActionSystem::GetInstance()->InitCreateReserveWithList(testlist);
+	GameActionSystem::GetInstance()->CalculateActionsRate();
+	//end
 }
 
 
