@@ -15,6 +15,9 @@ public:
 
 	int GetTypeID(){return m_TypeID;}
 
+	int GetIconID(){return m_IconID;}
+
+
 protected:
 	int m_Weight;
 

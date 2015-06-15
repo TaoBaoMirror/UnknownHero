@@ -1,4 +1,6 @@
 #include "MainControllerPanel.h"
+#include "Action/GameAction.h"
+#include "Action/GameActionSystem.h"
 //
 
 const std::string WheelIcon::IconDict[3] = { "rateme_normal.png" , "sound_normal.png" , "help_normal.png"};
@@ -54,6 +56,11 @@ void WheelIcon::Init( int num,int iconID )
 	autorelease();
 }
 
+void WheelIcon::Init( GameAction* gameAction )
+{
+	Init(1,gameAction->GetTypeID());
+}
+
 bool WheelIcon::PickOne()
 {
 	return (mNum--) > 0;
@@ -85,6 +92,7 @@ void ActionWheel::Init()
 	std::vector<int>  ids(a,a+4);
 	ActionWheel::Init( ids );
 }
+
 void ActionWheel::Init( const std::vector<int>& IconIDs )
 {
 	if(!Layer::init()) return;
@@ -198,6 +206,10 @@ void ActionWheel::CallBack_RollToNextIcon()
 		icon->setPosition(mIconBasePos);
 		//
 		int iconID = cocos2d::random(0,2);
+
+		GameActionSystem::GetInstance()->RollGroup(mGroupID);
+
+		iconID = GameActionSystem::GetInstance()->GetAction(mGroupID,NextNextAction)->GetTypeID();
 		//
 		mIconIDs[mNeedResetIconIndex] = iconID;
 
@@ -402,8 +414,12 @@ cocos2d::Rect ActionWheel::GetTouchRect()
 
 void ActionWheel::AssetIconIDs()
 {
-	int a[4]={cocos2d::random(0,2),cocos2d::random(0,2),cocos2d::random(0,2),cocos2d::random(0,2)};  
-	mIconIDs.assign(a,a+4);
+	GameActionSystem::GetInstance()->RoleMachine();
+	//
+	mIconIDs[NextNextAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,NextNextAction)->GetTypeID();
+	mIconIDs[NextAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,NextAction)->GetTypeID();
+	mIconIDs[CurAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,CurAction)->GetTypeID();
+	mIconIDs[PreAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,PreAction)->GetTypeID();
 }
 
 
@@ -416,7 +432,8 @@ ActionWheel::ActionWheel():
 	mAccelerateTime(1),
 	mRollTime(2),
 	mSlowdownTime(1),
-	mRollNextIconTime(1)
+	mRollNextIconTime(1),
+	mGroupID(-1)
 {
 
 }
@@ -455,14 +472,27 @@ void MainControllerPanel::Init()
 	for (int i = 0 ;i < WheelsNum;++i)
 	{
 		ActionWheel* wheel = new ActionWheel();
-		wheel->Init();
 		wheel->autorelease();
 		wheel->setPosition(i * 60,0);
+		wheel->SetGroupID(i);
 		addChild(wheel);
 		//
 		wheel->SetRollTime(2 + i);
 		//
 		mWheelList.pushBack(wheel);
+	}
+	//
+	GameActionSystem::GetInstance()->RoleMachine();
+	//
+	for (int i = 0 ;i < mWheelList.size();++i)
+	{
+		std::vector<int>  ids(4,-1);
+		for (int k = 0;k< ids.size();++k)
+		{
+			auto act = GameActionSystem::GetInstance()->GetAction(i,k);
+			ids[k] = act->GetTypeID();  // GetIconID()   ?
+			mWheelList.at(i)->Init(ids);
+		}
 	}
 	//
 	mWheelHandle = cocos2d::Sprite::createWithSpriteFrameName("play_normal.png");

@@ -13,6 +13,7 @@
 #define MainControllerPanel_h__
 
 #include "cocos2d.h"
+class GameAction;
 
 enum ActionWheelState
 {
@@ -31,6 +32,7 @@ public:
 	WheelIcon();
 	~WheelIcon();
 	//
+	void Init(GameAction* gameAction);
 	void Init(int num,int iconID);
 	void SetResource(int num,int iconID);
 	//如果返回false 说明，已经没有这个icon道具了
@@ -42,6 +44,7 @@ public:
 protected:
 	int  mNum;
 	int  mIconID;
+
 	//字体
 
 	//
@@ -113,6 +116,7 @@ protected:
 
 };
 
+
 class ActionWheel : public cocos2d::Layer
 {
 public:
@@ -143,6 +147,7 @@ public:
 	cocos2d::Rect	GetTouchRect();
 	int		GetState() const;
 	void    SetRollTime(float t) { mRollTime = t;}
+	void	SetGroupID(int i) { mGroupID = i;}
 	/* 监听 */
 	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 	void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
@@ -168,6 +173,8 @@ protected:
 	/*  */
 	BlurWheel*		mBlurWheel;
 	cocos2d::Vec2	mBlurWheelBasePos;
+	//
+	int			mGroupID;
 
 private:
 };
