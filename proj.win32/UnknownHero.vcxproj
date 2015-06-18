@@ -153,6 +153,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Actor\ActorStatus.cpp" />
     <ClCompile Include="..\Classes\Actor\EnemyManager.cpp" />
     <ClCompile Include="..\Classes\Actor\Hero.cpp" />
+    <ClCompile Include="..\Classes\Actor\Hero_SwordMan.cpp" />
     <ClCompile Include="..\Classes\Actor\Monster.cpp" />
     <ClCompile Include="..\Classes\Actor\Monster_Long.cpp" />
     <ClCompile Include="..\Classes\Actor\Monster_Short.cpp" />
@@ -234,8 +235,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\VisibleRect.cpp" />
     <ClCompile Include="..\Classes\Weapon\SkillList.cpp" />
     <ClCompile Include="..\Classes\Weapon\GameSkill.cpp" />
-    <ClCompile Include="..\Classes\Weapon\WeaponFactory.cpp" />
-    <ClCompile Include="..\Classes\Weapon\Weapon_Sword.cpp" />
+    <ClCompile Include="..\Classes\Weapon\GameSkillFactory.cpp" />
+    <ClCompile Include="..\Classes\Weapon\Skill_Sword.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +255,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Actor\ActorStatus.h" />
     <ClInclude Include="..\Classes\Actor\EnemyManager.h" />
     <ClInclude Include="..\Classes\Actor\Hero.h" />
+    <ClInclude Include="..\Classes\Actor\Hero_SwordMan.h" />
     <ClInclude Include="..\Classes\Actor\Monster.h" />
     <ClInclude Include="..\Classes\Actor\Monster_Long.h" />
     <ClInclude Include="..\Classes\Actor\Monster_Short.h" />
@@ -341,8 +343,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\VisibleRect.h" />
     <ClInclude Include="..\Classes\Weapon\SkillList.h" />
     <ClInclude Include="..\Classes\Weapon\GameSkill.h" />
-    <ClInclude Include="..\Classes\Weapon\WeaponFactory.h" />
-    <ClInclude Include="..\Classes\Weapon\Weapon_Sword.h" />
+    <ClInclude Include="..\Classes\Weapon\GameSkillFactory.h" />
+    <ClInclude Include="..\Classes\Weapon\Skill_Sword.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

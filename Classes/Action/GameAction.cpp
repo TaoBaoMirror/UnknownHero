@@ -2,7 +2,7 @@
 
 
 GameAction::GameAction(int typeID) :
-	m_TypeID(typeID)
+	m_ActionTypeID(typeID)
 {
 }
 
@@ -19,4 +19,9 @@ void GameAction::ClickAction()
 void GameAction::UseAction(int level)
 {
 	;
+}
+
+bool GameAction::IsActionDirectly()
+{
+	return m_bIsDirectly;
 }

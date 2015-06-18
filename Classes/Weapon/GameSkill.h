@@ -16,12 +16,15 @@ public:
 	virtual bool	Load(std::ifstream& is) override;
 	virtual bool	Save(std::ofstream& os) override;
 
-	virtual void	AttackLogic(int WeaponOwerID, int HurtActorID) override;
+	virtual void	SkillAim();
 
-	virtual float	getRatioScale(){return 0.0f;}
+	void			SetIsTargetToGrid(bool bSet){m_IsTargetToGrid = bSet;}
+	bool			IsTargetToGrid();
 
 protected:
-	std::string ActionType;
+	std::string		ActionType;
+
+	bool			m_IsTargetToGrid;
 
 	//WPAttackType m_Type;
 };

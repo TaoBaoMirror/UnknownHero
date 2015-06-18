@@ -50,7 +50,14 @@ public:
 	void RollGroup(int nGroupID);	//某一组往下转动一格
 
 	void RoleMachine();				//转老虎机
+
+	void RollGroups();
+
+	void LockSystem()	{m_LockSystem = true;}
+	void UnLockSystem()	{m_LockSystem = false;}
 	
+	void ContinueAction();
+	void OverAction();
 
 	GameAction* GetAction(int groupID, int actionOrder);
 private:
@@ -60,6 +67,8 @@ private:
 	//--------------------------------------------
 	GameAction* RandomAction();
 
+	//--------------------------------------------
+	
 	//--------------------------------------------
 	//----
 	std::map<GameActionType,GameAction*> m_ActionReserve;
@@ -73,6 +82,10 @@ private:
 	GameAction* m_Action_Group3[Total_Action];
 	GameAction* m_Action_Group4[Total_Action];
 	GameAction* m_Action_Group5[Total_Action];
+
+	bool m_MustRoll[5];
+
+	bool m_LockSystem;
 };
 
 #endif//__GAME_ACTION_SYSTEM_H__

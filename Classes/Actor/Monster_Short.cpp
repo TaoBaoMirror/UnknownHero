@@ -1,6 +1,8 @@
 #include "Monster_Short.h"
 #include "Data/TableManager.h"
 #include "EnemyManager.h"
+#include "Weapon/GameSkill.h"
+#include "Weapon/SkillList.h"
 
 Monster_Short::Monster_Short(void)
 {
@@ -100,5 +102,17 @@ void Monster_Short::CalcDie()
 	EnemyManager::GetInstance()->RemoveShortMonster(this);
 
 	Monster::CalcDie();
+}
+//----------------------------------------------
+void Monster_Short::InitSkill()
+{
+	if (GetSkillList() != nullptr)
+	{
+		GameSkill* pSkill = GetSkillList()->AddGameSkill(0);
+		pSkill->SetIsTargetToGrid(true);
+
+		//对于Monster来说 就一个技能
+		GetSkillList()->SetUsingSkill(pSkill);
+	}
 }
 //----------------------------------------------

@@ -80,3 +80,12 @@ StandbyHero* PlayerManager::RandomStandbyHero()
 	return nullptr;
 }
 //-------------------------------------------------------
+void PlayerManager::ClearMainRoleWeightList()
+{
+	m_MainRoleWeightList.clear();
+}
+void PlayerManager::AddWeightToList(GameActionType pActType, int nWeight)
+{
+	m_MainRoleWeightList.push_back(std::make_pair(pActType,nWeight));
+}
+//-------------------------------------------------------

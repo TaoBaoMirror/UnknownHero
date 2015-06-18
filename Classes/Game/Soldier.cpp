@@ -23,14 +23,14 @@
 #include "Goal_SoldierThink.h"
 #include "CommonFunc.h"
 
-#include "Weapon/WeaponFactory.h"
+#include "Weapon/GameSkillFactory.h"
 #include "Weapon/SkillList.h"
 
 #include "SoldierPF.h"
 
 int Soldier::NextCreateID = 0;
 
-Soldier::Soldier( int atk,int race ):
+Soldier::Soldier(int race ):
 	CreatureBase(),
 	MessageListener(),
 	bPossessed(false),
@@ -44,7 +44,7 @@ Soldier::Soldier( int atk,int race ):
 	pBrain = new Goal_SoldierThink(this);
 	//
 	//pAttackSystem = new AttackSystem(this);
-	pMainWeapon = WeaponFactory::GetInstance()->CreateWeapon(atk,this);
+	//pMainWeapon = GameSkillFactory::GetInstance()->CreateWeapon(atk,this);
 	pSkillList = new SkillList(this);
 	//
 	pShieldSystem = new ShieldSystem(this);
@@ -372,46 +372,47 @@ bool Soldier::canStay( const GridPos& GPos )
 	
 	return false;
 }
-
-Soldier* Soldier::canAttack( const GridPos& GPos )
-{
-	//AI要调用这个
-
-	//所以 怪物都使用mainWeapon？
-
-	int index = -1;
-	G_GetSceneMap().GetIndex(GPos,index);
-
-	auto attsys = this->GetAttackSystem();
-	if (attsys != nullptr )
-	{
-		AttackRange* attrange = attrange = attsys->GetAttackRange();	
-
-		if (attrange != nullptr && attrange->Inspect(GPos) == true)
-		{
-			if ((index < G_GetSceneMap().NodesCount()) &&
-				(index >=0) )
-			{
-				NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
-				MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
-				//
-				if (node.Index() != invalid_node_index && node.Walkable())
-				{
-					if (pMND->Creature != NULL)
-					{
-						return pMND->Creature;
-					}
-				}
-
-			}
-		}
-	}
-	//
-	
-
-	return nullptr;
-
-}
+//
+//Soldier* Soldier::canAttack( const GridPos& GPos )
+//{
+//	//AI要调用这个
+//
+//	//所以 怪物都使用mainWeapon？
+//
+//	int index = -1;
+//	G_GetSceneMap().GetIndex(GPos,index);
+//
+//	//auto attsys = this->GetAttackSystem();
+//	auto attsys = this->GetSkillList()->GetUsingSkill();
+//	if (attsys != nullptr )
+//	{
+//		AttackRange* attrange = attrange = attsys->GetAttackRange();	
+//
+//		if (attrange != nullptr && attrange->Inspect(GPos) == true)
+//		{
+//			if ((index < G_GetSceneMap().NodesCount()) &&
+//				(index >=0) )
+//			{
+//				NavGraphNode<void*>& node = G_GetSceneMap().GetNode(index);
+//				MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
+//				//
+//				if (node.Index() != invalid_node_index && node.Walkable())
+//				{
+//					if (pMND->Creature != NULL)
+//					{
+//						return pMND->Creature;
+//					}
+//				}
+//
+//			}
+//		}
+//	}
+//	//
+//	
+//
+//	return nullptr;
+//
+//}
 
 void Soldier::UpdateNodeWithGPos()
 {
@@ -507,6 +508,13 @@ void Soldier::Attack( Soldier* other , int number )
 // 	
 }
 
+void Soldier::Attack( const GridPos& gPos , int number )
+{
+// 	AttackData* ad = GetAttackSystem()->CreateAttackData(other->GetID());
+// 
+// 	
+}
+
 //void Soldier::UseDeputyWeapon( Soldier* other, int DWeaponNumber )
 //{ 	
 //}
@@ -559,4 +567,14 @@ void Soldier::ClearNodeWithGPos()
 		MapNodeData* pMND = static_cast<MapNodeData*>(node.ExtraInfo());
 		pMND->Creature = NULL;
 	}
+}
+
+bool Soldier::IsUsingSkill()
+{
+	if (pSkillList != nullptr && pSkillList->GetUsingSkill() != nullptr)
+	{
+		return true;
+	}
+
+	return false;
 }

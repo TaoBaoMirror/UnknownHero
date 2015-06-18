@@ -1,6 +1,9 @@
 #include "Monster_Special.h"
 #include "Data/TableManager.h"
 #include "EnemyManager.h"
+#include "Game/Soldier.h"
+#include "Weapon/GameSkill.h"
+#include "Weapon/SkillList.h"
 
 Monster_Special::Monster_Special(void)
 {
@@ -99,5 +102,17 @@ void Monster_Special::CalcDie()
 	EnemyManager::GetInstance()->RemoveSpecialMonster(this);
 
 	Monster::CalcDie();
+}
+//----------------------------------------------
+void Monster_Special::InitSkill()
+{
+	if (GetSkillList() != nullptr)
+	{
+		GameSkill* pSkill = GetSkillList()->AddGameSkill(0);
+		pSkill->SetIsTargetToGrid(true);
+
+		//对于Monster来说 就一个技能
+		GetSkillList()->SetUsingSkill(pSkill);
+	}
 }
 //----------------------------------------------

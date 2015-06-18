@@ -51,6 +51,8 @@ public:
 	virtual void ActorWinUpdate(float dt) override;
 	virtual void ActorWinEnd() override;
 	//----------------------------------------
+	virtual void InitSkill(){}
+	//----------------------------------------
 	virtual void AIThink(float dt) override;
 	//------------------------------
 	virtual void CalcAttack( AttackData* pAtkData ) override;

@@ -104,28 +104,36 @@ void GameActionSystem::CreateActionAtReserve(GameActionType type, int weight)
 	case GameActionType_Sword:
 		{
 			pNewAction = new GameAction_Sword((int)type);
+			pNewAction->SetActionDirectly(false);
 		}
 		break;
 	case GameActionType_Jump:
 		{
 			pNewAction = new GameAction_Jump((int)type);
+			pNewAction->SetActionDirectly(false);
 		}
 		break;
 	case GameActionType_Bomb:
 		{
 			pNewAction = new GameAction_Bomb((int)type);
+			pNewAction->SetActionDirectly(false);
 		}
 		break;
 	case GameActionType_Coin:
 		{
 			pNewAction = new GameAction_Coin((int)type);
+			pNewAction->SetActionDirectly(false);
 		}
 		break;
 	case GameActionType_Cure:
+		{
+			//pNewAction->SetActionDirectly(true);
+		}
 		break;
 	case GameActionType_MonsterStrong:
 		{
 			pNewAction = new GameAction_MonsterStrong((int)type);
+			pNewAction->SetActionDirectly(false);
 		}
 		break;
 	case GameActionType_MonsterAppear:
@@ -195,178 +203,230 @@ void GameActionSystem::ClickAction(int GroupID)
 
 void GameActionSystem::UseAction(int GroupID)
 {
+	if (m_LockSystem == true)
+	{
+		return;
+	}
+
 	int level = 1;
-	bool mustRoll[5];
+	//bool mustRoll[5];
 	for (int i=0; i<5; ++i)
 	{
-		mustRoll[i] = false;
+		m_MustRoll[i] = false;
 	}
 
 	if (GroupID == 0)
 	{
 		if (m_Action_Group1[CurAction] != nullptr)
 		{
-			mustRoll[0] = true;
+			m_MustRoll[0] = true;
 			if (m_Action_Group2[CurAction] != nullptr && 
 				m_Action_Group1[CurAction]->GetTypeID() == m_Action_Group2[CurAction]->GetTypeID())
 			{
-				mustRoll[1] = true;
+				m_MustRoll[1] = true;
 				level++;
 			}
 			if (m_Action_Group3[CurAction] != nullptr && 
 				m_Action_Group1[CurAction]->GetTypeID() == m_Action_Group3[CurAction]->GetTypeID())
 			{
-				mustRoll[2] = true;
+				m_MustRoll[2] = true;
 				level++;
 			}
 			if (m_Action_Group4[CurAction] != nullptr && 
 				m_Action_Group1[CurAction]->GetTypeID() == m_Action_Group4[CurAction]->GetTypeID())
 			{
-				mustRoll[3] = true;
+				m_MustRoll[3] = true;
 				level++;
 			}
 			if (m_Action_Group5[CurAction] != nullptr && 
 				m_Action_Group1[CurAction]->GetTypeID() == m_Action_Group5[CurAction]->GetTypeID())
 			{
-				mustRoll[4] = true;
+				m_MustRoll[4] = true;
 				level++;
 			}
-			m_Action_Group1[CurAction]->UseAction(level);
+
+			if (m_Action_Group1[CurAction]->IsActionDirectly())
+			{
+				m_Action_Group1[CurAction]->UseAction(level);
+			}
+			else
+			{
+				// Write 150616
+			}
+			
 		}
 	}
 	else if (GroupID == 1)
 	{
 		if (m_Action_Group2[CurAction] != nullptr)
 		{
-			mustRoll[1] = true;
+			m_MustRoll[1] = true;
 			if (m_Action_Group1[CurAction] != nullptr && 
 				m_Action_Group2[CurAction]->GetTypeID() == m_Action_Group1[CurAction]->GetTypeID())
 			{
-				mustRoll[0] = true;
+				m_MustRoll[0] = true;
 				level++;
 			}
 			if (m_Action_Group3[CurAction] != nullptr && 
 				m_Action_Group2[CurAction]->GetTypeID() == m_Action_Group3[CurAction]->GetTypeID())
 			{
-				mustRoll[2] = true;
+				m_MustRoll[2] = true;
 				level++;
 			}
 			if (m_Action_Group4[CurAction] != nullptr && 
 				m_Action_Group2[CurAction]->GetTypeID() == m_Action_Group4[CurAction]->GetTypeID())
 			{
-				mustRoll[3] = true;
+				m_MustRoll[3] = true;
 				level++;
 			}
 			if (m_Action_Group5[CurAction] != nullptr && 
 				m_Action_Group2[CurAction]->GetTypeID() == m_Action_Group5[CurAction]->GetTypeID())
 			{
-				mustRoll[4] = true;
+				m_MustRoll[4] = true;
 				level++;
 			}
-			m_Action_Group2[CurAction]->UseAction(level);
+			
+			if (m_Action_Group1[CurAction]->IsActionDirectly())
+			{
+				m_Action_Group2[CurAction]->UseAction(level);
+			}
+			else
+			{
+				// Write 150616
+			}
 		}
 	}
 	else if (GroupID == 2)
 	{
 		if (m_Action_Group3[CurAction] != nullptr)
 		{
-			mustRoll[2] = true;
+			m_MustRoll[2] = true;
 			if (m_Action_Group1[CurAction] != nullptr && 
 				m_Action_Group3[CurAction]->GetTypeID() == m_Action_Group1[CurAction]->GetTypeID())
 			{
-				mustRoll[0] = true;
+				m_MustRoll[0] = true;
 				level++;
 			}
 			if (m_Action_Group2[CurAction] != nullptr && 
 				m_Action_Group3[CurAction]->GetTypeID() == m_Action_Group2[CurAction]->GetTypeID())
 			{
-				mustRoll[1] = true;
+				m_MustRoll[1] = true;
 				level++;
 			}
 			if (m_Action_Group4[CurAction] != nullptr && 
 				m_Action_Group3[CurAction]->GetTypeID() == m_Action_Group4[CurAction]->GetTypeID())
 			{
-				mustRoll[3] = true;
+				m_MustRoll[3] = true;
 				level++;
 			}
 			if (m_Action_Group5[CurAction] != nullptr && 
 				m_Action_Group3[CurAction]->GetTypeID() == m_Action_Group5[CurAction]->GetTypeID())
 			{
-				mustRoll[4] = true;
+				m_MustRoll[4] = true;
 				level++;
 			}
-			m_Action_Group3[CurAction]->UseAction(level);
+			
+			if (m_Action_Group1[CurAction]->IsActionDirectly())
+			{
+				m_Action_Group3[CurAction]->UseAction(level);
+			}
+			else
+			{
+				// Write 150616
+			}
 		}
 	}
 	else if (GroupID == 3)
 	{
-		mustRoll[3] = true;
+		m_MustRoll[3] = true;
 		if (m_Action_Group4[CurAction] != nullptr)
 		{
 			if (m_Action_Group1[CurAction] != nullptr && 
 				m_Action_Group4[CurAction]->GetTypeID() == m_Action_Group1[CurAction]->GetTypeID())
 			{
-				mustRoll[0] = true;
+				m_MustRoll[0] = true;
 				level++;
 			}
 			if (m_Action_Group2[CurAction] != nullptr && 
 				m_Action_Group4[CurAction]->GetTypeID() == m_Action_Group2[CurAction]->GetTypeID())
 			{
-				mustRoll[1] = true;
+				m_MustRoll[1] = true;
 				level++;
 			}
 			if (m_Action_Group3[CurAction] != nullptr && 
 				m_Action_Group4[CurAction]->GetTypeID() == m_Action_Group3[CurAction]->GetTypeID())
 			{
-				mustRoll[2] = true;
+				m_MustRoll[2] = true;
 				level++;
 			}
 			if (m_Action_Group5[CurAction] != nullptr && 
 				m_Action_Group4[CurAction]->GetTypeID() == m_Action_Group5[CurAction]->GetTypeID())
 			{
-				mustRoll[4] = true;
+				m_MustRoll[4] = true;
 				level++;
 			}
-			m_Action_Group4[CurAction]->UseAction(level);
+			
+			if (m_Action_Group1[CurAction]->IsActionDirectly())
+			{
+				m_Action_Group4[CurAction]->UseAction(level);
+			}
+			else
+			{
+				// Write 150616
+			}
 		}
 	}
 	else if (GroupID == 4)
 	{
-		mustRoll[4] = true;
+		m_MustRoll[4] = true;
 		if (m_Action_Group5[CurAction] != nullptr)
 		{			
 			if (m_Action_Group1[CurAction] != nullptr && 
 				m_Action_Group5[CurAction]->GetTypeID() == m_Action_Group1[CurAction]->GetTypeID())
 			{
-				mustRoll[0] = true;
+				m_MustRoll[0] = true;
 				level++;
 			}
 			if (m_Action_Group2[CurAction] != nullptr && 
 				m_Action_Group5[CurAction]->GetTypeID() == m_Action_Group2[CurAction]->GetTypeID())
 			{
-				mustRoll[1] = true;
+				m_MustRoll[1] = true;
 				level++;
 			}
 			if (m_Action_Group3[CurAction] != nullptr && 
 				m_Action_Group5[CurAction]->GetTypeID() == m_Action_Group3[CurAction]->GetTypeID())
 			{
-				mustRoll[2] = true;
+				m_MustRoll[2] = true;
 				level++;
 			}
 			if (m_Action_Group4[CurAction] != nullptr && 
 				m_Action_Group5[CurAction]->GetTypeID() == m_Action_Group4[CurAction]->GetTypeID())
 			{
-				mustRoll[3] = true;
+				m_MustRoll[3] = true;
 				level++;
 			}
-			m_Action_Group5[CurAction]->UseAction(level);
+			
+			if (m_Action_Group1[CurAction]->IsActionDirectly())
+			{
+				m_Action_Group5[CurAction]->UseAction(level);
+			}
+			else
+			{
+				// Write 150616
+			}
 		}
 	}
 
 	//2 ui表现不同使用等级的特效
 
 	//3 滚动老虎机使用了技能那组
-	if (mustRoll[0] == true)
+	if (m_LockSystem == false)
+	{
+		RollGroups();
+	}
+
+	m_LockSystem = true;
+/*	if (mustRoll[0] == true)
 	{
 		RollGroup(0);
 	}
@@ -385,8 +445,18 @@ void GameActionSystem::UseAction(int GroupID)
 	if (mustRoll[4] == true)
 	{
 		RollGroup(4);
+	}*/	
+}
+
+void GameActionSystem::RollGroups()
+{
+	for (int i=0; i<5; ++i)
+	{
+		if (m_MustRoll[i] == true)
+		{
+			RollGroup(i);
+		}
 	}
-	
 }
 
 void GameActionSystem::RollGroup(int nGroupID)
@@ -520,4 +590,19 @@ GameAction* GameActionSystem::GetAction(int groupID, int actionOrder)
 	}
 
 	return nullptr;
+}
+
+void GameActionSystem::OverAction()
+{
+	//1 技能使用完毕了 开始转轮盘
+	RollGroups();
+
+	//2 通知ui显示转动
+
+}
+
+void GameActionSystem::ContinueAction()
+{
+	//1 解除LockSystem
+	UnLockSystem();
 }

@@ -14,7 +14,7 @@ GizmoSoldier* GizmoSoldier::create()
 	return nullptr;
 }
 
-GizmoSoldier::GizmoSoldier():Soldier(1,Soldier::Human)
+GizmoSoldier::GizmoSoldier():Soldier(Soldier::Human)
 {
 
 }

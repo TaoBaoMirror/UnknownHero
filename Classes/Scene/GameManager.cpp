@@ -18,6 +18,8 @@
 #include "MarkTileManager.h"
 #include "Bullet/GameBullet.h"
 #include "Action/GameActionSystem.h"
+#include "Game/Soldier.h"
+#include "Weapon/SkillList.h"
 
 GameManager* GameManager::m_Instance = nullptr;
 
@@ -216,6 +218,10 @@ void GameManager::SetFightST(FightStatus st)
 		break;
 	}
 }
+FightStatus GameManager::GetFightST()
+{
+	return m_CurFightST;
+}
 //--------------
 void GameManager::Wait_Pre()
 {
@@ -398,85 +404,8 @@ bool GameManager::MouseDown(const cocos2d::Vec2& touchpos)
 				GridPos gridPos;
 				pChunk->GetGridSceneMap().WorldPosToGridPos(worldpos,gridPos);
 
-				//移动
-				std::list<GridPos> path;
-				if (pHero->canSelect(gridPos) )
-				{
-					pChunk->CheckCanArrived(pHero,pHero->GetStayGPos(),gridPos,&path);
-
-					Soldier* pTargetSoldier = nullptr;
-					pTargetSoldier = pHero->canAttack(gridPos);
-
-					//1 这说明是在英雄身边的一个格子 如果是移动 就直接移动了,如果能攻击就直接攻击了
-					if (path.size() == 2)
-					{	
-						if (pHero->IsShowAttackRange() == true)
-						{
-							MarkTileManager::GetInstance()->ClearMarkTiles("ActorAttack");
-							pHero->SetShowAttackRange(false);
-						}
-						if (pTargetSoldier != nullptr)
-						{								
-							pHero->Attack(pTargetSoldier,0);
-						}
-						else if (pHero->canStay(gridPos) )
-						{
-							path.pop_front();
-							GridPos firstpos = path.front();
-
-							pHero->TravalTo(firstpos);
-						}
-					}
-					else if(
-						EnemyManager::GetInstance()->IsAnyBodyHere() == true ||
-						NPCManager::GetInstance()->IsAnyBodyHere() == true
-						)
-					//2 如果是好几步才能走到,而且当前场景有敌人或npc ,那么先显示出路径,然后走第一格
-					{
-						
-						if (pHero->IsShowAttackRange() == true)
-						{
-							//close attack range
-							//pChunk->HideRangeData();
-							MarkTileManager::GetInstance()->ClearMarkTiles("ActorAttack");
-							pHero->SetShowAttackRange(false);
-
-							//attack
-							if (pTargetSoldier != nullptr)
-							{
-								//attack
-								pHero->Attack(pTargetSoldier,0);
-							}
-						}
-						else
-						{
-							/*if (pHero->IsShowMovePath() == true)
-							{
-							}
-							else
-							{
-
-							}*/
-							//move
-							if (path.size() != 0)
-							{
-								path.pop_front();
-								if (path.size() != 0)
-								{
-									GridPos firstpos = path.front();
-									pHero->TravalTo(firstpos);
-								}
-							}
-						}
-					}
-					else
-					//3 记录下这个路径让英雄一路跑过去
-					{
-						
-					}
-
-					//MapNodeData
-				}				
+				pHero->SelectGrid(gridPos);
+							
 				
 			}
 		}
@@ -553,10 +482,16 @@ void GameManager::ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, 
 				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B)
 				{
 					//Emit a Bullet
-					GameBullet* bullet = GameBulletManager::GetInstance()->CreateBullet(
-						0,pHero->GetAttackSystem()->CreateAttackData(GridPos(6,6)));
+					if (pHero->GetSkillList() != nullptr && pHero->GetSkillList()->GetUsingSkill() != nullptr)
+					{
+						GameBullet* bullet = GameBulletManager::GetInstance()->CreateBullet(
+							0,pHero->GetSkillList()->GetUsingSkill()->CreateAttackData(GridPos(6,6)));
+						bullet->Emit();
+					}
+					//GameBullet* bullet = GameBulletManager::GetInstance()->CreateBullet(
+					//	0,pHero->GetAttackSystem()->CreateAttackData(GridPos(6,6)));
 					//
-					bullet->Emit();
+					//bullet->Emit();
 				}
 			}
 		}

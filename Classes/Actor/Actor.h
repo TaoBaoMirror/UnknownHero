@@ -19,7 +19,7 @@ protected:
 		ActorAnim_Win,
 	};
 public:
-	Actor(int weaponID);
+	Actor();
 	~Actor(void);
 
 	virtual void BeginTraval() override;
@@ -27,6 +27,7 @@ public:
 	virtual bool TravalTo(const GridPos& GPos) override;
 
 	virtual void Attack(Soldier* other , int number) override;
+	virtual void Attack( const GridPos& gPos , int number ) override;
 	//virtual void UseDeputyWeapon(Soldier* other, int DWeaponNumber) override;
 	virtual void GetHurt(const DamageData& damageData) override;
 

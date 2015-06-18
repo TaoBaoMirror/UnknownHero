@@ -21,7 +21,8 @@ enum RangeType
 	CROSS,
 	QUAD,
 	HORIZONTAL,
-	VERTICAL
+	VERTICAL,
+	FULLMAP,
 };
 
 struct AttackRangeData

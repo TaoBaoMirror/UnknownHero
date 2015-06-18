@@ -4,10 +4,15 @@
 #include "Actor/Actor.h"
 #include "Career/CareerBase.h"
 
+enum HeroType
+{
+	HeroType_SwordMan = 0,
+};
+
 class Hero : public Actor
 {	
 public:
-	Hero(int weaponID);
+	Hero();
 	~Hero(void);
 
 	static Hero* createWithHeroID(int id);
@@ -28,7 +33,8 @@ public:
 	void SetHeroTexID(std::string heroTexID){m_HeroTexID = heroTexID;}
 
 	void SetHeroName(std::string name){m_HeroName = name;}
-
+	//----------------------------------------
+	virtual void InitSkills() override{}
 	//----------------------------------------
 	virtual void ActorReadyStart() override;
 	virtual void ActorReadyUpdate(float dt) override;
@@ -56,6 +62,10 @@ public:
 	//----------------------------------------
 	void ClickAttack(int groupID);
 
+	void SelectGrid( const GridPos& GPos );
+
+	void CancleSkill();
+	void Attack(Soldier* other , int number) override;
 protected:
 	//HeroID
 	int			m_HeroID;

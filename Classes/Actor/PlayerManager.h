@@ -3,6 +3,7 @@
 
 #include "Actor/Hero.h"
 #include "Actor/StandbyHero.h"
+#include "Action/GameActionSystem.h"
 
 class PlayerManager
 {
@@ -27,6 +28,9 @@ public:
 
 	void HeroAdventureStart(); //英雄进入战斗场景的时候调用这个 初始化一些初次开战的数据
 
+	void ClearMainRoleWeightList();
+	void AddWeightToList(GameActionType pActType, int nWeight);
+
 private:
 	PlayerManager(void);
 
@@ -35,6 +39,8 @@ private:
 	//--------------------------
 
 	Hero* m_pMainRole;
+
+	std::vector<std::pair<GameActionType,int>> m_MainRoleWeightList;
 	
 };
 

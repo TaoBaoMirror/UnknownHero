@@ -203,23 +203,35 @@ Monster* EnemyManager::CreateSpecialMonster(int monsterID)
 	//如果做了不同的敌人 这里要区分敌人 并分别创建
 	Monster_Special* pMonster = (Monster_Special*)Monster_Special::createWithMonsterID(monsterID);
 
-	m_SpecialRangeMonsters.push_back(pMonster);
+	if (pMonster != nullptr)
+	{
+		m_SpecialRangeMonsters.push_back(pMonster);
+		pMonster->InitSkill();
+	}	
 
 	return pMonster;
 }
 Monster* EnemyManager::CreateLongMonster(int monsterID)
 {
 	Monster_Long* pMonster = (Monster_Long*)Monster_Long::createWithMonsterID(monsterID);
-
-	m_LongRangeMonsters.push_back(pMonster);
+	
+	if (pMonster != nullptr)
+	{
+		m_LongRangeMonsters.push_back(pMonster);
+		pMonster->InitSkill();
+	}	
 
 	return pMonster;
 }
 Monster* EnemyManager::CreateShortMonster(int monsterID)
 {
 	Monster_Short* pMonster = (Monster_Short*)Monster_Short::createWithMonsterID(monsterID);
-
-	m_ShortRangeMonsters.push_back(pMonster);
+	
+	if (pMonster != nullptr)
+	{
+		m_ShortRangeMonsters.push_back(pMonster);
+		pMonster->InitSkill();
+	}	
 
 	return pMonster;
 }

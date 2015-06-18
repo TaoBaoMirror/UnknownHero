@@ -49,7 +49,7 @@ public:
 
 	static int NextCreateID;
 
-	Soldier(int atk,int race);
+	Soldier(int race);
 	virtual ~Soldier();
 
 	int	GetCampIndex(){return CampIndex;}
@@ -80,6 +80,7 @@ public:
 	//攻击操作
 	//攻击动画完成后，去核算攻击数据
 	virtual void Attack(Soldier* other , int number);
+	virtual void Attack(const GridPos& gPos , int number);
 	virtual void GetHurt(const DamageData& damageData);//这里传递的引用，如果要动画，应该memcpy
 
 	//virtual void UseDeputyWeapon(Soldier* other, int DWeaponNumber);
@@ -114,7 +115,7 @@ public:
 	bool CanSetTo(const GridPos& GPos){return canStay(GPos);}
 	//是否可以在此GPos上停留
 	virtual bool canStay(const GridPos& GPos);
-	Soldier* canAttack( const GridPos& GPos );
+	//Soldier* canAttack( const GridPos& GPos );
 	bool canSelect( const GridPos& GPos );
 
 
@@ -123,9 +124,11 @@ public:
 	const Vector2D& GetPosition() const {return Position;}
 
 
-
-	GameSkill* GetAttackSystem() {return pMainWeapon;}
-	SkillList* GetSkillList(int index) 
+	virtual void InitSkills(){}
+	virtual void CancleSkill(){}
+	bool IsUsingSkill();
+	//GameSkill* GetAttackSystem() {return pMainWeapon;}
+	SkillList* GetSkillList() 
 	{
 		return pSkillList;
 	}
@@ -154,7 +157,7 @@ public:
 	void ClearNodeWithGPos();
 	//更新PF位置
 	void UpdateSoldierPFPosition();
-protected:
+
 	virtual void showAttackRange(const std::vector<GridPos>&	AttackGPosList);
 private:
 	Vector2D Position;				//所在的世界位置
@@ -167,7 +170,7 @@ private:
 	bool	bShowAttackRange;
 	bool	bShowMovePath;
 
-	GameSkill*	pMainWeapon;
+	//GameSkill*	pCurUsingSkill;
 	SkillList*  pSkillList;
 
 	ShieldSystem*   pShieldSystem;

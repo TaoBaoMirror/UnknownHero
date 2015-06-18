@@ -38,6 +38,9 @@ public:
 	virtual void AIThink(float dt) override;
 	virtual void CalcDie() override;
 	//----------------------------------------
+	//----------------------------------------------
+	void InitSkill();
+	//----------------------------------------------
 };
 
 #endif //__MONSTER_H__

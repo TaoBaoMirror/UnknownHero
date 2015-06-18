@@ -6,6 +6,7 @@
 #include "AttackSystem.h"
 #include "Weapon/GameSkill.h"
 #include "AttackRange.h"
+#include "Weapon/SkillList.h"
 
 TargetingSystem::TargetingSystem( Soldier* owner ):m_pOwner(owner),m_pCurrentTarget(0)
 {
@@ -86,8 +87,12 @@ void TargetingSystem::Update(float dt)
 bool TargetingSystem::isTargetWithinAttackRange() const
 {
 	if(!m_pCurrentTarget) return false;
-	bool ret = m_pOwner->GetAttackSystem()->GetAttackRange()->Inspect(m_pCurrentTarget->GetStayGPos());
-	return ret;
+	if (m_pOwner->GetSkillList()!=nullptr && m_pOwner->GetSkillList()->GetUsingSkill()!=nullptr)
+	{
+		return m_pOwner->GetSkillList()->GetUsingSkill()->GetAttackRange()->Inspect(m_pCurrentTarget->GetStayGPos());
+	}
+
+	return false;
 }
 
 bool TargetingSystem::isTargetShootable() const

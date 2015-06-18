@@ -6,10 +6,13 @@
 #include "Game/AttackSystem.h"
 #include "Game/Soldier.h"
 #include "Weapon/GameSkill.h"
+#include "Weapon/SkillList.h"
 #include "Action/GameActionSystem.h"
+#include "Scene/MarkTileManager.h"
+#include "Game/MapManager.h"
+#include "Actor/Hero_SwordMan.h"
 //----------------------------------------------
-Hero::Hero(int weaponID) :
-	Actor(weaponID)
+Hero::Hero()
 {
 	std::string test[5] = {"stand", "move", "attack", "die", "win"};
 	//ActionsName = test; 
@@ -30,9 +33,29 @@ Hero::~Hero(void)
 
 Hero* Hero::createWithHeroID(int id)
 {
-	int iMainWeaponID = TableManager::GetInstance()->GetTableIntData(TableType::Table_Hero,"MainWeaponID",id);
+	int iMainWeaponID = TableManager::GetInstance()->GetTableIntData(TableType::Table_Hero,"HeroType",id);
+	HeroType createtype = (HeroType)iMainWeaponID;
 
-	Hero* pHero = new Hero(iMainWeaponID);
+	Hero* pHero = nullptr;
+
+	switch (createtype)
+	{
+	case HeroType::HeroType_SwordMan:
+		{
+			pHero = new Hero_SwordMan();
+		}
+		break;
+	default:
+		break;
+	}
+
+	//Hero* pHero = new Hero();
+
+	if (pHero == nullptr)
+	{
+		//报错
+	}
+	
 	
 	pHero->SetHeroID(id);
 
@@ -49,6 +72,8 @@ Hero* Hero::createWithHeroID(int id)
 	//res
 	std::string tex_hero = "Hero_" + heroTexID;
 	pHero->SetResource(tex_hero);
+
+	pHero->InitSkills();
 
 	//release
 	pHero->autorelease();
@@ -117,6 +142,8 @@ void Hero::ActorReadyStart()
 {
 	Vector2D realpos = this->GetPosition();
 	this->setPosition(cocos2d::Vec2(realpos.x,realpos.y));
+
+	GameActionSystem::GetInstance()->UnLockSystem();
 }
 void Hero::ActorReadyUpdate(float dt)
 {
@@ -131,6 +158,8 @@ void Hero::ActorStandStart()
 {
 	Vector2D realpos = this->GetPosition();
 	this->setPosition(cocos2d::Vec2(realpos.x,realpos.y));
+
+	GameActionSystem::GetInstance()->LockSystem();
 }
 void Hero::ActorStandUpdate(float dt)
 {
@@ -207,8 +236,11 @@ void Hero::ActorWinEnd()
 #include "Game/AttackData.h"
 void Hero::CalcAttack( AttackData* pAtkData )
 {
-	CommonFunc::CalcDamage(pAtkData);
-
+	if (pAtkData != nullptr)
+	{
+		CommonFunc::CalcDamage(pAtkData);		
+	}
+	
 	m_pFSM->SetStatus(Actor_Stand::Instance());
 }
 
@@ -226,4 +258,58 @@ void Hero::ClickAttack(int groupID)
 
 	//2 直接攻击前方
 }
+//------------------------------------------------------------------------------------
+void Hero::CancleSkill()
+{
+	GetSkillList()->SetUsingSkill(nullptr);
+
+	GameActionSystem::GetInstance()->ContinueAction();
+}
+//------------------------------------------------------------------------------------
+void Hero::Attack(Soldier* other , int number)
+{
+	Actor::Attack(other,number);
+
+	GameActionSystem::GetInstance()->OverAction();
+
+	GetSkillList()->SetUsingSkill(nullptr);
+}
+//------------------------------------------------------------------------------------
+void Hero::SelectGrid( const GridPos& gridPos )
+{
+	//移动
+	auto pChunk = MapManager::GetInstance()->GetCurChunkMap();
+
+	std::list<GridPos> path;
+	if (canSelect(gridPos) )
+	{
+		pChunk->CheckCanArrived(this,this->GetStayGPos(),gridPos,&path);
+
+		if (this->IsUsingSkill())
+		{
+			MarkTileManager::GetInstance()->ClearMarkTiles("ActorAttack");
+			SetShowAttackRange(false);
+
+			if (this->GetSkillList()->LaunchSkill(gridPos) == false)
+			{
+				this->CancleSkill();
+			}					
+		}
+		else
+		{
+			if (path.size() != 0)
+			{
+				path.pop_front();
+				if (path.size() != 0)
+				{
+					GridPos firstpos = path.front();
+					this->TravalTo(firstpos);
+				}
+			}
+		}
+
+		//MapNodeData
+	}				
+}
+
 //------------------------------------------------------------------------------------

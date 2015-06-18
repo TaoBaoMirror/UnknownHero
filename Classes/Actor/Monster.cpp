@@ -5,8 +5,7 @@
 #include "Game/CommonFunc.h"
 #include "EnemyManager.h"
 
-Monster::Monster(void) :
-	Actor(0)
+Monster::Monster(void) 
 {
 	std::string test[5] = {"stand", "move", "attack", "die", "win"};
 	//ActionsName = test; 

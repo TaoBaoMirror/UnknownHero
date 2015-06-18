@@ -15,20 +15,28 @@ public:
 	~SkillList(void);
 
 public:
-	void AddGameSkill(int skillID);
+	GameSkill* AddGameSkill(int skillID);
 
-	void UseSkill(int WeaponIndex);//0~2
+	void UseSkill(int WeaponIndex, int lv);//0~4
+
+	bool LaunchSkill(const GridPos& Gpos);
 
 	GameSkill* GetSkill(int WeaponIndex);
+
+	void SetUsingSkill(GameSkill* pSkill){pCurUsingSkill = pSkill;}
+	GameSkill* GetUsingSkill(){return pCurUsingSkill;}
 
 	void Update();
 
 	//int GetCurActionsAmount();
 
+	bool		CheckIsInRange(const GridPos& gpos);
+	Soldier*	CheckHasTarget(const GridPos& gpos);
+
 private:
 	std::map<int,GameSkill*> m_pSkillsMap;
 
-	
+	GameSkill*	pCurUsingSkill;
 
 	Soldier* m_Onwer;
 };

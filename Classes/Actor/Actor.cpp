@@ -16,8 +16,8 @@
 
 const float Actor::g_ActorMoveTime = 0.5f;
 
-Actor::Actor(int weaponID) :
-	Soldier(weaponID,0),m_OneRoundActionTimes(1)
+Actor::Actor() :
+	Soldier(0),m_OneRoundActionTimes(1)
 {	
 }
 
@@ -136,16 +136,30 @@ void Actor::AIThink(float dt)
 
 void Actor::Attack( Soldier* other , int number)
 {
+	Soldier::Attack(other,number);
 	//Soldier::Attack(other);
-	//auto atkData = GetAttackSystem()->CreateAttackData(other->GetID());
+	if (GetSkillList() != nullptr && GetSkillList()->GetUsingSkill() != nullptr)
+	{
+		auto atkData = GetSkillList()->GetUsingSkill()->CreateAttackData(other->GetID());
+		m_pTempAtkData = atkData;
+	}		
+	
 	//
-	//m_pTempAtkData = atkData;
-	////
-	//m_pFSM->SetStatus(Actor_Attack::Instance());
+	m_pFSM->SetStatus(Actor_Attack::Instance());
+}
 
-	SkillList* pSkillList = GetSkillList(number);
+void Actor::Attack( const GridPos& gPos , int number )
+{
+	Soldier::Attack(gPos,number);
+	
+	if (GetSkillList() != nullptr && GetSkillList()->GetUsingSkill() != nullptr)
+	{
+		auto atkData = GetSkillList()->GetUsingSkill()->CreateAttackData(gPos);
+		m_pTempAtkData = atkData;
+	}
 
-
+	//
+	m_pFSM->SetStatus(Actor_Attack::Instance());
 }
 
 //void Actor::UseDeputyWeapon( Soldier* other, int index )

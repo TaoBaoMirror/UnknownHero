@@ -94,6 +94,12 @@
     <Filter Include="src\Action">
       <UniqueIdentifier>{28de2687-13ed-4f38-98f4-3cbd08fdb382}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Actor\Hero">
+      <UniqueIdentifier>{a959bf78-4181-43ed-aab9-67a03450e9c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Actor\Monster">
+      <UniqueIdentifier>{73ed95fc-ba02-4929-906a-e90ed563a9a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -117,22 +123,7 @@
     <ClCompile Include="..\Classes\Actor\ActorBody.cpp">
       <Filter>src\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Actor\EnemyManager.cpp">
-      <Filter>src\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\Hero.cpp">
-      <Filter>src\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\Monster.cpp">
-      <Filter>src\Actor</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Actor\NPCManager.cpp">
-      <Filter>src\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\PlayerManager.cpp">
-      <Filter>src\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\StandbyHero.cpp">
       <Filter>src\Actor</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\BaseUI\ProgressBar.cpp">
@@ -321,15 +312,6 @@
     <ClCompile Include="..\Classes\Actor\ActorStatus.cpp">
       <Filter>src\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Actor\Monster_Long.cpp">
-      <Filter>src\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\Monster_Short.cpp">
-      <Filter>src\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Actor\Monster_Special.cpp">
-      <Filter>src\Actor</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Game\BulletSystem.cpp">
       <Filter>src\Game\Bullet</Filter>
     </ClCompile>
@@ -341,12 +323,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Goal_HuntTarget.cpp">
       <Filter>src\Game\AI\composite</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Weapon\Weapon_Sword.cpp">
-      <Filter>src\Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Weapon\WeaponFactory.cpp">
-      <Filter>src\Weapon</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Game\MapRule.cpp">
       <Filter>src\Game\Map</Filter>
@@ -390,6 +366,39 @@
     <ClCompile Include="..\Classes\Action\GameAction_MonsterStrong.cpp">
       <Filter>src\Action</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Weapon\Skill_Sword.cpp">
+      <Filter>src\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Weapon\GameSkillFactory.cpp">
+      <Filter>src\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Hero.cpp">
+      <Filter>src\Actor\Hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\PlayerManager.cpp">
+      <Filter>src\Actor\Hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\StandbyHero.cpp">
+      <Filter>src\Actor\Hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Monster_Special.cpp">
+      <Filter>src\Actor\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Monster_Short.cpp">
+      <Filter>src\Actor\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Monster_Long.cpp">
+      <Filter>src\Actor\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Monster.cpp">
+      <Filter>src\Actor\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\EnemyManager.cpp">
+      <Filter>src\Actor\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Hero_SwordMan.cpp">
+      <Filter>src\Actor\Hero</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -413,22 +422,7 @@
     <ClInclude Include="..\Classes\Actor\ActorBody.h">
       <Filter>src\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Actor\EnemyManager.h">
-      <Filter>src\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\Hero.h">
-      <Filter>src\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\Monster.h">
-      <Filter>src\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Actor\NPCManager.h">
-      <Filter>src\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\PlayerManager.h">
-      <Filter>src\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\StandbyHero.h">
       <Filter>src\Actor</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BaseUI\ProgressBar.h">
@@ -635,15 +629,6 @@
     <ClInclude Include="..\Classes\Actor\ActorStatus.h">
       <Filter>src\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Actor\Monster_Long.h">
-      <Filter>src\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\Monster_Short.h">
-      <Filter>src\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Actor\Monster_Special.h">
-      <Filter>src\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Game\BulletSystem.h">
       <Filter>src\Game\Bullet</Filter>
     </ClInclude>
@@ -658,12 +643,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Actor\ActorPathFinderCalculateFunc.h">
       <Filter>src\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Weapon\Weapon_Sword.h">
-      <Filter>src\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Weapon\WeaponFactory.h">
-      <Filter>src\Weapon</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Game\MapRule.h">
       <Filter>src\Game\Map</Filter>
@@ -706,6 +685,39 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Action\GameAction_MonsterStrong.h">
       <Filter>src\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Weapon\Skill_Sword.h">
+      <Filter>src\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Weapon\GameSkillFactory.h">
+      <Filter>src\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Hero.h">
+      <Filter>src\Actor\Hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\PlayerManager.h">
+      <Filter>src\Actor\Hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\StandbyHero.h">
+      <Filter>src\Actor\Hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Monster_Special.h">
+      <Filter>src\Actor\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Monster_Short.h">
+      <Filter>src\Actor\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Monster_Long.h">
+      <Filter>src\Actor\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Monster.h">
+      <Filter>src\Actor\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\EnemyManager.h">
+      <Filter>src\Actor\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Hero_SwordMan.h">
+      <Filter>src\Actor\Hero</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

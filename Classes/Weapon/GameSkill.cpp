@@ -1,8 +1,12 @@
 #include "GameSkill.h"
+#include "Game\AttackSystem.h"
+#include "Game\Soldier.h"
+#include "Game\AttackRange.h"
 
 //---------------------------------------------------------
 GameSkill::GameSkill(Soldier* pOwner) :
-	AttackSystem(pOwner)
+	AttackSystem(pOwner),
+	m_IsTargetToGrid(false)
 {
 }
 
@@ -26,7 +30,17 @@ bool GameSkill::Save(std::ofstream& os)
 	return true;
 }
 
-void GameSkill::AttackLogic(int WeaponOwerID, int HurtActorID)
+void GameSkill::SkillAim()
 {
-	;
+	if (m_pOwner->IsShowAttackRange() == false)
+	{
+		m_pOwner->SetShowAttackRange(true);
+
+		m_pOwner->showAttackRange(this->GetAttackRange()->GetRangeGPosList());
+	}
+}
+
+bool GameSkill::IsTargetToGrid()
+{
+	return m_IsTargetToGrid;
 }

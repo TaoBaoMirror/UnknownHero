@@ -4,6 +4,9 @@
 #include "Bullet/GameBullet.h"
 #include "Actor/ActorStatus.h"
 #include "Game/MapManager.h"
+#include "Weapon/GameSkill.h"
+#include "Weapon/SkillList.h"
+#include "Game/Soldier.h"
 
 Monster_Long::Monster_Long(void)
 {
@@ -162,6 +165,18 @@ void Monster_Long::ShootBullet()
 void Monster_Long::CallBack_AttackFinish()
 {
 	m_pFSM->SetStatus(Actor_Stand::Instance());
+}
+//----------------------------------------------
+void Monster_Long::InitSkill()
+{
+	if (GetSkillList() != nullptr)
+	{
+		GameSkill* pSkill = GetSkillList()->AddGameSkill(0);
+		pSkill->SetIsTargetToGrid(true);
+
+		//对于Monster来说 就一个技能
+		GetSkillList()->SetUsingSkill(pSkill);
+	}
 }
 
 //----------------------------------------------
