@@ -10,6 +10,8 @@ public:
 	~GameAction_Coin(void);
 
 	virtual void UseAction(int level) override;
+protected:
+	int m_SkillID;
 };
 
 #endif //__GAME_ACTION_COIN_H__

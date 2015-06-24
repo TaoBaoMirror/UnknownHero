@@ -5,6 +5,11 @@
 
 #include "Game/AttackSystem.h"
 
+enum SkillType
+{
+	SkillType_Sword = 0,
+};
+
 class GameSkill : public AttackSystem
 {
 public:
@@ -18,8 +23,14 @@ public:
 
 	virtual void	SkillAim();
 
+	virtual void	SkillAttack(AttackData* pAtkData);
+
 	void			SetIsTargetToGrid(bool bSet){m_IsTargetToGrid = bSet;}
 	bool			IsTargetToGrid();
+
+	AttackData*		CreateAttackData( const GridPos& Gpos );
+
+	AttackData*		CreateAttackData( int BearerID );
 
 protected:
 	std::string		ActionType;

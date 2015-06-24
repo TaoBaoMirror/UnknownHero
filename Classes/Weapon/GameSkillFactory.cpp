@@ -30,9 +30,10 @@ GameSkill* GameSkillFactory::CreateWeapon(int weaponID, Soldier* pOwner)
 {
 	GameSkill* pNewWeapon = nullptr;
 
-	switch (weaponID)
+	SkillType type = (SkillType)weaponID;
+	switch (type)
 	{
-	case 0:
+	case SkillType::SkillType_Sword:
 		{
 			pNewWeapon = new Skill_Sword(pOwner);
 			pNewWeapon->SetAttackRange(CIRCLE);

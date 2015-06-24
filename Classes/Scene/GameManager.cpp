@@ -448,7 +448,8 @@ void GameManager::ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, 
 
 		if (pHero != nullptr)
 		{
-			if (pHero->m_pFSM->GetStatus() == Actor_Ready::Instance())
+			if (pHero->m_pFSM->GetStatus() == Actor_Ready::Instance() && 
+				pHero->IsUsingSkill() == false)
 			{
 				if (code == cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW)
 				{
@@ -476,7 +477,9 @@ void GameManager::ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, 
 				}
 				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_G)
 				{
-					pHero->ClickAttack(1);
+					//pHero->ClickAttack(1);
+
+					GameActionSystem::GetInstance()->UseAction(0);
 				}
 				// add by Hitman [5/24/2015]
 				else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B)

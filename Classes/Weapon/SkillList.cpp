@@ -21,7 +21,14 @@ SkillList::~SkillList(void)
 
 void SkillList::Update()
 {
-	;
+	std::map<int,GameSkill*>::iterator it = m_pSkillsMap.begin();
+	for ( ; it!= m_pSkillsMap.end(); ++it)
+	{
+		if (it->second != nullptr)
+		{
+			it->second->Update();
+		}
+	}
 }
 
 GameSkill* SkillList::AddGameSkill(int weaponID)
@@ -141,6 +148,8 @@ Soldier* SkillList::CheckHasTarget(const GridPos& gpos)
 
 		}
 	}
+
+	return nullptr;
 }
 
 GameSkill* SkillList::GetSkill(int weaponIndex)

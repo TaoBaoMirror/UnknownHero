@@ -18,7 +18,7 @@ void Hero_SwordMan::InitSkills()
 {
 	if (GetSkillList() != nullptr)
 	{
-		GameSkill* pSkill = GetSkillList()->AddGameSkill(0);
+		GameSkill* pSkill = GetSkillList()->AddGameSkill(SkillType::SkillType_Sword);
 		pSkill->SetIsTargetToGrid(true);
 		PlayerManager::GetInstance()->AddWeightToList(GameActionType::GameActionType_Sword, 10);
 	}

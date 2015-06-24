@@ -92,14 +92,6 @@ bool AttackSystem::Save( std::ofstream& os )
 
 #include "CommonFunc.h"
 
-AttackData* AttackSystem::CreateAttackData( const GridPos& Gpos )
-{
-	return new AttackData(m_CurAttackDataBase,m_pOwner->GetID(),Gpos,this);
-}
 
-AttackData* AttackSystem::CreateAttackData( int BearerID )
-{
-	return new AttackData(m_CurAttackDataBase,m_pOwner->GetID(),BearerID,this);
-}
 
 //

@@ -32,20 +32,20 @@ public:
 	bool	HasEmitter;			//是否有发射器
 };
 
-class AttackSystem;
+class GameSkill;
 
 class AttackData : public AttackDataBase
 {
 public:
 	AttackData();
-	AttackData(const AttackDataBase& ADB,int P_Id,int B_Id, AttackSystem* pWeapon);
-	AttackData(const AttackDataBase& ADB,int P_Id,const GridPos& GPos, AttackSystem* pWeapon);
+	AttackData(const AttackDataBase& ADB,int P_Id,int B_Id, GameSkill* pWeapon);
+	AttackData(const AttackDataBase& ADB,int P_Id,const GridPos& GPos, GameSkill* pWeapon);
 
 	int		ProviderID;			//提供伤害的SoldierID
 	int		BearerID;			//承受伤害的SoldierID
 	GridPos		TargetGPos;
 
-	AttackSystem* m_pWeapon;
+	GameSkill* m_pWeapon;
 };
 
 class DamageData

@@ -10,6 +10,8 @@ public:
 	~GameAction_Bomb(void);
 
 	virtual void UseAction(int level) override;
+protected:
+	int m_SkillID;
 };
 
 #endif //__GAME_ACTION_BOMB_H__

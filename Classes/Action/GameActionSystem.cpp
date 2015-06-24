@@ -147,6 +147,7 @@ void GameActionSystem::CreateActionAtReserve(GameActionType type, int weight)
 	case GameActionType_Bow:
 		{
 			pNewAction = new GameAction_Bow((int)type);
+			pNewAction->SetActionDirectly(false);
 		}
 		break;
 	case GameActionType_Trap_Hurt:
@@ -245,13 +246,16 @@ void GameActionSystem::UseAction(int GroupID)
 				level++;
 			}
 
+			m_Action_Group1[CurAction]->UseAction(level);
+
 			if (m_Action_Group1[CurAction]->IsActionDirectly())
 			{
-				m_Action_Group1[CurAction]->UseAction(level);
+				
 			}
 			else
 			{
 				// Write 150616
+				LockSystem();
 			}
 			
 		}
@@ -285,14 +289,17 @@ void GameActionSystem::UseAction(int GroupID)
 				m_MustRoll[4] = true;
 				level++;
 			}
-			
-			if (m_Action_Group1[CurAction]->IsActionDirectly())
+
+
+			m_Action_Group2[CurAction]->UseAction(level);
+			if (m_Action_Group2[CurAction]->IsActionDirectly())
 			{
-				m_Action_Group2[CurAction]->UseAction(level);
+
 			}
 			else
 			{
 				// Write 150616
+				LockSystem();
 			}
 		}
 	}
@@ -326,13 +333,16 @@ void GameActionSystem::UseAction(int GroupID)
 				level++;
 			}
 			
-			if (m_Action_Group1[CurAction]->IsActionDirectly())
+
+			m_Action_Group3[CurAction]->UseAction(level);
+			if (m_Action_Group3[CurAction]->IsActionDirectly())
 			{
-				m_Action_Group3[CurAction]->UseAction(level);
+				
 			}
 			else
 			{
 				// Write 150616
+				LockSystem();
 			}
 		}
 	}
@@ -366,13 +376,15 @@ void GameActionSystem::UseAction(int GroupID)
 				level++;
 			}
 			
-			if (m_Action_Group1[CurAction]->IsActionDirectly())
+			m_Action_Group4[CurAction]->UseAction(level);
+			if (m_Action_Group4[CurAction]->IsActionDirectly())
 			{
-				m_Action_Group4[CurAction]->UseAction(level);
+
 			}
 			else
 			{
 				// Write 150616
+				LockSystem();
 			}
 		}
 	}
@@ -406,13 +418,15 @@ void GameActionSystem::UseAction(int GroupID)
 				level++;
 			}
 			
-			if (m_Action_Group1[CurAction]->IsActionDirectly())
+			m_Action_Group5[CurAction]->UseAction(level);
+			if (m_Action_Group5[CurAction]->IsActionDirectly())
 			{
-				m_Action_Group5[CurAction]->UseAction(level);
+				
 			}
 			else
 			{
 				// Write 150616
+				LockSystem();
 			}
 		}
 	}

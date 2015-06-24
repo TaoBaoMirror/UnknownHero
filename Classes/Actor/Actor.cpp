@@ -254,7 +254,15 @@ void Actor::ActorDieEnd()
 //-------------------------
 void Actor::CalcAttack( AttackData* pAtkData )
 {
-	int i= 100;
+	if (pAtkData != nullptr)
+	{
+		pAtkData->m_pWeapon->SkillAttack(pAtkData);
+	}
+}
+
+void Actor::CallBack_AttackFinish()
+{
+	m_pFSM->SetStatus(Actor_Stand::Instance());
 }
 
 void Actor::CalcDie()
@@ -276,7 +284,7 @@ void Actor::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
 		//pChunkMap->ShowRangeData(AttackGPosList);
 	}
 
-	MarkTileManager::GetInstance()->SetMarkTiles(MarkTile_Attack,"ActorAttack",AttackGPosList);
+	
 }
 
 void Actor::UpdateToCCWorldPos()

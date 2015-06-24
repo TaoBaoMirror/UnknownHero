@@ -71,6 +71,8 @@ public:
 
 	virtual void CalcAttack( AttackData* pAtkData );
 
+	virtual void CallBack_AttackFinish() override;
+
 	virtual void CalcDie();
 	//------
 	virtual void ActorHurtStart(){}

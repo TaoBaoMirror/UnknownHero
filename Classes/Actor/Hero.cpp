@@ -207,7 +207,9 @@ void Hero::ActorAttackUpdate(float dt)
 }
 void Hero::ActorAttackEnd()
 {
-	;
+	GameActionSystem::GetInstance()->OverAction();
+
+	GetSkillList()->SetUsingSkill(nullptr);
 }
 //-----
 void Hero::ActorDieStart()
@@ -236,12 +238,12 @@ void Hero::ActorWinEnd()
 #include "Game/AttackData.h"
 void Hero::CalcAttack( AttackData* pAtkData )
 {
-	if (pAtkData != nullptr)
-	{
-		CommonFunc::CalcDamage(pAtkData);		
-	}
+	//if (pAtkData != nullptr)
+	//{
+	//	CommonFunc::CalcDamage(pAtkData);		
+	//}
 	
-	m_pFSM->SetStatus(Actor_Stand::Instance());
+	
 }
 
 //------------------------------------------------------------------------------------
@@ -269,10 +271,6 @@ void Hero::CancleSkill()
 void Hero::Attack(Soldier* other , int number)
 {
 	Actor::Attack(other,number);
-
-	GameActionSystem::GetInstance()->OverAction();
-
-	GetSkillList()->SetUsingSkill(nullptr);
 }
 //------------------------------------------------------------------------------------
 void Hero::SelectGrid( const GridPos& gridPos )
@@ -311,5 +309,10 @@ void Hero::SelectGrid( const GridPos& gridPos )
 		//MapNodeData
 	}				
 }
-
+//------------------------------------------------------------------------------------
+void Hero::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
+{
+	Actor::showAttackRange(AttackGPosList);
+	MarkTileManager::GetInstance()->SetMarkTiles(MarkTile_Attack,"ActorAttack",AttackGPosList);
+}
 //------------------------------------------------------------------------------------

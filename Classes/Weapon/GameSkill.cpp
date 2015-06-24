@@ -17,7 +17,7 @@ GameSkill::~GameSkill(void)
 
 void GameSkill::Update()
 {
-	;
+	AttackSystem::Update();
 }
 
 bool GameSkill::Load(std::ifstream& is)
@@ -43,4 +43,19 @@ void GameSkill::SkillAim()
 bool GameSkill::IsTargetToGrid()
 {
 	return m_IsTargetToGrid;
+}
+
+void GameSkill::SkillAttack( AttackData* pAtkData )
+{
+	m_pOwner->CallBack_AttackFinish();
+}
+
+AttackData* GameSkill::CreateAttackData( const GridPos& Gpos )
+{
+	return new AttackData(m_CurAttackDataBase,m_pOwner->GetID(),Gpos,this);
+}
+
+AttackData* GameSkill::CreateAttackData( int BearerID )
+{
+	return new AttackData(m_CurAttackDataBase,m_pOwner->GetID(),BearerID,this);
 }

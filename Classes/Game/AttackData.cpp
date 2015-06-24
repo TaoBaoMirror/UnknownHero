@@ -23,13 +23,13 @@ AttackData::AttackData()
 
 }
 
-AttackData::AttackData( const AttackDataBase& ADB,int P_Id,int B_Id, AttackSystem* pWeapon )
+AttackData::AttackData( const AttackDataBase& ADB,int P_Id,int B_Id, GameSkill* pWeapon )
 	:AttackDataBase(ADB),ProviderID(P_Id),BearerID(B_Id),m_pWeapon(pWeapon)
 {
 	TargetGPos.SetTo(-1,-1);
 }
 
-AttackData::AttackData( const AttackDataBase& ADB,int P_Id,const GridPos& GPos, AttackSystem* pWeapon )
+AttackData::AttackData( const AttackDataBase& ADB,int P_Id,const GridPos& GPos, GameSkill* pWeapon )
 	:AttackDataBase(ADB),ProviderID(P_Id),TargetGPos(GPos),m_pWeapon(pWeapon)
 {
 	BearerID = -1;

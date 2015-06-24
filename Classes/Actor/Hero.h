@@ -60,6 +60,8 @@ public:
 	virtual void ActorWinUpdate(float dt) override;
 	virtual void ActorWinEnd() override;
 	//----------------------------------------
+	virtual void showAttackRange(const std::vector<GridPos>&	AttackGPosList) override;
+
 	void ClickAttack(int groupID);
 
 	void SelectGrid( const GridPos& GPos );

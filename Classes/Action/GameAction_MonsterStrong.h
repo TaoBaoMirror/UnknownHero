@@ -10,6 +10,8 @@ public:
 	~GameAction_MonsterStrong(void);
 
 	virtual void UseAction(int level) override;
+protected:
+	int m_SkillID;
 };
 
 #endif //__GAME_ACTION_MONSTERSTRONG_H__
