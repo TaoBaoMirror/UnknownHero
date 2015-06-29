@@ -22,6 +22,8 @@ public:
 	Actor();
 	~Actor(void);
 
+	virtual void update(float delta) override;
+
 	virtual void BeginTraval() override;
 	virtual void EndTraval() override;
 	virtual bool TravalTo(const GridPos& GPos) override;

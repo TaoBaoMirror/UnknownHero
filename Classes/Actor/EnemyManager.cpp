@@ -112,6 +112,10 @@ void EnemyManager::Update(float dt)
 		{
 			m_pCurEnemy = nullptr;
 		}
+		else
+		{
+			m_pCurEnemy->update(dt);
+		}
 	}
 	else
 	{

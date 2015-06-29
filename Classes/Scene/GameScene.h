@@ -39,8 +39,8 @@ protected:
 	SkillBarUI*	pSkillBarUI;
 	MainControllerPanel*	pMainPanel;
 
-	cocos2d::EventListenerTouchOneByOne* _touchListener;
-	cocos2d::EventListenerKeyboard* _keyboardListener;
+	//cocos2d::EventListenerTouchOneByOne* _touchListener;
+	//cocos2d::EventListenerKeyboard* _keyboardListener;
 };
 
 #endif //__GAME_SCENE_H__

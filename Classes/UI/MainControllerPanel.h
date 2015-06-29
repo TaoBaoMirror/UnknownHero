@@ -149,9 +149,13 @@ public:
 	void    SetRollTime(float t) { mRollTime = t;}
 	void	SetGroupID(int i) { mGroupID = i;}
 	/* ¼àÌý */
-	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
-	void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
-	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+	//void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+	//void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+	//void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+
+	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 
 protected:
 	//
@@ -195,9 +199,13 @@ public:
 	cocos2d::Rect	GetWheelHandleRect();
 	//
 	/* ¼àÌý */
-	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
-	void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
-	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+	//void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+	//void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+	//void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
+
+	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event  *event);
+	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event  *event);
+	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event  *event);
 protected:
 	cocos2d::Vector<ActionWheel*>	mWheelList;	
 	cocos2d::Sprite*				mWheelHandle;

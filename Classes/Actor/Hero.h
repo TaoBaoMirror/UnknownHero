@@ -26,7 +26,7 @@ public:
 	virtual void playAttackAnimation() override;
 
 	//------------------------------
-	virtual void CalcAttack(AttackData* pAtkData) ;
+	virtual void CalcAttack(AttackData* pAtkData) override;
 
 	void SetHeroID(int id){m_HeroID = id;}
 

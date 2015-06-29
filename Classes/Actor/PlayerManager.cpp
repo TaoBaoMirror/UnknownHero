@@ -39,7 +39,9 @@ void PlayerManager::Update(float dt)
 			{
 				GameManager::GetInstance()->RoundPassed();
 			}
-		}			
+		}	
+
+		m_pMainRole->update(dt);
 	}
 }
 //-------------------------------------------------------

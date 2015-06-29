@@ -22,8 +22,8 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
-	_eventDispatcher->removeEventListener(_touchListener);
-	_eventDispatcher->removeEventListener(_keyboardListener);
+	//_eventDispatcher->removeEventListener(_touchListener);
+	//_eventDispatcher->removeEventListener(_keyboardListener);
 }
 
 cocos2d::Scene* GameScene::createScene()
@@ -49,23 +49,23 @@ bool GameScene::init()
 {
 	Scene::init();
 
-	//--------------------------
-	auto listener = EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(true);
+	////--------------------------
+	//auto listener = EventListenerTouchOneByOne::create();
+	//listener->setSwallowTouches(true);
 
-	listener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);
-	listener->onTouchMoved = CC_CALLBACK_2(GameScene::onTouchMoved, this);
-	listener->onTouchEnded = CC_CALLBACK_2(GameScene::onTouchEnded, this);
+	//listener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);
+	//listener->onTouchMoved = CC_CALLBACK_2(GameScene::onTouchMoved, this);
+	//listener->onTouchEnded = CC_CALLBACK_2(GameScene::onTouchEnded, this);
 
-	//_eventDispatcher->addEventListenerWithFixedPriority(listener, -10);
-	_touchListener = listener;
-	//--------------------------
-	auto listenerKeyboard = EventListenerKeyboard::create();
-	listenerKeyboard->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
-	listenerKeyboard->onKeyReleased = CC_CALLBACK_2(GameScene::onKeyReleased, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerKeyboard, this);
-	_keyboardListener = listenerKeyboard;
-	//--------------------------
+	////_eventDispatcher->addEventListenerWithFixedPriority(listener, -10);
+	//_touchListener = listener;
+	////--------------------------
+	//auto listenerKeyboard = EventListenerKeyboard::create();
+	//listenerKeyboard->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
+	//listenerKeyboard->onKeyReleased = CC_CALLBACK_2(GameScene::onKeyReleased, this);
+	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerKeyboard, this);
+	//_keyboardListener = listenerKeyboard;
+	////--------------------------
 
 	TestMap();
 

@@ -19,6 +19,8 @@
 #include "Actor/ActorPathFinderCalculateFunc.h"
 
 #include "Game/Trigger/GameTrigger.h"
+#include "Scene/GameManager.h"
+#include "base/CCEventListenerTouch.h"
 
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
@@ -44,6 +46,9 @@
 //
 #include "Debug/GizmoSoldier.h"
 #include "CreatureSpawnArea.h"
+
+///-------------------------
+USING_NS_CC;
 ///-------------------------
 // 静态函数
 // add by Hitman [5/30/2015]
@@ -80,6 +85,9 @@ ChunkMap::ChunkMap():EnableDebugDraw(true)
 
 	//可以输出一些信息
 	ttfConfig = cocos2d::TTFConfig("fonts/arial.ttf", 12);
+
+	_eventDispatcher->removeEventListener(_touchListener);
+	_eventDispatcher->removeEventListener(_keyboardListener);
 }
 
 ChunkMap::~ChunkMap()
@@ -290,6 +298,25 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		//
 		OnAfterInit();
 		//
+
+		//input
+		auto listener = cocos2d::EventListenerTouchOneByOne::create();
+		listener->setSwallowTouches(true);
+
+		listener->onTouchBegan = CC_CALLBACK_2(ChunkMap::onTouchBegan, this);
+		listener->onTouchMoved = CC_CALLBACK_2(ChunkMap::onTouchMoved, this);
+		listener->onTouchEnded = CC_CALLBACK_2(ChunkMap::onTouchEnded, this);
+
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+		_touchListener = listener;
+		//--------------------------
+		auto listenerKeyboard = EventListenerKeyboard::create();
+		listenerKeyboard->onKeyPressed = CC_CALLBACK_2(ChunkMap::onKeyPressed, this);
+		listenerKeyboard->onKeyReleased = CC_CALLBACK_2(ChunkMap::onKeyReleased, this);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerKeyboard, this);
+		_keyboardListener = listenerKeyboard;
+		//--------------------------
+		//end
 		return true;
 	}
 	//
@@ -640,4 +667,44 @@ bool ChunkMap::TiledGridPosToGridPos( const cocos2d::Vec2& TPos,GridPos& out_GPo
 	//
 	out_GPos.SetTo(TPos.x,sLayerSize.height - TPos.y - 1);
 	return true;
+}
+
+bool ChunkMap::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	auto touchLocation = touch->getLocation();    
+
+	auto nodePosition = convertToNodeSpace( touchLocation );
+	//log("GameScene::onTouchBegan, pos: %f,%f -> %f,%f", touchLocation.x, touchLocation.y, nodePosition.x, nodePosition.y);
+
+	return GameManager::GetInstance()->MouseDown(touchLocation);
+}
+
+void ChunkMap::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	auto touchLocation = touch->getLocation();    
+	auto nodePosition = convertToNodeSpace( touchLocation );
+
+	//log("GameScene::onTouchMoved, pos: %f,%f -> %f,%f", touchLocation.x, touchLocation.y, nodePosition.x, nodePosition.y);
+
+	GameManager::GetInstance()->MouseMove(nodePosition);  
+}
+
+void ChunkMap::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	auto touchLocation = touch->getLocation();    
+	auto nodePosition = convertToNodeSpace( touchLocation );
+
+	//log("GameScene::onTouchEnded, pos: %f,%f -> %f,%f", touchLocation.x, touchLocation.y, nodePosition.x, nodePosition.y);
+
+	GameManager::GetInstance()->MouseUp(nodePosition);
+}
+
+void ChunkMap::onKeyPressed(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
+{
+	GameManager::GetInstance()->GameKeyPressed(code, event);
+}
+
+void ChunkMap::onKeyReleased(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
+{
+	GameManager::GetInstance()->GameKeyReleased(code, event);
 }

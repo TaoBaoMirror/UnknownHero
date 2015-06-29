@@ -88,6 +88,14 @@ public:
 
 	//
 	MapRuleSystem&	GetMapRuleSys(){return mMapRuleSys;}
+
+	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+
+	void onKeyPressed(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
+
+	void onKeyReleased(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
 protected:
 	GridSceneMap		mGridMap;
 	GameInfluenceMap	mIM;
@@ -109,6 +117,9 @@ public:
 	cocos2d::DrawNode*	pDebugDrawNode;
 	bool	EnableDebugDraw;
 	cocos2d::TTFConfig ttfConfig;
+
+	cocos2d::EventListenerTouchOneByOne* _touchListener;
+	cocos2d::EventListenerKeyboard* _keyboardListener;
 };
 
 #endif // ChunkMap_h__

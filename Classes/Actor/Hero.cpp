@@ -238,6 +238,8 @@ void Hero::ActorWinEnd()
 #include "Game/AttackData.h"
 void Hero::CalcAttack( AttackData* pAtkData )
 {
+	Actor::CalcAttack(pAtkData);
+
 	//if (pAtkData != nullptr)
 	//{
 	//	CommonFunc::CalcDamage(pAtkData);		

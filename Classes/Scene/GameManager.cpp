@@ -406,12 +406,12 @@ bool GameManager::MouseDown(const cocos2d::Vec2& touchpos)
 
 				pHero->SelectGrid(gridPos);
 							
-				
+				return true;
 			}
 		}
 	}
 	
-	return true;
+	return false;
 	
 }
 void GameManager::MouseUp(const cocos2d::Vec2& touchpos)
@@ -496,6 +496,22 @@ void GameManager::ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, 
 					//
 					//bullet->Emit();
 				}
+			}
+
+			//test
+			if (code == cocos2d::EventKeyboard::KeyCode::KEY_B)
+			{
+				//Emit a Bullet
+				if (pHero->GetSkillList() != nullptr && pHero->GetSkillList()->GetUsingSkill() != nullptr)
+				{
+					GameBullet* bullet = GameBulletManager::GetInstance()->CreateBullet(
+						0,pHero->GetSkillList()->GetUsingSkill()->CreateAttackData(GridPos(6,6)));
+					bullet->Emit();
+				}
+				//GameBullet* bullet = GameBulletManager::GetInstance()->CreateBullet(
+				//	0,pHero->GetAttackSystem()->CreateAttackData(GridPos(6,6)));
+				//
+				//bullet->Emit();
 			}
 		}
 		

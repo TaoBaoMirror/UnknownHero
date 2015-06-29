@@ -139,12 +139,13 @@ void ActionWheel::Init( const std::vector<int>& IconIDs )
 	//////////////
 	//		增加一个事件监听
 	/////////////
-	auto listener = cocos2d::EventListenerTouchAllAtOnce::create();
-	listener->onTouchesBegan = CC_CALLBACK_2(ActionWheel::onTouchesBegan, this);
-	listener->onTouchesMoved = CC_CALLBACK_2(ActionWheel::onTouchesMoved, this);
-	listener->onTouchesEnded = CC_CALLBACK_2(ActionWheel::onTouchesEnded, this);
-	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-	_eventDispatcher->addEventListenerWithFixedPriority(listener, -11);
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+	listener->onTouchBegan = CC_CALLBACK_2(ActionWheel::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(ActionWheel::onTouchMoved, this);
+	listener->onTouchEnded = CC_CALLBACK_2(ActionWheel::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+	//_eventDispatcher->addEventListenerWithFixedPriority(listener, -11);
 	//////////////////////////////////////////////////////////////////////////
 	mBlurWheel = BlurWheel::create("images/wheel_0.png");
 	mBlurWheelBasePos = mIconBasePos + cocos2d::Vec2(0,mBlurWheel->getContentSize().height*0.5f + SFrame->getRect().size.height * 0.5f);
@@ -360,10 +361,8 @@ int ActionWheel::Pick()
 	return mIconIDs[mCurrentIconIndex];
 }
 
-void ActionWheel::onTouchesBegan( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+bool ActionWheel::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-	if(mState != WheelIdle) return;
-	cocos2d::Touch *touch = touches[0];
 	auto clipper = this->getChildByTag(ActionWheel::ClipperTag);
 	cocos2d::Vec2 point = clipper->convertToNodeSpace(cocos2d::Director::getInstance()->convertToGL(touch->getLocationInView()));
 	auto rect = GetTouchRect();
@@ -373,15 +372,18 @@ void ActionWheel::onTouchesBegan( const std::vector<cocos2d::Touch*>& touches, c
 		//点亮选择的icon
 		WheelIcon* icon = mWheelIcons.at(mCurrentIconIndex);
 		icon->TurnOn();
+
+		return true;
 	}
+
+	return false;
 }
 
-void ActionWheel::onTouchesMoved( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+void ActionWheel::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-
 }
 
-void ActionWheel::onTouchesEnded( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+void ActionWheel::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 	if(mState != WheelIdle) return;
 	//已经选中了一个ID
@@ -396,12 +398,59 @@ void ActionWheel::onTouchesEnded( const std::vector<cocos2d::Touch*>& touches, c
 		{
 			icon->TurnOff();
 			//
-			RollToNextIcon();
+			//RollToNextIcon();
+
+			GameActionSystem::GetInstance()->UseAction(mGroupID);
 		}
 		//
 		mPickedID = -1;
 	}
 }
+//
+//void ActionWheel::onTouchesBegan( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+//{
+//	if(mState != WheelIdle) return;
+//	cocos2d::Touch *touch = touches[0];
+//	auto clipper = this->getChildByTag(ActionWheel::ClipperTag);
+//	cocos2d::Vec2 point = clipper->convertToNodeSpace(cocos2d::Director::getInstance()->convertToGL(touch->getLocationInView()));
+//	auto rect = GetTouchRect();
+//	if (rect.containsPoint(point))
+//	{
+//		mPickedID = Pick();
+//		//点亮选择的icon
+//		WheelIcon* icon = mWheelIcons.at(mCurrentIconIndex);
+//		icon->TurnOn();
+//	}
+//}
+//
+//void ActionWheel::onTouchesMoved( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+//{
+//
+//}
+//
+//void ActionWheel::onTouchesEnded( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+//{
+//	if(mState != WheelIdle) return;
+//	//已经选中了一个ID
+//	if (mPickedID != -1)
+//	{
+//		//判断释放的位置
+//
+//
+//		//是否轮盘上还有数量
+//		auto icon = mWheelIcons.at(mCurrentIconIndex);
+//		if (icon->PickOne())
+//		{
+//			icon->TurnOff();
+//			//
+//			//RollToNextIcon();
+//
+//			GameActionSystem::GetInstance()->UseAction(mGroupID);
+//		}
+//		//
+//		mPickedID = -1;
+//	}
+//}
 
 cocos2d::Rect ActionWheel::GetTouchRect()
 {
@@ -502,17 +551,23 @@ void MainControllerPanel::Init()
 	mWheelHandle->setPosition(190,0);
 	addChild(mWheelHandle);
 	//
-	auto listener = cocos2d::EventListenerTouchAllAtOnce::create();
-	listener->onTouchesBegan = CC_CALLBACK_2(MainControllerPanel::onTouchesBegan, this);
-	listener->onTouchesMoved = CC_CALLBACK_2(MainControllerPanel::onTouchesMoved, this);
-	listener->onTouchesEnded = CC_CALLBACK_2(MainControllerPanel::onTouchesEnded, this);
+	//auto listener = cocos2d::EventListenerTouchAllAtOnce::create();
+	//listener->onTouchesBegan = CC_CALLBACK_2(MainControllerPanel::onTouchesBegan, this);
+	//listener->onTouchesMoved = CC_CALLBACK_2(MainControllerPanel::onTouchesMoved, this);
+	//listener->onTouchesEnded = CC_CALLBACK_2(MainControllerPanel::onTouchesEnded, this);
+	//mWheelHandle->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+	listener->onTouchBegan = CC_CALLBACK_2(MainControllerPanel::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(MainControllerPanel::onTouchMoved, this);
+	listener->onTouchEnded = CC_CALLBACK_2(MainControllerPanel::onTouchEnded, this);
 	mWheelHandle->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
 }
 
-void MainControllerPanel::onTouchesBegan( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+bool MainControllerPanel::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event  *event)
 {
-	cocos2d::Touch *touch = touches[0];
 	cocos2d::Vec2 point = mWheelHandle->convertToNodeSpace(cocos2d::Director::getInstance()->convertToGL(touch->getLocationInView()));
 	auto rect = GetWheelHandleRect();
 	if (rect.containsPoint(point))
@@ -536,18 +591,58 @@ void MainControllerPanel::onTouchesBegan( const std::vector<cocos2d::Touch*>& to
 			}
 		}
 
+		return true;
 	}
-}
 
-void MainControllerPanel::onTouchesMoved( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+	return false;
+}
+void MainControllerPanel::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event  *event)
 {
-
+	;
 }
-
-void MainControllerPanel::onTouchesEnded( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+void MainControllerPanel::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event  *event)
 {
-
+	;
 }
+//
+//void MainControllerPanel::onTouchesBegan( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+//{
+//	cocos2d::Touch *touch = touches[0];
+//	cocos2d::Vec2 point = mWheelHandle->convertToNodeSpace(cocos2d::Director::getInstance()->convertToGL(touch->getLocationInView()));
+//	auto rect = GetWheelHandleRect();
+//	if (rect.containsPoint(point))
+//	{
+//		bool canRoll = true;
+//		//
+//		for (int i = 0;i< mWheelList.size();++i)
+//		{
+//			if(mWheelList.at(i)->GetState() != WheelIdle)
+//			{
+//				canRoll = false;
+//				break;
+//			}
+//		}
+//		//
+//		if(canRoll)
+//		{
+//			for (int i = 0;i< mWheelList.size();++i)
+//			{
+//				mWheelList.at(i)->RandomRoll();
+//			}
+//		}
+//
+//	}
+//}
+//
+//void MainControllerPanel::onTouchesMoved( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+//{
+//
+//}
+//
+//void MainControllerPanel::onTouchesEnded( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
+//{
+//
+//}
 
 cocos2d::Rect MainControllerPanel::GetWheelHandleRect()
 {

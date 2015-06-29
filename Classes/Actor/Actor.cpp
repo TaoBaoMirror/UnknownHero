@@ -26,6 +26,16 @@ Actor::~Actor(void)
 {
 }
 
+void Actor::update(float delta)
+{
+	cocos2d::CCSprite::update(delta);
+
+	if (m_pFSM != nullptr)
+	{
+		m_pFSM->update(delta);
+	}	
+}
+
 void Actor::SetResource(std::string name)
 {
 	if (m_framesDict.size() == 0)
