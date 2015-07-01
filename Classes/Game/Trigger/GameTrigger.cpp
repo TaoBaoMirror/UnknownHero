@@ -151,6 +151,37 @@ void GameTrigger::Awake()
 	mActive = true;
 }
 
+void GameTrigger::DeployToCorrectChunk()
+{
+	if (mRecordOwnerChunk.X != -1 && mRecordOwnerChunk.Y != -1)
+	{
+		if (MapManager::GetInstance()->GetCurChunkMap()->GetInMazeGPos().Equals(mRecordOwnerChunk))
+		{
+			auto layer = MapManager::GetInstance()->GetCurChunkMap()->GetTriggerLayer();
+
+			if (layer != nullptr)
+			{
+				layer->addChild(this);
+				//¼¤»î
+				Awake();
+			}
+		}
+	}
+}
+
+void GameTrigger::UndeployFromCurChunk()
+{
+	if (mRecordOwnerChunk.X != -1 && mRecordOwnerChunk.Y != -1)
+	{
+		if (MapManager::GetInstance()->GetCurChunkMap()->GetInMazeGPos().Equals(mRecordOwnerChunk))
+		{
+			this->removeFromParentAndCleanup(true);
+			//Ë¯Ãß
+			Sleep();
+		}
+	}
+}
+
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -178,7 +209,6 @@ void TriggerManager::ReleaseAllTrigger()
 	while (it != end)
 	{
 		(*it)->OnDestory();
-		(*it)->release();
 		it++;
 	}
 	//
@@ -189,11 +219,12 @@ void TriggerManager::RemoveTrigger( GameTrigger* trigger )
 {
 	TriggerPool.remove(trigger);
 	trigger->release();
+	trigger = nullptr;
 	//
 	return;
 }
 
-GameTrigger* TriggerManager::CreateTrigger( Soldier* owner,int triggerType,const GridPos& GPos)
+GameTrigger* TriggerManager::CreateTrigger( Soldier* owner,int triggerType,const GridPos& GPos,ChunkMap* chunk)
 {
 	GameTrigger* trigger = nullptr;
 	switch (triggerType)
@@ -209,7 +240,6 @@ GameTrigger* TriggerManager::CreateTrigger( Soldier* owner,int triggerType,const
 	if (trigger != nullptr)
 	{
 		const TriggerData* pTD = nullptr;
-		auto chunk = MapManager::GetInstance()->GetCurChunkMap();
 
 		TriggerDataManager::GetInstance()->GetTriggerData(triggerType,pTD);
 		trigger->Init(pTD,GPos,chunk);
@@ -217,15 +247,15 @@ GameTrigger* TriggerManager::CreateTrigger( Soldier* owner,int triggerType,const
 		trigger->mID = NextID++;		//ÉèÖÃID
 		TriggerPool.push_back(trigger);
 		//
-		if (chunk != nullptr)
-		{
-			auto layer = MapManager::GetInstance()->GetCurChunkMap()->GetTriggerLayer();
-
-			if (layer != nullptr)
-			{
-				layer->addChild(trigger);
-			}
-		}
+// 		if (chunk != nullptr)
+// 		{
+// 			auto layer = MapManager::GetInstance()->GetCurChunkMap()->GetTriggerLayer();
+// 
+// 			if (layer != nullptr)
+// 			{
+// 				layer->addChild(trigger);
+// 			}
+// 		}
 
 	}
 	return trigger;
@@ -255,7 +285,7 @@ void TriggerManager::Update( float dt )
 	{
 		GameTrigger* trigger = *it;
 
-		trigger->UpdateTriggerFrame(dt);
+		if(trigger->mActive) trigger->UpdateTriggerFrame(dt);
 
 	}
 }
@@ -267,6 +297,7 @@ void TriggerManager::UpdateRound()
 		it != e; ++ it)
 	{
 		GameTrigger* trigger = *it;
+		if(trigger->mActive == false) continue;
 		//
 		const std::vector<GridPos>&	area = trigger->GetArea();
 		//
@@ -306,6 +337,32 @@ void TriggerManager::UpdateRound()
 
 			}
 		}
+
+	}
+}
+
+void TriggerManager::OnChunkLeave()
+{
+	std::list<GameTrigger*>::iterator e = TriggerPool.end();
+	for(std::list<GameTrigger*>::iterator it = TriggerPool.begin();
+		it != e; ++ it)
+	{
+		GameTrigger* trigger = *it;
+
+		trigger->UndeployFromCurChunk();
+
+	}
+}
+
+void TriggerManager::OnChunkEnter()
+{
+	std::list<GameTrigger*>::iterator e = TriggerPool.end();
+	for(std::list<GameTrigger*>::iterator it = TriggerPool.begin();
+		it != e; ++ it)
+	{
+		GameTrigger* trigger = *it;
+
+		trigger->DeployToCorrectChunk();
 
 	}
 }

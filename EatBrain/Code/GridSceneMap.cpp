@@ -5,7 +5,7 @@
 
 GridSceneMap::GridSceneMap()
 {
-	MapGraph = 0;
+	MapGraph = new NavGraph(false);
 }
 
 GridSceneMap::~GridSceneMap()
@@ -17,10 +17,10 @@ GridSceneMap::~GridSceneMap()
 
 void GridSceneMap::CreateMap( MapType map_type )
 {
-	if (MapGraph == 0) 
-	{
-		MapGraph = new NavGraph(false);
-	}
+// 	if (MapGraph == 0) 
+// 	{
+// 		MapGraph = new NavGraph(false);
+// 	}
 	//
 	MapGraph->Clear();
 	//´Ó0¿ªÊ¼

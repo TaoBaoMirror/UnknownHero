@@ -17,6 +17,7 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 	const AttackData* pAtkData = atkData;
 	if(pAtkData == nullptr) return;
 	auto provider = SoldierManager::Instance()->GetSoldier(pAtkData->ProviderID);
+	Soldier* bearer = nullptr;
 
 	if(provider != nullptr) provider->CallBack_AttackFinish();
 
@@ -26,6 +27,15 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 
 	float hit_Rate = 1.0f;	//系数
 	float center_Damage = 0.f;
+	{		
+		int AtkPt = pAtkData->AttackPt;
+		if (RandInt(0,100) < pAtkData->CritRate)
+		{
+			AtkPt = pAtkData->CritPt;
+		}
+		//现在是为计算护甲的值
+		center_Damage = AtkPt;
+	}
 
 	GridPos centerGPos;
 
@@ -38,14 +48,27 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 		
 			centerGPos = pAtkData->TargetGPos;
 		}
+		else
+		{
+			auto s = chunkMap->FindSoldierAtGPos(pAtkData->TargetGPos);
+
+			if (s != nullptr)
+			{
+				bearer = s;
+			}
+		}
 
 	}
 	else
 	{
 		//指向敌人的
-		auto bearer = SoldierManager::Instance()->GetSoldier(pAtkData->BearerID);
+		bearer = SoldierManager::Instance()->GetSoldier(pAtkData->BearerID);
 
 		if(bearer == nullptr) return;
+	}
+
+	if(bearer != nullptr)
+	{
 
 		const ShieldDataBase* pShdData = bearer->GetShieldSystem()->GetCurShieldDataBase();
 		//
@@ -56,13 +79,8 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 		else
 		{
 			hit_Rate = 1.0f;	//这个应该由 攻击类型和防御类型 的关系得到
-			int AtkPt = pAtkData->AttackPt;
-			if (RandInt(0,100) < pAtkData->CritRate)
-			{
-				AtkPt = pAtkData->CritPt;
-			}
-			//中心的实际伤害值，这个值应该传给bearer的，然后，切换一下 bearer的状态并且播放动画
-			center_Damage = (AtkPt - pShdData->ShieldPt) * hit_Rate;
+
+			center_Damage = (center_Damage - pShdData->ShieldPt) * hit_Rate;
 			//TODO 
 			//  e.g.Bearer.GetDamage(xxxxxxx);
 			DamageData DD(center_Damage,pAtkData->ProviderID,pAtkData->BearerID);
@@ -83,6 +101,11 @@ void CommonFunc::CalcDamage( const AttackData* atkData )
 	{
 		Soldier* soldier = Soldiers[i];
 		if(provider != nullptr && ((soldier->GetID() == provider->GetID())))
+		{
+			continue;
+		}
+		//
+		if(bearer != nullptr && ((soldier->GetID() == bearer->GetID())))
 		{
 			continue;
 		}

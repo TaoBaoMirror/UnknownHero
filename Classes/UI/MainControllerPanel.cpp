@@ -394,6 +394,7 @@ void ActionWheel::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 
 		//是否轮盘上还有数量
 		auto icon = mWheelIcons.at(mCurrentIconIndex);
+		//这里应该有个对数据层的判断
 		if (icon->PickOne())
 		{
 			icon->TurnOff();

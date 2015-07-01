@@ -247,6 +247,7 @@ void EnemyManager::RemoveShortMonster(Monster_Short* pMonster)
 	{
 		if ((*it) == pMonster)
 		{
+			OnMonsterRemoveManager(pMonster);
 			m_ShortRangeMonsters.erase(it);
 			break;
 		}
@@ -260,6 +261,7 @@ void EnemyManager::RemoveLongMonster(Monster_Long* pMonster)
 	{
 		if ((*it) == pMonster)
 		{
+			OnMonsterRemoveManager(pMonster);
 			m_LongRangeMonsters.erase(it);
 			break;
 		}
@@ -273,6 +275,7 @@ void EnemyManager::RemoveSpecialMonster(Monster_Special* pMonster)
 	{
 		if ((*it) == pMonster)
 		{
+			OnMonsterRemoveManager(pMonster);
 			m_SpecialRangeMonsters.erase(it);
 			break;
 		}
@@ -362,6 +365,47 @@ void EnemyManager::GetMonsters(std::vector<Actor*>& monsters) const
 	monsters.insert(monsters.end(),m_LongRangeMonsters.begin(),m_LongRangeMonsters.end());
 	monsters.insert(monsters.end(),m_SpecialRangeMonsters.begin(),m_SpecialRangeMonsters.end());
 
+}
+
+void EnemyManager::ClearAllEnemy()
+{
+	for (int i=0; i<m_SpecialRangeMonsters.size(); ++i)
+	{
+		Actor* pActor = m_SpecialRangeMonsters.at(i);
+		//
+		OnMonsterRemoveManager(pActor);
+	}
+
+	//远程敌人
+	for (int i=0; i<m_LongRangeMonsters.size(); ++i)
+	{
+		Actor* pActor = m_LongRangeMonsters.at(i);
+		//
+		OnMonsterRemoveManager(pActor);
+	}	
+
+	//近程敌人
+	for (int i=0; i<m_ShortRangeMonsters.size(); ++i)
+	{
+		Actor* pActor = m_ShortRangeMonsters.at(i);
+		//
+		OnMonsterRemoveManager(pActor);
+	}
+
+	//
+	m_SpecialRangeMonsters.clear();
+	m_LongRangeMonsters.clear();
+	m_ShortRangeMonsters.clear();
+
+
+}
+
+void EnemyManager::OnMonsterRemoveManager( Actor* pMonster )
+{
+	pMonster->removeFromParentAndCleanup(true);
+	SoldierManager::Instance()->UnregisterSoldier(pMonster);
+	Camp::GetCamp(CampType_Monster)->UnregisterUnit(pMonster->GetCampIndex());
+	MessageListenerManager::Instance()->UnregisterMessageListene(pMonster);
 }
 
 //-------------------------------------------------------

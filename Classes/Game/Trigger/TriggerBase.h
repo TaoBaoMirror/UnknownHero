@@ -72,13 +72,14 @@ public:
 
 	virtual void Sleep(){}
 	virtual void Awake(){}
-
+	//
 
 protected:
 	bool			mActive;
 	Soldier*		mCollideCreature;
 	int				mState;					//TriggerState
 	int				mID;
+	GridPos			mRecordOwnerChunk;
 	const TriggerData*	mTriggerData;
 	//
 	virtual void EnterTrigger(Soldier*		soldier){}

@@ -14,59 +14,77 @@ MapManager* MapManager::GetInstance()
 
 MapManager::MapManager()
 {
-	CurSceneMap = new ChunkMap();
+	CurChunkMap = new ChunkMap();
+	//
+	mWorld.Init();
 }
 
 
 MapManager::~MapManager()
 {
+	CurChunkMap->removeFromParentAndCleanup(true);
+
 }
 
 ChunkMap* MapManager::ChangeMap(int index)
 {
-	m_CurLevelID = index;
+	EnterWorld(index);
 
-	//LoadMapResName(realid);
+	CurChunkMap->InitChunkMap("map\\CityMap.tmx");
 
-	//2 load map
-// 	std::stringstream ss;
-// 	ss << index;
-// 	std::string strIndex = ss.str();
-// 	std::string mapName = "Map_" + strIndex;
 
-	CurSceneMap->InitChunkMap("map\\CityMap.tmx");
-
-	return CurSceneMap;
+	return CurChunkMap;
 }
-/*
-void MapManager::TileCoordForPosition(cocos2d::Size mapSize, cocos2d::Size tileSize, cocos2d::Vec2 position, int &coordX, int &coordY)
+
+void MapManager::CreateWorld()
 {
-	coordX = (int)(position.x / tileSize.width);
-
-	coordY = (int)(((mapSize.height * tileSize.height) - position.y) / tileSize.height);
+	mWorld.SetWorldSize(2,2);
+	mWorld.CreateMaze();
+	//
+	mWorld.DeployChunkMapToWorld();
 }
 
-void MapManager::PositionForTileCoord(cocos2d::Size mapSize, cocos2d::Size tileSize, int coordX, int coordY, cocos2d::Vec2 &position)
+void MapManager::EnterWorld( int WorldLevel )
 {
-	position.x = tileSize.width * (float)coordX;
-	position.y = mapSize.height * tileSize.height - tileSize.height * (float)coordY;
-
-	coordX = (int)(position.x / tileSize.width);
-
-	coordY = (int)(((mapSize.height * tileSize.height) - position.y) / tileSize.height);
+	CreateWorld();
+	//
+	//¼ÓÔØchunk
+	mWorld.OnEnterWorld();
+	if(mWorld.LoadChunk(CurChunkMap,mWorld.mEntranceChunkInMazeGPos))
+	{
+		GridPos bornPos;
+		if (CurChunkMap->GetDoorGPos(downdoor,bornPos))
+		{
+			CurChunkMap->DeployHero(bornPos);
+		}
+	}
 }
 
-void MapManager::PositionForTileCoord(cocos2d::Size mapSize, cocos2d::Size tileSize, int index, cocos2d::Vec2 &position)
+void MapManager::TransToChunk( int chunkDoorDir )
 {
-	int coordX = index % (int)mapSize.width;
+	//
+	CurChunkMap->UndeployHero();
+	//
+	GridPos ToGird;
+	if(mWorld.GetMazePos(CurChunkMap->GetInMazeGPos(),chunkDoorDir,ToGird))
+	{
+		if (mWorld.LoadChunk(CurChunkMap,ToGird))
+		{
+			GridPos bornPos;
 
-	int coordY = index / (int)mapSize.width;
+			int toDir = mWorld.opposite(chunkDoorDir);
 
-	position.x = tileSize.width * (float)coordX;
-	position.y = mapSize.height * tileSize.height - tileSize.height * (float)coordY;
-
-	coordX = (int)(position.x / tileSize.width);
-
-	coordY = (int)(((mapSize.height * tileSize.height) - position.y) / tileSize.height);
+			if (CurChunkMap->GetDoorGPos(toDir,bornPos))
+			{
+				CurChunkMap->DeployHero(bornPos);
+			}
+		}
+	}
 }
-*/
+
+void MapManager::LeaveWorld()
+{
+	CurChunkMap->UndeployHero();
+	mWorld.OnLeaveWorld();
+	//
+}

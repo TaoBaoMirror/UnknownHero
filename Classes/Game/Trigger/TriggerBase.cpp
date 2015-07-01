@@ -3,7 +3,7 @@
 
 TriggerBase::TriggerBase():mActive(false),mCollideCreature(nullptr),mState(TriggerBorn),mTriggerData(nullptr)
 {
-
+	mRecordOwnerChunk.SetTo(-1,-1);
 }
 
 TriggerBase::~TriggerBase()
@@ -16,6 +16,7 @@ void TriggerBase::Init( const TriggerData* TD , const GridPos& Pos,ChunkMap* Chu
 {
 	GridPosArea::Init(Pos,TD->mW,TD->mH,Chunk->GetGridSceneMap());
 	//
+	mRecordOwnerChunk = Chunk->GetInMazeGPos();
 	mTriggerData = TD;
 	//
 }

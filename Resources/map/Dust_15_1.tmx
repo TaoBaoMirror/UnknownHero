@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="46" tileheight="46" nextobjectid="7">
+ <tileset firstgid="1" name="SurfaceMap" tilewidth="46" tileheight="46">
+  <image source="SurfaceMap.png" width="460" height="460"/>
+ </tileset>
+ <tileset firstgid="101" source="GridTile_46Pix.tsx"/>
+ <tileset firstgid="105" source="CreatureTile_46Pix.tsx"/>
+ <layer name="GridLayer" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxLY2BgSKMxToViWuhNpcD8VCrrT2Ugzs349BOjF58+YsOKGvZSI37pgdHdRopb6aEXAPRDWXE=
+  </data>
+ </layer>
+ <layer name="CreatureLayer" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF1ARZVFIzCkgDQzlMARWiAT8=
+  </data>
+ </layer>
+ <layer name="Ground" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYByEmJtK5ogOAr8M1rChlXnUtpOQWnq4n5bpCAAl9gFG
+  </data>
+ </layer>
+ <layer name="Lv1" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYKA9YAJiFjL1igGxBAGzmck0nweIeaGYHP1iSPqR3UCsf5HtR8Z8BPQx4dBHSC82+ySQ/EHIXpA6cSiWQBPHF0cDDUBxIw9ly0P5xAJeAnxCepHtxaUXAMBUAyc=
+  </data>
+ </layer>
+ <layer name="Door" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYMANFPDIjQL6AQU66xsF1AUKBOQB5YQAgQ==
+  </data>
+ </layer>
+ <objectgroup name="DoorLayer">
+  <object id="1" x="0" y="322" width="46" height="46">
+   <properties>
+    <property name="Dir" value="W"/>
+   </properties>
+  </object>
+  <object id="2" x="322" y="0" width="46" height="46">
+   <properties>
+    <property name="Dir" value="N"/>
+   </properties>
+  </object>
+  <object id="3" x="644" y="322" width="46" height="46">
+   <properties>
+    <property name="Dir" value="E"/>
+   </properties>
+  </object>
+  <object id="4" x="322" y="644" width="46" height="46">
+   <properties>
+    <property name="Dir" value="S"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="TriggerLayer">
+  <object id="6" x="506" y="138" width="46" height="46">
+   <properties>
+    <property name="TriggerType" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

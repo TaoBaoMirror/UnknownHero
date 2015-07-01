@@ -22,12 +22,16 @@
 #include "Scene/GameManager.h"
 #include "base/CCEventListenerTouch.h"
 
+#include "MapManager.h"
+
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
 #define SpawnLayer "SpawnLayer"	//卵域数据层
 #define RangeLayer "RangeLayer"	//显示的行走层
 #define EffectLayer "EffectLayer"	//显示的特效层，包括子弹
 #define TriggerLayer "TriggerLayer"	//显示的特效层，包括子弹
+#define DoorLayer "DoorLayer"	//
+
 
 
 
@@ -79,15 +83,15 @@ Actor* ChunkMap::InstantiateCreature(const std::string& CreatureType,const int T
 }
 
 //ctor
-ChunkMap::ChunkMap():EnableDebugDraw(true)
+ChunkMap::ChunkMap():EnableDebugDraw(true),mChunkFlag(unexplored)
 {
 	pDebugDrawNode = cocos2d::DrawNode::create();
 
 	//可以输出一些信息
 	ttfConfig = cocos2d::TTFConfig("fonts/arial.ttf", 12);
+	//
+	autorelease();
 
-	_eventDispatcher->removeEventListener(_touchListener);
-	_eventDispatcher->removeEventListener(_keyboardListener);
 }
 
 ChunkMap::~ChunkMap()
@@ -99,7 +103,6 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 {
 	if (initWithTMXFile(tmxFile))
 	{
-		autorelease();
 		//得到数据层
 		auto pGridLayer = getLayer(GridLayer);
 		auto sLayerSize = pGridLayer->getLayerSize();
@@ -161,26 +164,27 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 
 		/*
 		//	攻击范围层加载
-
-			Creature在编辑的时候，他们的属性应该是一致的，
 		*/
 		auto pRangeLayer = getLayer(RangeLayer);
 		if (pRangeLayer != nullptr)
 		{
-			this->addChild(cocos2d::Layer::create(),pRangeLayer->getLocalZOrder() + 1,RangeLayerTag);
-		}
-		
-		for (int lx = 0 ; lx < sLayerSize.width; ++lx)
-		{
-			for (int ly = 0 ; ly < sLayerSize.height; ++ly)
+			auto layer = cocos2d::Layer::create();
+			this->addChild(layer,pRangeLayer->getLocalZOrder() + 1,RangeLayerTag);
+			//
+			for (int lx = 0 ; lx < sLayerSize.width; ++lx)
 			{
-				cocos2d::Sprite* pSprite = pRangeLayer->getTileAt(cocos2d::Vec2(lx,ly));
-				if (pSprite != nullptr)
+				for (int ly = 0 ; ly < sLayerSize.height; ++ly)
 				{
-					pSprite->setVisible(false);
-				}				
+					cocos2d::Sprite* pSprite = pRangeLayer->getTileAt(cocos2d::Vec2(lx,ly));
+					if (pSprite != nullptr)
+					{
+						pSprite->setVisible(false);
+					}				
+				}
 			}
 		}
+		
+
 		/*
 		//	生物体数据层加载
 
@@ -190,8 +194,8 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		cocos2d::Layer* pRenderCreatureLayer = nullptr;
 		if (pCreatureLayer != nullptr)
 		{
-			this->addChild(cocos2d::Layer::create(),pCreatureLayer->getLocalZOrder() + 1,CreatureLayerTag);
-			pRenderCreatureLayer = GetCreatureLayer();
+			pRenderCreatureLayer = cocos2d::Layer::create();
+			this->addChild(pRenderCreatureLayer,pCreatureLayer->getLocalZOrder() + 1,CreatureLayerTag);
 		}
 		
 		for (int lx = 0 ; lx < sLayerSize.width; ++lx)
@@ -211,9 +215,13 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 					int	  direction = dict["Direction"].asInt();
 					//选择生物体
 					int fix_y = sLayerSize.height - ly - 1 ;// 从0计数的
-					auto actor = InstantiateCreature(type,tableID,direction,GridPos(lx,fix_y));
-					pRenderCreatureLayer->addChild(actor);
-					mIM.AddDynamicField(actor->GetSoldierPF());
+					GridPos Stay_GPos  = GridPos(lx,fix_y);
+					auto actor = InstantiateCreature(type,tableID,direction,Stay_GPos);
+					if (type.compare("Monster") == 0 )
+					{
+						DeployActor(actor,Stay_GPos);
+					}
+					
 				}
 				
 			}
@@ -262,8 +270,39 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		if(pTriggerLayer != nullptr)
 		{
 			this->addChild(cocos2d::Layer::create(),pCreatureLayer->getLocalZOrder() + 2,TriggerLayerTag);
+			//如果是没有被探险的,则加载
+			if (!IsExplored())
+			{			
+				auto& objects = pTriggerLayer->getObjects();
 
-			auto& objects = pTriggerLayer->getObjects();
+				for (auto& obj : objects)
+				{
+					cocos2d::ValueMap& dict = obj.asValueMap();
+
+					float x = dict["x"].asFloat();
+					float y = dict["y"].asFloat();
+
+					//下面都是AreaInit需要的
+					int type = dict["TriggerType"].asInt();
+					GridPos BaseGPos(x/sTileSize.width,y/sTileSize.height);
+
+					auto trigger = TriggerManager::GetInstance()->CreateTrigger(nullptr,type,BaseGPos,this);
+					if (trigger)
+					{
+						trigger->Born();
+					}
+					//
+
+				}
+			}
+		}
+		/* DOOR */
+		auto pDoorObjLayer = this->getObjectGroup(DoorLayer);
+
+		if(pDoorObjLayer != nullptr)
+		{
+	
+			auto& objects = pDoorObjLayer->getObjects();
 
 			for (auto& obj : objects)
 			{
@@ -273,25 +312,20 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				float y = dict["y"].asFloat();
 
 				//下面都是AreaInit需要的
-				int type = dict["TriggerType"].asInt();
+				int type = StringToDir(dict["Dir"].asString());
 				GridPos BaseGPos(x/sTileSize.width,y/sTileSize.height);
-
-				auto trigger = TriggerManager::GetInstance()->CreateTrigger(nullptr,type,BaseGPos);
-				if (trigger)
-				{
-					trigger->Born();
-				}
 				//
-
+				mDoorGPosList.insert(std::make_pair(type,BaseGPos));
 			}
 		}
 		//增加一些其他的图层
 		{
-			this->addChild(cocos2d::Layer::create(),pCreatureLayer->getLocalZOrder() + 3 + 1,EffectLayerTag);
+			auto layer = cocos2d::Layer::create();
+			this->addChild(layer,pCreatureLayer->getLocalZOrder() + 3 + 1,EffectLayerTag);
 		}
 
-		auto s = cocos2d::Sprite::createWithSpriteFrameName("effect_posion_4.png");
-		GetEffectLayer()->addChild(s);
+		//auto s = cocos2d::Sprite::createWithSpriteFrameName("effect_posion_4.png");
+		//GetEffectLayer()->addChild(s);
 
 		//
 		//SetEnableDebugDraw(EnableDebugDraw);
@@ -300,6 +334,9 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		//
 
 		//input
+		_eventDispatcher->removeEventListener(_touchListener);
+		_eventDispatcher->removeEventListener(_keyboardListener);
+		//
 		auto listener = cocos2d::EventListenerTouchOneByOne::create();
 		listener->setSwallowTouches(true);
 
@@ -459,34 +496,48 @@ void ChunkMap::update( float delta )
 
 }
 
-void ChunkMap::DeployCreature()
+void ChunkMap::DeployHero(const GridPos& GPos)
 {
-	SoldierManager::Instance()->Init();
+	Hero* pHero  = PlayerManager::GetInstance()->GetHero();
 	//
-	int StartIndex = 0;
-	
-	GizmoSoldier* PlayerSoldier = GizmoSoldier::create();
-	const GridPos& GPos_1 = GridPos(0,0);
-	PlayerSoldier->SetToGPos(GPos_1);
-	PlayerSoldier->SetID(StartIndex++);
+	if (pHero!= nullptr)
+	{
+		DeployActor(pHero,GPos);
+		//
+		OnHeroEnter();
+	}
 	//
-	SoldierManager::Instance()->RegisterSoldier(PlayerSoldier);
-	MessageListenerManager::Instance()->RegisterMessageListener(PlayerSoldier);
-	mIM.AddDynamicField(PlayerSoldier->GetSoldierPF());
-
-	GizmoSoldier* EnemySoldier = GizmoSoldier::create();
-	const GridPos& GPos_2 = GridPos(13,7);
-	EnemySoldier->SetToGPos(GPos_2);
-	EnemySoldier->SetID(StartIndex++);
-	//
-	SoldierManager::Instance()->RegisterSoldier(EnemySoldier);
-	MessageListenerManager::Instance()->RegisterMessageListener(EnemySoldier);
-	mIM.AddDynamicField(EnemySoldier->GetSoldierPF());
-
-	addChild(PlayerSoldier,10);
-	addChild(EnemySoldier,10);
-	
+		
 }
+
+
+void ChunkMap::DeployActor( Actor* pActor , const GridPos& GPos )
+{
+	if (pActor != nullptr)
+	{
+		pActor->SetToGPos(GPos);
+		pActor->UpdatePosition();
+		pActor->UpdateToCCWorldPos();
+		//
+		GetCreatureLayer()->addChild(pActor);
+		mIM.AddDynamicField(pActor->GetSoldierPF());
+	}
+}
+
+
+void ChunkMap::UndeployHero()
+{
+	Hero* pHero  = PlayerManager::GetInstance()->GetHero();
+	//
+	if (pHero!= nullptr)
+	{
+		pHero->removeFromParentAndCleanup(true);
+		mIM.RemoveDynamicField(pHero->GetSoldierPF());
+		//
+		OnHeroLeave();
+	}
+}
+
 
 
 CreatureSpawnArea* ChunkMap::GetSpawnArea( int AreaID )
@@ -503,6 +554,8 @@ CreatureSpawnArea* ChunkMap::GetSpawnArea( int AreaID )
 
 void ChunkMap::Reset()
 {
+	mChunkFlag = unexplored;
+	//
 	mIM.Clear();
 	MapNodeDataList.clear();
 	mGridMap.Clear();
@@ -516,6 +569,16 @@ void ChunkMap::Reset()
 	SpawnAreaList.clear();
 	//
 	bLoaded = false;
+	//仅仅清掉数据
+	UndeployHero();
+	//PlayerManager::GetInstance()->GetHero()->removeFromParentAndCleanup(true);
+	EnemyManager::GetInstance()->ClearAllEnemy();
+	//
+	if(GetCreatureLayer())	GetCreatureLayer()->removeAllChildrenWithCleanup(true);
+	if(GetEffectLayer())	GetEffectLayer()->removeAllChildrenWithCleanup(true);
+	if(GetTriggerLayer())	GetTriggerLayer()->removeAllChildrenWithCleanup(true);
+	//
+	removeAllChildrenWithCleanup(true);
 	//SetEnableDebugDraw(false);
 }
 
@@ -563,6 +626,27 @@ cocos2d::TMXLayer* ChunkMap::GetRangeLayer()
 	return pRangeLayer;
 }
 
+Soldier* ChunkMap::FindSoldierAtGPos( const GridPos& CenterGPos )
+{
+	int index = invalid_node_index;
+	GetGridSceneMap().GetIndex(CenterGPos,index);
+	if (index != invalid_node_index)
+	{
+		NavGraphNode<void*>& node = GetGridSceneMap().GetNode(index);
+		auto pNMD = (MapNodeData*)node.ExtraInfo();
+		if (pNMD)
+		{
+			Soldier* soldier = pNMD->Creature;
+			if (soldier != NULL)
+			{
+				return soldier;
+			}
+		}
+	}
+	//
+	return nullptr;
+}
+
 void ChunkMap::FindSoldiersInRange( const GridPos& CenterGPos , int RangeSize , int RType ,std::vector<Soldier*>& out_SoldierList )
 {
 	std::vector<GridPos>	GPosList;
@@ -587,21 +671,10 @@ void ChunkMap::FindSoldiersInRange( const GridPos& CenterGPos , int RangeSize , 
 	for (int i = 0;i<GPosList.size();++i)
 	{
 		const GridPos& GPos = GPosList[i];
-		int index = invalid_node_index;
-		GetGridSceneMap().GetIndex(GPos,index);
-		if (index != invalid_node_index)
+		auto soldier = FindSoldierAtGPos(GPos);
+		if ( soldier != nullptr)
 		{
-			NavGraphNode<void*>& node = GetGridSceneMap().GetNode(index);
-			auto pNMD = (MapNodeData*)node.ExtraInfo();
-			if (pNMD)
-			{
-				Soldier* soldier = pNMD->Creature;
-				if (soldier != NULL)
-				{
-					out_SoldierList.push_back(soldier);
-				}
-			}
-
+			out_SoldierList.push_back(soldier);
 		}
 	}
 }
@@ -708,3 +781,310 @@ void ChunkMap::onKeyReleased(cocos2d::EventKeyboard::KeyCode code, cocos2d::Even
 {
 	GameManager::GetInstance()->GameKeyReleased(code, event);
 }
+
+void ChunkMap::OnHeroEnter()
+{
+	//已经探险过了
+	Explored();
+	Staying();
+	//
+
+	//
+	TriggerManager::GetInstance()->OnChunkEnter();
+
+}
+
+void ChunkMap::OnHeroLeave()
+{
+	Leave();
+	//
+
+
+	//
+	TriggerManager::GetInstance()->OnChunkLeave();
+}
+
+bool ChunkMap::GetDoorGPos( int dir,GridPos& out_GPos )
+{
+	auto it = mDoorGPosList.find(dir);
+	if (it != mDoorGPosList.end())
+	{
+		out_GPos = it->second;
+		return true;
+	}
+	//
+	return false;
+}
+
+void ChunkMap::SetChunkSaveDataInWorld( ChunkSaveDataInWorld& data )
+{
+	mChunkFlag = data.ChunkState;
+}
+
+int ChunkMap::StringToDir( const std::string&  c )
+{
+	if(c == "N")	return topdoor;
+	if(c == "S")	return downdoor;
+	if(c == "W")	return leftdoor;
+	if(c == "E")	return rightdoor;
+
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+//
+//
+//
+//////////////////////////////////////////////////////////////////////////
+
+
+MapWorld::MapWorld():
+	mWorldLength(0),
+	mWorldWidth(0),
+	mCurChunkNumCounter(0)
+{
+
+}
+
+MapWorld::~MapWorld()
+{
+
+}
+
+bool MapWorld::CreateMaze()
+{
+	if(mWorldLength == 0 || mWorldWidth == 0) return false;
+	//
+	mMaze.clear();
+	mFrontier.clear();
+	//
+	for (int i = 0;i< mWorldLength;++i)
+	{
+		mMaze.push_back(std::vector<int>(mWorldWidth,0));
+	}
+	//
+	mark(RandInt(0,mWorldWidth - 1),RandInt(0,mWorldLength - 1));
+	//
+	while (breakCondition())
+	{
+		int index = RandInt(0,mFrontier.size() - 1);
+		GridPos gpos = mFrontier[index];
+		mFrontier.erase(mFrontier.begin() + index);
+		std::vector<GridPos> n;
+		neighbors(gpos.X, gpos.Y, n);
+		GridPos npos = n[RandInt(0 , n.size() - 1)];
+		int dir = direction(gpos.X, gpos.Y,npos.X, npos.Y);
+		mMaze[gpos.Y][gpos.X] |= dir;
+		mMaze[npos.Y][npos.X] |= opposite(dir);
+		mark(gpos.X, gpos.Y);
+	}
+	//
+	return true;
+}
+
+void MapWorld::SetWorldSize( int w,int l )
+{
+	mWorldLength = l;
+	mWorldWidth = w;
+}
+
+bool MapWorld::breakCondition()
+{
+	return mFrontier.size() > 0;
+}
+
+void MapWorld::addFrontier( int x,int y )
+{
+	if (x >= 0 && y >= 0 && y < mMaze.size() && x < mMaze[y].size() && mMaze[y][x] == 0)
+	{
+		mMaze[y][x] |= frontier;
+		mFrontier.push_back(GridPos(x,y));
+	}
+}
+
+void MapWorld::mark( int x,int y )
+{
+	mMaze[y][x] |= visited;
+	addFrontier(x-1, y);
+	addFrontier(x+1, y);
+	addFrontier(x, y-1);
+	addFrontier(x, y+1);
+	mCurChunkNumCounter += 1;
+}
+
+void MapWorld::neighbors( int x,int y,std::vector<GridPos>& out_neighbors )
+{
+	 if (x > 0 && ((mMaze[y][x-1] & visited )!= 0)) out_neighbors.push_back(GridPos(x-1, y));
+	 if (x+1 > mMaze[y].size() && ((mMaze[y][x+1] & visited) != 0)) out_neighbors.push_back(GridPos(x+1, y));
+
+	 if (y > 0 && ((mMaze[y-1][x] & visited) != 0)) out_neighbors.push_back(GridPos(x, y-1));
+	 if (y+1 < mMaze.size() && ((mMaze[y+1][x] & visited) != 0)) out_neighbors.push_back(GridPos(x, y+1));
+}
+
+int MapWorld::direction( int fx,int fy,int tx,int ty )
+{
+	if (fx < tx) return rightdoor;
+	if (fx > tx) return leftdoor ;
+	if (fy < ty) return downdoor;
+	if (fy > ty) return topdoor;
+}
+
+int MapWorld::opposite( int dir )
+{
+	if (dir == leftdoor) return rightdoor;
+	if (dir == rightdoor) return leftdoor ;
+	if (dir == topdoor) return downdoor;
+	if (dir == downdoor) return topdoor;
+}
+
+void MapWorld::DeployChunkMapToWorld()
+{
+	mChunkSaveDataInWorldMaze.clear();
+	for (int i = 0;i< mWorldLength;++i)
+	{
+		mChunkSaveDataInWorldMaze.push_back(std::vector<ChunkSaveDataInWorld>(mWorldWidth));
+	}
+	//
+	for (int l = 0;l< mWorldLength;l++)
+	{
+		for (int w = 0; w< mWorldLength;w++)
+		{
+// 			int doordir = mMaze[l][w];
+// 			doordir &= 15;
+			int doordir = GetDir(w,l,mMaze);
+			auto it = mChunkMapPathDict.find(doordir);
+			if(it == mChunkMapPathDict.end()) return;	//意味着 出错误了
+			auto chunkindexes = it->second;
+			int chunkIndex = RandInt(0,chunkindexes.size() - 1);
+			//
+			ChunkSaveDataInWorld& savedata = mChunkSaveDataInWorldMaze[l][w];
+			savedata.ChunkResIndex = chunkIndex;
+		}
+	}
+	//
+	mEntranceChunkInMazeGPos.SetTo(0,0);
+	mSpecialChunkInMazeGPos.SetTo(0,0);
+	mHideChunkInMazeGPos.SetTo(0,0);
+	mBossChunkInMazeGPos.SetTo(0,0);
+
+}
+
+
+bool MapWorld::LoadChunk( ChunkMap* chunk , const GridPos& mazePos )
+{
+	//GridPos mazePos;
+	ChunkSaveDataInWorld& savedata = mChunkSaveDataInWorldMaze[mazePos.Y][mazePos.X];
+	std::string firstChunkPath = GetChunkMapPath(savedata.ChunkResIndex,mazePos,mMaze);
+	if (firstChunkPath.length() > 1)
+	{
+		//1 清理一下
+		chunk->Reset();
+		// 设置一下Maze GPos 等数据
+		chunk->SetInMazeGPos(mazePos);
+		chunk->SetChunkSaveDataInWorld(savedata);
+		//2 加载这个chunk
+		if(chunk->InitChunkMap(firstChunkPath))
+		{
+			return true;
+		}
+
+	}
+
+	return false;
+}
+
+
+void MapWorld::Init()
+{
+	//添加一些地图的路径
+	//根据 门的朝向去添加
+	{
+		int dir = topdoor|leftdoor|downdoor|rightdoor;
+		std::vector<std::string>	ChunkMapPathList;
+		ChunkMapPathList.push_back("map\\Dust_15_1.tmx");
+		//
+		mChunkMapPathDict.insert(std::make_pair(dir,ChunkMapPathList));
+		//TEST
+		mChunkMapPathDict.insert(std::make_pair(topdoor,ChunkMapPathList));
+		mChunkMapPathDict.insert(std::make_pair(leftdoor,ChunkMapPathList));
+		mChunkMapPathDict.insert(std::make_pair(downdoor,ChunkMapPathList));
+		mChunkMapPathDict.insert(std::make_pair(rightdoor,ChunkMapPathList));
+		//
+		mChunkMapPathDict.insert(std::make_pair(topdoor|downdoor,ChunkMapPathList));
+		mChunkMapPathDict.insert(std::make_pair(topdoor|leftdoor,ChunkMapPathList));
+		mChunkMapPathDict.insert(std::make_pair(topdoor|leftdoor|downdoor,ChunkMapPathList));
+		mChunkMapPathDict.insert(std::make_pair(topdoor|leftdoor|rightdoor,ChunkMapPathList));
+
+		mChunkMapPathDict.insert(std::make_pair(topdoor|rightdoor,ChunkMapPathList));
+		mChunkMapPathDict.insert(std::make_pair(topdoor|rightdoor|leftdoor,ChunkMapPathList));
+		mChunkMapPathDict.insert(std::make_pair(topdoor|rightdoor|downdoor,ChunkMapPathList));
+
+		mChunkMapPathDict.insert(std::make_pair(leftdoor|rightdoor,ChunkMapPathList));
+		mChunkMapPathDict.insert(std::make_pair(leftdoor|rightdoor|downdoor,ChunkMapPathList));
+
+		mChunkMapPathDict.insert(std::make_pair(downdoor|rightdoor,ChunkMapPathList));
+
+
+		//
+
+	}
+}
+
+void MapWorld::OnEnterWorld()
+{
+
+
+
+}
+
+void MapWorld::OnLeaveWorld()
+{
+	TriggerManager::GetInstance()->ReleaseAllTrigger();
+	//
+	mChunkSaveDataInWorldMaze.clear();
+}
+
+std::string MapWorld::GetChunkMapPath( int chunkResIndex,const GridPos& mazePos,const std::vector< std::vector<int> >& Maze )
+{
+	std::string path  = "";
+	int  chunkDir = GetDir(mazePos.X,mazePos.Y,Maze);
+	auto it = mChunkMapPathDict.find(chunkDir);
+	if (it != mChunkMapPathDict.end())
+	{
+		auto chunkpathes = it->second;
+		path = chunkpathes[chunkResIndex];
+	}
+	
+	return path;
+}
+
+ChunkSaveDataInWorld& MapWorld::GetChunkSaveDataInWorld( const GridPos& mazePos )
+{
+	ChunkSaveDataInWorld& savedata = mChunkSaveDataInWorldMaze[mazePos.Y][mazePos.X];
+	return savedata;
+}
+
+bool MapWorld::GetMazePos( const GridPos& basePos,int dir ,GridPos& outGPos)
+{
+	GridPos newGPos;
+	if (dir == leftdoor) newGPos.SetTo(basePos.X - 1,basePos.Y);
+	if (dir == rightdoor) newGPos.SetTo(basePos.X + 1,basePos.Y);
+	if (dir == topdoor) newGPos.SetTo(basePos.X ,basePos.Y - 1);
+	if (dir == downdoor) newGPos.SetTo(basePos.X ,basePos.Y + 1);
+	//
+	if (newGPos.X >= 0 && newGPos.X < mWorldWidth && newGPos.Y >= 0 && newGPos.Y < mWorldLength)
+	{
+		outGPos = newGPos;
+		return true;
+	}
+
+	return false;
+}
+
+int MapWorld::GetDir( int MazeX,int MazeY ,const std::vector< std::vector<int> >& Maze)
+{
+	return Maze[MazeY][MazeX] & 15;
+}
+
+int MapWorld::sNextWorldID = 0;

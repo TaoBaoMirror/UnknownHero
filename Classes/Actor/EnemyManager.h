@@ -29,6 +29,7 @@ public:
 	void ReadyFight();
 
 	void ClearCurEnemy(Actor* checkActor);
+	void ClearAllEnemy();
 
 	void RemoveShortMonster(Monster_Short* pMonster);
 	void RemoveLongMonster(Monster_Long* pMonster);
@@ -46,6 +47,7 @@ private:
 	Monster* CreateSpecialMonster(int monsterID);
 	Monster* CreateLongMonster(int monsterID);
 	Monster* CreateShortMonster(int monsterID);
+	void  OnMonsterRemoveManager(Actor* actor);
 	//--------------------------------------------------
 	//要分成三个队列是因为,要让近程部队先动,远程后动,防止发生冲突
 	//(比如近程怪会阻挡攻击线路)

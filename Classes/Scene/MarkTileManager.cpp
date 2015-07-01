@@ -78,7 +78,7 @@ void MarkTileManager::SetMarkTiles(MarkTileType type ,std::string key, const std
 			{
 				pSp->setPosition(finalPos);
 
-				pChunk->addChild(pSp, pRangeLayer->getTag());
+				pChunk->addChild(pSp, /*pRangeLayer->getTag()*/  0xa3);
 
 				tilevec->pushBack(pSp);
 			}	

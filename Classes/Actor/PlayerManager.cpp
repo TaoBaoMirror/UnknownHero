@@ -6,6 +6,8 @@
 
 #include "Game/Camp.h"
 
+#include "Messaging/MessageListenerManager.h"
+
 //-------------------------------------------------------
 PlayerManager* PlayerManager::m_Instance = nullptr;
 
@@ -69,12 +71,15 @@ void PlayerManager::HeroBorn(StandbyHero* pTempleHero)
 	{
 		m_pMainRole->NotAnActor();
 	}
-
+	 
 	m_pMainRole = Hero::createWithHeroID(pTempleHero->m_HeroID);
 
 	SoldierManager::Instance()->RegisterSoldier(m_pMainRole);
 	// add by Hitman [5/20/2015]
 	Camp::GetCamp(CampType_Player)->RegisterUnit(m_pMainRole);
+	//
+	MessageListenerManager::Instance()->RegisterMessageListener(m_pMainRole);
+
 }
 //-------------------------------------------------------
 StandbyHero* PlayerManager::RandomStandbyHero()
@@ -90,4 +95,14 @@ void PlayerManager::AddWeightToList(GameActionType pActType, int nWeight)
 {
 	m_MainRoleWeightList.push_back(std::make_pair(pActType,nWeight));
 }
+
+void PlayerManager::HeroDied()
+{
+	SoldierManager::Instance()->UnregisterSoldier(m_pMainRole);
+	// add by Hitman [5/20/2015]
+	Camp::GetCamp(CampType_Player)->UnregisterUnit(m_pMainRole->GetCampIndex());
+	//
+	MessageListenerManager::Instance()->UnregisterMessageListene(m_pMainRole);
+}
+
 //-------------------------------------------------------

@@ -24,6 +24,8 @@ public:
 
 	void HeroBorn(StandbyHero* pTempleHero);
 
+	void HeroDied();
+
 	Hero* GetHero(){return m_pMainRole;}
 
 	void HeroAdventureStart(); //英雄进入战斗场景的时候调用这个 初始化一些初次开战的数据

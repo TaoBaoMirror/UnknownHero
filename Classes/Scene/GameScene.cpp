@@ -130,9 +130,9 @@ void GameScene::Continue()
 
 void GameScene::TestMap()
 {
-	MapManager::GetInstance()->ChangeMap(0);
+	MapManager::GetInstance()->EnterWorld(0);
 	auto pChunk = MapManager::GetInstance()->GetCurChunkMap();
-	pChunk->setPosition(0,0);
+	pChunk->setPosition(39,39);
 	addChild(pChunk,10);
 	//
 	//
@@ -145,7 +145,7 @@ void GameScene::TestMap()
 	pSkillBarUI->SetSkillIcon(3,"skill_3");
 
 	pMainPanel = new MainControllerPanel();
-	pMainPanel->setPosition(200,200);
+	pMainPanel->setPosition(800,80);
 	pMainPanel->Init();
 	addChild(pMainPanel,101);
 

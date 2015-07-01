@@ -36,6 +36,10 @@ public:
 	virtual void Sleep() override;
 	virtual void Awake() override;
 
+	void DeployToCorrectChunk();
+	void UndeployFromCurChunk();
+
+
 protected:
 	std::map<std::string,cocos2d::Vector<cocos2d::SpriteFrame*>> m_framesDict;
 	Soldier*	mOwner;
@@ -68,13 +72,16 @@ public:
 public:
 	void ReleaseAllTrigger();
 	void RemoveTrigger(GameTrigger* trigger);
-	GameTrigger* CreateTrigger(Soldier* owner,int triggerType ,const GridPos& GPos);
+	GameTrigger* CreateTrigger(Soldier* owner,int triggerType ,const GridPos& GPos,ChunkMap* chunk);
 	GameTrigger* GetTrigger(int triggerID);
 	//
 	void Update(float dt);
 	//每一个单位移动之后，都要判断
 	void UpdateRound();
 	//
+	void OnChunkLeave();
+	void OnChunkEnter();
+	
 protected:
 	TriggerManager();
 	//
