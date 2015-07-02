@@ -145,6 +145,7 @@ public:
 	void	SetInMazeGPos(const GridPos& GPos){mMazeGPos = GPos;}
 	const GridPos& GetInMazeGPos() const {return mMazeGPos;}
 	bool  GetDoorGPos(int dir,GridPos& out_GPos);
+	void  GetDirOffset(int dir,GridPos& out_GPos);
 
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);

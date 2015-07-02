@@ -493,6 +493,16 @@ void ChunkMap::update( float delta )
 
 	SoldierManager::Instance()->Render();
 
+	//TEST 门的检测
+	for (auto it = mDoorGPosList.begin();it != mDoorGPosList.end();++it)
+	{
+		const GridPos& DoorGPos = it->second;
+		//
+		if (FindSoldierAtGPos(DoorGPos) == PlayerManager::GetInstance()->GetHero())
+		{
+			MapManager::GetInstance()->TransToChunk(it->first);
+		}
+	}
 
 }
 
@@ -531,10 +541,17 @@ void ChunkMap::UndeployHero()
 	//
 	if (pHero!= nullptr)
 	{
-		pHero->removeFromParentAndCleanup(true);
-		mIM.RemoveDynamicField(pHero->GetSoldierPF());
-		//
-		OnHeroLeave();
+		if (pHero->getParent() != nullptr)
+		{
+			//bug 不知道为啥，之前引用是2 ，但是removefromParent 就变成0了 然后就释放掉了hero
+
+			pHero->retain();
+			pHero->removeFromParent();
+			mIM.RemoveDynamicField(pHero->GetSoldierPF());
+			//
+			OnHeroLeave();
+		}
+
 	}
 }
 
@@ -816,6 +833,17 @@ bool ChunkMap::GetDoorGPos( int dir,GridPos& out_GPos )
 	return false;
 }
 
+void ChunkMap::GetDirOffset( int dir,GridPos& out_GPos )
+{
+	//
+	if((dir & downdoor) > 0  &&  out_GPos.Y + 1  < GetGridSceneMap().GetSizeNumY() ) out_GPos.SetTo(out_GPos.X,out_GPos.Y + 1);
+	if((dir & topdoor) > 0  &&  out_GPos.Y - 1  >= 0  ) out_GPos.SetTo(out_GPos.X,out_GPos.Y - 1); 
+	if((dir & leftdoor) > 0  &&  out_GPos.X - 1  >= 0 ) out_GPos.SetTo(out_GPos.X-1,out_GPos.Y); 
+	if((dir & rightdoor) > 0  &&  out_GPos.X + 1  < GetGridSceneMap().GetSizeNumX() ) out_GPos.SetTo(out_GPos.X+1,out_GPos.Y); 
+	//
+}
+
+
 void ChunkMap::SetChunkSaveDataInWorld( ChunkSaveDataInWorld& data )
 {
 	mChunkFlag = data.ChunkState;
@@ -830,6 +858,7 @@ int ChunkMap::StringToDir( const std::string&  c )
 
 	return 0;
 }
+
 
 
 //////////////////////////////////////////////////////////////////////////

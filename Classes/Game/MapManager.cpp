@@ -55,6 +55,7 @@ void MapManager::EnterWorld( int WorldLevel )
 		GridPos bornPos;
 		if (CurChunkMap->GetDoorGPos(downdoor,bornPos))
 		{
+			CurChunkMap->GetDirOffset(downdoor,bornPos);
 			CurChunkMap->DeployHero(bornPos);
 		}
 	}
@@ -64,7 +65,7 @@ void MapManager::TransToChunk( int chunkDoorDir )
 {
 	//
 	CurChunkMap->UndeployHero();
-	//
+	//得到方向上的迷宫的位置
 	GridPos ToGird;
 	if(mWorld.GetMazePos(CurChunkMap->GetInMazeGPos(),chunkDoorDir,ToGird))
 	{
@@ -76,6 +77,7 @@ void MapManager::TransToChunk( int chunkDoorDir )
 
 			if (CurChunkMap->GetDoorGPos(toDir,bornPos))
 			{
+				CurChunkMap->GetDirOffset(toDir,bornPos);
 				CurChunkMap->DeployHero(bornPos);
 			}
 		}
