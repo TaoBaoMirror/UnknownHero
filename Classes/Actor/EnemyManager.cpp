@@ -402,10 +402,11 @@ void EnemyManager::ClearAllEnemy()
 
 void EnemyManager::OnMonsterRemoveManager( Actor* pMonster )
 {
-	pMonster->removeFromParentAndCleanup(true);
 	SoldierManager::Instance()->UnregisterSoldier(pMonster);
 	Camp::GetCamp(CampType_Monster)->UnregisterUnit(pMonster->GetCampIndex());
 	MessageListenerManager::Instance()->UnregisterMessageListene(pMonster);
+	pMonster->removeFromParentAndCleanup(true);
+
 }
 
 //-------------------------------------------------------

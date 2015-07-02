@@ -354,6 +354,8 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		_keyboardListener = listenerKeyboard;
 		//--------------------------
 		//end
+		bLoaded = true;
+		//
 		return true;
 	}
 	//
@@ -487,6 +489,9 @@ bool ChunkMap::CheckCanArrived( Soldier* who,const GridPos& A,const GridPos& B,s
 
 void ChunkMap::update( float delta )
 {
+
+	if (bLoaded == false) return;
+
 	mMapRuleSys.Update(delta);
 
 	SoldierManager::Instance()->Update();
@@ -572,6 +577,8 @@ CreatureSpawnArea* ChunkMap::GetSpawnArea( int AreaID )
 void ChunkMap::Reset()
 {
 	mChunkFlag = unexplored;
+	bLoaded = false;
+
 	//
 	mIM.Clear();
 	MapNodeDataList.clear();
@@ -585,7 +592,6 @@ void ChunkMap::Reset()
 	}
 	SpawnAreaList.clear();
 	//
-	bLoaded = false;
 	//仅仅清掉数据
 	UndeployHero();
 	//PlayerManager::GetInstance()->GetHero()->removeFromParentAndCleanup(true);
