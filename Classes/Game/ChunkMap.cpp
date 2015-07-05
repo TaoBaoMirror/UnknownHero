@@ -195,7 +195,7 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 		if (pCreatureLayer != nullptr)
 		{
 			pRenderCreatureLayer = cocos2d::Layer::create();
-			this->addChild(pRenderCreatureLayer,pCreatureLayer->getLocalZOrder() + 1,CreatureLayerTag);
+			this->addChild(pRenderCreatureLayer,pCreatureLayer->getLocalZOrder() + 4,CreatureLayerTag);
 		}
 		
 		for (int lx = 0 ; lx < sLayerSize.width; ++lx)
@@ -866,7 +866,6 @@ int ChunkMap::StringToDir( const std::string&  c )
 }
 
 
-
 //////////////////////////////////////////////////////////////////////////
 //
 //
@@ -1120,6 +1119,14 @@ bool MapWorld::GetMazePos( const GridPos& basePos,int dir ,GridPos& outGPos)
 int MapWorld::GetDir( int MazeX,int MazeY ,const std::vector< std::vector<int> >& Maze)
 {
 	return Maze[MazeY][MazeX] & 15;
+}
+
+bool MapWorld::EncordChunkSaveDataInWorld( ChunkMap* chunk )
+{
+	auto mazePos = chunk->GetInMazeGPos();
+	ChunkSaveDataInWorld& savedata = mChunkSaveDataInWorldMaze[mazePos.Y][mazePos.X];
+	savedata.ChunkState = chunk->GetChunkFlag();
+	return true;
 }
 
 int MapWorld::sNextWorldID = 0;

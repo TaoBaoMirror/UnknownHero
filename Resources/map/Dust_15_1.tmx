@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="46" tileheight="46" nextobjectid="7">
  <tileset firstgid="1" name="SurfaceMap" tilewidth="46" tileheight="46">
-  <image source="SurfaceMap.png" width="460" height="460"/>
+  <image source="SurfaceMap.png" width="736" height="690"/>
  </tileset>
- <tileset firstgid="101" source="GridTile_46Pix.tsx"/>
- <tileset firstgid="105" source="CreatureTile_46Pix.tsx"/>
+ <tileset firstgid="241" source="GridTile_46Pix.tsx"/>
+ <tileset firstgid="245" source="CreatureTile_46Pix.tsx"/>
  <layer name="GridLayer" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxLY2BgSKMxToViWuhNpcD8VCrrT2Ugzs349BOjF58+YsOKGvZSI37pgdHdRopb6aEXAPRDWXE=
+   eJz7xMDA8InG+CMU00LvRwrM/0hl/R8ZiHMzPv3E6MWnj9iwooa91IhfemB0t5HiVnroBQBCOdR9
   </data>
  </layer>
  <layer name="CreatureLayer" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF1ARZVFIzCkgDQzlMARWiAT8=
+   eJxjYBgF1ATfqKRmFJAGhnKYAgDRwALj
   </data>
  </layer>
  <layer name="Ground" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjZGBgYByEmJtK5ogOAr8M1rChlXnUtpOQWnq4n5bpCAAl9gFG
+   eJzjZWBg4B2EWJBK5igOAr8M1rChlXnUtpOQWnq4n5bpCACQxAuu
   </data>
  </layer>
  <layer name="Lv1" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYKA9YAJiFjL1igGxBAGzmck0nweIeaGYHP1iSPqR3UCsf5HtR8Z8BPQx4dBHSC82+ySQ/EHIXpA6cSiWQBPHF0cDDUBxIw9ly0P5xAJeAnxCepHtxaUXAMBUAyc=
+   eJzjY2Bg4KMx3gnEu8jUexKITxEweyWZ5p+E6qWGfmQziPXvSjyYUHiSoxefHmLsRfbvKTRxfHE00DgSiG2hbFsonxS9+PjUsBcA200tdQ==
   </data>
  </layer>
  <layer name="Door" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYMANFPDIjQL6AQU66xsF1AUKBOQB5YQAgQ==
+   eJxjYMANVuORGwX0A+TGw2j8DQ5AKB4Au3ACrQ==
   </data>
  </layer>
  <objectgroup name="DoorLayer">
@@ -53,7 +53,7 @@
   </object>
  </objectgroup>
  <objectgroup name="TriggerLayer">
-  <object id="6" x="506" y="138" width="46" height="46">
+  <object id="6" x="368" y="598" width="46" height="46">
    <properties>
     <property name="TriggerType" value="0"/>
    </properties>

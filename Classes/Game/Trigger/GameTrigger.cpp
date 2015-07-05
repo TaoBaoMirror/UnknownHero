@@ -163,7 +163,7 @@ void GameTrigger::DeployToCorrectChunk()
 			{
 				layer->addChild(this);
 				//¼¤»î
-				Awake();
+				Born();
 			}
 		}
 	}
@@ -217,7 +217,7 @@ void TriggerManager::ReleaseAllTrigger()
 
 void TriggerManager::RemoveTrigger( GameTrigger* trigger )
 {
-	TriggerPool.remove(trigger);
+	TriggerPool.remove(trigger); 
 	trigger->release();
 	trigger = nullptr;
 	//

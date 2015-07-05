@@ -101,7 +101,9 @@ public:
 	void    Leave(){mChunkFlag |= ~staying;}
 	bool    IsExplored(){return (mChunkFlag & explored) > 0;}
 	bool	IsStaying(){return (mChunkFlag & staying) > 0;}
+	int		GetChunkFlag(){return mChunkFlag;}
 	void	SetChunkSaveDataInWorld(ChunkSaveDataInWorld& data);
+
 	//
 	GridSceneMap&	GetGridSceneMap() { return mGridMap;}
 	const GridSceneMap&	GetGridSceneMap() const { return mGridMap;}
@@ -231,6 +233,7 @@ public:
 	//
 	std::string	GetChunkMapPath(int chunkResIndex,const GridPos& mazePos,const std::vector< std::vector<int> >& Maze);
 	ChunkSaveDataInWorld&	GetChunkSaveDataInWorld(const GridPos& mazePos);
+	bool					EncordChunkSaveDataInWorld(ChunkMap* chunk);
 	int		GetDir(int MazeX,int MazeY,const std::vector< std::vector<int> >& Maze);
 protected:
 	void	addFrontier(int x,int y);

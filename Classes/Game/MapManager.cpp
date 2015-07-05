@@ -69,6 +69,8 @@ void MapManager::TransToChunk( int chunkDoorDir )
 	GridPos ToGird;
 	if(mWorld.GetMazePos(CurChunkMap->GetInMazeGPos(),chunkDoorDir,ToGird))
 	{
+		mWorld.EncordChunkSaveDataInWorld(CurChunkMap);
+
 		CurChunkMap->Reset();
 
 		if (mWorld.LoadChunk(CurChunkMap,ToGird))

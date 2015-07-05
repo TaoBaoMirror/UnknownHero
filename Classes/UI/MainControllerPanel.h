@@ -197,11 +197,6 @@ public:
 	//
 	void Init();
 	cocos2d::Rect	GetWheelHandleRect();
-	//
-	/* ¼àÌý */
-	//void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
-	//void onTouchesMoved(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
-	//void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event  *event);
 
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event  *event);
 	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event  *event);
@@ -209,6 +204,7 @@ public:
 protected:
 	cocos2d::Vector<ActionWheel*>	mWheelList;	
 	cocos2d::Sprite*				mWheelHandle;
+	//
 private:
 };
 
