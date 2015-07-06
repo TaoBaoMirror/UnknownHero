@@ -7,7 +7,12 @@
 
 enum SkillType
 {
+	//Hero
 	SkillType_Sword = 0,
+	//--Monster
+
+	//--Boss
+	SkillType_GoblinKingAttack,
 };
 
 class GameSkill : public AttackSystem

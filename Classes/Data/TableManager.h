@@ -11,6 +11,7 @@ enum TableType
 {
 	Table_Hero = 0,
 	Table_Monster,
+	Table_Boss,
 };
 
 

@@ -464,7 +464,8 @@ cocos2d::Rect ActionWheel::GetTouchRect()
 
 void ActionWheel::AssetIconIDs()
 {
-	GameActionSystem::GetInstance()->RoleMachine();
+	//GameActionSystem::GetInstance()->RollMachine();
+	GameActionSystem::GetInstance()->RollRandomGroup(mGroupID);
 	//
 	mIconIDs[NextNextAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,NextNextAction)->GetIconID();
 	mIconIDs[NextAction] = GameActionSystem::GetInstance()->GetAction(mGroupID,NextAction)->GetIconID();
@@ -531,7 +532,7 @@ void MainControllerPanel::Init()
 		mWheelList.pushBack(wheel);
 	}
 	//
-	GameActionSystem::GetInstance()->RoleMachine();
+	GameActionSystem::GetInstance()->RollMachine();
 	//
 	const int IconNum = 4;
 	for (int i = 0 ;i < mWheelList.size();++i)
@@ -567,30 +568,57 @@ void MainControllerPanel::Init()
 
 }
 
+void MainControllerPanel::RollAll()
+{
+	bool canRoll = true;
+	//
+	for (int i = 0;i< mWheelList.size();++i)
+	{
+		if(mWheelList.at(i)->GetState() != WheelIdle)
+		{
+			canRoll = false;
+			break;
+		}
+	}
+	//
+	if(canRoll)
+	{
+		for (int i = 0;i< mWheelList.size();++i)
+		{
+			mWheelList.at(i)->RandomRoll();
+		}
+	}
+}
+
+void MainControllerPanel::RollWheel(int index)
+{
+	bool canRoll = true;
+	//
+	for (int i = 0;i< mWheelList.size();++i)
+	{
+		if(mWheelList.at(i)->GetState() != WheelIdle)
+		{
+			canRoll = false;
+			break;
+		}
+	}
+	//
+	if(canRoll)
+	{
+		for (int i = 0;i< mWheelList.size();++i)
+		{
+			mWheelList.at(i)->RandomRoll();
+		}
+	}
+}
+
 bool MainControllerPanel::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event  *event)
 {
 	cocos2d::Vec2 point = mWheelHandle->convertToNodeSpace(cocos2d::Director::getInstance()->convertToGL(touch->getLocationInView()));
 	auto rect = GetWheelHandleRect();
 	if (rect.containsPoint(point))
 	{
-		bool canRoll = true;
-		//
-		for (int i = 0;i< mWheelList.size();++i)
-		{
-			if(mWheelList.at(i)->GetState() != WheelIdle)
-			{
-				canRoll = false;
-				break;
-			}
-		}
-		//
-		if(canRoll)
-		{
-			for (int i = 0;i< mWheelList.size();++i)
-			{
-				mWheelList.at(i)->RandomRoll();
-			}
-		}
+		RollAll();
 
 		return true;
 	}

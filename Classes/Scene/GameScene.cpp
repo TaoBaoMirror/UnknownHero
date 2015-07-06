@@ -69,6 +69,8 @@ bool GameScene::init()
 
 	TestMap();
 
+	GameManager::GetInstance()->SetGameScene(this);
+
 	scheduleUpdate();
 
 	return true;

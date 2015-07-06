@@ -15,15 +15,27 @@ enum FightStatus
 	SF_Hero,		//自己行动
 	SF_Enemy,		//敌人行动
 	SF_NPC,			//友军行动
+	SF_BOSS,		//boss行动
 	SF_OneFightOver,
 };
 //---------------------------------------------------------
+class GameScene;
+
 class GameManager
 {
 public:	
 	~GameManager();
 
 	static GameManager* GetInstance();
+	//------------------------------
+	void SetGameScene(GameScene* pScene)
+	{
+		m_pGameScene = pScene;
+	}
+	GameScene* GetGameScene()
+	{
+		return m_pGameScene;
+	}
 	//------------------------------
 	void Init();
 
@@ -63,6 +75,9 @@ public:
 	int GetCurSpecialHeroProcess();
 	void SpecialHeroJoin();
 
+	int GetCurGold(){return 0;}
+	void SpendGold(int cost){;}
+
 	bool MouseDown(const cocos2d::Vec2& p);
 	void MouseUp(const cocos2d::Vec2& p);
 	void MouseMove(const cocos2d::Vec2& p);
@@ -73,21 +88,27 @@ private:
 	//------------------------------
 	static GameManager* m_Instance;
 	GameManager();
+	
 	//------------------------------
 	void Wait_Pre();
 	void HeroFight_Pre();
 	void EnemyFight_Pre();
 	void NPCFight_Pre();
+	void BOSSFight_Pre();
 
 	void Wait_Post();
 	void HeroFight_Post();
 	void EnemyFight_Post();
 	void NPCFight_Post();
+	void BOSSFight_Post();
 
 	void Wait_Update(float dt);
 	void HeroFight_Update(float dt);
 	void EnemyFight_Update(float dt);
 	void NPCFight_Update(float dt);
+	void BOSSFight_Update( float dt );
+
+	//------------------------------
 
 	//------------------------------
 	void ProcessKeyPressed_Fight(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
@@ -110,6 +131,8 @@ private:
 	//已经启用到第几个特殊英雄
 	int m_SpecialHeroProcess;
 	//------------------------------
+
+	GameScene* m_pGameScene;
 };
 
 #endif //__GAME_MANAGER_H__

@@ -17,6 +17,10 @@ protected:
 		ActorAnim_Attack,
 		ActorAnim_Die,
 		ActorAnim_Win,
+		//------
+		ActorAnim_SP1,
+		ActorAnim_SP2,
+		ActorAnim_SP3,
 	};
 public:
 	Actor();

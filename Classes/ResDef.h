@@ -49,6 +49,9 @@ public:
 	static const std::string g_HeroResPlistFile;
 	static const std::string g_HeroResTextureFile;
 
+	static const std::string g_BossPlistFile;
+	static const std::string g_BossTextureFile;
+
 	static const std::string g_GameEffectPListFile;
 	static const std::string g_GameEffectTextureFile;
 

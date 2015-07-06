@@ -100,6 +100,9 @@
     <Filter Include="src\Actor\Monster">
       <UniqueIdentifier>{73ed95fc-ba02-4929-906a-e90ed563a9a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Actor\Boss">
+      <UniqueIdentifier>{9d8fba0a-56a6-4343-a598-caaada2d8536}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -398,6 +401,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Actor\Hero_SwordMan.cpp">
       <Filter>src\Actor\Hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\BossManager.cpp">
+      <Filter>src\Actor\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Boss\Boss.cpp">
+      <Filter>src\Actor\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Actor\Boss\Boss_GoblinKing.cpp">
+      <Filter>src\Actor\Boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -718,6 +730,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Actor\Hero_SwordMan.h">
       <Filter>src\Actor\Hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\BossManager.h">
+      <Filter>src\Actor\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Boss\Boss.h">
+      <Filter>src\Actor\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Actor\Boss\Boss_GoblinKing.h">
+      <Filter>src\Actor\Boss</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -46,18 +46,26 @@ public:
 	void UseAction(int GroupID);
 
 	void CalculateActionsRate();
+
+	bool CoinGroup(int nGroupID); //花费一组让一组转动... 钱不够或者锁住了返回false
 	
 	void RollGroup(int nGroupID);	//某一组往下转动一格
 
-	void RoleMachine();				//转老虎机
+	void RollMachine();				//转老虎机
 
 	void RollGroups();
+
+	void RollRandomGroup(int gID);
+
+	bool IsGroupLocked(int gID);
 
 	void LockSystem()	{m_LockSystem = true;}
 	void UnLockSystem()	{m_LockSystem = false;}
 	
 	void ContinueAction();
 	void OverAction();
+
+	int GetMaxUseGroup(){return m_MaxUseGroup;}
 
 	GameAction* GetAction(int groupID, int actionOrder);
 private:
@@ -66,7 +74,6 @@ private:
 	static GameActionSystem* m_Instance;
 	//--------------------------------------------
 	GameAction* RandomAction();
-
 	//--------------------------------------------
 	
 	//--------------------------------------------
@@ -86,6 +93,10 @@ private:
 	bool m_MustRoll[5];
 
 	bool m_LockSystem;
+
+	bool m_LockGroups[5];
+
+	int m_GroupSpendGold[5];
 };
 
 #endif//__GAME_ACTION_SYSTEM_H__

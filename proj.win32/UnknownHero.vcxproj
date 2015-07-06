@@ -151,6 +151,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Actor\ActorBody.cpp" />
     <ClCompile Include="..\Classes\Actor\ActorFSM.cpp" />
     <ClCompile Include="..\Classes\Actor\ActorStatus.cpp" />
+    <ClCompile Include="..\Classes\Actor\BossManager.cpp" />
+    <ClCompile Include="..\Classes\Actor\Boss\Boss.cpp" />
+    <ClCompile Include="..\Classes\Actor\Boss\Boss_GoblinKing.cpp" />
     <ClCompile Include="..\Classes\Actor\EnemyManager.cpp" />
     <ClCompile Include="..\Classes\Actor\Hero.cpp" />
     <ClCompile Include="..\Classes\Actor\Hero_SwordMan.cpp" />
@@ -253,6 +256,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Actor\ActorFSM.h" />
     <ClInclude Include="..\Classes\Actor\ActorPathFinderCalculateFunc.h" />
     <ClInclude Include="..\Classes\Actor\ActorStatus.h" />
+    <ClInclude Include="..\Classes\Actor\BossManager.h" />
+    <ClInclude Include="..\Classes\Actor\Boss\Boss.h" />
+    <ClInclude Include="..\Classes\Actor\Boss\Boss_GoblinKing.h" />
     <ClInclude Include="..\Classes\Actor\EnemyManager.h" />
     <ClInclude Include="..\Classes\Actor\Hero.h" />
     <ClInclude Include="..\Classes\Actor\Hero_SwordMan.h" />

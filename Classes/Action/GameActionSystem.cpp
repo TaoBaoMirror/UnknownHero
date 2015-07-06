@@ -7,6 +7,7 @@
 #include "GameAction_Coin.h"
 #include "GameAction_MonsterStrong.h"
 #include "GameAction_Bow.h"
+#include "Scene/GameManager.h"
 
 
 GameActionSystem* GameActionSystem::m_Instance = nullptr;
@@ -45,6 +46,17 @@ GameActionSystem::GameActionSystem(void)
 	}
 
 	m_MaxUseGroup = 3;
+
+	for (int i=0; i<5; ++i)
+	{
+		m_LockGroups[i] = false;
+	}
+
+	m_GroupSpendGold[0] = 1;
+	m_GroupSpendGold[1] = 2;
+	m_GroupSpendGold[2] = 5;
+	m_GroupSpendGold[3] = 10;
+	m_GroupSpendGold[4] = 50;
 }
 
 
@@ -436,7 +448,7 @@ void GameActionSystem::UseAction(int GroupID)
 	//3 滚动老虎机使用了技能那组
 	if (m_LockSystem == false)
 	{
-		RollGroups();
+		//RollGroups();
 	}
 
 	m_LockSystem = true;
@@ -471,6 +483,20 @@ void GameActionSystem::RollGroups()
 			RollGroup(i);
 		}
 	}
+}
+
+bool GameActionSystem::CoinGroup(int nGroupID)
+{
+	if (GameManager::GetInstance()->GetCurGold() >= m_GroupSpendGold[nGroupID])
+	{
+		RollGroup(nGroupID);
+
+		GameManager::GetInstance()->SpendGold(m_GroupSpendGold[nGroupID]);
+
+		return true;
+	}	
+
+	return false;
 }
 
 void GameActionSystem::RollGroup(int nGroupID)
@@ -521,7 +547,60 @@ void GameActionSystem::RollGroup(int nGroupID)
 	}	
 }
 
-void GameActionSystem::RoleMachine()
+void GameActionSystem::RollRandomGroup(int gID)
+{
+	if(gID == 1)
+	{
+		//one by one
+		//m_Action_Group1[PrePreAction] = RandomAction();
+		m_Action_Group1[PreAction] = RandomAction();
+		m_Action_Group1[CurAction] = RandomAction();
+		m_Action_Group1[NextAction] = RandomAction();
+		m_Action_Group1[NextNextAction] = RandomAction();
+	}
+	//group 2
+	else if(gID == 2)
+	{
+		//one by one
+		//m_Action_Group2[PrePreAction] = RandomAction();
+		m_Action_Group2[PreAction] = RandomAction();
+		m_Action_Group2[CurAction] = RandomAction();
+		m_Action_Group2[NextAction] = RandomAction();
+		m_Action_Group2[NextNextAction] = RandomAction();
+	}
+	//group 3
+	else if(gID == 3)
+	{
+		//one by one
+		//m_Action_Group3[PrePreAction] = RandomAction();
+		m_Action_Group3[PreAction] = RandomAction();
+		m_Action_Group3[CurAction] = RandomAction();
+		m_Action_Group3[NextAction] = RandomAction();
+		m_Action_Group3[NextNextAction] = RandomAction();
+	}
+	//group 4
+	if(gID == 4)
+	{
+		//one by one
+		//m_Action_Group4[PrePreAction] = RandomAction();
+		m_Action_Group4[PreAction] = RandomAction();
+		m_Action_Group4[CurAction] = RandomAction();
+		m_Action_Group4[NextAction] = RandomAction();
+		m_Action_Group4[NextNextAction] = RandomAction();
+	}
+	//group 5
+	else if(gID == 5)
+	{
+		//one by one
+		//m_Action_Group5[PrePreAction] = RandomAction();
+		m_Action_Group5[PreAction] = RandomAction();
+		m_Action_Group5[CurAction] = RandomAction();
+		m_Action_Group5[NextAction] = RandomAction();
+		m_Action_Group5[NextNextAction] = RandomAction();
+	}
+}
+
+void GameActionSystem::RollMachine()
 {
 	//group 1
 	if(m_MaxUseGroup >= 1)
@@ -609,7 +688,7 @@ GameAction* GameActionSystem::GetAction(int groupID, int actionOrder)
 void GameActionSystem::OverAction()
 {
 	//1 技能使用完毕了 开始转轮盘
-	RollGroups();
+	//RollGroups();
 
 	//2 通知ui显示转动
 
@@ -619,4 +698,32 @@ void GameActionSystem::ContinueAction()
 {
 	//1 解除LockSystem
 	UnLockSystem();
+}
+
+bool GameActionSystem::IsGroupLocked( int groupID )
+{
+	bool ret = true;
+
+	if (groupID == 0 && m_LockGroups[groupID] == false)
+	{
+		ret = false;
+	}
+	else if(groupID == 1 && m_LockGroups[groupID] == false)
+	{
+		ret = false;
+	}
+	else if(groupID == 2 && m_LockGroups[groupID] == false)
+	{
+		ret = false;
+	}
+	else if(groupID == 3 && m_LockGroups[groupID] == false)
+	{
+		ret = false;
+	}
+	else if(groupID == 4 && m_LockGroups[groupID] == false)
+	{
+		ret = false;
+	}
+
+	return ret;
 }

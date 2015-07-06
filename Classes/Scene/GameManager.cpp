@@ -3,6 +3,7 @@
 #include "Actor/PlayerManager.h"
 #include "Actor/EnemyManager.h"
 #include "Actor/NPCManager.h"
+#include "Actor/BossManager.h"
 #include "Game/MapManager.h"
 
 #include "GameStatus/GameStates.h"
@@ -20,6 +21,7 @@
 #include "Action/GameActionSystem.h"
 #include "Game/Soldier.h"
 #include "Weapon/SkillList.h"
+#include "Actor/BossManager.h"
 
 GameManager* GameManager::m_Instance = nullptr;
 
@@ -35,6 +37,8 @@ GameManager* GameManager::GetInstance()
 
 GameManager::GameManager()
 {
+	m_pGameScene = nullptr;
+
 	m_SData1 = new SaveData();
 	m_SData2 = new SaveData();
 	m_SData3 = new SaveData();
@@ -151,6 +155,12 @@ bool GameManager::CheckNoDyingActor()
 		return false;
 	}
 
+	if (BossManager::GetInstance()->CheckNoDyingActor() == false)
+	{
+		return false;
+	}
+
+
 	return true;
 }
 //-----------------------------------------------------------------
@@ -165,6 +175,10 @@ void GameManager:: RoundPassed()
 		SetFightST(FightStatus::SF_NPC);
 	}
 	else if (m_CurFightST == FightStatus::SF_NPC)
+	{
+		SetFightST(FightStatus::SF_BOSS);		 
+	}
+	else if (m_CurFightST == FightStatus::SF_BOSS)
 	{
 		SetFightST(FightStatus::SF_OneFightOver);		 
 	}
@@ -190,6 +204,9 @@ void GameManager::SetFightST(FightStatus st)
 	case SF_NPC:
 		NPCFight_Post();
 		break;
+	case SF_BOSS:
+		BOSSFight_Post();
+		break;
 	case SF_OneFightOver:
 		break;
 	default:
@@ -211,6 +228,9 @@ void GameManager::SetFightST(FightStatus st)
 		break;
 	case SF_NPC:
 		NPCFight_Pre();
+		break;
+	case SF_BOSS:
+		BOSSFight_Pre();
 		break;
 	case SF_OneFightOver:
 		break;
@@ -251,6 +271,12 @@ void GameManager::NPCFight_Pre()
 	//	RoundPassed();
 	//}
 }
+
+void GameManager::BOSSFight_Pre()
+{
+	BossManager::GetInstance()->ReadyFight();
+}
+
 //--------------
 void GameManager::Wait_Post()
 {
@@ -269,6 +295,11 @@ void GameManager::NPCFight_Post()
 {
 	;
 }
+
+void GameManager::BOSSFight_Post()
+{
+}
+
 //--------------
 void GameManager::UpdateFight(float dt)
 {
@@ -289,6 +320,9 @@ void GameManager::UpdateFight(float dt)
 		break;
 	case SF_NPC:
 		NPCFight_Update(dt);
+		break;
+	case SF_BOSS:
+		BOSSFight_Update(dt);
 		break;
 	case SF_OneFightOver:
 		{
@@ -323,6 +357,11 @@ void GameManager::EnemyFight_Update(float dt)
 void GameManager::NPCFight_Update(float dt)
 {
 	NPCManager::GetInstance()->Update(dt);
+}
+
+void GameManager::BOSSFight_Update( float dt )
+{
+	BossManager::GetInstance()->Update(dt);
 }
 //-----------------------------------------------------------------
 void GameManager::UpdateCity(float dt)
@@ -533,3 +572,5 @@ void GameManager::ProcessKeyReleased_Fight(cocos2d::EventKeyboard::KeyCode code,
 	{
 	}
 }
+
+

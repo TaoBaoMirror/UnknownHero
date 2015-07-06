@@ -3,6 +3,8 @@
 #include "Actor\PlayerManager.h"
 #include "Actor\Hero.h"
 #include "Weapon\SkillList.h"
+#include "Actor\BossManager.h"
+#include "Actor\Boss\Boss.h"
 
 
 GameAction_Sword::GameAction_Sword(int typeID) : 
@@ -26,6 +28,14 @@ void GameAction_Sword::UseAction(int nlevel)
 		if (pHero != nullptr && pHero->GetSkillList()!=nullptr)
 		{
 			pHero->GetSkillList()->UseSkill(m_SkillID, nlevel);
+		}
+	}
+	else if (GameManager::GetInstance()->GetFightST() == FightStatus::SF_BOSS)
+	{
+		Boss* pBoss = BossManager::GetInstance()->GetBoss();
+		if (pBoss != nullptr)
+		{
+			pBoss->UseBossAction(m_ActionTypeID, nlevel);
 		}
 	}
 }

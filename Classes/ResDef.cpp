@@ -169,6 +169,9 @@ const string ResDef::g_StandByHeroTextureFile = "plist//StandByHero.png";
 const string ResDef::g_HeroResPlistFile = "plist//HeroRes.plist";
 const string ResDef::g_HeroResTextureFile = "plist//HeroRes.png";
 
+const string ResDef::g_BossPlistFile = "plist//Boss.plist";
+const string ResDef::g_BossTextureFile = "plist//Boss.png";
+
 const std::string ResDef::g_GameEffectPListFile = "plist//Effect.plist";
 const std::string ResDef::g_GameEffectTextureFile = "plist//Effect.png";
 
@@ -260,6 +263,7 @@ void ResDef::loadRes()
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameResPListFile);
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_StandByHeroPListFile);
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_HeroResPlistFile);
+	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_BossPlistFile);
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameMiscPListFile);
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameEffectPListFile);
 

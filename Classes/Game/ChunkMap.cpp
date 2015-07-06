@@ -23,6 +23,8 @@
 #include "base/CCEventListenerTouch.h"
 
 #include "MapManager.h"
+#include "Actor/BossManager.h"
+#include "Actor/Boss/Boss.h"
 
 #define GridLayer "GridLayer"	//网格数据层
 #define CreatureLayer "CreatureLayer"	//生物体数据层
@@ -71,7 +73,7 @@ Actor* ChunkMap::InstantiateCreature(const std::string& CreatureType,const int T
 
 	if (CreatureType.compare("Monster") == 0)
 	{
-		Monster* pMonster = EnemyManager::GetInstance()->CreateMonster(nextID);
+		Monster* pMonster = EnemyManager::GetInstance()->CreateMonster(DirectionType);
 		pMonster->SetToGPos(GPos);
 		pMonster->UpdatePosition();
 		pMonster->UpdateToCCWorldPos();
@@ -226,6 +228,13 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 				
 			}
 		}
+		//2015-7-6 test
+		//Boss* pTestBoss = BossManager::GetInstance()->CreateBoss(BossType::BossType_GoblinKing);
+		//pTestBoss->SetToGPos(GridPos(8,1));
+		//pTestBoss->UpdatePosition();
+		//pTestBoss->UpdateToCCWorldPos();
+		//end
+
 		/*
 			Create Spawn Area
 		*/
