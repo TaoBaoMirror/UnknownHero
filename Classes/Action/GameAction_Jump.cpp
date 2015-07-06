@@ -3,6 +3,8 @@
 #include "Actor\Hero.h"
 #include "Actor\PlayerManager.h"
 #include "Weapon\SkillList.h"
+#include "Actor\BossManager.h"
+#include "Actor\Boss\Boss.h"
 
 
 GameAction_Jump::GameAction_Jump(int typeID) : 
@@ -19,6 +21,7 @@ GameAction_Jump::~GameAction_Jump(void)
 
 void GameAction_Jump::UseAction(int nlevel)
 {
+	GameAction::UseAction(nlevel);
 	//test
 	if (GameManager::GetInstance()->GetFightST() == FightStatus::SF_Hero)
 	{

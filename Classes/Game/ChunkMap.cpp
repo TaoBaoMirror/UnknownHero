@@ -229,10 +229,11 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 			}
 		}
 		//2015-7-6 test
-		//Boss* pTestBoss = BossManager::GetInstance()->CreateBoss(BossType::BossType_GoblinKing);
-		//pTestBoss->SetToGPos(GridPos(8,1));
-		//pTestBoss->UpdatePosition();
-		//pTestBoss->UpdateToCCWorldPos();
+		Boss* pTestBoss = BossManager::GetInstance()->CreateBoss(BossType::BossType_GoblinKing);
+		pTestBoss->SetToGPos(GridPos(8,3));
+		pTestBoss->UpdatePosition();
+		pTestBoss->UpdateToCCWorldPos();
+		GetCreatureLayer()->addChild(pTestBoss);
 		//end
 
 		/*

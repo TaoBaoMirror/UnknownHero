@@ -19,6 +19,7 @@ GameAction_Bomb::~GameAction_Bomb(void)
 
 void GameAction_Bomb::UseAction(int nlevel)
 {
+	GameAction::UseAction(nlevel);
 	//test
 	if (GameManager::GetInstance()->GetFightST() == FightStatus::SF_Hero)
 	{

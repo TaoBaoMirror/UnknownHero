@@ -108,6 +108,8 @@ protected:
 	cocos2d::ValueVector m_ActionsFrameCount;	
 
 	static const float g_ActorMoveTime;
+
+	bool m_bFaceDirect; //true left; false right
 };
 
 #endif //__ACTOR_H__

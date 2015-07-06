@@ -19,6 +19,7 @@ GameAction_MonsterStrong::~GameAction_MonsterStrong(void)
 
 void GameAction_MonsterStrong::UseAction(int nlevel)
 {
+	GameAction::UseAction(nlevel);
 	//test
 	if (GameManager::GetInstance()->GetFightST() == FightStatus::SF_Hero)
 	{

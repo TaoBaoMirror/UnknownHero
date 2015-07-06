@@ -17,7 +17,7 @@
 const float Actor::g_ActorMoveTime = 0.5f;
 
 Actor::Actor() :
-	Soldier(0),m_OneRoundActionTimes(1)
+	Soldier(0),m_OneRoundActionTimes(1),m_bFaceDirect(false)
 {	
 }
 
@@ -108,7 +108,18 @@ void Actor::EndTraval()
 //-------------------------
 bool Actor::TravalTo(const GridPos& GPos)
 {
+	int lastPosX = this->GetStayGPos().X;
+
 	if(Soldier::TravalTo(GPos) == false) return false;
+
+	if (GPos.X < lastPosX)
+	{
+		m_bFaceDirect = true;
+	}
+	else if(GPos.X > lastPosX)
+	{
+		m_bFaceDirect = false;
+	}
 
 	m_pFSM->SetStatus(Actor_Move::Instance());
 
@@ -200,6 +211,8 @@ void Actor::GetHurt(const DamageData& damageData)
 
 cocos2d::Animate* Actor::createAttackAnimation( int ani_type )
 {
+	setFlippedX(m_bFaceDirect);
+
 	std::string name = ActionsName[(int)ani_type];
 	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
 	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);

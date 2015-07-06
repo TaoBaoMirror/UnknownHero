@@ -3,6 +3,8 @@
 #include "Actor\Hero.h"
 #include "Actor\PlayerManager.h"
 #include "Weapon\SkillList.h"
+#include "Actor\BossManager.h"
+#include "Actor\Boss\Boss.h"
 
 
 GameAction_Coin::GameAction_Coin(int typeID) : 
@@ -20,6 +22,7 @@ GameAction_Coin::~GameAction_Coin(void)
 
 void GameAction_Coin::UseAction(int nlevel)
 {
+	GameAction::UseAction(nlevel);
 	//test
 	if (GameManager::GetInstance()->GetFightST() == FightStatus::SF_Hero)
 	{

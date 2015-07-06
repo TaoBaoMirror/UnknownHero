@@ -216,10 +216,10 @@ void GameActionSystem::ClickAction(int GroupID)
 
 void GameActionSystem::UseAction(int GroupID)
 {
-	if (m_LockSystem == true)
-	{
-		return;
-	}
+	//if (m_LockSystem == true)
+	//{
+	//	return;
+	//}
 
 	int level = 1;
 	//bool mustRoll[5];

@@ -14,9 +14,9 @@
 //----------------------------------------------
 Hero::Hero()
 {
-	std::string test[5] = {"stand", "move", "attack", "die", "win"};
+	std::string test[7] = {"stand", "move", "attack", "die", "win", "jump", "coin"};
 	//ActionsName = test; 
-	for (int i=0; i<5; ++i)
+	for (int i=0; i<7; ++i)
 	{
 		ActionsName.push_back(test[i]);
 	}
@@ -105,10 +105,14 @@ void Hero::SetActionFrame()
 
 	int winFrame = TableManager::GetInstance()->GetTableIntData(TableType::Table_Hero,"WinFrame",m_HeroID);
 
+	int sp1Frame = TableManager::GetInstance()->GetTableIntData(TableType::Table_Hero,"SP1Frame",m_HeroID);
+
+	int sp2Frame = TableManager::GetInstance()->GetTableIntData(TableType::Table_Hero,"SP2Frame",m_HeroID);
+
 	//2 ¸³Öµ
-	int frameanim[5] = { standFrame, moveFrame, attackFrame, dieFrame, winFrame };
+	int frameanim[7] = { standFrame, moveFrame, attackFrame, dieFrame, winFrame, sp1Frame, sp2Frame };
 	m_ActionsFrameCount.clear();
-	for (int i=0; i<5; ++i)
+	for (int i=0; i<7; ++i)
 	{
 		m_ActionsFrameCount.push_back(cocos2d::Value(frameanim[i]));
 	}
@@ -116,6 +120,8 @@ void Hero::SetActionFrame()
 
 void Hero::playMoveAnimation() 
 {
+	setFlippedX(m_bFaceDirect);
+
 	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Move];
 	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
 	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
