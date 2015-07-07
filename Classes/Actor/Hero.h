@@ -24,6 +24,7 @@ public:
 	//------------------------------
 	virtual void playMoveAnimation() override;
 	virtual void playAttackAnimation() override;
+	virtual void playStandAnimation() override;
 
 	//------------------------------
 	virtual void CalcAttack(AttackData* pAtkData) override;

@@ -23,7 +23,6 @@ Hero::Hero()
 
 	m_pFSM = new ActorFSM(this);
 
-	m_pFSM->SetStatus(Actor_Ready::Instance());
 }
 
 
@@ -74,7 +73,8 @@ Hero* Hero::createWithHeroID(int id)
 	pHero->SetResource(tex_hero);
 
 	pHero->InitSkills();
-
+	//
+	pHero->m_pFSM->SetStatus(Actor_Ready::Instance());
 	//release
 	pHero->autorelease();
 
@@ -121,31 +121,36 @@ void Hero::SetActionFrame()
 void Hero::playMoveAnimation() 
 {
 	setFlippedX(m_bFaceDirect);
-
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Move];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
-
-	cocos2d::RepeatForever* pRepeat = cocos2d::RepeatForever::create(animaction);
+	cocos2d::Animate* animate = createAnimation(ActorAnimType::ActorAnim_Move);
+	cocos2d::RepeatForever* pRepeat = cocos2d::RepeatForever::create(animate);
 	pRepeat->setTag((int)ActorAnimType::ActorAnim_Move);
-
 	this->runAction(pRepeat);
 }
 
 void Hero::playAttackAnimation()
 {
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Attack];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
-	this->runAction(animaction);
+	setFlippedX(m_bFaceDirect);
+	cocos2d::Animate* animate = createAnimation(ActorAnimType::ActorAnim_Attack);
+	this->runAction(animate);
 
 }
+
+
+void Hero::playStandAnimation()
+{
+	setFlippedX(m_bFaceDirect);
+	cocos2d::Animate* animate = createAnimation(ActorAnimType::ActorAnim_Stand);
+	cocos2d::RepeatForever* pRepeat = cocos2d::RepeatForever::create(animate);
+	pRepeat->setTag((int)ActorAnimType::ActorAnim_Stand);
+	this->runAction(pRepeat);
+}
+
 
 //------------------------------------------------------------------------------------
 void Hero::ActorReadyStart()
 {
+	playStandAnimation();
+
 	Vector2D realpos = this->GetPosition();
 	this->setPosition(cocos2d::Vec2(realpos.x,realpos.y));
 
@@ -157,14 +162,15 @@ void Hero::ActorReadyUpdate(float dt)
 }
 void Hero::ActorReadyEnd()
 {
-	;
+	stopActionByTag(ActorAnim_Stand);
+	
 }
 //------------------------------------------------------------------------------------
 void Hero::ActorStandStart()
 {
+	playStandAnimation();
 	Vector2D realpos = this->GetPosition();
 	this->setPosition(cocos2d::Vec2(realpos.x,realpos.y));
-
 	GameActionSystem::GetInstance()->LockSystem();
 }
 void Hero::ActorStandUpdate(float dt)
@@ -173,7 +179,7 @@ void Hero::ActorStandUpdate(float dt)
 }
 void Hero::ActorStandEnd()
 {
-	;
+	stopActionByTag(ActorAnim_Stand);
 }
 //-----
 void Hero::ActorMoveStart()
@@ -186,20 +192,19 @@ void Hero::ActorMoveUpdate(float dt)
 }
 void Hero::ActorMoveEnd()
 {
-	;
+	stopActionByTag(ActorAnim_Move);
 }
 //-----
 void Hero::ActorAttackStart()
 {
+	if(getActionByTag(ActorAnim_Attack)) return;
+
 	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
 
-	auto anim = createAttackAnimation(ActorAnimType::ActorAnim_Attack);
-
-	auto func_1 = cocos2d::CallFuncN::create( CC_CALLBACK_0(Hero::playMoveAnimation , this ) );
+	auto ani = createAnimation(Actor::ActorAnim_Attack);
 	auto func_2 = cocos2d::CallFunc::create( CC_CALLBACK_0(Hero::CalcAttack , this , m_pTempAtkData));
 
-	pAcs.pushBack(anim);
-	pAcs.pushBack(func_1);
+	pAcs.pushBack(ani);
 	pAcs.pushBack(func_2);
 
 	auto seq = cocos2d::Sequence::create(pAcs);
@@ -213,6 +218,8 @@ void Hero::ActorAttackUpdate(float dt)
 }
 void Hero::ActorAttackEnd()
 {
+	stopActionByTag(ActorAnim_Attack);
+
 	GameActionSystem::GetInstance()->OverAction();
 
 	GetSkillList()->SetUsingSkill(nullptr);
@@ -245,12 +252,6 @@ void Hero::ActorWinEnd()
 void Hero::CalcAttack( AttackData* pAtkData )
 {
 	Actor::CalcAttack(pAtkData);
-
-	//if (pAtkData != nullptr)
-	//{
-	//	CommonFunc::CalcDamage(pAtkData);		
-	//}
-	
 	
 }
 

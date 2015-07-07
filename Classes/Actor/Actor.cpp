@@ -158,7 +158,7 @@ void Actor::AIThink(float dt)
 void Actor::Attack( Soldier* other , int number)
 {
 	Soldier::Attack(other,number);
-	//Soldier::Attack(other);
+
 	if (GetSkillList() != nullptr && GetSkillList()->GetUsingSkill() != nullptr)
 	{
 		auto atkData = GetSkillList()->GetUsingSkill()->CreateAttackData(other->GetID());
@@ -209,31 +209,16 @@ void Actor::GetHurt(const DamageData& damageData)
 	}
 }
 
-cocos2d::Animate* Actor::createAttackAnimation( int ani_type )
-{
-	setFlippedX(m_bFaceDirect);
-
-	std::string name = ActionsName[(int)ani_type];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
-
-	return animaction;
-}
-
-
 //-------------------------
 void Actor::ActorAttackStart()
 {
+	if(getActionByTag(ActorAnim_Attack)) return;
+
 	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
-
-	auto anim = createAttackAnimation(ActorAnimType::ActorAnim_Attack);
-
-	auto func_1 = cocos2d::CallFuncN::create( CC_CALLBACK_0(Actor::playMoveAnimation , this ) );
+	auto ani = createAnimation(ActorAnim_Attack);
 	auto func_2 = cocos2d::CallFunc::create( CC_CALLBACK_0(Actor::CalcAttack , this , m_pTempAtkData));
 
-	pAcs.pushBack(anim);
-	pAcs.pushBack(func_1);
+	pAcs.pushBack(ani);
 	pAcs.pushBack(func_2);
 
 	auto seq = cocos2d::Sequence::create(pAcs);
@@ -251,19 +236,19 @@ void Actor::ActorAttackEnd()
 //-------------------------
 void Actor::ActorDieStart()
 {
+	if(getActionByTag(ActorAnim_Die)) return;
+	//
 	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
 
-	auto anim = createAttackAnimation(ActorAnimType::ActorAnim_Die);
+	auto ani = createAnimation(ActorAnim_Die);
 
-	auto func_1 = cocos2d::CallFuncN::create( CC_CALLBACK_0(Actor::playDieAnimation , this ) );
 	auto func_2 = cocos2d::CallFunc::create( CC_CALLBACK_0(Actor::CalcDie , this));
 
-	pAcs.pushBack(anim);
-	pAcs.pushBack(func_1);
+	pAcs.pushBack(ani);
 	pAcs.pushBack(func_2);
 
 	auto seq = cocos2d::Sequence::create(pAcs);
-	seq->setTag(ActorAnimType::ActorAnim_Attack);
+	seq->setTag(ActorAnimType::ActorAnim_Die);
 	this->runAction(seq);
 }
 void Actor::ActorDieUpdate(float dt)
@@ -290,12 +275,7 @@ void Actor::CallBack_AttackFinish()
 
 void Actor::CalcDie()
 {
-	this->ClearNodeWithGPos();
-	this->removeFromParentAndCleanup(true);
-	SoldierManager::Instance()->UnregisterSoldier(this);
-	Camp::GetCamp(CampType_Player)->UnregisterUnit(GetID());
-	MessageListenerManager::Instance()->UnregisterMessageListene(this);
-	//this->release();
+
 }
 //-------------------------
 void Actor::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
@@ -318,6 +298,16 @@ void Actor::UpdateToCCWorldPos()
 void Actor::SetActionTimesInRound( int n )
 {
 	m_OneRoundActionTimes = n;
+}
+
+cocos2d::Animate* Actor::createAnimation( ActorAnimType Atype ,float delay)
+{
+	std::string name = ActionsName[(int)Atype];
+	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
+	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,delay);
+	CC_ASSERT(ani);
+	cocos2d::Animate* animate = cocos2d::Animate::create(ani);
+	return animate;
 }
 
 //-------------------------

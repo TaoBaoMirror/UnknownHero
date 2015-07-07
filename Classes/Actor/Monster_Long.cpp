@@ -89,12 +89,9 @@ void Monster_Long::ActorAttackStart()
 	//
 	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
 
-	auto anim = createAttackAnimation(ActorAnimType::ActorAnim_Attack);
-
 	auto func_1 = cocos2d::CallFuncN::create(  CC_CALLBACK_0( Actor::playMoveAnimation  , this ));
 	auto func_2 = cocos2d::CallFuncN::create(  CC_CALLBACK_0( Monster_Long::ShootBullet , this ));
 
-	pAcs.pushBack(anim);
 	pAcs.pushBack(func_1);
 	pAcs.pushBack(func_2);
 

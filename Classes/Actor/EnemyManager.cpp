@@ -402,6 +402,7 @@ void EnemyManager::ClearAllEnemy()
 
 void EnemyManager::OnMonsterRemoveManager( Actor* pMonster )
 {
+	pMonster->ClearNodeWithGPos();
 	SoldierManager::Instance()->UnregisterSoldier(pMonster);
 	Camp::GetCamp(CampType_Monster)->UnregisterUnit(pMonster->GetCampIndex());
 	MessageListenerManager::Instance()->UnregisterMessageListene(pMonster);

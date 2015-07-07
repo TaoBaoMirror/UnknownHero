@@ -13,24 +13,18 @@ Boss::~Boss(void)
 
 void Boss::playMoveAnimation() 
 {
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Move];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
-
-	cocos2d::RepeatForever* pRepeat = cocos2d::RepeatForever::create(animaction);
+	setFlippedX(m_bFaceDirect);
+	cocos2d::Animate* animate = createAnimation(ActorAnimType::ActorAnim_Move);
+	cocos2d::RepeatForever* pRepeat = cocos2d::RepeatForever::create(animate);
 	pRepeat->setTag((int)ActorAnimType::ActorAnim_Move);
-
 	this->runAction(pRepeat);
 }
 
 void Boss::playAttackAnimation()
 {
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Attack];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
-	this->runAction(animaction);
+	setFlippedX(m_bFaceDirect);
+	cocos2d::Animate* animate = createAnimation(ActorAnimType::ActorAnim_Attack);
+	this->runAction(animate);
 
 }
 //------------------------------------------------------------------------------------
