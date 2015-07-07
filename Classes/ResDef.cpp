@@ -157,6 +157,9 @@ bool ConfigFileStruct::LoadFromFile(std::string fileName)
 ResDef* ResDef::m_Instance = NULL;
 
 //constans
+const std::string ResDef::g_GameResWheelPListFile = "plist//WheelBox.plist";
+const std::string ResDef::g_GameResWheelTextureFile = "plist//WheelBox.png";
+
 const string ResDef::g_GameResPListFile = "plist//GameRes.plist";
 const string ResDef::g_GameResTextureFile = "plist//GameRes.png";
 //
@@ -270,6 +273,10 @@ void ResDef::loadRes()
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_BossPlistFile);
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameMiscPListFile);
 	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameEffectPListFile);
+	// add by Hitman [7/6/2015]
+	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile(ResDef::g_GameResWheelPListFile);
+
+	
 
 }
 
@@ -419,3 +426,4 @@ bool ResDef::IsRoleLocked(int id)
 	//
 	return true;
 }
+

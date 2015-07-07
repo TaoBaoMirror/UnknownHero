@@ -37,6 +37,10 @@ public:
 class ResDef
 {
 public:
+	// add by Hitman [7/6/2015]
+	static const std::string g_GameResWheelPListFile;
+	static const std::string g_GameResWheelTextureFile;
+	//
 	static const std::string g_GameResPListFile;
 	static const std::string g_GameResTextureFile;
 	//

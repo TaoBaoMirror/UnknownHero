@@ -38,7 +38,7 @@ public:
 	static int LayerTag;
 protected: 
 	void TestMap();
-	SkillBarUI*	pSkillBarUI;
+	//SkillBarUI*	pSkillBarUI;
 	MainControllerPanel*	pMainPanel;
 
 	//cocos2d::EventListenerTouchOneByOne* _touchListener;

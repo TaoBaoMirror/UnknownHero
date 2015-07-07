@@ -13,6 +13,7 @@
 #define MainControllerPanel_h__
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 class GameAction;
 
 enum ActionWheelState
@@ -187,6 +188,9 @@ private:
 	1、拉霸的窗体框架图片   2、金币显示的地方  3、拉动的扳手
 	4、 拉霸内部的转盘三个
 */
+#include "UICommon.h"
+USING_NS_CC_EXT;
+using namespace ui;
 
 class MainControllerPanel : public cocos2d::Layer
 {
@@ -195,19 +199,43 @@ public:
 	MainControllerPanel();
 	~MainControllerPanel();
 	//
+	UI_LAYER_CREATE_FUNC(MainControllerPanel);
+	bool init();
+	void ConfigureGUIScene();
+
+	//
 	void Init();
 	cocos2d::Rect	GetWheelHandleRect();
 
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event  *event);
 	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event  *event);
 	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event  *event);
+	//
+	void touchEvent(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+
+	void CoinEnter_0_TouchEvent(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+	void CoinEnter_1_TouchEvent(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+	void CoinEnter_2_TouchEvent(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+
+
+
 
 	void RollAll();
 	void RollWheel(int index);
 protected:
 	cocos2d::Vector<ActionWheel*>	mWheelList;	
 	cocos2d::Sprite*				mWheelHandle;
+	cocos2d::ui::Button*			mWheelBoxBtn;
 	//
+	cocos2d::Sprite*				mWheelBoxBG;
+	//////////////////////////////////////////////////////////////////////////
+	Layer*		mTouchGroup;
+	Layout*		mLayout;
+	//
+	cocos2d::Vector<Node*>		mWheelNodeList;
+	cocos2d::Vector<cocos2d::ui::Button*>			mCoinEnterBtnList;
+
+
 private:
 };
 

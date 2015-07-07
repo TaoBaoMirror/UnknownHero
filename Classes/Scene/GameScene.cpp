@@ -138,54 +138,15 @@ void GameScene::TestMap()
 	addChild(pChunk,10);
 	//
 	//
-	pSkillBarUI = (SkillBarUI*)SkillBarUI::CreateWithTag(111);
+	//pSkillBarUI = (SkillBarUI*)SkillBarUI::CreateWithTag(111);
 	//addChild(pSkillBarUI,100);
 	//
-	pSkillBarUI->SetSkillIcon(0,"skill_0");
-	pSkillBarUI->SetSkillIcon(1,"skill_1");
-	pSkillBarUI->SetSkillIcon(2,"skill_2");
-	pSkillBarUI->SetSkillIcon(3,"skill_3");
 
-	pMainPanel = new MainControllerPanel();
-	pMainPanel->setPosition(800,80);
-	pMainPanel->Init();
+	//pMainPanel = new MainControllerPanel();
+	pMainPanel = (MainControllerPanel*)MainControllerPanel::CreateWithTag(222);
+	//pMainPanel->setPosition(800,80);
+	//pMainPanel->Init();
 	addChild(pMainPanel,101);
-
-	/*
-
-	Hero* pHero = PlayerManager::GetInstance()->GetHero();
-
-	if (pHero != nullptr)
-	{
-		auto* pLayer = pChunk->GetCreatureLayer();
-		if (pLayer != nullptr)
-		{
-			//pChunk->addChild(pHero,pLayer->getTag());
-			pHero->SetToGPos(GridPos(0,0));
-			pHero->UpdatePosition();
-			pHero->UpdateToCCWorldPos();
-			pLayer->addChild(pHero,99);
-
-		}		
-	}
-
-	//EnemyManager::GetInstance()->CreateMonstersAtLayer(pChunk,pLayer->getTag());
-	Monster* pMonster = EnemyManager::GetInstance()->CreateMonster(0);
-	if (pMonster != nullptr)
-	{
-		auto* pLayer = pChunk->GetCreatureLayer();
-		if (pLayer != nullptr)
-		{
-			//pChunk->addChild(pMonster,pLayer->getTag());
-			pMonster->SetToGPos(GridPos(3,6));
-			pMonster->UpdatePosition();
-			pMonster->UpdateToCCWorldPos();
-			pLayer->addChild(pMonster,99);
-
-		}
-	}
-
-	*/
 
 	GameManager::GetInstance()->SetGameST(ST_Fight);
 

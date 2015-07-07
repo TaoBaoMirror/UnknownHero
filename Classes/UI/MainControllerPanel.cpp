@@ -3,8 +3,26 @@
 #include "Action/GameActionSystem.h"
 //
 
-const std::string WheelIcon::IconDict[4] = { "rateme_normal.png" , "sound_normal.png" , "help_normal.png" , "sound_disable_normal.png" };
-const std::string WheelIcon::IconDict_HighLight[4] = { "rateme_hover.png" , "sound_hover.png" , "help_hover.png", "sound_hover.png"};
+const std::string WheelIcon::IconDict[9] = { 
+	"item_5.png" , 
+	"item_4.png" , 
+	"item_8.png" , 
+	"item_0.png" , 
+	"item_2.png" , 
+	"item_1.png" , 
+	"item_7.png" , 
+	"item_3.png" , 
+	"item_6.png"};
+const std::string WheelIcon::IconDict_HighLight[9] = { 
+	"item_5.png" , 
+	"item_4.png" , 
+	"item_8.png" , 
+	"item_0.png" , 
+	"item_2.png" , 
+	"item_1.png" , 
+	"item_7.png" , 
+	"item_3.png" , 
+	"item_6.png"};
 
 
 
@@ -147,7 +165,7 @@ void ActionWheel::Init( const std::vector<int>& IconIDs )
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	//_eventDispatcher->addEventListenerWithFixedPriority(listener, -11);
 	//////////////////////////////////////////////////////////////////////////
-	mBlurWheel = BlurWheel::create("images/wheel_0.png");
+	mBlurWheel = BlurWheel::create("images/item_wheel_0.png");
 	mBlurWheelBasePos = mIconBasePos + cocos2d::Vec2(0,mBlurWheel->getContentSize().height*0.5f + SFrame->getRect().size.height * 0.5f);
 	mBlurWheel->setPosition(mBlurWheelBasePos);
 	mBlurWheel->setVisible(false);
@@ -519,14 +537,29 @@ void MainControllerPanel::Init()
 {
 	if(!Layer::init()) return;
 	this->autorelease();
+
+	//
+	mWheelHandle = cocos2d::Sprite::createWithSpriteFrameName("wheel_handle_normal.png");
+	mWheelHandle->setPosition(190,0);
+	addChild(mWheelHandle);
+	//
+	mWheelBoxBtn = cocos2d::ui::Button::create("wheel_handle_normal.png","wheel_handle_hover.png");
+	mWheelBoxBtn->setPosition(cocos2d::Vec2(190,0));
+	mWheelBoxBtn->addTouchEventListener(CC_CALLBACK_2(MainControllerPanel::touchEvent, this));
+	addChild(mWheelBoxBtn);
+	//
+	mWheelBoxBG = cocos2d::Sprite::createWithSpriteFrameName("wheelbox.png");
+	mWheelBoxBG->setPosition(mWheelBoxBG->getContentSize().width / 2,mWheelBoxBG->getContentSize().height / 2);
+	addChild(mWheelBoxBG,0);
+	//
 	//
 	for (int i = 0 ;i < WheelsNum;++i)
 	{
 		ActionWheel* wheel = new ActionWheel();
 		wheel->autorelease();
-		wheel->setPosition(i * 60,0);
+		wheel->setPosition(i * 45,0);
 		wheel->SetGroupID(i);
-		addChild(wheel);
+		addChild(wheel,1);
 		//
 		//
 		mWheelList.pushBack(wheel);
@@ -549,23 +582,57 @@ void MainControllerPanel::Init()
 		mWheelList.at(i)->SetRollTime(2 + i);
 	}
 	//
-	mWheelHandle = cocos2d::Sprite::createWithSpriteFrameName("play_normal.png");
-	mWheelHandle->setPosition(190,0);
-	addChild(mWheelHandle);
-	//
-	//auto listener = cocos2d::EventListenerTouchAllAtOnce::create();
-	//listener->onTouchesBegan = CC_CALLBACK_2(MainControllerPanel::onTouchesBegan, this);
-	//listener->onTouchesMoved = CC_CALLBACK_2(MainControllerPanel::onTouchesMoved, this);
-	//listener->onTouchesEnded = CC_CALLBACK_2(MainControllerPanel::onTouchesEnded, this);
-	//mWheelHandle->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+
+
 
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
 	listener->onTouchBegan = CC_CALLBACK_2(MainControllerPanel::onTouchBegan, this);
 	listener->onTouchMoved = CC_CALLBACK_2(MainControllerPanel::onTouchMoved, this);
 	listener->onTouchEnded = CC_CALLBACK_2(MainControllerPanel::onTouchEnded, this);
-	mWheelHandle->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+	//mWheelHandle->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
+}
+
+void MainControllerPanel::touchEvent(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	switch (type)
+	{
+	case cocos2d::ui::Widget::TouchEventType::BEGAN:
+		break;
+
+	case cocos2d::ui::Widget::TouchEventType::MOVED:
+		break;
+
+	case cocos2d::ui::Widget::TouchEventType::ENDED:
+		{
+			bool canRoll = true;
+			//
+			for (int i = 0;i< mWheelList.size();++i)
+			{
+				if(mWheelList.at(i)->GetState() != WheelIdle)
+				{
+					canRoll = false;
+					break;
+				}
+			}
+			//
+			if(canRoll)
+			{
+				for (int i = 0;i< mWheelList.size();++i)
+				{
+					mWheelList.at(i)->RandomRoll();
+				}
+			}
+		}
+		break;
+
+	case cocos2d::ui::Widget::TouchEventType::CANCELED:
+		break;
+
+	default:
+		break;
+	}
 }
 
 void MainControllerPanel::RollAll()
@@ -633,51 +700,105 @@ void MainControllerPanel::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event  *e
 {
 	;
 }
-//
-//void MainControllerPanel::onTouchesBegan( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
-//{
-//	cocos2d::Touch *touch = touches[0];
-//	cocos2d::Vec2 point = mWheelHandle->convertToNodeSpace(cocos2d::Director::getInstance()->convertToGL(touch->getLocationInView()));
-//	auto rect = GetWheelHandleRect();
-//	if (rect.containsPoint(point))
-//	{
-//		bool canRoll = true;
-//		//
-//		for (int i = 0;i< mWheelList.size();++i)
-//		{
-//			if(mWheelList.at(i)->GetState() != WheelIdle)
-//			{
-//				canRoll = false;
-//				break;
-//			}
-//		}
-//		//
-//		if(canRoll)
-//		{
-//			for (int i = 0;i< mWheelList.size();++i)
-//			{
-//				mWheelList.at(i)->RandomRoll();
-//			}
-//		}
-//
-//	}
-//}
-//
-//void MainControllerPanel::onTouchesMoved( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
-//{
-//
-//}
-//
-//void MainControllerPanel::onTouchesEnded( const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event )
-//{
-//
-//}
 
 cocos2d::Rect MainControllerPanel::GetWheelHandleRect()
 {
 	float w = mWheelHandle->getContentSize().width;
 	float h = mWheelHandle->getContentSize().height;
 	return cocos2d::Rect(0,0,w,h);
+}
+
+bool MainControllerPanel::init()
+{
+	mTouchGroup = Layer::create();
+	addChild(mTouchGroup); 
+	mLayout = static_cast<Layout*>(CSLoader::createNode("ui/Skill_UI.csb"));
+	mTouchGroup->addChild(mLayout);
+	//
+	ConfigureGUIScene();
+	//
+	//
+	for (int i = 0 ;i < WheelsNum;++i)
+	{
+		ActionWheel* wheel = new ActionWheel();
+		wheel->autorelease();
+		//wheel->setPosition(i * 45,0);
+		wheel->setPosition(mWheelNodeList.at(i)->getPosition());	
+		wheel->SetGroupID(i);
+		addChild(wheel,1);
+		//
+		//
+		mWheelList.pushBack(wheel);
+	}
+	//
+	GameActionSystem::GetInstance()->RollMachine();
+	//
+	const int IconNum = 4;
+	for (int i = 0 ;i < mWheelList.size();++i)
+	{
+		std::vector<int>  ids(IconNum,-1);
+
+		for (int k = 0;k < IconNum;++k)
+		{
+			auto act = GameActionSystem::GetInstance()->GetAction(i,k);
+			ids[k] = act->GetIconID();  // GetIconID()   ?
+		}
+
+		mWheelList.at(i)->Init(ids);
+		mWheelList.at(i)->SetRollTime(2 + i);
+	}
+	//
+
+
+
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+	listener->onTouchBegan = CC_CALLBACK_2(MainControllerPanel::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(MainControllerPanel::onTouchMoved, this);
+	listener->onTouchEnded = CC_CALLBACK_2(MainControllerPanel::onTouchEnded, this);
+	//mWheelHandle->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+
+	return true;
+}
+
+void MainControllerPanel::ConfigureGUIScene()
+{
+	Layout* root = static_cast<Layout*>(mLayout->getChildByName("wheelbox"));
+
+	mWheelBoxBtn = static_cast<Button*>(Helper::seekWidgetByName(root, "wheelhandle"));
+	mWheelBoxBtn->addTouchEventListener(CC_CALLBACK_2(MainControllerPanel::touchEvent, this));
+	//
+	mWheelNodeList.pushBack(static_cast<Node*>(mLayout->getChildByName("wheel_0")));
+	mWheelNodeList.pushBack(static_cast<Node*>(mLayout->getChildByName("wheel_1")));
+	mWheelNodeList.pushBack(static_cast<Node*>(mLayout->getChildByName("wheel_2")));
+
+	//
+
+	mCoinEnterBtnList.pushBack(static_cast<Button*>(Helper::seekWidgetByName(root,"coin_enter_0")));
+	mCoinEnterBtnList.pushBack(static_cast<Button*>(Helper::seekWidgetByName(root,"coin_enter_1")));
+	mCoinEnterBtnList.pushBack(static_cast<Button*>(Helper::seekWidgetByName(root,"coin_enter_2")));
+	//
+	mCoinEnterBtnList.at(0)->addTouchEventListener(CC_CALLBACK_2(MainControllerPanel::CoinEnter_0_TouchEvent, this));
+	mCoinEnterBtnList.at(1)->addTouchEventListener(CC_CALLBACK_2(MainControllerPanel::CoinEnter_1_TouchEvent, this));
+	mCoinEnterBtnList.at(2)->addTouchEventListener(CC_CALLBACK_2(MainControllerPanel::CoinEnter_2_TouchEvent, this));
+
+
+
+}
+
+void MainControllerPanel::CoinEnter_0_TouchEvent( cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type )
+{
+
+}
+
+void MainControllerPanel::CoinEnter_1_TouchEvent( cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type )
+{
+
+}
+
+void MainControllerPanel::CoinEnter_2_TouchEvent( cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type )
+{
+
 }
 
 int MainControllerPanel::WheelsNum = 3;
@@ -781,14 +902,20 @@ void BlurWheel::setBlurSampleNumY( float num )
 
 void BlurWheel::Init()
 {
-	cocos2d::SpriteFrame* sf_0 = cocos2d::SpriteFrame::create("images/wheel_0.png",cocos2d::Rect(0,0,42,129));
-	cocos2d::SpriteFrame* sf_1 = cocos2d::SpriteFrame::create("images/wheel_1.png",cocos2d::Rect(0,0,42,129));
-	cocos2d::SpriteFrame* sf_2 = cocos2d::SpriteFrame::create("images/wheel_2.png",cocos2d::Rect(0,0,42,129));
-	//
-	mAnimFrames.reserve(3);
+	cocos2d::SpriteFrame* sf_0 = cocos2d::SpriteFrame::create("images/item_wheel_0.png",cocos2d::Rect(0,0,35,84));
+	cocos2d::SpriteFrame* sf_1 = cocos2d::SpriteFrame::create("images/item_wheel_1.png",cocos2d::Rect(0,0,35,84));
+	cocos2d::SpriteFrame* sf_2 = cocos2d::SpriteFrame::create("images/item_wheel_2.png",cocos2d::Rect(0,0,35,84));
+	cocos2d::SpriteFrame* sf_3 = cocos2d::SpriteFrame::create("images/item_wheel_3.png",cocos2d::Rect(0,0,35,84));
+	cocos2d::SpriteFrame* sf_4 = cocos2d::SpriteFrame::create("images/item_wheel_4.png",cocos2d::Rect(0,0,35,84));
+	cocos2d::SpriteFrame* sf_5 = cocos2d::SpriteFrame::create("images/item_wheel_5.png",cocos2d::Rect(0,0,35,84));
+
 	mAnimFrames.pushBack(sf_0);
 	mAnimFrames.pushBack(sf_1);
 	mAnimFrames.pushBack(sf_2);
+	mAnimFrames.pushBack(sf_3);
+	mAnimFrames.pushBack(sf_4);
+	mAnimFrames.pushBack(sf_5);
+
 }
 
 void BlurWheel::PlayRollAnimation()
