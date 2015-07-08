@@ -1,0 +1,1 @@
+#include "StaticCreature.h"

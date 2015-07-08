@@ -11,11 +11,11 @@
 Goal_SoldierThink::Goal_SoldierThink(Soldier* pSoldier)
 :Goal_Composite<Soldier>(pSoldier, goal_think)
 {
-	const double LowRangeOfBias = 0.5;
-	const double HighRangeOfBias = 1.5;
+	//const double LowRangeOfBias = 0.5;
+	//const double HighRangeOfBias = 1.5;
 
-	double ExploreBias = RandInRange(LowRangeOfBias, HighRangeOfBias);
-	double AttackBias = RandInRange(LowRangeOfBias, HighRangeOfBias);
+	double ExploreBias = RandInRange(pSoldier->Explore_LowRangeOfBias, pSoldier->Explore_HighRangeOfBias);
+	double AttackBias = RandInRange(pSoldier->AttackTarget_LowRangeOfBias, pSoldier->AttackTarget_HighRangeOfBias);
 
 	m_Evaluators.push_back(new ExploreGoal_Evaluator(ExploreBias));
 	m_Evaluators.push_back(new AttackTargetGoal_Evaluator(AttackBias));
@@ -53,7 +53,8 @@ void Goal_SoldierThink::Arbitrate()
 	}
 	else
 	{
-
+		//如果没有任何一个可以执行的行为意图,则应该跳过它的回合
+		m_pOwner->FinishRound();
 	}
 
 }

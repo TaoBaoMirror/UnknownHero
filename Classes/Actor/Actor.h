@@ -26,8 +26,11 @@ public:
 	Actor();
 	~Actor(void);
 
-	virtual void update(float delta) override;
+	// add by Hitman [7/8/2015]
+	virtual void FinishRound() override;
 
+
+	virtual void update(float delta) override;
 	virtual void BeginTraval() override;
 	virtual void EndTraval() override;
 	virtual bool TravalTo(const GridPos& GPos) override;

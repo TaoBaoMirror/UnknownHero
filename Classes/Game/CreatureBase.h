@@ -33,4 +33,19 @@ private:
 
 };
 
+class AIProperty
+{
+public:
+	AIProperty();
+	//
+	float	Explore_LowRangeOfBias;
+	float	Explore_HighRangeOfBias;
+	//
+	float	AttackTarget_LowRangeOfBias;
+	float	AttackTarget_HighRangeOfBias;
+
+};
+
+
+
 #endif // Creature_h__

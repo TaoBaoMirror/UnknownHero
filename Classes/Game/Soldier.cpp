@@ -35,16 +35,33 @@ Soldier::Soldier(int race ):
 	MessageListener(),
 	bPossessed(false),
 	RaceIndex(race),
-	CampIndex(-1)
+	CampIndex(-1),
+	pBrain(nullptr)
 {
 	ID = NextCreateID++;
 	//
 	bShowAttackRange = false;
 	bShowMovePath = false;
+
+}
+
+
+Soldier::~Soldier()
+{
+	if(pSkillList) { delete pSkillList; pSkillList = NULL;}	
+	if(pShieldSystem) { delete pShieldSystem; pShieldSystem = NULL;}
+	if(pTargetingSystem) { delete pTargetingSystem; pTargetingSystem = NULL;}
+	if(pSoldierPF) { delete pSoldierPF; pSoldierPF = NULL;}
+
+
+
+}
+
+
+void Soldier::Init()
+{
 	pBrain = new Goal_SoldierThink(this);
 	//
-	//pAttackSystem = new AttackSystem(this);
-	//pMainWeapon = GameSkillFactory::GetInstance()->CreateWeapon(atk,this);
 	pSkillList = new SkillList(this);
 	//
 	pShieldSystem = new ShieldSystem(this);
@@ -60,37 +77,17 @@ Soldier::Soldier(int race ):
 }
 
 
-Soldier::~Soldier()
-{
-	//if(pMainWeapon) { delete pMainWeapon; pMainWeapon = NULL;}
-	if(pSkillList) { delete pSkillList; pSkillList = NULL;}	
-	if(pShieldSystem) { delete pShieldSystem; pShieldSystem = NULL;}
-	if(pTargetingSystem) { delete pTargetingSystem; pTargetingSystem = NULL;}
-	if (pSoldierPF) { delete pSoldierPF; pSoldierPF = NULL;}
-
-
-
-}
-
 void Soldier::Update()
 {
 	UpdatePosition();
-	//
-	//pMainWeapon->Update();
 
-	pSkillList->Update();
+	if(pSkillList) pSkillList->Update();
 	
-	//
-	//pTargetingSystem->Update();
-	////
-	//pBrain->Process();
 	
 }
 
 void Soldier::Render()
 {
-	//
-	//攻击范围
 
 }
 
@@ -223,7 +220,7 @@ void Soldier::MoveCloseToGPos( const GridPos& other,GridPos& out_nextGPos )
 	}
 	else
 	{
-
+		out_nextGPos = StayGridPos;
 	}
 
 
@@ -314,18 +311,6 @@ void Soldier::FindSoldiersInRange( int RangeSize , bool ExceptSelf , int RType ,
 void Soldier::showAttackRange(const std::vector<GridPos>&	AttackGPosList)
 {
 
-	/*
-	for (int i = 0;i< AttackGPosList.size();++i)
-	{
-		const GridPos&	GP = AttackGPosList[i];
-		int index = -1;
-		GameWorld::Instance()->GetSceneMap().GetIndex(GP,index);
-		auto tNode = GameWorld::Instance()->GetSceneMap().GetNode(index);
-		//
-		gdi->Circle(tNode.Pos(),4);
-
-	}
-	*/
 }
 
 bool Soldier::canSelect( const GridPos& GPos )
@@ -491,33 +476,27 @@ void Soldier::EndTraval()
 
 void Soldier::TakePossession()
 {
+	//设置一下当前的状态
 	bPossessed = true;
 }
 
 void Soldier::Exorcise()
 {
-	pBrain->AddGoal_Explore();
+	//1 给AI 一个状态
 
+	//2 设置一下当前的状态
 	bPossessed = false;
 }
 //确定已经可以攻击到了
 void Soldier::Attack( Soldier* other , int number )
 {
-// 	AttackData* ad = GetAttackSystem()->CreateAttackData(other->GetID());
-// 
-// 	
+
 }
 
 void Soldier::Attack( const GridPos& gPos , int number )
 {
-// 	AttackData* ad = GetAttackSystem()->CreateAttackData(other->GetID());
-// 
-// 	
-}
 
-//void Soldier::UseDeputyWeapon( Soldier* other, int DWeaponNumber )
-//{ 	
-//}
+}
 
 
 void Soldier::UpdateSoldierPFPosition()
@@ -577,4 +556,15 @@ bool Soldier::IsUsingSkill()
 	}
 
 	return false;
+}
+
+void Soldier::RecreateBrain()
+{
+	if(pBrain) 
+	{
+		pBrain->Terminate();
+		delete pBrain;
+	}
+	//
+	pBrain = new Goal_SoldierThink(this);
 }

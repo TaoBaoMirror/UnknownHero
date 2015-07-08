@@ -37,7 +37,7 @@ class GameSkill;
 
 //老虎机的三个轴
 
-class Soldier:public MessageListener,public CreatureBase
+class Soldier:public MessageListener,public CreatureBase ,public AIProperty
 {
 	friend class SoldierManager;
 public: 
@@ -51,6 +51,9 @@ public:
 
 	Soldier(int race);
 	virtual ~Soldier();
+
+	// add by Hitman [7/8/2015]
+	virtual void Init();
 
 	int	GetCampIndex(){return CampIndex;}
 	void SetCampIndex(int c){CampIndex = c;}
@@ -88,6 +91,8 @@ public:
 	virtual void CallBack_AttackFinish();
 	/* 攻击成功 */
 	virtual void CallBack_AttackSuccess(const DamageData& damageData); //这里传递的引用，如果要动画，应该memcpy
+	/* 结束了一个回合 */
+	virtual void FinishRound(){}
 	//得到一条到目标的路径
 	void GetPathToTarget(const GridPos& A,const GridPos& B,std::vector<GridPos>& path);
 	//向给定的GPos点靠近一步
@@ -136,6 +141,8 @@ public:
 	TargetingSystem* GetTargetingSystem() {return pTargetingSystem;}
 	Goal_SoldierThink* GetBrain() {return pBrain;}
 	SoldierPF*		GetSoldierPF() {return pSoldierPF;}
+	// add by Hitman [7/7/2015]
+	void RecreateBrain();
 	/*
 		Override
 	*/

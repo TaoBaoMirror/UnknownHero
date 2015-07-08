@@ -14,3 +14,12 @@ CreatureBase::CreatureBase() :MaxViewRadius(1),
 {
 
 }
+// add by Hitman [7/7/2015]
+AIProperty::AIProperty() :
+	Explore_LowRangeOfBias(0.5f),
+	Explore_HighRangeOfBias(1.5f),
+	AttackTarget_LowRangeOfBias(0.5f),
+	AttackTarget_HighRangeOfBias(1.5f)
+{
+
+}

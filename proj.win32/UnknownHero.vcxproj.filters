@@ -411,6 +411,9 @@
     <ClCompile Include="..\Classes\Actor\Boss\Boss_GoblinKing.cpp">
       <Filter>src\Actor\Boss</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\StaticCreature.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -739,6 +742,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Actor\Boss\Boss_GoblinKing.h">
       <Filter>src\Actor\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\StaticCreature.h">
+      <Filter>src\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

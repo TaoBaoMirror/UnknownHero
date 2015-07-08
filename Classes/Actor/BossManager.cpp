@@ -69,7 +69,7 @@ bool BossManager::CheckNoDyingActor()
 	{
 		return true;
 	}
-	else if (m_pBoss->m_pFSM->GetStatus() != Actor_Die::Instance())
+	if (m_pBoss->m_pFSM->GetStatus() != Actor_Die::Instance())
 	{
 		return true;
 	}

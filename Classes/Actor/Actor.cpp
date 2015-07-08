@@ -19,6 +19,7 @@ const float Actor::g_ActorMoveTime = 0.5f;
 Actor::Actor() :
 	Soldier(0),m_OneRoundActionTimes(1),m_bFaceDirect(false)
 {	
+	Soldier::Init();
 }
 
 
@@ -93,17 +94,7 @@ void Actor::EndTraval()
 	//在移动完毕的时候，刷一遍Triggers
 	TriggerManager::GetInstance()->UpdateRound();
 	//
-	m_OneRoundActionTimes -= 1;
-
-	if (m_OneRoundActionTimes <= 0)
-	{
-		m_OneRoundActionTimes = 1;
-		m_pFSM->SetStatus(Actor_Stand::Instance());
-	}
-	else
-	{
-		m_pFSM->SetStatus(Actor_Ready::Instance());
-	}
+	FinishRound();
 }
 //-------------------------
 bool Actor::TravalTo(const GridPos& GPos)
@@ -310,4 +301,17 @@ cocos2d::Animate* Actor::createAnimation( ActorAnimType Atype ,float delay)
 	return animate;
 }
 
-//-------------------------
+void Actor::FinishRound()
+{
+	m_OneRoundActionTimes -= 1;
+
+	if (m_OneRoundActionTimes <= 0)
+	{
+		m_OneRoundActionTimes = 1;
+		m_pFSM->SetStatus(Actor_Stand::Instance());
+	}
+	else
+	{
+		m_pFSM->SetStatus(Actor_Ready::Instance());
+	}
+}

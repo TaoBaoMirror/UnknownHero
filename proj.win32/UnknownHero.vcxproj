@@ -218,6 +218,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Game\SoldierFeature.cpp" />
     <ClCompile Include="..\Classes\Game\SoldierManager.cpp" />
     <ClCompile Include="..\Classes\Game\SoldierPF.cpp" />
+    <ClCompile Include="..\Classes\Game\StaticCreature.cpp" />
     <ClCompile Include="..\Classes\Game\TargetingSystem.cpp" />
     <ClCompile Include="..\Classes\Game\Trigger\GameTrigger.cpp" />
     <ClCompile Include="..\Classes\Game\Trigger\TriggerBase.cpp" />
@@ -328,6 +329,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Game\SoldierFeature.h" />
     <ClInclude Include="..\Classes\Game\SoldierManager.h" />
     <ClInclude Include="..\Classes\Game\SoldierPF.h" />
+    <ClInclude Include="..\Classes\Game\StaticCreature.h" />
     <ClInclude Include="..\Classes\Game\TargetingSystem.h" />
     <ClInclude Include="..\Classes\Game\Trigger\GameTrigger.h" />
     <ClInclude Include="..\Classes\Game\Trigger\TriggerBase.h" />
