@@ -18,13 +18,15 @@
 #include "Vector2D.h"
 #include "GridPos.h"
 #include "Goal_Type.h"
-#include "Soldier.h"
 
-class Goal_Attack: public Goal<Soldier>
+class Monster;
+class Soldier;
+
+class Goal_Attack: public Goal<Monster>
 {
 	Soldier*	m_pTargetBot;
 public:
-	Goal_Attack(Soldier* pBot,Soldier* pTargetBot);
+	Goal_Attack(Monster* pBot,Soldier* pTargetBot);
 
 	void Activate();
 	int  Process();

@@ -3,6 +3,7 @@
 #include "TargetingSystem.h"
 #include "Goal_Attack.h"
 #include "Goal_HuntTarget.h"
+#include "Actor/Monster.h"
 
 void Goal_AttackTarget::Activate()
 {
@@ -44,4 +45,9 @@ int Goal_AttackTarget::Process()
 	ReactivateIfFailed();
 
 	return m_iStatus;
+}
+
+Goal_AttackTarget::Goal_AttackTarget( Monster* pOwner ) :Goal_Composite<Monster>(pOwner, goal_attack_target)
+{
+
 }

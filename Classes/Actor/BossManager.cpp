@@ -39,6 +39,11 @@ void BossManager::Update(float dt)
 		m_pBoss->update(dt);
 	}
 
+	if (m_pBoss != nullptr && m_pBoss->m_pFSM->GetStatus() == Actor_Ready::Instance())
+	{
+		m_pBoss->AIThink(dt);
+	}
+
 	if(m_pBoss == nullptr || (m_pBoss != nullptr && m_pBoss->m_pFSM->GetStatus() == Actor_Stand::Instance()) )
 	{
 		GameManager::GetInstance()->RoundPassed();

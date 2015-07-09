@@ -16,10 +16,10 @@
 #include "Vector2D.h"
 #include "GridPos.h"
 #include "Goal_Type.h"
-#include "Soldier.h"
 
-
-class Goal_FollowPath : public Goal_Composite<Soldier>
+class Soldier;
+class Monster;
+class Goal_FollowPath : public Goal_Composite<Monster>
 {
 private:
 
@@ -28,7 +28,7 @@ private:
 
 public:
 
-	Goal_FollowPath(Soldier* pBot, std::list<GridPos> path);
+	Goal_FollowPath(Monster* pBot, std::list<GridPos> path);
 
 	//the usual suspects
 	void Activate();

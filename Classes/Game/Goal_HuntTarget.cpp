@@ -3,6 +3,7 @@
 #include "TargetingSystem.h"
 #include "Goal_Attack.h"
 #include "Goal_MoveStep.h"
+#include "Actor/Monster.h"
 
 void Goal_HuntTarget::Activate()
 {

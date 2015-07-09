@@ -21,7 +21,6 @@
 #include "Messaging/MessageListener.h"
 #include "CreatureBase.h"
 
-class Goal_SoldierThink;
 class AttackSystem;
 class ShieldSystem;
 class TargetingSystem;
@@ -63,6 +62,10 @@ public:
 
 	int	GetID(){return ID;}
 	void SetID(int id){ ID = id;}//不要轻易用！！！
+	//当soldier被deploy到chunk之后会调用一下
+	virtual void OnDeployChunk(){}
+	//这个函数还没确定在什么地方调用
+	virtual void OnUndeployChunk(){}
 
 
 
@@ -139,10 +142,7 @@ public:
 	}
 	ShieldSystem* GetShieldSystem() { return pShieldSystem;}
 	TargetingSystem* GetTargetingSystem() {return pTargetingSystem;}
-	Goal_SoldierThink* GetBrain() {return pBrain;}
 	SoldierPF*		GetSoldierPF() {return pSoldierPF;}
-	// add by Hitman [7/7/2015]
-	void RecreateBrain();
 	/*
 		Override
 	*/
@@ -182,8 +182,6 @@ private:
 
 	ShieldSystem*   pShieldSystem;
 	TargetingSystem* pTargetingSystem;
-	Goal_SoldierThink*  pBrain;
-
 	//
 	SoldierPF*	pSoldierPF;
 

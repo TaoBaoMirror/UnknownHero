@@ -20,6 +20,7 @@ class GridPosArea
 {
 public:
 	static GridPosArea*	Create(const GridPos& Pos,int w,int h,const GridSceneMap& GridMap);
+	GridPosArea();
 	~GridPosArea(){}
 	//
 	const GridPos&	GetBaseGPos() {return BaseGPos;}
@@ -30,7 +31,6 @@ public:
 	//
 	virtual void Init(const GridPos& Pos,int w,int h,const GridSceneMap& GridMap);
 protected:
-	GridPosArea();
 	GridPos		BaseGPos;
 	int			Width;
 	int			Height;

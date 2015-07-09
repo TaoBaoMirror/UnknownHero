@@ -14,17 +14,17 @@
 
 #include "Goal_Evaluator.h"
 
-class Soldier;
+class Monster;
 
-class AttackTargetGoal_Evaluator : public Goal_Evaluator
+class AttackTargetGoal_Evaluator : public Goal_Evaluator<Monster>
 { 
 public:
 
-	AttackTargetGoal_Evaluator(double bias):Goal_Evaluator(bias){}
+	AttackTargetGoal_Evaluator(double bias):Goal_Evaluator<Monster>(bias){}
 
-	double CalculateDesirability(Soldier* pBot);
+	double CalculateDesirability(Monster* pBot);
 
-	void  SetGoal(Soldier* pBot);
+	void  SetGoal(Monster* pBot);
 
 };
 

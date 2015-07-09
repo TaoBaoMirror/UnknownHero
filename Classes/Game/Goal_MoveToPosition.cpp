@@ -1,6 +1,7 @@
 #include "Goal_MoveToPosition.h"
 #include "Goal_FollowPath.h"
 //
+#include "Actor/Monster.h"
 #include "MapManager.h"
 
 void Goal_MoveToPosition::Activate()
@@ -41,6 +42,14 @@ int Goal_MoveToPosition::Process()
 }
 
 void Goal_MoveToPosition::Terminate()
+{
+
+}
+
+Goal_MoveToPosition::Goal_MoveToPosition( Monster* pBot, GridPos gpos ) :
+	Goal_Composite<Monster>(pBot,
+	goal_move_to_position),
+	m_Destination(gpos)
 {
 
 }

@@ -1,4 +1,5 @@
 #include "Boss_GoblinKing.h"
+
 #include "Game\Goal_Type.h"
 #include "Game\ExploreGoal_Evaluator.h"
 #include "Action\GameActionSystem.h"
@@ -11,9 +12,12 @@
 #include "Scene\GameManager.h"
 #include "..\EnemyManager.h"
 #include "Game\MapManager.h"
+#include "Bullet\GameBullet.h"
+#include "Game\GoblinKing_Think.h"
+#include "Game\Msg_Type.h"
+#include "Messaging\MessageDispatcher.h"
 
-
-Boss_GoblinKing::Boss_GoblinKing(void)
+Boss_GoblinKing::Boss_GoblinKing(void):Boss()
 {
 	m_bBallistic = false;
 
@@ -25,19 +29,10 @@ Boss_GoblinKing::Boss_GoblinKing(void)
 
 	m_pFSM = new ActorFSM(this);
 
-	m_pFSM->SetStatus(Actor_Ready::Instance());
+	//放大一些
+	setScale(3);
 
-	m_SummonMonsterIDs[0] = 0;
-	m_SummonMonsterIDs[1] = 0;
-	m_SummonMonsterIDs[2] = 0;
-
-	struct timeval nowtime;
-	cocos2d::gettimeofday(&nowtime, NULL);
-
-	//初始化随机种子
-	//timeval是个结构体，里边有俩个变量，一个是以秒为单位的，一个是以微妙为单位的 
-	unsigned rand_seed = (unsigned)(nowtime.tv_sec*1000 + nowtime.tv_usec/1000);    //都转化为毫秒 
-	srand(rand_seed);
+	CreateBrain();
 }
 
 
@@ -49,97 +44,10 @@ void Boss_GoblinKing::update( float delta )
 {
 	Boss::update(delta);
 }
-
-void Boss_GoblinKing::UseBossSkill()
-{
-	m_bCanUseBossSkill = false;
-
-	switch (m_CurBossState)
-	{
-	case BOSSGoblinKingState_Rest:
-		{
-			//休息好了就用老虎机 如果正在休息 被打了 则立刻使用老虎机
-			UseMachine();
-		}
-		break;
-	case BOSSGoblinKingState_Stun:
-		{
-			m_pFSM->SetStatus(Actor_Stand::Instance());
-		}
-		break;
-	default:
-		break;
-	}
-}
-
-
-void Boss_GoblinKing::UseBossAction( int m_ActionTypeID, int ilevel )
-{
-	//针对支持的action 操作
-	switch (m_ActionTypeID)
-	{
-	case 0:
-		{
-			SkillAttack(ilevel);
-		}		
-		break;
-	case 2:
-		{
-			SkillShake(ilevel);
-		}
-		break;
-	case 3:
-		{
-			SkillSummon(ilevel);
-		}
-		break;
-	default:
-		{
-			BossOverwhelm();
-		}
-		break;
-	}
-}
-
-
-void Boss_GoblinKing::SetGoblinKingState( BOSSGoblinKingState st )
-{
-	switch (m_CurBossState)
-	{
-	case BOSSGoblinKingState_Rest:
-		{
-			m_NextUseBossSkillRound = 2;
-		}
-		break;
-	case BOSSGoblinKingState_Stun:
-		{
-			;
-		}
-		break;
-	default:
-		break;
-	}
-
-	m_CurBossState = st;
-
-	switch (m_CurBossState)
-	{
-	case BOSSGoblinKingState_Rest:
-		{
-		}
-		break;
-	case BOSSGoblinKingState_Stun:
-		{
-			;
-		}
-		break;
-	default:
-		break;
-	}
-}
-
+/*
 void Boss_GoblinKing::UseMachine()
 {
+	
 	//---------
 	//随机三个里面的一个
 	int IndexAction = 0;
@@ -165,40 +73,23 @@ void Boss_GoblinKing::UseMachine()
 		}
 	}
 	
-
-	//---------
-	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
-
-	auto anim = createUseMachineAnimation();
-
-	auto func_1 = cocos2d::CallFuncN::create( CC_CALLBACK_0(Boss_GoblinKing::playStandAnimation , this ) );
-	auto func_2 = cocos2d::CallFunc::create( CC_CALLBACK_0(Boss_GoblinKing::CalcUseMachine , this, findgroupID ));
-
-	pAcs.pushBack(anim);
-	pAcs.pushBack(func_1);
-	pAcs.pushBack(func_2);
-
-	auto seq = cocos2d::Sequence::create(pAcs);
-	seq->setTag(ActorAnimType::ActorAnim_Attack);
-	this->runAction(seq);
 }
+*/
 
-
-void Boss_GoblinKing::SkillAttack(int ilevel)
+void Boss_GoblinKing::SkillAttack()
 {
 	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
 
 	auto anim = createAttackAnimation();
+	auto func_calsum = cocos2d::CallFunc::create( CC_CALLBACK_0(Boss_GoblinKing::ShootBullet, this ));
 
-	auto func_calsum = cocos2d::CallFunc::create( CC_CALLBACK_0(Boss_GoblinKing::CalcAttack, this, ilevel ));
-	auto func_stand = cocos2d::CallFuncN::create( CC_CALLBACK_0(Boss_GoblinKing::playStandAnimation , this ) );
 
 	pAcs.pushBack(anim);
 	pAcs.pushBack(func_calsum);
-	pAcs.pushBack(func_stand);
+
 
 	auto seq = cocos2d::Sequence::create(pAcs);
-	//seq->setTag(ActorAnimType::ActorAnim_Attack);
+	seq->setTag(ActorAnim_Attack);
 	this->runAction(seq);
 }
 
@@ -208,18 +99,13 @@ void Boss_GoblinKing::SkillSummon(int ilevel)
 	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
 
 	auto animSum1 = createSummonAnimation();
-	auto animSum2 = createSummonAnimation();
-
 	auto func_calsum = cocos2d::CallFunc::create( CC_CALLBACK_0(Boss_GoblinKing::CalcSummon, this, ilevel ));
-	auto func_stand = cocos2d::CallFuncN::create( CC_CALLBACK_0(Boss_GoblinKing::playStandAnimation , this ) );
 
 	pAcs.pushBack(animSum1);
 	pAcs.pushBack(func_calsum);
-	pAcs.pushBack(animSum2);
-	pAcs.pushBack(func_stand);
 
 	auto seq = cocos2d::Sequence::create(pAcs);
-	//seq->setTag(ActorAnimType::ActorAnim_Attack);
+	seq->setTag(ActorAnimType::ActorAnim_SP2);
 	this->runAction(seq);
 }
 
@@ -228,51 +114,27 @@ void Boss_GoblinKing::SkillShake(int ilevel)
 	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
 
 	auto anim = createShakeAnimation();
-
 	auto func_calshake = cocos2d::CallFunc::create( CC_CALLBACK_0(Boss_GoblinKing::CalcShake, this, ilevel ));
-	auto func_stand = cocos2d::CallFuncN::create( CC_CALLBACK_0(Boss_GoblinKing::playStandAnimation , this ) );
 
 	pAcs.pushBack(anim);
 	pAcs.pushBack(func_calshake);
-	pAcs.pushBack(func_stand);
+
 
 	auto seq = cocos2d::Sequence::create(pAcs);
-	//seq->setTag(ActorAnimType::ActorAnim_Attack);
+	seq->setTag(ActorAnimType::ActorAnim_SP3);
 	this->runAction(seq);
-}
-
-void Boss_GoblinKing::BossOverwhelm()
-{
-	SetGoblinKingState(BOSSGoblinKingState_Rest);
-
-	m_pFSM->SetStatus(Actor_Stand::Instance());
 }
 
 //-------------------------------------------------------------
 
 void Boss_GoblinKing::ActorReadyStart()
 {
-	m_bCanUseBossSkill = true;
+	playMoveAnimation();
+
 }
 
 void Boss_GoblinKing::ActorReadyUpdate( float dt )
 {
-	Boss::ActorReadyUpdate(dt);
-
-	switch (m_CurBossState)
-	{
-	case BOSSGoblinKingState_Rest:
-		{
-		}
-		break;
-	case BOSSGoblinKingState_Stun:
-		{
-			;
-		}
-		break;
-	default:
-		break;
-	}
 }
 
 void Boss_GoblinKing::ActorReadyEnd()
@@ -282,7 +144,7 @@ void Boss_GoblinKing::ActorReadyEnd()
 //----------------------
 void Boss_GoblinKing::ActorAttackStart()
 {
-	//播放攻击动画
+	
 }
 
 void Boss_GoblinKing::ActorAttackUpdate( float dt )
@@ -297,7 +159,9 @@ void Boss_GoblinKing::ActorAttackEnd()
 //----------------------
 void Boss_GoblinKing::ActorStandStart()
 {
-
+	stopAllActions();
+	//
+	playStandAnimation();
 }
 
 void Boss_GoblinKing::ActorStandUpdate( float dt )
@@ -340,88 +204,41 @@ void Boss_GoblinKing::ActorDieEnd()
 
 }
 //----------------------
-cocos2d::Animate* Boss_GoblinKing::createUseMachineAnimation()
-{
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_SP1];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
-
-	return animaction;
-}
-
 void  Boss_GoblinKing::playStandAnimation()
 {
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Stand];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* animaction = cocos2d::Animate::create(ani);
-
+	cocos2d::Animate* animaction = Actor::createAnimation(ActorAnimType::ActorAnim_Stand);
 	cocos2d::RepeatForever* pRepeat = cocos2d::RepeatForever::create(animaction);
-	pRepeat->setTag((int)ActorAnimType::ActorAnim_Move);
+	pRepeat->setTag((int)ActorAnimType::ActorAnim_Stand);
 
 	this->runAction(pRepeat);
 }
 
+
+cocos2d::Animate* Boss_GoblinKing::createUseMachineAnimation()
+{
+	cocos2d::Animate* pAnimate = Actor::createAnimation(ActorAnimType::ActorAnim_SP1);
+	return pAnimate;
+}
+
+
 cocos2d::Animate*  Boss_GoblinKing::createAttackAnimation()
 {
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_Attack];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* pAnimation = cocos2d::Animate::create(ani);
-
-	return pAnimation;
+	cocos2d::Animate* pAnimate = Actor::createAnimation(ActorAnimType::ActorAnim_Attack);
+	return pAnimate;
 }
 
 cocos2d::Animate*  Boss_GoblinKing::createSummonAnimation()
 {
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_SP2];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* pAnimation = cocos2d::Animate::create(ani);
-	
-	return pAnimation;
+	cocos2d::Animate* pAnimate = Actor::createAnimation(ActorAnimType::ActorAnim_SP2);
+	return pAnimate;
 }
 
 cocos2d::Animate*  Boss_GoblinKing::createShakeAnimation()
 {
-	std::string name = ActionsName[(int)ActorAnimType::ActorAnim_SP3];
-	cocos2d::Vector<cocos2d::CCSpriteFrame*> temp = m_framesDict.at(name);
-	cocos2d::Animation* ani = cocos2d::Animation::createWithSpriteFrames(temp,0.1f);
-	cocos2d::Animate* pAnimation = cocos2d::Animate::create(ani);
-	
-	return pAnimation;
+	cocos2d::Animate* pAnimate = Actor::createAnimation(ActorAnimType::ActorAnim_SP3);
+	return pAnimate;
 }
 
-
-//----------------------
-
-void Boss_GoblinKing::CalcUseMachine(int index)
-{
-	GameActionSystem::GetInstance()->UseAction(index); //回调中使用选择的action
-}
-
-void Boss_GoblinKing::CalcAttack(int ilevel)
-{
-	//判断主角与boss的位置关系 从三个方向中选择一个方向释放攻击
-
-	int attdir = 0;
-
-	if (GetSkillList() != nullptr)
-	{
-		GameSkill* pSkill = GetSkillList()->GetSkill((int)SkillType_GoblinKingAttack);
-		if (pSkill != nullptr)
-		{
-			auto atkData = pSkill->CreateAttackData(m_AllAttackPos[attdir]);
-
-			CommonFunc::CalcDamage(atkData);
-		}
-	}
-
-	m_pFSM->SetStatus(Actor_Stand::Instance());
-
-	SetGoblinKingState(BOSSGoblinKingState::BOSSGoblinKingState_Rest);
-}
 
 void Boss_GoblinKing::CalcSummon(int ilevel)
 {
@@ -468,35 +285,45 @@ void Boss_GoblinKing::CalcSummon(int ilevel)
 		}
 
 		GridPos gpos;
-		G_GetSceneMap().GetRandomNodeLocation(gpos);
 
-		Actor* pMons = ChunkMap::InstantiateCreature("Monster",createMonsterType,0,gpos);
-		if (pMons != nullptr)
+		//这里有个跳出的判断
+
+		int     safeLoopNum = 0;
+		int     safeLoopNumLimit = 20;
+		do
 		{
-			ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
-			if (pChunkMap != nullptr)
-			{
-				pChunkMap->DeployActor(pMons,gpos);
-			}
-			
-			//1 生成怪
-			//pMons->;
+			G_GetSceneMap().GetRandomNodeLocation(gpos);
+			safeLoopNum++;
 
-			//2 怪物脚下加上特效
+		}while( CanSetTo(gpos) == false || safeLoopNum > safeLoopNumLimit);
+
+		if (safeLoopNum <= safeLoopNumLimit)
+		{
+			Actor* pMons = ChunkMap::InstantiateCreature("Monster",createMonsterType,0,gpos);
+			if (pMons != nullptr)
+			{
+				ChunkMap* pChunkMap = MapManager::GetInstance()->GetCurChunkMap();
+				if (pChunkMap != nullptr)
+				{
+					pChunkMap->DeployActor(pMons,gpos);
+				}
+
+				//1 生成怪
+
+				//2 怪物脚下加上特效
+			}
 		}
+		
 
 		
 	}
 	
-	m_pFSM->SetStatus(Actor_Stand::Instance());
-	SetGoblinKingState(BOSSGoblinKingState::BOSSGoblinKingState_Rest);
+	FinishRound();
+
 }
 
 void Boss_GoblinKing::CalcShake(int ilevel)
 {
-	//Director::getInstance()->getRunningScene();
-	//cocos2d::Scene* pScene = this->getScene();
-	//GameScene* pGScene = (GameScene*)pScene;
 	GameScene* pGScene = GameManager::GetInstance()->GetGameScene();
 	if (pGScene != nullptr)
 	{
@@ -508,8 +335,7 @@ void Boss_GoblinKing::CalcShake(int ilevel)
 		
 	}
 	
-	m_pFSM->SetStatus(Actor_Stand::Instance());
-	SetGoblinKingState(BOSSGoblinKingState::BOSSGoblinKingState_Rest);
+	FinishRound();
 }
 
 //----------------------
@@ -518,18 +344,13 @@ Boss* Boss_GoblinKing::CreateBoss()
 {
 	Boss_GoblinKing* pBoss = new Boss_GoblinKing();
 
-	if (pBoss == nullptr)
-	{
-		//报错
-	}
+	CC_ASSERT (pBoss != nullptr);
 
 	pBoss->SetActionFrame();
-
 
 	//res
 	std::string tex_Boss = "Boss_GoblinKing";
 	pBoss->SetResource(tex_Boss);
-
 	pBoss->BossInit();
 	pBoss->InitSkills();
 
@@ -566,21 +387,110 @@ void Boss_GoblinKing::SetActionFrame()
 		m_ActionsFrameCount.push_back(cocos2d::Value(frameanim[i]));
 	}
 }
-//----------------------
-
 void Boss_GoblinKing::InitSkills()
 {
 	if (GetSkillList() != nullptr)
 	{
-		GameSkill* pSkill = GetSkillList()->AddGameSkill(SkillType::SkillType_Sword);
+		GameSkill* pSkill = GetSkillList()->AddGameSkill(0);
 		pSkill->SetIsTargetToGrid(true);
+		GetSkillList()->SetUsingSkill(pSkill);
+	}
+}
+void Boss_GoblinKing::BossInit()
+{
+	m_pFSM->SetStatus(Actor_Ready::Instance());
+
+
+	m_SummonMonsterIDs[0] = 0;
+	m_SummonMonsterIDs[1] = 0;
+	m_SummonMonsterIDs[2] = 0;
+}
+//这里是给boss设置新AI的
+void Boss_GoblinKing::CreateBrain()
+{
+	m_pBrain = new GoblinKing_Think(this);
+}
+////
+//开火需要的
+void Boss_GoblinKing::ShootBullet()
+{
+	//
+	if (GetSkillList() != nullptr)
+	{
+		GameSkill* pSkill = GetSkillList()->GetUsingSkill();
+
+		if (pSkill != nullptr)
+		{
+			auto m_pTempAtkData = pSkill->CreateAttackData(GetStayGPos() + getDir(RandInt(0,3)) * 3 );
+
+			auto bullet = GameBulletManager::GetInstance()->CreateBullet(0,m_pTempAtkData);
+			bullet->Emit();
+			//
+			stopAllActions();
+			playStandAnimation();
+		}
+		else
+		{
+			FinishRound();
+		}
+	}
+	//
+
+
+}
+
+void Boss_GoblinKing::CallBack_AttackFinish()
+{
+	FinishRound();
+}
+
+GridPos Boss_GoblinKing::getDir( int dir )
+{
+	if(dir == 0) return GridPos(0,-1);
+	if(dir == 1) return GridPos(1,0);
+	if(dir == 2) return GridPos(0,1);
+	if(dir == 3) return GridPos(-1,0);
+}
+
+void Boss_GoblinKing::OnDeployChunk()
+{
+	// 左上角 half
+	mObstructArea.Init(GetStayGPos() - GridPos(3/2,3/2),3,3,G_GetSceneMap());
+	//
+	auto area = mObstructArea.GetArea();
+	//
+	for (int i = 0;i< area.size();++i)
+	{
+		auto node = G_GetSceneMap().GetNode(area[i]);
+		auto mnd = Cast_MapNodeData(node.ExtraInfo());
+		if (mnd != nullptr)
+		{
+			mnd->Creature = this;
+		}
+
 	}
 }
 
-
-void Boss_GoblinKing::BossInit()
+void Boss_GoblinKing::AIThink( float dt )
 {
-	SetGoblinKingState(BOSSGoblinKingState_Rest);
-	m_NextUseBossSkillRound = 1;
+	Actor::AIThink(dt);
+	//
+	if(m_pBrain) m_pBrain->Process();
 }
+
+bool Boss_GoblinKing::HandleMessage( const Telegram& telegram )
+{
+	if(m_pBrain) m_pBrain->HandleMessage(telegram);
+
+	return true;
+
+}
+
+void Boss_GoblinKing::FinishRound()
+{
+	Boss::FinishRound();
+	//
+	Dispatcher->DispatchMsg(0,GetListenerID(),GetListenerID(),Msg_AI_SetInactive,0,0);
+}
+
 //----------------------

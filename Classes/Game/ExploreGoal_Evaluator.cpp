@@ -1,8 +1,8 @@
 #include "ExploreGoal_Evaluator.h"
-#include "Soldier.h"
+#include "Actor/Monster.h"
 #include "Goal_SoldierThink.h"
 
-double ExploreGoal_Evaluator::CalculateDesirability( Soldier* pBot )
+double ExploreGoal_Evaluator::CalculateDesirability( Monster* pBot )
 {
 	double Desirability = 0.05;
 
@@ -11,7 +11,7 @@ double ExploreGoal_Evaluator::CalculateDesirability( Soldier* pBot )
 	return Desirability;
 }
 
-void ExploreGoal_Evaluator::SetGoal( Soldier* pBot )
+void ExploreGoal_Evaluator::SetGoal( Monster* pBot )
 {
 	pBot->GetBrain()->AddGoal_Explore();
 }

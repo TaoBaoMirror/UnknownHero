@@ -29,7 +29,6 @@ public:
 	// add by Hitman [7/8/2015]
 	virtual void FinishRound() override;
 
-
 	virtual void update(float delta) override;
 	virtual void BeginTraval() override;
 	virtual void EndTraval() override;
@@ -80,6 +79,8 @@ public:
 	virtual void ActorWinEnd(){}
 	//------
 	virtual void AIThink(float dt);
+	virtual void CreateBrain(){};
+
 
 	virtual void CalcAttack( AttackData* pAtkData );
 

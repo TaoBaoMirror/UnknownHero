@@ -3,6 +3,7 @@
 
 #include "Actor/Actor.h"
 
+class Goal_SoldierThink;
 class AttackData;
 enum  MonsterType
 {
@@ -52,8 +53,13 @@ public:
 	virtual void ActorWinEnd() override;
 	//----------------------------------------
 	virtual void InitSkill(){}
-	//----------------------------------------
+	//----------------------------------
+	//			AI 相关
+	//------------------------
 	virtual void AIThink(float dt) override;
+	virtual void CreateBrain() override;
+	Goal_SoldierThink*	GetBrain() {return m_pBrain;}
+	virtual bool HandleMessage(const Telegram& telegram) override;
 	//------------------------------
 	virtual void CalcAttack( AttackData* pAtkData ) override;
 
@@ -91,6 +97,8 @@ protected:
 	//职业
 	//CareerBase* m_pCareerData;
 
+	//大脑
+	Goal_SoldierThink*  m_pBrain;
 };
 
 #endif //__MONSTER_H__

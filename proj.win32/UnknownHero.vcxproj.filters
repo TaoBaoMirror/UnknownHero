@@ -103,6 +103,9 @@
     <Filter Include="src\Actor\Boss">
       <UniqueIdentifier>{9d8fba0a-56a6-4343-a598-caaada2d8536}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Game\AI\BossAI">
+      <UniqueIdentifier>{b7e8450c-f844-4783-b344-9c77e7051f0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -413,6 +416,30 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\StaticCreature.cpp">
       <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\StaticCreatureManager.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\GoblinKing_Think.cpp">
+      <Filter>src\Game\AI\BossAI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_Rest.cpp">
+      <Filter>src\Game\AI\atom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\ObstructArea.cpp">
+      <Filter>src\Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_Boss_Goblin_Rest.cpp">
+      <Filter>src\Game\AI\BossAI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_Boss_Goblin_Attack.cpp">
+      <Filter>src\Game\AI\BossAI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_Boss_Goblin_Summon.cpp">
+      <Filter>src\Game\AI\BossAI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Goal_Boss_Goblin_Shake.cpp">
+      <Filter>src\Game\AI\BossAI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -745,6 +772,36 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\StaticCreature.h">
       <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\StaticCreatureManager.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\GeneralFSM.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\GeneralStatus.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\GoblinKing_Think.h">
+      <Filter>src\Game\AI\BossAI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_Rest.h">
+      <Filter>src\Game\AI\atom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\ObstructArea.h">
+      <Filter>src\Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_Boss_Goblin_Rest.h">
+      <Filter>src\Game\AI\BossAI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_Boss_Goblin_Attack.h">
+      <Filter>src\Game\AI\BossAI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_Boss_Goblin_Summon.h">
+      <Filter>src\Game\AI\BossAI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Goal_Boss_Goblin_Shake.h">
+      <Filter>src\Game\AI\BossAI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

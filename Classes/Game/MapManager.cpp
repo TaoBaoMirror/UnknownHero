@@ -38,7 +38,7 @@ ChunkMap* MapManager::ChangeMap(int index)
 
 void MapManager::CreateWorld()
 {
-	mWorld.SetWorldSize(2,2);
+	mWorld.SetWorldSize(3,3);
 	mWorld.CreateMaze();
 	//
 	mWorld.DeployChunkMapToWorld();

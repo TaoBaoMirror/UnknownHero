@@ -1,8 +1,10 @@
 #include "Goal_Attack.h"
 #include "Msg_Type.h"
+#include "Actor/Monster.h"
 
-Goal_Attack::Goal_Attack( Soldier* pBot,Soldier* pTargetBot )
-	:Goal<Soldier>(pBot, goal_attack),m_pTargetBot(pTargetBot)
+
+Goal_Attack::Goal_Attack( Monster* pBot,Soldier* pTargetBot )
+	:Goal<Monster>(pBot, goal_attack),m_pTargetBot(pTargetBot)
 {
 
 }

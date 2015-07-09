@@ -3,13 +3,16 @@
 #include "Goal_Evaluator.h"
 #include "Goal_Explore.h"
 #include "Goal_AttackTarget.h"
+#include "Goal_Rest.h"
 //
 #include "ExploreGoal_Evaluator.h"
 #include "AttackTargetGoal_Evaluator.h"
 #include "Goal_MoveToPosition.h"
 
-Goal_SoldierThink::Goal_SoldierThink(Soldier* pSoldier)
-:Goal_Composite<Soldier>(pSoldier, goal_think)
+#include "Actor/Monster.h"
+
+Goal_SoldierThink::Goal_SoldierThink(Monster* pSoldier)
+:Goal_Composite<Monster>(pSoldier, goal_think)
 {
 	//const double LowRangeOfBias = 0.5;
 	//const double HighRangeOfBias = 1.5;
@@ -33,14 +36,14 @@ Goal_SoldierThink::~Goal_SoldierThink()
 void Goal_SoldierThink::Arbitrate()
 {
 	double best = 0;
-	Goal_Evaluator* MostDesirable = 0;
+	Goal_Evaluator<Monster>* MostDesirable = 0;
 
 	GoalEvaluators::iterator curDes = m_Evaluators.begin();
 	for (curDes; curDes != m_Evaluators.end(); ++curDes)
 	{
 		double desirabilty = (*curDes)->CalculateDesirability(m_pOwner);
 
-		if (desirabilty >= best)
+		if (desirabilty >= best && desirabilty != 0)
 		{
 			best = desirabilty;
 			MostDesirable = *curDes;
@@ -54,7 +57,7 @@ void Goal_SoldierThink::Arbitrate()
 	else
 	{
 		//如果没有任何一个可以执行的行为意图,则应该跳过它的回合
-		m_pOwner->FinishRound();
+		AddGoal_Rest();
 	}
 
 }
@@ -122,8 +125,11 @@ void Goal_SoldierThink::AddGoal_AttackTarget()
 		AddSubgoal( new Goal_AttackTarget(m_pOwner));
 	}
 }
-
-void Goal_SoldierThink::QueueGoal_MoveToPosition( const GridPos& gpos )
+void Goal_SoldierThink::AddGoal_Rest()
 {
-
+	if (notPresent(goal_rest))
+	{
+		RemoveAllSubgoals();
+		AddSubgoal( new Goal_Rest(m_pOwner));
+	}
 }

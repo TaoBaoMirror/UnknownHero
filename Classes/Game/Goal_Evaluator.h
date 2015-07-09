@@ -15,6 +15,7 @@
 class Soldier;
 struct Vector2D;
 
+template <class entity_type>
 class Goal_Evaluator
 {
 protected:
@@ -29,10 +30,10 @@ public:
 	virtual ~Goal_Evaluator(){}
 
 	//返回0-1直接最渴望的策略
-	virtual double CalculateDesirability(Soldier* pBot)=0;
+	virtual double CalculateDesirability(entity_type* pBot)=0;
 
 	//将最近的意图指令加入 Soldier's 大脑
-	virtual void  SetGoal(Soldier* pBot) = 0;
+	virtual void  SetGoal(entity_type* pBot) = 0;
 };
 
 #endif // Goal_Evaluator_h__

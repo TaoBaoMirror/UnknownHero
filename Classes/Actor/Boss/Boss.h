@@ -18,6 +18,7 @@ public:
 	//------------------------------
 	virtual void playMoveAnimation() override;
 	virtual void playAttackAnimation() override;
+	virtual void playStandAnimation() override;
 
 	//----------------------------------------
 	virtual void BossInit(){}
@@ -48,16 +49,10 @@ public:
 	virtual void ActorWinStart() override;
 	virtual void ActorWinUpdate(float dt) override;
 	virtual void ActorWinEnd() override;
-	//----------------------------------------
-	virtual void UseBossSkill(){;}
-
-	virtual void UseBossAction( int m_ActionTypeID, int ilevel ){;}
 
 	//----------------------------------------
 protected:
-	int m_NextUseBossSkillRound;
 
-	int m_bCanUseBossSkill;
 };
 
 #endif//__BOSS_H__

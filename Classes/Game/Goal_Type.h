@@ -22,6 +22,15 @@ enum
 	goal_attack_target,
 	goal_attack,
 	goal_hunt_target,
+	goal_rest,
+
+	//
+	boss_goblin_think,
+	boss_goblin_shake,
+	boss_goblin_attack,
+	boss_goblin_summon,
+	boss_goblin_rest,
+
 
 };
 

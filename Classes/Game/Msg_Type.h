@@ -17,6 +17,9 @@ enum message_type
 	Msg_MoveStepOver,
 
 	Msg_FoundTarget,
+
+	Msg_AI_SetInactive,
+
 };
 
 #endif // Msg_Type_h__

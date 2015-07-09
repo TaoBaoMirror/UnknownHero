@@ -58,6 +58,11 @@ public:
 			Y - point.Y);
 	}
 
+	GridPos operator*(float c) const
+	{
+		return GridPos(X*c,Y*c);
+	}
+
 	GridPos operator=(const GridPos& point)
 	{
 		if (&point != this)

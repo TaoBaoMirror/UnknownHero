@@ -25,6 +25,7 @@ Actor::Actor() :
 
 Actor::~Actor(void)
 {
+
 }
 
 void Actor::update(float delta)
@@ -142,8 +143,6 @@ bool Actor::TravalTo(const GridPos& GPos)
 void Actor::AIThink(float dt)
 {
 	GetTargetingSystem()->Update(dt);
-
-	GetBrain()->Process();
 }
 
 void Actor::Attack( Soldier* other , int number)

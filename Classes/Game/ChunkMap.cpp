@@ -21,7 +21,7 @@
 #include "Game/Trigger/GameTrigger.h"
 #include "Scene/GameManager.h"
 #include "base/CCEventListenerTouch.h"
-
+#include "Bullet/GameBullet.h"
 #include "MapManager.h"
 #include "Actor/BossManager.h"
 #include "Actor/Boss/Boss.h"
@@ -229,11 +229,10 @@ bool ChunkMap::InitChunkMap( std::string tmxFile )
 			}
 		}
 		//2015-7-6 test
+		
 		Boss* pTestBoss = BossManager::GetInstance()->CreateBoss(BossType::BossType_GoblinKing);
-		pTestBoss->SetToGPos(GridPos(8,3));
-		pTestBoss->UpdatePosition();
-		pTestBoss->UpdateToCCWorldPos();
-		GetCreatureLayer()->addChild(pTestBoss);
+		DeployActor(pTestBoss,GridPos(8,3));
+		
 		//end
 
 		/*
@@ -546,6 +545,8 @@ void ChunkMap::DeployActor( Actor* pActor , const GridPos& GPos )
 		//
 		GetCreatureLayer()->addChild(pActor);
 		mIM.AddDynamicField(pActor->GetSoldierPF());
+		//
+		pActor->OnDeployChunk();
 	}
 }
 
@@ -606,6 +607,8 @@ void ChunkMap::Reset()
 	UndeployHero();
 	//PlayerManager::GetInstance()->GetHero()->removeFromParentAndCleanup(true);
 	EnemyManager::GetInstance()->ClearAllEnemy();
+	//
+	GameBulletManager::GetInstance()->ReleaseAllBullets();
 	//
 	if(GetCreatureLayer())	GetCreatureLayer()->removeAllChildrenWithCleanup(true);
 	if(GetEffectLayer())	GetEffectLayer()->removeAllChildrenWithCleanup(true);
@@ -959,11 +962,11 @@ void MapWorld::mark( int x,int y )
 
 void MapWorld::neighbors( int x,int y,std::vector<GridPos>& out_neighbors )
 {
-	 if (x > 0 && ((mMaze[y][x-1] & visited )!= 0)) out_neighbors.push_back(GridPos(x-1, y));
-	 if (x+1 > mMaze[y].size() && ((mMaze[y][x+1] & visited) != 0)) out_neighbors.push_back(GridPos(x+1, y));
+	 if (x > 0 && ((mMaze[y][x-1] & visited )== 0)) out_neighbors.push_back(GridPos(x-1, y));
+	 if (x+1 > mMaze[y].size() && ((mMaze[y][x+1] & visited) == 0)) out_neighbors.push_back(GridPos(x+1, y));
 
-	 if (y > 0 && ((mMaze[y-1][x] & visited) != 0)) out_neighbors.push_back(GridPos(x, y-1));
-	 if (y+1 < mMaze.size() && ((mMaze[y+1][x] & visited) != 0)) out_neighbors.push_back(GridPos(x, y+1));
+	 if (y > 0 && ((mMaze[y-1][x] & visited) == 0)) out_neighbors.push_back(GridPos(x, y-1));
+	 if (y+1 < mMaze.size() && ((mMaze[y+1][x] & visited) == 0)) out_neighbors.push_back(GridPos(x, y+1));
 }
 
 int MapWorld::direction( int fx,int fy,int tx,int ty )

@@ -18,10 +18,10 @@
 #include "Vector2D.h"
 #include "GridPos.h"
 #include "Goal_Type.h"
-#include "Soldier.h"
 
-
-class Goal_MoveToPosition : public Goal_Composite<Soldier>
+class Soldier;
+class Monster;
+class Goal_MoveToPosition : public Goal_Composite<Monster>
 {
 private:
 
@@ -29,13 +29,8 @@ private:
 
 public:
 
-	Goal_MoveToPosition(Soldier* pBot,
-		GridPos   gpos):
-
-	Goal_Composite<Soldier>(pBot,
-		goal_move_to_position),
-		m_Destination(gpos)
-	{}
+	Goal_MoveToPosition(Monster* pBot,
+		GridPos   gpos);
 
 	void Activate();
 	int  Process();

@@ -21,8 +21,8 @@
 
 
 class Soldier;
-
-class Goal_Explore : public Goal_Composite<Soldier>
+class Monster;
+class Goal_Explore : public Goal_Composite<Monster>
 {
 private:
 
@@ -33,10 +33,7 @@ private:
 
 public:
 
-	Goal_Explore(Soldier* pOwner):Goal_Composite<Soldier>(pOwner,
-		goal_explore),
-		m_bDestinationIsSet(false)
-	{}
+	Goal_Explore(Monster* pOwner);
 
 
 	void Activate();

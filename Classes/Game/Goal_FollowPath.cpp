@@ -1,9 +1,9 @@
 #include "Goal_FollowPath.h"
 #include "Goal_MoveStep.h"
+#include "Actor/Monster.h"
 
-
-Goal_FollowPath::Goal_FollowPath( Soldier* pBot, std::list<GridPos> path )
-	:Goal_Composite<Soldier>(pBot, goal_follow_path),
+Goal_FollowPath::Goal_FollowPath( Monster* pBot, std::list<GridPos> path )
+	:Goal_Composite<Monster>(pBot, goal_follow_path),
 	m_Path(path)
 {
 

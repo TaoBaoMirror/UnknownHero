@@ -4,6 +4,7 @@
 #include "Goal_SoldierThink.h"
 #include "Game/TargetingSystem.h"
 //
+#include "Actor/Monster.h"
 #include "MapManager.h"
 #include "CommonFunc.h"
 
@@ -65,4 +66,11 @@ bool Goal_Explore::HandleMessage( const Telegram& msg )
 	}
 
 	return true;
+}
+
+Goal_Explore::Goal_Explore( Monster* pOwner ) :Goal_Composite<Monster>(pOwner,
+																	   goal_explore),
+																	   m_bDestinationIsSet(false)
+{
+
 }

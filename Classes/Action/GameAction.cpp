@@ -21,6 +21,7 @@ void GameAction::ClickAction()
 
 void GameAction::UseAction(int nlevel)
 {
+	/*
 	if (GameManager::GetInstance()->GetFightST() == FightStatus::SF_BOSS)
 	{
 		Boss* pBoss = BossManager::GetInstance()->GetBoss();
@@ -29,6 +30,7 @@ void GameAction::UseAction(int nlevel)
 			pBoss->UseBossAction(m_ActionTypeID, nlevel);
 		}
 	}
+	*/
 }
 
 bool GameAction::IsActionDirectly()

@@ -15,16 +15,17 @@
 #include <vector>
 #include <string>
 #include "Goal/Goal_Composite.h"
-#include "Soldier.h"
+#include "Goal_Evaluator.h"
+#include "GridPos.h"
 
-class Goal_Evaluator;
-class Goal_SoldierThink:public Goal_Composite<Soldier>
+class Monster;
+class Goal_SoldierThink:public Goal_Composite<Monster>
 {
 private:
-	typedef std::vector<Goal_Evaluator*>   GoalEvaluators;
+	typedef std::vector< Goal_Evaluator<Monster>* >   GoalEvaluators;
 	GoalEvaluators  m_Evaluators;
 public:
-	Goal_SoldierThink(Soldier*);
+	Goal_SoldierThink(Monster*);
 	~Goal_SoldierThink();
 	//
 	void Arbitrate();
@@ -41,9 +42,7 @@ public:
 	void AddGoal_GetItem(unsigned int ItemType);
 	void AddGoal_Explore();
 	void AddGoal_AttackTarget();
-
-	//在子意图列表的最后面加入移动意图
-	void QueueGoal_MoveToPosition(const GridPos& pos);
+	void AddGoal_Rest();
 protected:
 	
 

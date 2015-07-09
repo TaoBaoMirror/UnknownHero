@@ -2,7 +2,7 @@
 #include "Data\TableManager.h"
 
 
-Boss::Boss(void)
+Boss::Boss(void):Actor()
 {
 }
 
@@ -27,6 +27,17 @@ void Boss::playAttackAnimation()
 	this->runAction(animate);
 
 }
+
+void Boss::playStandAnimation()
+{
+	setFlippedX(m_bFaceDirect);
+	cocos2d::Animate* animate = createAnimation(ActorAnimType::ActorAnim_Stand);
+	cocos2d::RepeatForever* pRepeat = cocos2d::RepeatForever::create(animate);
+	pRepeat->setTag((int)ActorAnimType::ActorAnim_Stand);
+	this->runAction(pRepeat);
+}
+
+
 //------------------------------------------------------------------------------------
 void Boss::ActorReadyStart()
 {
@@ -35,14 +46,7 @@ void Boss::ActorReadyStart()
 }
 void Boss::ActorReadyUpdate(float dt)
 {
-	if ( m_NextUseBossSkillRound >0 )
-	{
-		m_NextUseBossSkillRound--;
-	}
-	else if(m_bCanUseBossSkill == true)
-	{
-		UseBossSkill();
-	}
+
 }
 void Boss::ActorReadyEnd()
 {

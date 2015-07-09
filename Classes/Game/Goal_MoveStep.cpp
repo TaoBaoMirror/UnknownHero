@@ -1,8 +1,9 @@
 #include "Goal_MoveStep.h"
 #include "Msg_Type.h"
+#include "Actor/Monster.h"
 
-Goal_MoveStep::Goal_MoveStep( Soldier* pBot, const GridPos& from, const GridPos& to )
-	:Goal<Soldier>(pBot, goal_move_step),From(from),To(to)
+Goal_MoveStep::Goal_MoveStep( Monster* pBot, const GridPos& from, const GridPos& to )
+	:Goal<Monster>(pBot, goal_move_step),From(from),To(to)
 {
 
 }

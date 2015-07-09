@@ -1,9 +1,12 @@
 #ifndef __BOSS_GOBLINKING_H__
 #define __BOSS_GOBLINKING_H__
 
+//-lib
+#include "Goal/Goal_Composite.h"
+//- game
 #include "Actor/Boss/Boss.h"
-#include <Goal/Goal_Composite.h>
 #include "Game/Goal_Evaluator.h"
+#include "Game/GridPosArea.h"
 
 enum BOSSGoblinKingState
 {
@@ -13,39 +16,20 @@ enum BOSSGoblinKingState
 	BOSSGoblinKingState_Stun,
 };
 
+
+class GoblinKing_Think;
 class Boss_GoblinKing : public Boss
 {
 public:
 	Boss_GoblinKing(void);
 	~Boss_GoblinKing(void);
-
 	//-----------------
 	virtual void update(float delta) override;
-
-	//-----------------
-	virtual void UseBossSkill() override;
-
-	virtual void UseBossAction( int m_ActionTypeID, int ilevel ) override;
-
-	//-----------------
-	void SetGoblinKingState(BOSSGoblinKingState st);
-
-	//-----------------
+	//override Boss class
 	virtual void BossInit() override;
-
 	virtual void InitSkills() override;
-
-	//-----------------
-	void UseMachine();
-
-	void SkillAttack(int ilevel);
-
-	void SkillSummon(int ilevel);
-
-	void SkillShake(int ilevel);
-
-	void BossOverwhelm();
-	//-----------------
+	virtual void OnDeployChunk()override;
+	virtual void FinishRound() override;
 	//----------------------------------------------------------------
 	virtual void ActorReadyStart() override;
 	virtual void ActorReadyUpdate(float dt) override;
@@ -68,16 +52,24 @@ public:
 	virtual void ActorDieEnd() override;
 	//------------------------
 	void  playStandAnimation();
-
-	cocos2d::Animate* createUseMachineAnimation();
-	cocos2d::Animate* createAttackAnimation();
+	cocos2d::Animate*  createUseMachineAnimation();
+	cocos2d::Animate*  createAttackAnimation();
 	cocos2d::Animate*  createSummonAnimation();
 	cocos2d::Animate*  createShakeAnimation();
 
-	void CalcUseMachine(int index);	
-	void CalcAttack(int ilevel);
-	void CalcSummon(int ilevel);
-	void CalcShake(int ilevel);
+	void ShootBullet();	//打出子弹
+	virtual void CallBack_AttackFinish() override;	//远程要重写这个函数~~
+	void CalcSummon(int ilevel);	//callback招呼
+	void CalcShake(int ilevel);		//callback地震
+	//-----------------
+	//void UseMachine();
+	void SkillAttack();		//攻击
+	void SkillSummon(int ilevel);		//召唤
+	void SkillShake(int ilevel);		//地震
+	//----------AI----
+	virtual void CreateBrain() override;
+	virtual void AIThink(float dt) override;
+	virtual bool HandleMessage(const Telegram& telegram) override;
 	//------------------------
 	void SetActionFrame();
 
@@ -86,13 +78,23 @@ public:
 	
 	//------------------------
 protected:
-	BOSSGoblinKingState m_CurBossState;
+	// 0 top,1 left, 2 down, 3 right
+	GridPos getDir(int dir);
 
 	bool m_bBallistic; //是否已经暴走
 
-	GridPos m_AllAttackPos[3]; //地精王的三个攻击点
-
 	int m_SummonMonsterIDs[3];
+
+	GridPosArea		mObstructArea;
+
+	GoblinKing_Think* m_pBrain;
 };
+
+//////////////////////////////////////////////////////////////////////////
+//
+//	Goblin Status
+//
+//////////////////////////////////////////////////////////////////////////
+
 
 #endif //__BOSS_GIANT_H__

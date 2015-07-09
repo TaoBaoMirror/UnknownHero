@@ -19,8 +19,6 @@
 
 #include "ShieldSystem.h"
 #include "TargetingSystem.h"
-
-#include "Goal_SoldierThink.h"
 #include "CommonFunc.h"
 
 #include "Weapon/GameSkillFactory.h"
@@ -35,8 +33,7 @@ Soldier::Soldier(int race ):
 	MessageListener(),
 	bPossessed(false),
 	RaceIndex(race),
-	CampIndex(-1),
-	pBrain(nullptr)
+	CampIndex(-1)
 {
 	ID = NextCreateID++;
 	//
@@ -60,7 +57,6 @@ Soldier::~Soldier()
 
 void Soldier::Init()
 {
-	pBrain = new Goal_SoldierThink(this);
 	//
 	pSkillList = new SkillList(this);
 	//
@@ -448,7 +444,7 @@ void Soldier::BeginMove()
 
 void Soldier::EndMove()
 {
-
+	
 }
 
 bool Soldier::TravalTo(const GridPos& GPos)
@@ -526,11 +522,6 @@ void Soldier::CallBack_AttackSuccess( const DamageData& damageData )
 
 bool Soldier::HandleMessage( const Telegram& telegram )
 {
-	if (pBrain != nullptr)
-	{
-		return pBrain->HandleMessage(telegram);
-	}
-
 	return false;
 }
 
@@ -556,15 +547,4 @@ bool Soldier::IsUsingSkill()
 	}
 
 	return false;
-}
-
-void Soldier::RecreateBrain()
-{
-	if(pBrain) 
-	{
-		pBrain->Terminate();
-		delete pBrain;
-	}
-	//
-	pBrain = new Goal_SoldierThink(this);
 }

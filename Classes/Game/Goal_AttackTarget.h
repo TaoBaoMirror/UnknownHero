@@ -16,14 +16,15 @@
 #include "Vector2D.h"
 #include "GridPos.h"
 #include "Goal_Type.h"
-#include "Soldier.h"
 
-class Goal_AttackTarget : public Goal_Composite<Soldier>
+
+class Soldier;
+class Monster;
+class Goal_AttackTarget : public Goal_Composite<Monster>
 {
 public:
 
-	Goal_AttackTarget(Soldier* pOwner):Goal_Composite<Soldier>(pOwner, goal_attack_target)
-	{}
+	Goal_AttackTarget(Monster* pOwner);
 
 	void Activate();
 

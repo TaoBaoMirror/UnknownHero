@@ -5,7 +5,9 @@
 #include "Game/CommonFunc.h"
 #include "EnemyManager.h"
 
-Monster::Monster(void) 
+#include "Game/Goal_SoldierThink.h"
+
+Monster::Monster(void) : Actor()
 {
 	std::string test[5] = {"stand", "move", "attack", "die", "win"};
 	//ActionsName = test; 
@@ -17,6 +19,8 @@ Monster::Monster(void)
 	m_pFSM = new ActorFSM(this);
 
 	m_pFSM->SetStatus(Actor_Ready::Instance());
+	//
+	CreateBrain();
 }
 
 
@@ -184,6 +188,8 @@ void Monster::ActorWinEnd()
 void Monster::AIThink(float dt)
 {
 	Actor::AIThink(dt);
+	//
+	if(m_pBrain) m_pBrain->Process();
 }
 //----------------------------------------------
 #include "Game/AttackData.h"
@@ -199,4 +205,16 @@ void Monster::CalcDie()
 {
 	EnemyManager::GetInstance()->ClearCurEnemy(this);
 	Actor::CalcDie();
+}
+
+void Monster::CreateBrain()
+{
+	m_pBrain = new Goal_SoldierThink(this);
+}
+
+bool Monster::HandleMessage( const Telegram& telegram )
+{
+	if(m_pBrain) m_pBrain->HandleMessage(telegram);
+
+	return true;
 }

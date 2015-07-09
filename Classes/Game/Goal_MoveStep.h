@@ -20,7 +20,8 @@
 #include "Goal_Type.h"
 #include "Soldier.h"
 
-class Goal_MoveStep : public Goal<Soldier>
+class Monster;
+class Goal_MoveStep : public Goal<Monster>
 {
 private:
 
@@ -30,7 +31,7 @@ private:
 
 public:
 
-	Goal_MoveStep(Soldier* pBot,
+	Goal_MoveStep(Monster* pBot,
 		const GridPos&   from,
 		const GridPos&   to); 
 

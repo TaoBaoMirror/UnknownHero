@@ -8,7 +8,7 @@
 #include "Weapon/SkillList.h"
 #include "Game/Soldier.h"
 
-Monster_Long::Monster_Long(void)
+Monster_Long::Monster_Long(void):Monster()
 {
 }
 
@@ -85,7 +85,10 @@ void Monster_Long::ActorMoveEnd()
 //-----
 void Monster_Long::ActorAttackStart()
 {
-	Monster::ActorAttackStart();
+	//Monster::ActorAttackStart();	// 这个是远程攻击，不再走基础攻击流程
+
+	if(getActionByTag(ActorAnim_Attack)) return;
+
 	//
 	cocos2d::Vector<cocos2d::FiniteTimeAction*> pAcs;
 
@@ -105,7 +108,8 @@ void Monster_Long::ActorAttackUpdate(float dt)
 }
 void Monster_Long::ActorAttackEnd()
 {
-	;
+	stopActionByTag(ActorAnim_Attack);
+	
 }
 //-----
 void Monster_Long::ActorDieStart()
@@ -161,7 +165,7 @@ void Monster_Long::ShootBullet()
 
 void Monster_Long::CallBack_AttackFinish()
 {
-	m_pFSM->SetStatus(Actor_Stand::Instance());
+	FinishRound();
 }
 //----------------------------------------------
 void Monster_Long::InitSkill()
